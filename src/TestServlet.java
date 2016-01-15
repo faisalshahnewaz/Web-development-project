@@ -19,6 +19,7 @@ public class TestServlet extends HttpServlet {
     	
         super();
         int a = 99;
+        a = a + 1;
         // TODO Auto-generated constructor stub
     }
 

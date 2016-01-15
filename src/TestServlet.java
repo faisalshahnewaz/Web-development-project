@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +16,9 @@ public class TestServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public TestServlet() {
+    	
         super();
+        int a = 99;
         // TODO Auto-generated constructor stub
     }
 

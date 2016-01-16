@@ -5,8 +5,9 @@ package com.databean;
  */
 import org.genericdao.PrimaryKey;
 
-@PrimaryKey("transaction id")
+@PrimaryKey("transactionid")
 public class TransactionBean {
+	private int transactionid;
 	private int customerid;
 	private int fundid;
 	private String executedate;
@@ -18,6 +19,14 @@ public class TransactionBean {
 		
 	}
 
+	public int getTransactionid() {
+		return transactionid;
+	}
+
+	public void setTransactionid(int transactionid) {
+		this.transactionid = transactionid;
+	}
+	
 	public int getCustomerid() {
 		return customerid;
 	}
@@ -65,6 +74,5 @@ public class TransactionBean {
 	public void setAmount(long amount) {
 		this.amount = amount;
 	}
-	
 	
 }

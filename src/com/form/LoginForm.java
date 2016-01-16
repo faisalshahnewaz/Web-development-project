@@ -16,12 +16,14 @@ public class LoginForm extends FormBean {
     private String password;
     private String action;
 
-    public LoginForm(HttpServletRequest request) {
-    	username = request.getParameter("username");
+    /*public LoginForm(HttpServletRequest request) {
+    	userName = request.getParameter("username");
         password = request.getParameter("password");
         action = request.getParameter("action");
-    }
-    
+    }*/
+    //public void setUserName(String s)  { username = s.trim(); }
+    //public void setPassword(String s)  { password = s.trim(); }
+    //public void setAction(String s)    { action   = s;        }
     public LoginForm() {
     	
     }
@@ -36,7 +38,7 @@ public class LoginForm extends FormBean {
     public String getAction() {
         return action;
     }
-    public void setUserName(String s)  { username = s.trim(); }
+    public void setUsername(String s)  { username = s.trim(); }
     public void setPassword(String s)  { password = s.trim(); }
     public void setAction(String s)    { action   = s;        }
     public boolean isPresent() {
@@ -45,9 +47,8 @@ public class LoginForm extends FormBean {
 
     public List<String> getValidationErrors() {
         List<String> errors = new ArrayList<String>();
-
-        if (username.trim() == null || username.trim().length() == 0)
-            errors.add("Email is required");
+        if (username == null || username.trim().length() == 0)
+            errors.add("Username is required");
         if (password == null || password.length() == 0)
             errors.add("Password is required");
         if (action == null)

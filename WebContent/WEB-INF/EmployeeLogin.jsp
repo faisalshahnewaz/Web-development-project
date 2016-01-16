@@ -5,7 +5,7 @@
 <jsp:include page="template-navbar.jsp" />
 
 		<div id="mainPanel">
-			<form action="login.do" method="POST">
+			<form action="EmployeeLogin.do" method="POST">
 				<div id="welcome">
 						<span id="welcome-text">Employee Login</span>								
 				</div>

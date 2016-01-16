@@ -41,6 +41,7 @@ public class EmployeeLoginAction extends Action {
         request.setAttribute("errors",errors);
         try {
 	    	LoginForm form = formBeanFactory.create(request);
+	    	System.out.println(form.getUsername());
 	        request.setAttribute("form",form);
 
 	        // If no params were passed, return with no errors so that the form will be

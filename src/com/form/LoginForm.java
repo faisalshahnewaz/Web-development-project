@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
+//import org.mybeans.form.FormBeanException;
+//import org.mybeans.form.FormBeanFactory;
+import org.mybeans.form.*;
 /**
  * @author Xuesong Zhang (Andrew ID: xuesongz)
  */
-public class LoginForm {
+public class LoginForm extends FormBean {
     private String username;
     private String password;
     private String action;
@@ -31,7 +33,9 @@ public class LoginForm {
     public String getAction() {
         return action;
     }
-
+    public void setUserName(String s)  { username = s.trim(); }
+    public void setPassword(String s)  { password = s.trim(); }
+    public void setAction(String s)    { action   = s;        }
     public boolean isPresent() {
         return action != null;
     }

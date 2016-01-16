@@ -17,6 +17,9 @@ import com.model.*;
 
 import com.databean.*;
 
+/**
+ * @author Xuesong Zhang (Andrew ID: xuesongz)
+ */
 public class EmployeeLoginAction extends Action {
 	private FormBeanFactory<LoginForm> formBeanFactory = FormBeanFactory.getInstance(LoginForm.class);
 	
@@ -35,7 +38,7 @@ public class EmployeeLoginAction extends Action {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		if (session.getAttribute("employee") != null) {
-        	return "success.jsp";
+        	return "changepwd.jsp";
         }
 		List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
@@ -77,7 +80,7 @@ public class EmployeeLoginAction extends Action {
 	        session.setAttribute("employee",employee);
 	        
 	        // If redirectTo is null, redirect to the "todolist" action
-			return "success.jsp";
+			return "changepwd.jsp";
         } catch (RollbackException e) {
         	errors.add(e.getMessage());
         	return "error.jsp";

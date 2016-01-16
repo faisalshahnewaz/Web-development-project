@@ -1,8 +1,12 @@
 package com.databean;
 
+import org.genericdao.PrimaryKey;
+
 /**
  * @author Xuesong Zhang (Andrew ID: xuesongz)
  */
+
+@PrimaryKey("eid")
 public class EmployeeBean {
 	private int eid;
 	private String username;

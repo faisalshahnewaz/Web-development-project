@@ -14,15 +14,15 @@ public class EmployeeDAO extends GenericDAO<EmployeeBean> {
 		super(EmployeeBean.class, tableName, cp);
 	}
 
-	public void changePassword(String username, String password) throws RollbackException {
+	public void changePassword(String username, String oldPassword, String newPassword) throws RollbackException {
 		try {
 			Transaction.begin();
 			EmployeeBean[] employee = match(MatchArg.and(MatchArg.equals("username", username)),
-					MatchArg.equals("password", password));
+					MatchArg.equals("password", oldPassword));
 			if (employee.length == 0) {
 				throw new RollbackException("Username and password don't match");
 			}
-			employee[0].setPassword(password);
+			employee[0].setPassword(newPassword);
 			update(employee[0]);
 			Transaction.commit();
 		} finally {

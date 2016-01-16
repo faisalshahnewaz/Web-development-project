@@ -14,14 +14,14 @@ public class CustomerDAO extends GenericDAO<CustomerBean> {
 		super(CustomerBean.class, tableName, cp);
 	}
 	
-	public void changePassword(String username, String password)throws RollbackException{
+	public void changePassword(String username, String oldPassword, String newPassword)throws RollbackException{
 		try{
 			Transaction.begin();
-			CustomerBean[] customer = match(MatchArg.and(MatchArg.equals("username", username)),MatchArg.equals("password",password));
+			CustomerBean[] customer = match(MatchArg.and(MatchArg.equals("username", username)),MatchArg.equals("password",oldPassword));
 			if(customer.length == 0){
 				throw new RollbackException("Username and password don't match");
 			}
-			customer[0].setPassword(password);
+			customer[0].setPassword(newPassword);
 			update(customer[0]);
 			Transaction.commit();
 		}

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
@@ -60,21 +61,21 @@ public class ChangeCustomerPasswordAction extends Action{
 
 	        // Look up the user
 	        //User user = userDAO.read(form.getUserName());
-	        CustomerBean customer = cDAO.read(form.getUsername());
+	        CustomerBean[] customer = cDAO.match(MatchArg.equals("username",form.getUsername()));
 	        
-	        if (customer == null) {
+	        if (customer.length == 0) {
 	            errors.add("Name not found");
-	            return "ChangeCustomerPassword.do";
+	            return "ChangeCustomerPassword.jsp";
 	        }
 
 	        // Check the password
-	        if (!customer.getPassword().equals(form.getOldPassword())) {
+	        if (!customer[0].getPassword().equals(form.getOldPassword())) {
 	            errors.add("Incorrect password");
 	            return "ChangeCustomerPassword.jsp";
 	        }
 	
 	        // Attach (this copy of) the user bean to the session
-	        cDAO.changePassword(customer.getUsername(), form.getOldPassword(),form.getNewPassword());
+	        cDAO.changePassword(customer[0].getUsername(), form.getNewPassword());
 	     //   message = "Password Changed successfully";
 	  //      request.setAttribute("message", message);
 	        // If redirectTo is null, redirect to the "todolist" action

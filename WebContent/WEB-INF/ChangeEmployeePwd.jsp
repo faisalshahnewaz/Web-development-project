@@ -29,7 +29,7 @@
 				        </tr>
 				        <tr> <td colspan="2"> <hr /> </td> </tr>
 			        </table> 
-			    </div>  
+			    </div>   
 			   
 				<c:forEach var="error" items="${errors}">   
 			   		 <div id="errormsg"> ${error} </div>

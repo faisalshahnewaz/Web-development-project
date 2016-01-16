@@ -27,7 +27,7 @@ public class CustomerLoginAction extends Action {
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return "Login.do";
+		return "CustomerLogin.do";
 	}
 
 	@Override
@@ -46,13 +46,13 @@ public class CustomerLoginAction extends Action {
 	        // If no params were passed, return with no errors so that the form will be
 	        // presented (we assume for the first time).
 	        if (!form.isPresent()) {
-	            return "login.jsp";
+	            return "CustomerLogin.jsp";
 	        }
 
 	        // Any validation errors?
 	        errors.addAll(form.getValidationErrors());
 	        if (errors.size() != 0) {
-	            return "login.jsp";
+	            return "CustomerLogin.jsp";
 	        }
 
        		
@@ -63,13 +63,13 @@ public class CustomerLoginAction extends Action {
 	        
 	        if (customer == null) {
 	            errors.add("Name not found");
-	            return "login.jsp";
+	            return "CustomerLogin.jsp";
 	        }
 
 	        // Check the password
 	        if (!customer.getPassword().equals(form.getPassword())) {
 	            errors.add("Incorrect password");
-	            return "login.jsp";
+	            return "CustomerLogin.jsp";
 	        }
 	
 	        // Attach (this copy of) the user bean to the session

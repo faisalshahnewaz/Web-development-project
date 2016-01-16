@@ -35,9 +35,9 @@ public class ChangeCustomerPasswordAction extends Action{
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 	
-		if (session.getAttribute("employee") != null) {
+		/*if (session.getAttribute("employee") != null) {
         	return "ChangeCustomerPassword.jsp";
-        }
+        }*/
 		List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
         try {
@@ -64,7 +64,7 @@ public class ChangeCustomerPasswordAction extends Action{
 	        
 	        if (customer == null) {
 	            errors.add("Name not found");
-	            return "ChangeCustomerPassword.jsp";
+	            return "ChangeCustomerPassword.do";
 	        }
 
 	        // Check the password

@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Password Changed</title>
 </head>
 <body>
 success!
-<a href="ChangeCustomerPassword.jsp">Change Customer's Password</a>
+<a href="ChangeCustomerPassword.do">Change Customer's Password</a>
 </body>
 </html>

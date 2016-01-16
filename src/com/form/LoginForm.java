@@ -7,9 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 08-672 J2EE Web Application Development.
  * @author Xuesong Zhang (Andrew ID: xuesongz)
- * December 14th, 2015
  */
 public class LoginForm {
     private String username;

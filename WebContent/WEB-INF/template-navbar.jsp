@@ -21,7 +21,7 @@
 				<span class="menu-item"><a href="favoriteList.do">Manage Your Favorites</a></span><br/>
 
 				<span class="menu-item"><a href="ChangeCustomerPassword.do">Change Customer Password</a></span><br/>
-				<span class="menu-item"><a href="logout.do">Logout</a></span><br/>
+				<span class="menu-item"><a href="EmployeeLogout.do">Logout</a></span><br/>
 
 				
 

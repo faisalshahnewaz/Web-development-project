@@ -6,9 +6,8 @@ import org.genericdao.PrimaryKey;
  * @author Xuesong Zhang (Andrew ID: xuesongz)
  */
 
-@PrimaryKey("eid")
+@PrimaryKey("username")
 public class EmployeeBean {
-	private int eid;
 	private String username;
 	private String firstname;
 	private String lastname;
@@ -16,14 +15,6 @@ public class EmployeeBean {
 	
 	public EmployeeBean() {
 		
-	}
-
-	public int getEid() {
-		return eid;
-	}
-
-	public void setEid(int eid) {
-		this.eid = eid;
 	}
 
 	public String getUsername() {

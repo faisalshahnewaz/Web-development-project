@@ -37,7 +37,7 @@
 				<span class="menu-item"><a href="create.do">Create Employee</a></span><br/>
 				<span class="menu-item"><a href="createCustomer.do">Create Customer</a></span><br/>
 				<span class="menu-item"><a href="favoriteList.do">Manage Your Favorites</a></span><br/>
-				<span class="menu-item"><a href="changePwd.do">Change Password</a></span><br/>
+				<span class="menu-item"><a href="ChangeCustomerPassword.do">Change Password</a></span><br/>
 				<span class="menu-item"><a href="logout.do">Logout</a></span><br/>
 			</c:otherwise>
 			</c:choose>

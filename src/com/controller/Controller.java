@@ -20,9 +20,9 @@ public class Controller extends HttpServlet {
 
     public void init() throws ServletException {
         Model model = new Model(getServletConfig());
-
         Action.add(new EmployeeLoginAction(model));
         Action.add(new CustomerLoginAction(model));
+        Action.add(new ChangeCustomerPasswordAction(model));
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)

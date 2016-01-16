@@ -8,5 +8,6 @@
 </head>
 <body>
 success!
+<a href="ChangeCustomerPassword.jsp">Change Customer's Password</a>
 </body>
 </html>

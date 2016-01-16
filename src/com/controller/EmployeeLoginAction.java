@@ -38,7 +38,7 @@ public class EmployeeLoginAction extends Action {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		if (session.getAttribute("employee") != null) {
-        	return "ChangeEmployeePwd.jsp";
+        	return "ChangeCustomerPassword.jsp";
         }
 		List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
@@ -80,7 +80,7 @@ public class EmployeeLoginAction extends Action {
 	        session.setAttribute("employee",employee);
 	        
 	        // If redirectTo is null, redirect to the "todolist" action
-			return "ChangeEmployeePwd.jsp";
+			return "ChangeCustomerPassword.jsp";
         } catch (RollbackException e) {
         	errors.add(e.getMessage());
         	return "error.jsp";

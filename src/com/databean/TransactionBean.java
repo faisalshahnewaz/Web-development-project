@@ -66,4 +66,5 @@ public class TransactionBean {
 		this.amount = amount;
 	}
 	
+	
 }

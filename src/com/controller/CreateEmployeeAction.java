@@ -65,7 +65,7 @@ public class CreateEmployeeAction extends Action {
 	         
 	         if(checkUser.length > 0){
 	        	 errors.add("User with email: " + form.getUsername() + " already exists");
-	        	 return "register.jsp";
+	        	 return "CreateEmployeePwd.jsp";
 	         }
 	        EmployeeBean employee = new EmployeeBean();
 	        employee.setUsername((form.getUsername()));
@@ -78,7 +78,7 @@ public class CreateEmployeeAction extends Action {
 	        HttpSession session = request.getSession(false);
 	        session.setAttribute("employee",employee);
 	        
-			return "manage.do";
+			return "success.jsp";
         } catch (RollbackException e) {
         	errors.add(e.getMessage());
         	return "error.jsp";

@@ -3,7 +3,7 @@
 <jsp:include page="template-head.jsp" />
     
 <jsp:include page="template-navbar.jsp" />
-    
+ 
 		<div id="mainPanel">
 			<form action="ChangeCustomerPassword.do" method="POST">
 				<div id="welcome">

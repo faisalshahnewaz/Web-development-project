@@ -13,7 +13,7 @@ public class CustomerLogoutAction extends Action{
 
 	@Override
 	public String getName() {
-		return "customerLogout.do";
+		return "CustomerLogout.do";
 	}
 
 	@Override

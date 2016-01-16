@@ -7,7 +7,7 @@ public class EmployeeLogoutAction extends Action{
 
 	@Override
 	public String getName() {
-		return "employeeLogout.do";
+		return "EmployeeLogout.do";
 	}
 
 	@Override

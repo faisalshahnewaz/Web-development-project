@@ -5,6 +5,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @author Xuesong Zhang (Andrew ID: xuesongz)
+ */
 public abstract class Action {
     // Returns the name of the action, used to match the request in the hash table
     public abstract String getName();

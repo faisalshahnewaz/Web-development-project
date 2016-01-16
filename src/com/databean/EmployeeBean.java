@@ -1,5 +1,8 @@
 package com.databean;
 
+/**
+ * @author Xuesong Zhang (Andrew ID: xuesongz)
+ */
 public class EmployeeBean {
 	private int eid;
 	private String username;

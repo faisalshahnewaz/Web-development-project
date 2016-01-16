@@ -1,5 +1,8 @@
 package com.databean;
 
+/**
+ * @author Xuesong Zhang (Andrew ID: xuesongz)
+ */
 public class CustomerBean {
 	private int cid;
 	private String username;

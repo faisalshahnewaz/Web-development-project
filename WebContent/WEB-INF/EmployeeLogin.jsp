@@ -7,7 +7,7 @@
 		<div id="mainPanel">
 			<form action="login.do" method="POST">
 				<div id="welcome">
-						<span id="welcome-text">User Login</span>								
+						<span id="welcome-text">Employee Login</span>								
 				</div>
 				<div>
 			    	<table class="centertable">
@@ -28,11 +28,6 @@
 				            </td>
 				        </tr>
 				        <tr> <td colspan="2"> <hr /> </td> </tr>
-				        <tr>
-				            <td colspan="2" style="text-align: center;">
-				                <a href= "create.do">Forget Username or Password?</a>
-				            </td>
-				        </tr>    
 			        </table>
 			    </div>  
 			   

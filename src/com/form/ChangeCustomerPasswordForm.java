@@ -1,0 +1,61 @@
+/**
+ * @author tpahare
+ */
+package com.form;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.mybeans.form.FormBean;
+
+public class ChangeCustomerPasswordForm extends FormBean{
+	 private String username;
+	    private String oldPassword;
+	    private String newPassword;
+	    private String action;
+
+	    public String getUsername() {
+	        return username;
+	    }
+
+	    public String getOldPassword() {
+	        return oldPassword;
+	    }
+	    
+	    public String getNewPassword() {
+	        return newPassword;
+	    }
+
+	    public String getAction() {
+	        return action;
+	    }
+	    public void setUsername(String s)  { username = s.trim(); }
+	    public void setOldPassword(String s)  { oldPassword = s.trim(); }
+	    public void setNewPassword(String s)  { newPassword = s.trim(); }
+	    public void setAction(String s)    { action   = s;        }
+	    public boolean isPresent() {
+	        return action != null;
+	    }
+
+	    public List<String> getValidationErrors() {
+	        List<String> errors = new ArrayList<String>();
+	        if (username == null || username.trim().length() == 0)
+	            errors.add("Username is required");
+	        if (oldPassword == null || oldPassword.length() == 0)
+	            errors.add("Old password is required");
+	        if (newPassword == null || newPassword.length() == 0)
+	            errors.add("New password is required");
+	        if (action == null)
+	            errors.add("Button is required");
+
+	        if (errors.size() > 0)
+	            return errors;
+
+	        if (!action.equals("ChangeCustomerPassword"))
+	            errors.add("Invalid button");
+	        if (username.matches(".*[<>\"].*"))
+	            errors.add("Email may not contain angle brackets or quotes");
+
+	        return errors;
+	    }
+}

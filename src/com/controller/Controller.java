@@ -23,6 +23,7 @@ public class Controller extends HttpServlet {
 
         Action.add(new EmployeeLoginAction(model));
         Action.add(new CustomerLoginAction(model));
+        Action.add(new CreateEmployeeAction(model));
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)

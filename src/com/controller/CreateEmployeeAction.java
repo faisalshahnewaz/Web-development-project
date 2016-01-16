@@ -52,20 +52,20 @@ public class CreateEmployeeAction extends Action {
 	        // If no params were passed, return with no errors so that the form will be
 	        // presented (we assume for the first time).
 	        if (!form.isPresent()) {
-	            return "CreateEmployeePwd.jsp";
+	            return "CreateEmployee.jsp";
 	        }
 	
 	        // Any validation errors?
 	        errors.addAll(form.getValidationErrors());
 	        if (errors.size() != 0) {
-	            return "CreateEmployeePwd.jsp";
+	            return "CreateEmployee.jsp";
 	        }
 	         EmployeeBean[] checkUser = employeeDAO.match(MatchArg.equals("username", form.getUsername()));
 	        // Create the user bean
 	         
 	         if(checkUser.length > 0){
 	        	 errors.add("User with email: " + form.getUsername() + " already exists");
-	        	 return "CreateEmployeePwd.jsp";
+	        	 return "CreateEmployee.jsp";
 	         }
 	        EmployeeBean employee = new EmployeeBean();
 	        employee.setUsername((form.getUsername()));

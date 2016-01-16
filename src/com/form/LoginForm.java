@@ -21,7 +21,10 @@ public class LoginForm extends FormBean {
         password = request.getParameter("password");
         action = request.getParameter("action");
     }
-
+    
+    public LoginForm() {
+    	
+    }
     public String getUsername() {
         return username;
     }

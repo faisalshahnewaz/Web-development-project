@@ -53,7 +53,7 @@ public class Controller extends HttpServlet {
 
         if (customer == null && employee == null) {
             // If the user hasn't logged in, so login is the only option
-            return Action.perform("Login.do", request);
+            return Action.perform("EmployeeLogin.do", request);
         }
 
         // Let the logged in user run his chosen action

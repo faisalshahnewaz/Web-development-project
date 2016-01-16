@@ -27,7 +27,7 @@ public class EmployeeLoginAction extends Action {
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return "CustomerLogin.do";
+		return "EmployeeLogin.do";
 	}
 
 	@Override

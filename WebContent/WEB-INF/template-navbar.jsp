@@ -1,3 +1,21 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<body>
+
+<table cellpadding="10" cellspacing="0">
+    <tr>
+	    <!-- Banner row across the top -->
+        <td width=15% bgcolor="#E1E1E1">
+            <p align="center"><img border="0" src="star_favorite.png" height="75"></p>
+        </td>
+        <td bgcolor="#E1E1E1">&nbsp;  </td>
+        <td width=85% bgcolor="#E1E1E1">
+            <p align="center">
+		        <span id="maintitle">Favorite Tool</span>
+			</p>
+		</td>
+    </tr>
+
 	<!-- Spacer row -->
 	<tr>
 		<td bgcolor="#EEEEEE" style="font-size:5px">&nbsp;</td>

@@ -72,7 +72,7 @@ public class CreateEmployeeForm extends FormBean {
 		}
 
 		if (username == null || username.length() == 0) {
-			errors.add("Email is required");
+			errors.add("Username is required");
 		}
 
 		if (password == null || password.length() == 0) {

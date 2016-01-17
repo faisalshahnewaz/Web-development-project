@@ -31,6 +31,10 @@
 				            <td><input type="password" name="password" class="form-input"/></td>
 				        </tr>
 				        <tr>
+				            <td style="font-size: large">Confirm Password:</td>
+				            <td><input type="password" name="confirm" class="form-input"/></td>
+				        </tr>
+				        <tr>
 				            <td colspan="2" style="text-align: center;">
 				                <input type="submit" name="action" value="Create" class="btn" />
 				            </td>

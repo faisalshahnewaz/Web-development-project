@@ -39,15 +39,15 @@ public class CreateEmployeeForm extends FormBean {
 		return confirm;
 	}
 
-	public void setFirstName(String s) {
+	public void setFirstname(String s) {
 		firstname = trimAndConvert(s, "<>\"");
 	}
 
-	public void setLastName(String s) {
+	public void setLastname(String s) {
 		lastname = trimAndConvert(s, "<>\"");
 	}
 
-	public void setEmail(String s) {
+	public void setUsername(String s) {
 		username = trimAndConvert(s, "<>\"");
 	}
 

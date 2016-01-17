@@ -7,7 +7,7 @@
 		<div id="mainPanel">
 			<form action="ChangeEmployeePassword.do" method="POST">
 				<div id="welcome">
-						<span id="welcome-text">Change Password</span>								
+						<span id="welcome-text">Change Employee Password</span>								
 				</div>
 				<div>
 			    	<table class="centertable">

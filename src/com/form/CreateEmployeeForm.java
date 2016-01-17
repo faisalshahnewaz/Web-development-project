@@ -18,6 +18,7 @@ public class CreateEmployeeForm extends FormBean {
 	private String username;
 	private String password;
 	private String confirm;
+	private String action;
 
 	public String getFirstname() {
 		return firstname;
@@ -34,9 +35,13 @@ public class CreateEmployeeForm extends FormBean {
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public String getConfirm() {
 		return confirm;
+	}
+
+	public String getAction() {
+		return action;
 	}
 
 	public void setFirstname(String s) {
@@ -54,11 +59,14 @@ public class CreateEmployeeForm extends FormBean {
 	public void setPassword(String s) {
 		password = s.trim();
 	}
-	
+
 	public void setConfirm(String s) {
 		confirm = s.trim();
 	}
 
+	public void setAction(String s) {
+		confirm = s.trim();
+	}
 
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
@@ -83,6 +91,9 @@ public class CreateEmployeeForm extends FormBean {
 			errors.add("Confirm Password is required");
 		}
 
+		if (action == null) {
+			errors.add("No action");
+		}
 		if (errors.size() > 0) {
 			return errors;
 		}
@@ -90,7 +101,9 @@ public class CreateEmployeeForm extends FormBean {
 		if (!password.equals(confirm)) {
 			errors.add("Passwords are not the same");
 		}
-
+		if (!action.equals("Create")) {
+			errors.add("Invalid button");
+		}
 		return errors;
 	}
 }

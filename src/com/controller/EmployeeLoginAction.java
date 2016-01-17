@@ -22,7 +22,7 @@ import com.databean.*;
  */
 public class EmployeeLoginAction extends Action {
 	private FormBeanFactory<LoginForm> formBeanFactory = FormBeanFactory.getInstance(LoginForm.class);
-	
+	///
 	private EmployeeDAO eDAO;
 	public EmployeeLoginAction(Model model) {
 		eDAO = model.getEmployeeDAO();

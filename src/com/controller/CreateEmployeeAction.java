@@ -48,20 +48,29 @@ public class CreateEmployeeAction extends Action {
         	CreateEmployeeForm form = formBeanFactory.create(request);
 	        //request.setAttribute("userList",employeeDAO.getEmployees());
 	        request.setAttribute("form",form);
+	        
+	        System.out.print("look1");
 	
 	        // If no params were passed, return with no errors so that the form will be
 	        // presented (we assume for the first time).
 	        if (!form.isPresent()) {
 	            return "CreateEmployee.jsp";
 	        }
+	        
+	        System.out.print("look2");
 	
 	        // Any validation errors?
 	        errors.addAll(form.getValidationErrors());
+	        
+	        System.out.print(errors);
+	        
 	        if (errors.size() != 0) {
 	            return "CreateEmployee.jsp";
 	        }
 	         EmployeeBean[] checkUser = employeeDAO.match(MatchArg.equals("username", form.getUsername()));
 	        // Create the user bean
+	         
+	         System.out.print("look3");
 	         
 	         if(checkUser.length > 0){
 	        	 errors.add("User with email: " + form.getUsername() + " already exists");

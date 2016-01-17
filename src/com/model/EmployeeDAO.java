@@ -18,7 +18,7 @@ public class EmployeeDAO extends GenericDAO<EmployeeBean> {
 		try {
 			Transaction.begin();
 			
-			EmployeeBean[] employee = match(MatchArg.equals("userName", username));
+			EmployeeBean[] employee = match(MatchArg.equals("username", username));
 			
 			if (employee.length == 0) {
 				throw new RollbackException("Not found");

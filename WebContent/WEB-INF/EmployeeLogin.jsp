@@ -30,7 +30,7 @@
   				<li role="presentation"><a href="#">View Customer Account</a></li>
   				<li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="#">Deposit Check</a></li>
-  				<li role="presentation"><a href="create_fund.html">Create Fund</a></li>
+  				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
   				<li role="presentation"><a href="#">Transition Day</a></li>
   				<li role="presentation"><a href="#">Log Out</a></li>
   			</div>

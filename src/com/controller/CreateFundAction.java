@@ -28,6 +28,7 @@ public class CreateFundAction extends Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
+		System.out.println("jjj");
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
 		try{
@@ -35,6 +36,7 @@ public class CreateFundAction extends Action {
 			request.setAttribute("form",form);
 			
 			if(!form.isPresent()){
+				System.out.println("h");
 				return "create_fund.jsp";
 			}
 			
@@ -50,7 +52,7 @@ public class CreateFundAction extends Action {
 				return "create_fund.jsp";
 			}
 			
-			
+			System.out.println("hh");
 			FundBean newFund = new FundBean();
 			
 			newFund.setTicker(form.getTicker());

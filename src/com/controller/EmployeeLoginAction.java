@@ -80,7 +80,7 @@ public class EmployeeLoginAction extends Action {
 	        session.setAttribute("employee",employee);
 	        
 	        // If redirectTo is null, redirect to the "todolist" action
-			return "EmployeeLogin.jsp";
+			return "success.jsp";
 			
         } catch (RollbackException e) {
         	errors.add(e.getMessage());

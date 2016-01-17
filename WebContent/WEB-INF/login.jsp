@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,12 +27,12 @@
   				<li role="presentation"><a href="create_employee_acnt.html">Create Employee Account</a></li>
   				<li role="presentation"><a href="create_customer_acnt.html">Create Customer Account</a></li>
   				<li role="presentation"><a href="reset_customer_pwd.html">Reset Customer Password</a></li>
-  				<li role="presentation"><a href="view_customer_activity.html">View Customer Account</a></li>
-  				<li role="presentation"><a href="transactions_history.html">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="deposit.html">Deposit Check</a></li>
-  				<li role="presentation"><a href="create_fund.html">Create Fund</a></li>
-  				<li role="presentation"><a href="transition_day.html">Transition Day</a></li>
-  				<li role="presentation"><a href="index.html">Log Out</a></li>
+  				<li role="presentation"><a href="#">View Customer Account</a></li>
+  				<li role="presentation"><a href="#">View Customer Transaction History</a></li>
+  				<li role="presentation"><a href="#">Deposit Check</a></li>
+  				<li role="presentation"><a href="#">Create Fund</a></li>
+  				<li role="presentation"><a href="#">Transition Day</a></li>
+  				<li role="presentation"><a href="#">Log Out</a></li>
   			</div>
 			</ul>
 			<div class="col-md-1"></div>
@@ -47,9 +47,9 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+    					<label for="username" class="col-sm-2 control-label">User Name</label>
     					<div class="col-sm-10">
-      						<input type="email" class="form-control" id="inputEmail" placeholder="Email">
+      						<input type="text" class="form-control" id="username" placeholder="User Name">
     					</div>
   					</div>
   					<div class="form-group">

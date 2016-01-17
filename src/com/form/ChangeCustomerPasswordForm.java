@@ -9,7 +9,7 @@ import java.util.List;
 import org.mybeans.form.FormBean;
 
 public class ChangeCustomerPasswordForm extends FormBean{
-	 private String username;
+	 	private String username;
 	    private String oldPassword;
 	    private String newPassword;
 	    private String action;

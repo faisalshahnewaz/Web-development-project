@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
@@ -13,7 +13,7 @@ import org.mybeans.form.FormBeanFactory;
 
 import com.databean.CustomerBean;
 import com.form.ChangeCustomerPasswordForm;
-import com.form.LoginForm;
+///import com.form.LoginForm;
 import com.model.CustomerDAO;
 import com.model.Model;
 
@@ -34,7 +34,7 @@ public class ChangeCustomerPasswordAction extends Action{
 	@Override
 	public String perform(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 	
 		/*if (session.getAttribute("employee") != null) {
         	return "ChangeCustomerPassword.jsp";

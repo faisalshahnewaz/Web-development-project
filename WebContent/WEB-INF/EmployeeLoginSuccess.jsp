@@ -39,38 +39,13 @@
 			<div class="col-md-5">
 				<br>
 				<br>
-				
-					<div class="header"><h3>Employee Login</div>
 				<br>
 				<br>
 				
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<label for="username" class="col-sm-2 control-label">User Name</label>
-    					<div class="col-sm-10">
-      						<input type="text" class="form-control" id="username" name="username" placeholder="User Name">
-    					</div>
-  					</div>
-  					<div class="form-group">
-    					<label for="inputPassword" class="col-sm-2 control-label">Password</label>
-   						 <div class="col-sm-10">
-      						<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
-   						</div>
-  					</div>
-  					<div class="form-group">
-    					<div class="col-sm-offset-2 col-sm-10">
-      						<div class="checkbox">
-        					<label>
-          						<input type="checkbox"> Remember me
-        					</label>
-      						</div>
-    					</div>
-  					</div>
-  					<div class="form-group">
-    					<div class="col-sm-offset-2 col-sm-10">
-      						<button type="submit" class="btn btn-primary" name="action" value="Login">Sign in</button>
-    					</div>
+    					<h4>Login Successfully!</h4>
   					</div>
 				</form>
 			</div>

@@ -66,7 +66,7 @@ public class ChangeEmployeePasswordForm extends FormBean{
 			return errors;
 		}
 		
-		if(action.equals("Change")) {
+		if(!action.equals("Change")) {
 			errors.add("invalid button");
 		}
 		

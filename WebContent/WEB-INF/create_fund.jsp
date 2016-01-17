@@ -50,7 +50,7 @@
 				<br>
 				<form class="form-horizontal">
 					<div class="form-group">
-    					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
+    					<label for="fundName" class="col-sm-4 control-label">Fund Name</label>
     					<div class="col-sm-8">
       						<input type="text" class="form-control" id="fundname">
     					</div>

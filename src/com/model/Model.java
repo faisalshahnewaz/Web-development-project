@@ -11,6 +11,7 @@ import org.genericdao.RollbackException;
 public class Model {
 	private EmployeeDAO employeeDAO;
 	private CustomerDAO customerDAO;
+	private FundDAO fundDAO;
 
 	public Model(ServletConfig config) throws ServletException {
 		try {
@@ -21,6 +22,7 @@ public class Model {
 	        
 			employeeDAO = new EmployeeDAO(pool, "task7_employee");
             customerDAO = new CustomerDAO(pool,  "task7_customer");
+            fundDAO = new FundDAO(pool, "task7_fund");
             
             if(employeeDAO.getCount()==0) new DataLoader(employeeDAO);
 		} catch (DAOException e) {
@@ -33,5 +35,6 @@ public class Model {
 	
 	public EmployeeDAO getEmployeeDAO()  { return employeeDAO; }
 	public CustomerDAO getCustomerDAO()  { return customerDAO; }
+	public FundDAO getFundDAO() {return fundDAO;}
 	
 }

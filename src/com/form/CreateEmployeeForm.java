@@ -92,7 +92,7 @@ public class CreateEmployeeForm extends FormBean {
 		}
 
 		
-		if (errors.size() > 0) {
+		if (errors.size() > 0) { 
 			return errors;
 		}
 

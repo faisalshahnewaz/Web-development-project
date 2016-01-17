@@ -13,7 +13,7 @@
 			    	<table class="centertable">
 			    		<tr> <td colspan="2"> <hr /> </td> </tr>
 				        <tr>
-				            <td style="font-size: large">Username:</td>
+				            <td style="font-size: large">User name:</td>
 				            <td>
 				                <input type="text" name="username" value="" class="form-input"/>
 				            </td>

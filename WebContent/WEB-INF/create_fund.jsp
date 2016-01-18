@@ -51,19 +51,19 @@
 				<br>
 				<form class="form-horizontal">
 					<div class="form-group">
-    					<label for="fundName" class="col-sm-4 control-label">Fund Name</label>
+    					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
     					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="fundname">
+      						<input type="text" class="form-control" id="fundname" name="fundName">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="ticker" class="col-sm-4 control-label">Ticker</label>
     					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="ticker">
+      						<input type="text" class="form-control" id="ticker" name="ticker">
     					</div>
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary">Create</button>
+      						<button type="submit" class="btn btn-primary" name = "action" value="CreateFund">Create</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       						<button type="submit" class="btn btn-default">Cancel</button>
     					</div>

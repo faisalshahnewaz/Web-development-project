@@ -36,7 +36,6 @@ public class CreateFundAction extends Action {
 			request.setAttribute("form",form);
 			
 			if(!form.isPresent()){
-				System.out.println("h");
 				return "create_fund.jsp";
 			}
 			
@@ -58,7 +57,7 @@ public class CreateFundAction extends Action {
 			newFund.setTicker(form.getTicker());
 			newFund.setFundName(form.getFundName());
 			fundDAO.create(newFund);
-			return "success.jsp";
+			return "CreateFundSuccess.jsp";
 		}catch (RollbackException e) {
         	errors.add(e.getMessage());
         	return "error.jsp";

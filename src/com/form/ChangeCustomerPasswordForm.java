@@ -12,6 +12,7 @@ public class ChangeCustomerPasswordForm extends FormBean{
 	 	private String username;
 	    private String oldPassword;
 	    private String newPassword;
+	    private String confirmPassword;
 	    private String action;
 
 	    public String getUsername() {
@@ -25,13 +26,17 @@ public class ChangeCustomerPasswordForm extends FormBean{
 	    public String getNewPassword() {
 	        return newPassword;
 	    }
-
+	    
+	    public String getConfirmPassword() {
+	    	return confirmPassword;
+	    }
 	    public String getAction() {
 	        return action;
 	    }
 	    public void setUsername(String s)  { username = s.trim(); }
 	    public void setOldPassword(String s)  { oldPassword = s.trim(); }
 	    public void setNewPassword(String s)  { newPassword = s.trim(); }
+	    public void setConfirmPassword(String s) { confirmPassword = s.trim(); }
 	    public void setAction(String s)    { action   = s;        }
 	    public boolean isPresent() {
 	        return action != null;

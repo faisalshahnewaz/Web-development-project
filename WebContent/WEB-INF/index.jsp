@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,11 +29,11 @@
 		<div class="row">
 			<div class="col-md-1"></div>
 			<div class="col-md-2">
-				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='login.html'">Login as Employee</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='EmployeeLogin.do'">Login as Employee</button>
 			</div>
 			<div class="col-md-1"></div>
 			<div class="col-md-2">
-				<button type="button" class="btn btn-primary btn-lg btn-block">Login as Customer</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='CustomerLogin.do'">Login as Customer</button>
 			</div>
 			<div class="col-md-6"></div>
 		</div>

@@ -22,9 +22,9 @@
   			<div class="col-md-2">
   
 			<ul class="nav nav-pills nav-stacked">
-  				<li role="presentation" class="active"><a href="login.html">Login</a></li>
- 				<li role="presentation"><a href="changepwd.html">Change Password</a></li>
-  				<li role="presentation"><a href="create_employee_acnt.html">Create Employee Account</a></li>
+  				<li role="presentation" class="active"><a href="EmployeeLogin.do">Login</a></li>
+ 				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
+  				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="create_customer_acnt.html">Create Customer Account</a></li>
   				<li role="presentation"><a href="reset_customer_pwd.html">Reset Customer Password</a></li>
   				<li role="presentation"><a href="#">View Customer Account</a></li>
@@ -45,7 +45,7 @@
 				<br>
 				
 				
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="EmployeeLogin.do" method="POST">
   					<div class="form-group">
     					<label for="username" class="col-sm-2 control-label">User Name</label>
     					<div class="col-sm-10">
@@ -72,6 +72,9 @@
       						<button type="submit" class="btn btn-primary" name="action" value="Login">Sign in</button>
     					</div>
   					</div>
+  					<c:forEach var="error" items="${errors}">   
+			   		 	<div id="errormsg"> ${error} </div>
+					</c:forEach>
 				</form>
 			</div>
 			<div class="col-md-2"></div>

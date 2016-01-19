@@ -87,7 +87,7 @@ public class CreateEmployeeAction extends Action {
 	        HttpSession session = request.getSession(false);
 	        session.setAttribute("employee",employee);
 	        
-			return "success.jsp"; 
+			return "CreateEmployeeSuccess.jsp"; 
         } catch (RollbackException e) {
         	errors.add(e.getMessage());
         	return "error.jsp";

@@ -22,15 +22,15 @@
   			<div class="col-md-2">
   
 			<ul class="nav nav-pills nav-stacked">
-  				<li role="presentation"><a href="login.html">Login</a></li>
- 				<li role="presentation"><a href="changepwd.html">Change Password</a></li>
-  				<li role="presentation"><a href="create_employee_acnt.html">Create Employee Account</a></li>
+  				<li role="presentation"><a href="EmployeeLogin.do">Login</a></li>
+ 				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
+  				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="create_customer_acnt.html">Create Customer Account</a></li>
   				<li role="presentation"><a href="reset_customer_pwd.html">Reset Customer Password</a></li>
   				<li role="presentation"><a href="view_customer_activity.html">View Customer Account</a></li>
   				<li role="presentation"><a href="transactions_history.html">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="deposit.html">Deposit Check</a></li>
-  				<li role="presentation" class="active"><a href="create_fund.html">Create Fund</a></li>
+  				<li role="presentation" class="active"><a href="CreateFund.do">Create Fund</a></li>
   				<li role="presentation"><a href="transition_day.html">Transition Day</a></li>
   				<li role="presentation"><a href="index.html">Log Out</a></li>
   			</div>

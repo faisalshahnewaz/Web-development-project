@@ -3,12 +3,14 @@ package com.form;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.mybeans.form.FormBean;
+
 /**
  * 
  * @author faisalshahnewaz
  *
  */
-public class CreateCustomerForm {
+public class CreateCustomerForm extends FormBean{
 	
 	private String username;
 	private String firstname;

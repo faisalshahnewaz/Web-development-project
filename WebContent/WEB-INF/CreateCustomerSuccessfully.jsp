@@ -24,8 +24,8 @@
 			<ul class="nav nav-pills nav-stacked">
   				<li role="presentation"><a href="EmployeeLogin.do">Login</a></li>
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
-  				<li role="presentation" class="active"><a href="createEmployee.do">Create Employee Account</a></li>
-  				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
+  				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
+  				<li role="presentation" class="active"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<li role="presentation"><a href="reset_customer_pwd.html">Reset Customer Password</a></li>
   				<li role="presentation"><a href="#">View Customer Account</a></li>
   				<li role="presentation"><a href="#">View Customer Transaction History</a></li>
@@ -45,7 +45,7 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Create Employee Account Successfully!</h4>
+    					<h4>Create Customer Account Successfully!</h4>
   					</div>
 				</form>
 			</div>

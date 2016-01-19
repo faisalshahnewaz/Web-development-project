@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,15 +22,15 @@
   			<div class="col-md-2">
   
 			<ul class="nav nav-pills nav-stacked">
-  				<li role="presentation"><a href="login.html">Login</a></li>
- 				<li role="presentation"><a href="changepwd.html">Change Password</a></li>
-  				<li role="presentation"><a href="create_employee_acnt.html">Create Employee Account</a></li>
-  				<li role="presentation" class="active"><a href="create_customer_acnt.html">Create Customer Account</a></li>
+  				<li role="presentation"><a href="EmployeeLogin.do">Login</a></li>
+ 				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
+  				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
+  				<li role="presentation" class="active"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<li role="presentation"><a href="reset_customer_pwd.html">Reset Customer Password</a></li>
   				<li role="presentation"><a href="view_customer_activity.html">View Customer Account</a></li>
   				<li role="presentation"><a href="transactions_history.html">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="deposit.html">Deposit Check</a></li>
-  				<li role="presentation"><a href="create_fund.html">Create Fund</a></li>
+  				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
   				<li role="presentation"><a href="transition_day.html">Transition Day</a></li>
   				<li role="presentation"><a href="index.html">Log Out</a></li>
   			</div>
@@ -44,9 +45,9 @@
 				<br>
 				<br>
 				<br>
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="CreateCustomer.do" method="POST">
 					<div class="form-group">
-    					<label for="username" class="col-sm-4 control-label">User Name</label>
+    					<label for="username" name="username" value="${form.username}" class="col-sm-4 control-label">User Name</label>
     					<div class="col-sm-8">
       						<input type="text" class="form-control" id="username">
     					</div>
@@ -54,49 +55,49 @@
   					<div class="form-group">
     					<label for="firstname" class="col-sm-4 control-label">First Name</label>
     					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="firstname">
+      						<input type="text" name="firstname" value="${form.firstname}" class="form-control" id="firstname">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="lastname" class="col-sm-4 control-label">Last Name</label>
     					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="lastname">
+      						<input type="text" name="lastname" value="${form.lastname}" class="form-control" id="lastname">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="inputPassword" class="col-sm-4 control-label">Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" class="form-control" id="inputPassword">
+      						<input type="password" name="password" class="form-control" id="inputPassword">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="inputPassword1" class="col-sm-4 control-label">Confirm Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" class="form-control" id="inputPassword1">
+      						<input type="password" name="confirmpassword" class="form-control" id="inputPassword1">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="address1" class="col-sm-4 control-label">Address line1</label>
    						 <div class="col-sm-8">
-      						<input type="text" class="form-control" id="address1">
+      						<input type="text" name="addrline1" value="${form.addressline1}" class="form-control" id="address1">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="address2" class="col-sm-4 control-label">Address line2</label>
    						 <div class="col-sm-8">
-      						<input type="text" class="form-control" id="address2">
+      						<input type="text" name="addrline2" value="${form.addressline2}" class="form-control" id="address2">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="city" class="col-sm-4 control-label">City</label>
    						 <div class="col-sm-8">
-      						<input type="text" class="form-control" id="city">
+      						<input type="text" name="city" value="${form.city}" class="form-control" id="city">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="state" class="col-sm-4 control-label">State</label>
    						 <div class="col-sm-8">
-      						<input type="text" class="form-control" id="state">
+      						<input type="text" value="${form.state}" class="form-control" id="state">
    						</div>
   					</div>
   					<div class="form-group">

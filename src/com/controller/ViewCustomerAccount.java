@@ -41,7 +41,12 @@ public class ViewCustomerAccount extends Action{
 			customerList = cDAO.getCustomerList();
 			
 			for(CustomerBean list: customerList) {
-				System.out.println(list.getUsername());
+				System.out.println("User Name:" + list.getUsername());
+//				System.out.println("First Name:" + list.getFirstname());
+//				System.out.println("Last Name:" + list.getLastname());
+//				System.out.println("Address line1:" + list.getAddrline1());
+//				System.out.println("Address line2:" + list.getAddrline2());
+//				System.out.println("Cash:" + list.getCash());
 			}
 			
 		} catch (RollbackException e) {

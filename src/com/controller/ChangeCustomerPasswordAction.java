@@ -79,7 +79,7 @@ public class ChangeCustomerPasswordAction extends Action{
 	     //   message = "Password Changed successfully";
 	  //      request.setAttribute("message", message);
 	        // If redirectTo is null, redirect to the "todolist" action
-			return "success.jsp";
+			return "ChangeCusPwdSuccess.jsp";
         } catch (RollbackException e) {
         	errors.add(e.getMessage());
         	return "error.jsp";

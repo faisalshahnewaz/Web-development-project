@@ -25,10 +25,10 @@
  				<li role="presentation" class="active"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
-  				<li role="presentation"><a href="reset_customer_pwd.html">Reset Customer Password</a></li>
+  				<li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li>
   				<li role="presentation"><a href="#">View Customer Account</a></li>
   				<li role="presentation"><a href="#">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="#">Deposit Check</a></li>
+  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li>
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
   				<li role="presentation"><a href="#">Transition Day</a></li>
   				<li role="presentation"><a href="#">Log Out</a></li>

@@ -26,10 +26,10 @@
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation" class="active"><a href="CreateCustomer.do">Create Customer Account</a></li>
-  				<li role="presentation"><a href="reset_customer_pwd.html">Reset Customer Password</a></li>
+  				<li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li>
   				<li role="presentation"><a href="view_customer_activity.html">View Customer Account</a></li>
   				<li role="presentation"><a href="transactions_history.html">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="deposit.html">Deposit Check</a></li>
+  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li>
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
   				<li role="presentation"><a href="transition_day.html">Transition Day</a></li>
   				<li role="presentation"><a href="index.html">Log Out</a></li>
@@ -39,7 +39,7 @@
 			<div class="col-md-6">
 				<div class="col-sm-1"></div>
 				<div class="col-sm-11">
-					<div class="header"><h3>Create Employee Account</div>
+					<div class="header"><h3>Create Customer Account</div>
 				</div>
 				<br>
 				<br>

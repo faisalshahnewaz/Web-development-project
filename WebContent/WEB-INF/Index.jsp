@@ -33,7 +33,7 @@
 			</div>
 			<div class="col-md-1"></div>
 			<div class="col-md-2">
-				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='CustomerLogin.jsp'">Login as Customer</button>
+				<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='CustomerLogin.do'">Login as Customer</button>
 			</div>
 			<div class="col-md-6"></div>
 		</div>

@@ -22,7 +22,7 @@ public class DepositeCheckForm extends FormBean {
 		return amount;
 	}
 
-	public void getAmount(String amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 
@@ -63,13 +63,14 @@ public class DepositeCheckForm extends FormBean {
 		
 		System.out.print("Amount here:" + amount);
 		
-		if (Float.parseFloat(amount) <= 0) {
-			errors.add("Amount should be more than zero");
-		}
+		
 		if (errors.size() > 0) {
 			return errors;
 		}
-		if (!action.equals("DepositeCheck")) {
+		if (Float.parseFloat(amount) <= 0) {
+			errors.add("Amount should be more than zero");
+		}
+		if (!action.equals("DepositCheck")) {
 			errors.add("Invalid Action");
 		}
 		return errors;

@@ -4,6 +4,7 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.genericdao.DuplicateKeyException;
+import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
@@ -59,24 +60,24 @@ public class CustomerLoginAction extends Action {
 
 	        // Look up the user
 	        //User user = userDAO.read(form.getUserName());
-	        CustomerBean customer = cDAO.read(form.getUsername());
+	        CustomerBean[] customer = cDAO.match(MatchArg.equals("username", form.getUsername()));
 	        
-	        if (customer == null) {
-	            errors.add("Name not found");
+	        if (customer.length == 0) {
+	            errors.add("Customer not found");
 	            return "CustomerLogin.jsp";
 	        }
 
 	        // Check the password
-	        if (!customer.getPassword().equals(form.getPassword())) {
+	        if (!customer[0].getPassword().equals(form.getPassword())) {
 	            errors.add("Incorrect password");
 	            return "CustomerLogin.jsp";
 	        }
 	
 	        // Attach (this copy of) the user bean to the session
-	        session.setAttribute("customer",customer);
+	        session.setAttribute("customer",customer[0]);
 	        
 	        // If redirectTo is null, redirect to the "todolist" action
-			return "success.jsp";
+			return "CustomerLoginSuccess.jsp";
         } catch (RollbackException e) {
         	errors.add(e.getMessage());
         	return "error.jsp";

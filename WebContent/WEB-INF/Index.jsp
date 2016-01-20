@@ -8,7 +8,7 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<div class="row">
+		<div class="row"> 
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<div class="page-header">

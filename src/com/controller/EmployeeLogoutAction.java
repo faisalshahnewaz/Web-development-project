@@ -17,7 +17,7 @@ public class EmployeeLogoutAction extends Action{
     	HttpSession session = request.getSession(false);
         session.setAttribute("employee",null);
         session.invalidate();
-		return "EmployeeLogin.jsp";
+		return "Index.jsp";
 	}
 
 }

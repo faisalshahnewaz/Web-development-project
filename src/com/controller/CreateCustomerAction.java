@@ -62,7 +62,7 @@ public class CreateCustomerAction extends Action{
 		        //if any error, redirect to the .jsp page with errors.
 		        if(errors.size()>0) {
 		        	System.out.println("qqqq5");
-		        	//return "CreateCustomer.jsp";
+		        	return "CreateCustomer.jsp";
 		        }
 	        
 		        //else check, if there is any existing user in database.

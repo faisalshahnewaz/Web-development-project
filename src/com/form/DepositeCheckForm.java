@@ -7,7 +7,7 @@ import org.mybeans.form.FormBean;
 
 public class DepositeCheckForm extends FormBean {
 	private String username;
-	private int amount;
+	private String amount;
 	private String action;
 
 	public String getUsername() {
@@ -18,11 +18,11 @@ public class DepositeCheckForm extends FormBean {
 		this.username = username;
 	}
 
-	public int getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
-	public void getAmount(int amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 
@@ -46,19 +46,31 @@ public class DepositeCheckForm extends FormBean {
 		if (username.matches(".*[<>\"].*")) {
 			errors.add("Username may not contain angle brackets or quotes");
 		}
-		if ("".equals(Integer.toString(amount))) {
+		
+		System.out.print("Step1:" + amount);
+		
+		if (amount == null || amount.trim().length() == 0) {
 			errors.add("Amount not Present");
 		}
-		if (Integer.toString(amount).matches(".*[<>\"].*")) {
+		
+		System.out.print("Step2:" + amount);
+		
+		if (amount.matches(".*[<>\"].*")) {
 			errors.add("Amount may not contain angle brackets or quotes");
 		}
-		if (amount <= 0) {
-			errors.add("Amount should be more than zero");
-		}
+		
+		System.out.print("Step3:" + amount);
+		
+		System.out.print("Amount here:" + amount);
+		
+		
 		if (errors.size() > 0) {
 			return errors;
 		}
-		if (!action.equals("DepositeCheck")) {
+		if (Float.parseFloat(amount) <= 0) {
+			errors.add("Amount should be more than zero");
+		}
+		if (!action.equals("DepositCheck")) {
 			errors.add("Invalid Action");
 		}
 		return errors;

@@ -77,7 +77,7 @@ public class CustomerLoginAction extends Action {
 	        session.setAttribute("customer",customer[0]);
 	        
 	        // If redirectTo is null, redirect to the "todolist" action
-			return "success.jsp";
+			return "CustomerLoginSuccess.jsp";
         } catch (RollbackException e) {
         	errors.add(e.getMessage());
         	return "error.jsp";

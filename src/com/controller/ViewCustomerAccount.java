@@ -49,6 +49,8 @@ public class ViewCustomerAccount extends Action{
 //				System.out.println("Cash:" + list.getCash());
 			}
 			
+			request.setAttribute("customerList",customerList);
+			
 		} catch (RollbackException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

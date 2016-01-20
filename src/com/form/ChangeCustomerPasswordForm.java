@@ -50,12 +50,16 @@ public class ChangeCustomerPasswordForm extends FormBean{
 	            errors.add("Old password is required");
 	        if (newPassword == null || newPassword.length() == 0)
 	            errors.add("New password is required");
+	        if (confirmPassword == null || confirmPassword.length() == 0)
+	            errors.add("Confirm password is required");
 	        if (action == null)
 	            errors.add("Button is required");
 
 	        if (errors.size() > 0)
 	            return errors;
-
+	        if(!newPassword.equals(confirmPassword)){
+	        	errors.add("Passwords don't match");
+	        }
 	        if (!action.equals("Change"))
 	            errors.add("Invalid button");
 	        if (username.matches(".*[<>\"].*"))

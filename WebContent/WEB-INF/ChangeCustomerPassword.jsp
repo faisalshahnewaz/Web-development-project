@@ -41,9 +41,9 @@
 				<div class="header"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change Password</div>
 				<br>
 				<br>
-				<form class="form-horizontal" action="ChangeCustomerPassword" method="POST">
+				<form class="form-horizontal" action="ChangeCustomerPassword.do" method="POST">
 					<div class="form-group">
-    					<label for="username" class="col-sm-4 control-label">New Password</label>
+    					<label for="username" class="col-sm-4 control-label">Username</label>
    						 <div class="col-sm-8">
       						<input type="text" name="username" class="form-control" id="username" placeholder="User Name">
    						</div>
@@ -77,7 +77,7 @@
   					</div>
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary">Change Password</button>
+      						<button type="submit" name="action" value = "Change" class="btn btn-primary">Change Password</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       						<button type="submit" class="btn btn-default">Cancel</button>
     					</div>

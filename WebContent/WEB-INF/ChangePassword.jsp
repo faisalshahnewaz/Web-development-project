@@ -23,9 +23,9 @@
   
 			<ul class="nav nav-pills nav-stacked">
   				<li role="presentation"><a href="CustomerLogin.do">Login</a></li>
- 				  <li role="presentation" class="active"><a href="ChangeCustomerPassword">Change Password</a></li>
+ 				<li role="presentation" class="active"><a href="ChangeCustomerPassword.do">Change Password</a></li>
   				<li role="presentation"><a href="view_portfolio.html">View Portfolio</a></li>
-  				<li role="presentation"><a href="buy_fund.html">Buy Fund</a></li>
+  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
   				<li role="presentation"><a href="sell_fund.html">Sell Fund</a></li>
   				<li role="presentation"><a href="transaction_history">Transaction History</a></li>
   				<li role="presentation"><a href="research.html">Research Fund</a></li>

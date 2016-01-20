@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,12 +22,12 @@
   		<div class="col-md-2">
   
 			<ul class="nav nav-pills nav-stacked">
-  				<li role="presentation" class="active"><a href="customer_login.html">Login</a></li>
- 				<li role="presentation"><a href="customer_changepwd.html">Change Password</a></li>
+  				<li role="presentation"><a href="CustomerLogin.do">Login</a></li>
+ 				<li role="presentation"><a href="ChangeCustomerPassword.do">Change Password</a></li>
   				<li role="presentation"><a href="view_portfolio.html">View Portfolio</a></li>
-  				<li role="presentation"><a href="buy_fund.html">Buy Fund</a></li>
+  				<li role="presentation" class="active"><a href="BuyFund.do">Buy Fund</a></li>
   				<li role="presentation"><a href="sell_fund.html">Sell Fund</a></li>
-  				<li role="presentation"><a href="transaction_history.html">Transaction History</a></li>
+  				<li role="presentation"><a href="transaction_history">Transaction History</a></li>
   				<li role="presentation"><a href="research.html">Research Fund</a></li>
   				<li role="presentation"><a href="request_check.html">Request Check</a></li>
   				<li role="presentation"><a href="index.html">Log Out</a></li>
@@ -45,28 +46,22 @@
 				<br>
         <br>
 				
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="BuyFund.do" method="POST">
   					<div class="form-group">
     					<label for="symbol" class="col-sm-4 control-label">Fund Symbol</label>
     					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="symbol" placeholder="fund symbol">
+      						<input type="text" name="fundsymbol" class="form-control" id="symbol" placeholder="fund symbol">
     					</div>
-  					</div>
-  					<div class="form-group">
-    					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
-   						 <div class="col-sm-8">
-      						<input type="text" class="form-control" id="fundname" placeholder="fund name">
-   						</div>
   					</div>
   					<div class="form-group">
               <label for="amount" class="col-sm-4 control-label">Dollar Amount</label>
                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="amount" placeholder="dollar amount">
+                  <input type="text" name="money" class="form-control" id="amount" placeholder="dollar amount">
               </div>
             </div>
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary">Confirm Purchase</button>
+      						<button type="submit" name="action" value="BuyFund" class="btn btn-primary">Confirm Purchase</button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <button type="submit" class="btn btn-default">Cancel</button>
     					</div>

@@ -44,6 +44,12 @@
         <br>
         <form class="form-horizontal" action="ChangeCustomerPassword.do" method="POST">
             <div class="form-group">
+              <label for="username" class="col-sm-4 control-label">User Name</label>
+               <div class="col-sm-8">
+                  <input type="text" name="username" class="form-control" id="username" placeholder="User Name">
+              </div>
+            </div>
+            <div class="form-group">
               <label for="inputPassword" class="col-sm-4 control-label">Old Password</label>
                <div class="col-sm-8">
                   <input type="password" name="oldPassword" class="form-control" id="inputPassword" placeholder="Password">

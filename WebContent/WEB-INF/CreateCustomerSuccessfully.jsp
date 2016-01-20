@@ -27,7 +27,7 @@
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation" class="active"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li>
-  				<li role="presentation"><a href="#">View Customer Account</a></li>
+  				<li role="presentation"><a href="ViewCustomerAccount.do">View Customer Account</a></li>
   				<li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li>
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>

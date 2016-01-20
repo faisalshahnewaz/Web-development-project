@@ -22,17 +22,15 @@
   			<div class="col-md-2">
   
 			<ul class="nav nav-pills nav-stacked">
-  				<li role="presentation" class="active"><a href="EmployeeLogin.do">Login</a></li>
- 				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
-  				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
-  				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
-  				<li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li>
-  				<li role="presentation"><a href="ViewCustomerAccount.do">View Customer Account</a></li>
-  				<li role="presentation"><a href="#">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li>
-  				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="#">Transition Day</a></li>
-  				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
+		<li role="presentation" class="active"><a href="CustomerLogin.do">Login</a></li>
+ 				<li role="presentation"><a href="ChangeCustomerPassword.do">Change Password</a></li>
+  				<li role="presentation"><a href="view_portfolio.html">View Portfolio</a></li>
+  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
+  				<li role="presentation"><a href="sell_fund.html">Sell Fund</a></li>
+  				<li role="presentation"><a href="transaction_history.html">Transaction History</a></li>
+  				<li role="presentation"><a href="research.html">Research Fund</a></li>
+  				<li role="presentation"><a href="request_check.html">Request Check</a></li>
+  				<li role="presentation"><a href="index.html">Log Out</a></li>
   			</div>
 			</ul>
 			<div class="col-md-1"></div>

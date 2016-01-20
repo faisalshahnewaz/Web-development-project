@@ -12,7 +12,7 @@ public class Model {
 	private EmployeeDAO employeeDAO;
 	private CustomerDAO customerDAO;
 	private FundDAO fundDAO;
-
+	private TrancDAO trancDAO;
 	public Model(ServletConfig config) throws ServletException {
 		try {
 			String jdbcDriverName = config.getInitParameter("jdbcDriverName");
@@ -23,7 +23,7 @@ public class Model {
 			employeeDAO = new EmployeeDAO(pool, "task7_employee");
             customerDAO = new CustomerDAO(pool,  "task7_customer");
             fundDAO = new FundDAO(pool, "task7_fund");
-            
+            trancDAO = new TrancDAO(pool, "task7_transaction");
             if(employeeDAO.getCount()==0) new DataLoader(employeeDAO);
 		} catch (DAOException e) {
 			throw new ServletException(e);
@@ -36,5 +36,5 @@ public class Model {
 	public EmployeeDAO getEmployeeDAO()  { return employeeDAO; }
 	public CustomerDAO getCustomerDAO()  { return customerDAO; }
 	public FundDAO getFundDAO() {return fundDAO;}
-	
+	public TrancDAO getTrancDAO() {return trancDAO;}
 }

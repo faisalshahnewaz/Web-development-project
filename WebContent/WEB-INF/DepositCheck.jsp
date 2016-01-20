@@ -51,19 +51,19 @@
 				<br>
 				<form class="form-horizontal" action="DepositCheck.do" method="POST">
 					<div class="form-group">
-    					<label for="checknumber" class="col-sm-4 control-label">Check Number</label>
+    					<label for="username" class="col-sm-4 control-label">Customer Username</label>
     					<div class="col-sm-8">
-      						<input type="text" name="checknumber" class="form-control" id="checknumber">
+      						<input type="text" name="username" class="form-control" id="username">
     					</div>
   					</div>
   					<div class="form-group">
-    					<label for="depositamount" class="col-sm-4 control-label">Deposit Amount</label>
+    					<label for="amount" class="col-sm-4 control-label">Deposit Amount</label>
     					<div class="col-sm-8">
-      						<input type="text" name="depositamount" class="form-control" id="depositamount">
+      						<input type="text" name="amount" class="form-control" id="amount">
     					</div>
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary">Confirm</button>
+      						<button type="submit" class="btn btn-primary" name = "action" value="DepositCheck">Confirm</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       						<button type="submit" class="btn btn-default">Cancel</button>
     					</div>

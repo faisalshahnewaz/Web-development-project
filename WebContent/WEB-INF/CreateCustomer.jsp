@@ -47,21 +47,21 @@
 				<br>
 				<form class="form-horizontal" action="CreateCustomer.do" method="POST">
 					<div class="form-group">
-    					<label for="username" name="username" value="${form.username}" class="col-sm-4 control-label">User Name</label>
+    					<label for="username" class="col-sm-4 control-label">User Name</label>
     					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="username">
+      						<input type="text" name="username" class="form-control" id="username">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="firstname" class="col-sm-4 control-label">First Name</label>
     					<div class="col-sm-8">
-      						<input type="text" name="firstname" value="${form.firstname}" class="form-control" id="firstname">
+      						<input type="text" name="firstname" class="form-control" id="firstname">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="lastname" class="col-sm-4 control-label">Last Name</label>
     					<div class="col-sm-8">
-      						<input type="text" name="lastname" value="${form.lastname}" class="form-control" id="lastname">
+      						<input type="text" name="lastname" class="form-control" id="lastname">
     					</div>
   					</div>
   					<div class="form-group">
@@ -79,33 +79,34 @@
   					<div class="form-group">
     					<label for="address1" class="col-sm-4 control-label">Address line1</label>
    						 <div class="col-sm-8">
-      						<input type="text" name="addrline1" value="${form.addrline1}" class="form-control" id="address1">
+      						<input type="text" name="addrline1" class="form-control" id="address1">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="address2" class="col-sm-4 control-label">Address line2</label>
    						 <div class="col-sm-8">
-      						<input type="text" name="addrline2" value="${form.addrline2}" class="form-control" id="address2">
+      						<input type="text" name="addrline2" class="form-control" id="address2">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="city" class="col-sm-4 control-label">City</label>
    						 <div class="col-sm-8">
-      						<input type="text" name="city" value="${form.city}" class="form-control" id="city">
+      						<input type="text" name="city" class="form-control" id="city">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="state" class="col-sm-4 control-label">State</label>
    						 <div class="col-sm-8">
-      						<input type="text" value="${form.state}" class="form-control" id="state">
+      						<input type="text" class="form-control" id="state" name="state">
    						</div>
   					</div>
   					<div class="form-group">
-    					<label for="cash" class="col-sm-4 control-label">Cash</label>
+    					<label for="cash" class="col-sm-4 control-label">Zip</label>
    						 <div class="col-sm-8">
-      						<input type="text" class="form-control" id="cash">
+      						<input type="text" class="form-control" name = "zip" id="zip">
    						</div>
   					</div>
+  					
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
       						<button type="submit" class="btn btn-primary">Confirm</button>

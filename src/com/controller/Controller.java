@@ -30,6 +30,7 @@ public class Controller extends HttpServlet {
         Action.add(new CreateCustomerAction(model));
         Action.add(new EmployeeLogoutAction());
         Action.add(new CreateFundAction(model));
+        Action.add(new DepositeCheckAction(model));
 
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)

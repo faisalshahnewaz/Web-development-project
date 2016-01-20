@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col-md-1"></div>
   			<div class="col-md-2">
-  
+
 			<ul class="nav nav-pills nav-stacked">
   				<li role="presentation"><a href="EmployeeLogin.do">Login</a></li>
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>

@@ -79,13 +79,13 @@
   					<div class="form-group">
     					<label for="address1" class="col-sm-4 control-label">Address line1</label>
    						 <div class="col-sm-8">
-      						<input type="text" name="addrline1" value="${form.addressline1}" class="form-control" id="address1">
+      						<input type="text" name="addrline1" value="${form.addrline1}" class="form-control" id="address1">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="address2" class="col-sm-4 control-label">Address line2</label>
    						 <div class="col-sm-8">
-      						<input type="text" name="addrline2" value="${form.addressline2}" class="form-control" id="address2">
+      						<input type="text" name="addrline2" value="${form.addrline2}" class="form-control" id="address2">
    						</div>
   					</div>
   					<div class="form-group">

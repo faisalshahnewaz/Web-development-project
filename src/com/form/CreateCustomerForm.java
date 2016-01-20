@@ -3,12 +3,14 @@ package com.form;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.mybeans.form.FormBean;
+
 /**
  * 
  * @author faisalshahnewaz
  *
  */
-public class CreateCustomerForm {
+public class CreateCustomerForm extends FormBean{
 	
 	private String username;
 	private String firstname;
@@ -44,7 +46,7 @@ public class CreateCustomerForm {
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = password.trim();
 	}
 	public String getAddrline1() {
 		return addrline1;
@@ -80,51 +82,72 @@ public class CreateCustomerForm {
 		return confirmpassword;
 	}
 	public void setConfirmpassword(String confirmpassword) {
-		this.confirmpassword = confirmpassword;
+		this.confirmpassword = confirmpassword.trim();
 	}
 	
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
 
+		
+		
 		if (firstname == null || firstname.length() == 0) {
+			System.out.println("q1");
 			errors.add("First Name is required");
 		}
-
+		
 		if (lastname == null || lastname.length() == 0) {
+			System.out.println("q2");
 			errors.add("Last Name is required");
 		}
 
 		if (username == null || username.length() == 0) {
+			System.out.println("q3");
 			errors.add("Username is required");
 		}
-
+		
 		if (password == null || password.length() == 0) {
+			System.out.println("q4");
 			errors.add("Password is required");
 		}
 		
 		if ( confirmpassword == null || confirmpassword.length() == 0) {
+			System.out.println("q5");
 			errors.add("Confirm Password is required");
 		}
 		
 		if ( addrline1 == null || addrline1.length() == 0) {
+			System.out.println("q6");
 			errors.add("Addrline1 is required");
 		}
 		
-//		if ( addrline2 == null || addrline1.length() == 0) {
-//			errors.add("addrline2 is required");
-//		}
+		if ( addrline2 == null || addrline1.length() == 0) {
+			System.out.println("q7");
+			errors.add("addrline2 is required");
+		}
 		
 		if ( city == null || city.length() == 0) {
+			System.out.println("q8");
 			errors.add("City is required");
 		}
 		
 		if ( state == null || state.length() == 0) {
+			System.out.println("q8");
 			errors.add("State is required");
 		}
+		
 		if ( zip == null || zip.length() == 0) {
+			System.out.println("q9");
 			errors.add("Zip is required");
 		}
+
+		if(errors.size()>0) {
+			return errors;
+		}
 		
+		//check pass and confirm pass match?
+		if(!password.equals(confirmpassword)){
+			errors.add("password does not match");
+		}
 		return errors;
 	}
 	

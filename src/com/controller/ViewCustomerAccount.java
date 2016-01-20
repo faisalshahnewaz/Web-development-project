@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.genericdao.RollbackException;
 
 import com.databean.CustomerBean;
+import com.databean.ViewCustomerAccountBean;
 import com.model.CustomerDAO;
 import com.model.Model;
 
@@ -20,6 +21,7 @@ public class ViewCustomerAccount extends Action{
 	public ViewCustomerAccount(Model model) {
 		cDAO = model.getCustomerDAO();
 	}
+	
 	@Override
 	public String getName() {
 		
@@ -34,22 +36,49 @@ public class ViewCustomerAccount extends Action{
 		
 		System.out.println("aaaa");
 		
-		//1.Check if any customer account? 2. get them in a list 3.reload to bean each one and  
+		/*
+		 * 1.get the list of customers from CustomerDAO
+		 * 2. create a list of View customer account to hold the objects of view customer acc.bean.
+		 * 3. load data from different table to each view cus acc bean.
+		 * 4. add the beans to the list.
+		 * 5. pass the bean list to jsp.
+		 * 6. return the jsp name.
+		*/
+		CustomerBean[] customerBeans;
+		List<ViewCustomerAccountBean> customerList = new ArrayList<ViewCustomerAccountBean>();
 		
-		CustomerBean[] customerList;
 		try {
-			customerList = cDAO.getCustomerList();
+			customerBeans = cDAO.getCustomerList();
 			
-			for(CustomerBean list: customerList) {
-				System.out.println("User Name:" + list.getUsername());
-//				System.out.println("First Name:" + list.getFirstname());
-//				System.out.println("Last Name:" + list.getLastname());
-//				System.out.println("Address line1:" + list.getAddrline1());
-//				System.out.println("Address line2:" + list.getAddrline2());
-//				System.out.println("Cash:" + list.getCash());
+			for(CustomerBean list: customerBeans) {
+				
+				ViewCustomerAccountBean viewCusBean = new ViewCustomerAccountBean();
+				
+				//load data to bean
+				viewCusBean.setUsername(list.getUsername());
+				viewCusBean.setFirstname(list.getFirstname());
+				viewCusBean.setLastname(list.getLastname());
+				viewCusBean.setAddrline1(list.getAddrline1());
+				viewCusBean.setAddrline2(list.getAddrline2());
+				viewCusBean.setCity(list.getCity());
+				viewCusBean.setState(list.getState());
+				viewCusBean.setZip(list.getZip());
+				viewCusBean.setCash(list.getCash());
+				
+				//other data load
+				
+				System.out.println("User Name:" + list.getUsername());				
+				
+				//add the bean to the List
+				customerList.add(viewCusBean);
 			}
 			
 			request.setAttribute("customerList",customerList);
+			
+			
+			
+			
+			System.out.println(customerBeans[0].getUsername());
 			
 		} catch (RollbackException e) {
 			// TODO Auto-generated catch block

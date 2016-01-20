@@ -21,12 +21,14 @@ public class Controller extends HttpServlet {
     public void init() throws ServletException {
         Model model = new Model(getServletConfig());
         
+        Action.add(new IndexAction(model));
         Action.add(new EmployeeLoginAction(model));
         Action.add(new CustomerLoginAction(model));
         Action.add(new ChangeEmployeePasswordAction(model));
         Action.add(new ChangeCustomerPasswordAction(model));
         Action.add(new CreateEmployeeAction(model));
         Action.add(new CreateCustomerAction(model));
+        Action.add(new ViewCustomerAccount(model));
         Action.add(new EmployeeLogoutAction());
         Action.add(new CreateFundAction(model));
         Action.add(new DepositeCheckAction(model));
@@ -58,10 +60,10 @@ public class Controller extends HttpServlet {
         EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
         String action = getActionName(servletPath);
 
-        if (customer == null && employee == null) {
-            // If the user hasn't logged in, so login is the only option
-            return Action.perform("EmployeeLogin.do", request);
-        }
+//        if (customer == null && employee == null) {
+//            // If the user hasn't logged in, so login is the only option
+//            return Action.perform("Index.do", request);
+//        }
 
         // Let the logged in user run his chosen action
         return Action.perform(action, request);

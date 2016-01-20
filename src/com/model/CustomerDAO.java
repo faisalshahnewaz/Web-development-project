@@ -36,7 +36,7 @@ public class CustomerDAO extends GenericDAO<CustomerBean> {
 	public CustomerBean[] getCustomerList() throws RollbackException{
 		
 		CustomerBean[] customerList = match();
-		Arrays.sort(customerList);
+		//Arrays.sort(customerList);
 		return customerList;
 	}
 }

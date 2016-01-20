@@ -32,7 +32,7 @@ public class ViewCustomerAccount extends Action{
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors",errors);
 		
-		System.out.println("a");
+		System.out.println("aaaa");
 		
 		//1.Check if any customer account? 2. get them in a list 3.reload to bean each one and  
 		
@@ -41,17 +41,22 @@ public class ViewCustomerAccount extends Action{
 			customerList = cDAO.getCustomerList();
 			
 			for(CustomerBean list: customerList) {
-				System.out.println(list);
+				System.out.println("User Name:" + list.getUsername());
+//				System.out.println("First Name:" + list.getFirstname());
+//				System.out.println("Last Name:" + list.getLastname());
+//				System.out.println("Address line1:" + list.getAddrline1());
+//				System.out.println("Address line2:" + list.getAddrline2());
+//				System.out.println("Cash:" + list.getCash());
 			}
+			
+			request.setAttribute("customerList",customerList);
 			
 		} catch (RollbackException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
-		
-		return null;
+		return "EmployeeLoginSuccess.jsp";
 	}
 
 	

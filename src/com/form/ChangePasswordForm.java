@@ -5,21 +5,20 @@ import java.util.List;
 
 import org.mybeans.form.FormBean;
 
-public class ChangeEmployeePasswordForm extends FormBean{
-
-	private String username;
-    private String oldPassword;
+public class ChangePasswordForm extends FormBean {
+	private String oldPassword;
     private String newPassword;
     private String confirmPassword;
     private String action;
-	
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getOldPassword() {
+    private String username;
+    
+    public String getUserName() {
+    	return username;
+    }
+    public void setUserName(String username) {
+    	this.username = username;
+    }
+    public String getOldPassword() {
 		return oldPassword;
 	}
 	public void setOldPassword(String oldPassword) {
@@ -52,8 +51,7 @@ public class ChangeEmployeePasswordForm extends FormBean{
 		
 		List<String> errors = new ArrayList<String>();
 		
-		//check user name
-		if(username == null || username.length()==0) {
+		if (username == null || username.length() == 0) {
 			errors.add("Please input username");
 		}
 		//check confirm pass null or empty
@@ -65,7 +63,7 @@ public class ChangeEmployeePasswordForm extends FormBean{
 			errors.add("Insert new password");
 		}
 		if(newPassword != confirmPassword) {
-			errors.add("New Password doesn't match");
+			errors.add("New password doesn't match");
 		}
 		//action check
 		if(action == null) {

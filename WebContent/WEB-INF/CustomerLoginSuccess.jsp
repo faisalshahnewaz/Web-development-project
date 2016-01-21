@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>CFS for Employee</title>
+		<title>CFS for Customer</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
@@ -23,7 +23,7 @@
   
 			<ul class="nav nav-pills nav-stacked">
 		<li role="presentation" class="active"><a href="CustomerLogin.do">Login</a></li>
- 				<li role="presentation"><a href="ChangeCustomerPassword.do">Change Password</a></li>
+ 				<li role="presentation"><a href="ChangePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="view_portfolio.html">View Portfolio</a></li>
   				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
   				<li role="presentation"><a href="sell_fund.html">Sell Fund</a></li>

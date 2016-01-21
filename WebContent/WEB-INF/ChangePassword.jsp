@@ -23,14 +23,14 @@
   
 			<ul class="nav nav-pills nav-stacked">
   				<li role="presentation"><a href="CustomerLogin.do">Login</a></li>
- 				<li role="presentation" class="active"><a href="ChangeCustomerPassword.do">Change Password</a></li>
+ 				<li role="presentation" class="active"><a href="ChangePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="view_portfolio.html">View Portfolio</a></li>
   				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
   				<li role="presentation"><a href="sell_fund.html">Sell Fund</a></li>
   				<li role="presentation"><a href="transaction_history">Transaction History</a></li>
   				<li role="presentation"><a href="research.html">Research Fund</a></li>
   				<li role="presentation"><a href="request_check.html">Request Check</a></li>
-  				<li role="presentation"><a href="index.html">Log Out</a></li>
+  				<li role="presentation"><a href="#">Log Out</a></li>
   			</div>
 			</ul>
 			
@@ -42,7 +42,13 @@
         <br>
         <br>
         <br>
-        <form class="form-horizontal" action="ChangeCustomerPassword.do" method="POST">
+        <form class="form-horizontal" action="ChangePassword.do" method="POST">
+            <div class="form-group">
+              <label for="username" class="col-sm-4 control-label">User Name</label>
+               <div class="col-sm-8">
+                  <input type="text" name="username" class="form-control" id="username" placeholder="User Name">
+              </div>
+            </div>
             <div class="form-group">
               <label for="inputPassword" class="col-sm-4 control-label">Old Password</label>
                <div class="col-sm-8">
@@ -65,7 +71,7 @@
             
             <div class="form-group">
               <div class="col-sm-offset-4 col-sm-8">
-                  <button type="submit" class="btn btn-primary">Change Password</button>
+                  <button type="submit" name="action" value="Change" class="btn btn-primary">Change Password</button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <button type="submit" class="btn btn-default">Cancel</button>
               </div>

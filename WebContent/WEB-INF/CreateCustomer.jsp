@@ -32,7 +32,7 @@
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li>
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
   				<li role="presentation"><a href="transition_day.html">Transition Day</a></li>
-  				<li role="presentation"><a href="index.html">Log Out</a></li>
+  				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</div>
 			</ul>
 			

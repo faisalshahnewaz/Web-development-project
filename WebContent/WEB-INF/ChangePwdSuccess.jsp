@@ -30,7 +30,7 @@
   				<li role="presentation"><a href="transaction_history">Transaction History</a></li>
   				<li role="presentation"><a href="research.html">Research Fund</a></li>
   				<li role="presentation"><a href="request_check.html">Request Check</a></li>
-  				<li role="presentation"><a href="index.html">Log Out</a></li>
+  				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</div>
 			</ul>
 			<div class="col-md-1"></div>

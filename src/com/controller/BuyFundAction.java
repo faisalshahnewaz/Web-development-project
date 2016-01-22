@@ -1,5 +1,6 @@
 package com.controller;
 import java.util.*;
+import java.math.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.genericdao.DuplicateKeyException;
@@ -47,19 +48,38 @@ public class BuyFundAction extends Action {
 			String fundsymbol = form.getFundsymbol();
 			CustomerBean c = (CustomerBean) session.getAttribute("customer");
 			FundBean[] fb = fDAO.match(MatchArg.equals("ticker", fundsymbol));
+			if (fb.length == 0) {
+				errors.add("This fund does not exist");
+				return "BuyFund.jsp";
+			}
+			try {
+				double tmp = Double.parseDouble(form.getMoney());
+			} catch (Exception e) {
+				errors.add("Your input should be a number");
+				return "BuyFund.jsp";
+			}
 			TransactionBean transaction = new TransactionBean();
 			//parse the money
+			BigDecimal bg = new BigDecimal(form.getMoney());
+			if (bg.doubleValue() <= 0) {
+				errors.add("Your input can not be negative");
+				return "BuyFund.jsp";
+			}
+			if (bg.scale() > 2) {
+				errors.add("Your input should only have at most two decimal places");
+				return "BuyFund.jsp";
+			}
 			Double amount = Double.parseDouble(form.getMoney());
-			DecimalFormat df = new DecimalFormat("0.000");
+			DecimalFormat df = new DecimalFormat("0.00");
 			String tmpAmount = df.format(amount);
 			double amount1 = Double.parseDouble(tmpAmount);
-			long money = (long) (1000 * amount1);
+			long money = (long) (100 * amount1);
 			transaction.setAmount(money);
 			transaction.setCid(c.getCid());
 			transaction.setFundid(fb[0].getFundid());
 			transaction.setTransactiontype("buy");
 			tDAO.create(transaction);
-			return "BuyFund.jsp";
+			return "BuyFundSuccessfully.jsp";
 		} catch (FormBeanException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";

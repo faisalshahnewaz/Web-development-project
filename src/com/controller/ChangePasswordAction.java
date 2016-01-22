@@ -41,8 +41,8 @@ public class ChangePasswordAction extends Action {
 			ChangePasswordForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
 			
-			String changepwdusername = request.getParameter("changepwdusername");
-	        request.setAttribute("changepwdusername", changepwdusername);
+			/*String changepwdusername = request.getParameter("changepwdusername");
+	        request.setAttribute("changepwdusername", changepwdusername);*/
 			
 			//if no param redirect to change pass jsp (1st time)
 			if(!form.isPresent()) {
@@ -64,13 +64,13 @@ public class ChangePasswordAction extends Action {
 			//check old password field matches?
 			CustomerBean customer = (CustomerBean) session.getAttribute("customer");
 			
-			if(customer.getPassword().equals(form.getOldPassword())) {
+			if(!customer.getPassword().equals(form.getOldPassword())) {
 				errors.add("Old password is wrong");
 				return "ChangePassword.jsp";
 			}
 			
 			//if no error then,
-			customerDAO.changePassword(changepwdusername, form.getNewPassword());
+			customerDAO.changePassword(customer.getUsername(), form.getNewPassword());
 			
 			return "ChangePwdSuccess.jsp";
 			

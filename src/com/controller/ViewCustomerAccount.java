@@ -31,11 +31,6 @@ public class ViewCustomerAccount extends Action{
 	@Override
 	public String perform(HttpServletRequest request) {
 		
-		List<String> errors = new ArrayList<String>();
-		request.setAttribute("errors",errors);
-		
-		System.out.println("aaaa");
-		
 		/*
 		 * 1.get the list of customers from CustomerDAO
 		 * 2. create a list of View customer account to hold the objects of view customer acc.bean.
@@ -49,34 +44,39 @@ public class ViewCustomerAccount extends Action{
 		
 		try {
 			customerBeans = cDAO.getCustomerList();
-			
-			for(CustomerBean customerBean: customerBeans) {
-				
-				ViewCustomerAccountBean viewCusBean = new ViewCustomerAccountBean();
-				
-				//load data to bean
-				viewCusBean.setCid(customerBean.getCid());
-				viewCusBean.setUsername(customerBean.getUsername());
-				viewCusBean.setFirstname(customerBean.getFirstname());
-				viewCusBean.setLastname(customerBean.getLastname());
-				viewCusBean.setAddrline1(customerBean.getAddrline1());
-				viewCusBean.setAddrline2(customerBean.getAddrline2());
-				viewCusBean.setCity(customerBean.getCity());
-				viewCusBean.setState(customerBean.getState());
-				viewCusBean.setZip(customerBean.getZip());
-				viewCusBean.setCash(customerBean.getCash());
-				
-				//other data load
-				
-				System.out.println("User Name:" + customerBean.getUsername());				
-				
-				//add the bean to the List
-				customerList.add(viewCusBean);
-			}
-			
 			request.setAttribute("customerList",customerList);
 			
-			System.out.println(customerBeans[0].getUsername());
+			if (customerBeans.length>0) {
+				for(CustomerBean customerBean: customerBeans) {
+					
+					ViewCustomerAccountBean viewCusBean = new ViewCustomerAccountBean();
+					
+					//load data to bean
+					viewCusBean.setCid(customerBean.getCid());
+					viewCusBean.setUsername(customerBean.getUsername());
+					viewCusBean.setFirstname(customerBean.getFirstname());
+					viewCusBean.setLastname(customerBean.getLastname());
+					viewCusBean.setAddrline1(customerBean.getAddrline1());
+					viewCusBean.setAddrline2(customerBean.getAddrline2());
+					viewCusBean.setCity(customerBean.getCity());
+					viewCusBean.setState(customerBean.getState());
+					viewCusBean.setZip(customerBean.getZip());
+					viewCusBean.setCash(customerBean.getCash());
+					
+					//other data load
+					
+					System.out.println("User Name:" + customerBean.getUsername());				
+					
+					//add the bean to the List
+					customerList.add(viewCusBean);
+				}
+				
+				
+				
+				System.out.println(customerBeans[0].getUsername());
+			}
+			
+			
 			
 			return "ViewCustomerAccount.jsp";
 			

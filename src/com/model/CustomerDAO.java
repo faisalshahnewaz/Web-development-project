@@ -38,8 +38,16 @@ public class CustomerDAO extends GenericDAO<CustomerBean> {
 	
 	public CustomerBean[] getCustomerList() throws RollbackException{
 		
+		System.out.println("1");
 		CustomerBean[] customerList = match();
-		//Arrays.sort(customerList);
+		System.out.println("2");
+//		Arrays.sort(customerList);
+		return customerList;
+	}
+	
+	public CustomerBean[] getCustomerListbySearch(String username) throws RollbackException{
+		
+		CustomerBean[] customerList = match(MatchArg.containsIgnoreCase("username", username));
 		return customerList;
 	}
 }

@@ -50,25 +50,25 @@ public class ViewCustomerAccount extends Action{
 		try {
 			customerBeans = cDAO.getCustomerList();
 			
-			for(CustomerBean list: customerBeans) {
+			for(CustomerBean customerBean: customerBeans) {
 				
 				ViewCustomerAccountBean viewCusBean = new ViewCustomerAccountBean();
 				
 				//load data to bean
-				viewCusBean.setCid(Integer.toString(list.getCid()));
-				viewCusBean.setUsername(list.getUsername());
-				viewCusBean.setFirstname(list.getFirstname());
-				viewCusBean.setLastname(list.getLastname());
-				viewCusBean.setAddrline1(list.getAddrline1());
-				viewCusBean.setAddrline2(list.getAddrline2());
-				viewCusBean.setCity(list.getCity());
-				viewCusBean.setState(list.getState());
-				viewCusBean.setZip(list.getZip());
-				viewCusBean.setCash(list.getCash());
+				viewCusBean.setCid(Integer.toString(customerBean.getCid()));
+				viewCusBean.setUsername(customerBean.getUsername());
+				viewCusBean.setFirstname(customerBean.getFirstname());
+				viewCusBean.setLastname(customerBean.getLastname());
+				viewCusBean.setAddrline1(customerBean.getAddrline1());
+				viewCusBean.setAddrline2(customerBean.getAddrline2());
+				viewCusBean.setCity(customerBean.getCity());
+				viewCusBean.setState(customerBean.getState());
+				viewCusBean.setZip(customerBean.getZip());
+				viewCusBean.setCash(customerBean.getCash());
 				
 				//other data load
 				
-				System.out.println("User Name:" + list.getUsername());				
+				System.out.println("User Name:" + customerBean.getUsername());				
 				
 				//add the bean to the List
 				customerList.add(viewCusBean);
@@ -76,17 +76,17 @@ public class ViewCustomerAccount extends Action{
 			
 			request.setAttribute("customerList",customerList);
 			
-			
-			
-			
 			System.out.println(customerBeans[0].getUsername());
+			
+			return "ViewCustomerAccount.jsp";
+			
 			
 		} catch (RollbackException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return "EmployeeLoginSuccess.jsp";
+		return "error.jsp";
 	}
 
 	

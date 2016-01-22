@@ -36,19 +36,19 @@ public class CreateFundAction extends Action {
 			request.setAttribute("form",form);
 			
 			if(!form.isPresent()){
-				return "create_fund.jsp";
+				return "CreateFund.jsp";
 			}
 			
 			errors.addAll(form.getValidationErrors());
 			
 			if(errors.size()!=0){
-				return "create_fund.jsp";
+				return "CreateFund.jsp";
 			}
 			
 			FundBean[] fund = fundDAO.match(MatchArg.equals("ticker", form.getTicker()));
 			if(fund.length != 0){
 				errors.add("Ticker already exists");
-				return "create_fund.jsp";
+				return "CreateFund.jsp";
 			}
 			
 			System.out.println("hh");

@@ -11,15 +11,19 @@ import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
 import com.databean.CustomerBean;
+import com.databean.TransactionBean;
 import com.form.DepositeCheckForm;
 import com.model.CustomerDAO;
 import com.model.Model;
+import com.model.TrancDAO;
 
 public class DepositeCheckAction extends Action {
 	private FormBeanFactory<DepositeCheckForm> formBeanFactory = FormBeanFactory.getInstance(DepositeCheckForm.class);
 	CustomerDAO customerDAO;
+	TrancDAO trancDAO;
 	public DepositeCheckAction(Model model) {
 		this.customerDAO = model.getCustomerDAO();
+		this.trancDAO = model.getTrancDAO();
 	}
 	@Override
 	public String getName() {
@@ -28,20 +32,22 @@ public class DepositeCheckAction extends Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		System.out.println("jjj");
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
 		try{
 			DepositeCheckForm form = formBeanFactory.create(request);
 			request.setAttribute("form",form);
 			
+			int depositcheckcid = Integer.parseInt(request.getParameter("depositcheckcid"));
+	        request.setAttribute("depositcheckcid", depositcheckcid);
+			
 			if(!form.isPresent()){
 				return "DepositCheck.jsp";
 			}
 			
-			System.out.print("Username here:" + form.getUsername());
-			System.out.print("Amount here:" + form.getAmount());
-			System.out.print("look 1");
+//			System.out.print("Username here:" + form.getUsername());
+//			System.out.print("Amount here:" + form.getAmount());
+			System.out.print("Deposit Check look 1");
 			
 			
 			errors.addAll(form.getValidationErrors());
@@ -50,26 +56,29 @@ public class DepositeCheckAction extends Action {
 				return "DepositCheck.jsp";
 			}
 			
-			System.out.print("look 2");
 			
-			CustomerBean[] customer = customerDAO.match(MatchArg.equals("username", form.getUsername()));
-			if(customer.length == 0){
-				errors.add("Username does not exist");
-				return "DepositCheck.jsp";
-			}
+//			CustomerBean[] customer = customerDAO.match(MatchArg.equals("username", form.getUsername()));
+//			if(customer.length == 0){
+//				errors.add("Username does not exist");
+//				return "DepositCheck.jsp";
+//			}
 			
-			System.out.print("look 3");
 			
 			//System.out.println("hh");
-			customer[0].setCash(form.getAmount());
 			
-			System.out.print("look 4");
+			TransactionBean tBean = new TransactionBean();
+			tBean.setCid(depositcheckcid);
+			tBean.setTransactiontype("deposit");
 			
-			customerDAO.update(customer[0]);
+			long depositmoney = (long) (1000 * Double.parseDouble(form.getAmount()));
+			
+			tBean.setAmount(depositmoney);
+			
+			trancDAO.create(tBean);
 			
 			System.out.print("look 5");
 			
-			return "CreateFundSuccess.jsp";
+			return "DepositCheckSuccess.jsp";
 		}catch (RollbackException e) {
         	errors.add(e.getMessage());
         	return "error.jsp";

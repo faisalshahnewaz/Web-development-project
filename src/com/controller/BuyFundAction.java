@@ -55,7 +55,7 @@ public class BuyFundAction extends Action {
 			double amount1 = Double.parseDouble(tmpAmount);
 			long money = (long) (1000 * amount1);
 			transaction.setAmount(money);
-			transaction.setCustomerid(c.getCid());
+			transaction.setCid(c.getCid());
 			transaction.setFundid(fb[0].getFundid());
 			transaction.setTransactiontype("buy");
 			tDAO.create(transaction);

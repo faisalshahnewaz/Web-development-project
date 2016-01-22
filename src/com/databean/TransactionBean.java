@@ -27,12 +27,12 @@ public class TransactionBean {
 		this.transactionid = transactionid;
 	}
 	
-	public int getCustomerid() {
+	public int getCid() {
 		return cid;
 	}
 
-	public void setCustomerid(int customerid) {
-		this.cid = customerid;
+	public void setCid(int cid) {
+		this.cid = cid;
 	}
 
 	public int getFundid() {

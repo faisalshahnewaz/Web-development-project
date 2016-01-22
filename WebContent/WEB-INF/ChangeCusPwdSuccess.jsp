@@ -20,21 +20,31 @@
 		<div class="row">
 			<div class="col-md-1"></div>
   			<div class="col-md-2">
-
+  
 			<ul class="nav nav-pills nav-stacked">
-  				<li role="presentation"><a href="EmployeeLogin.do">Login</a></li>
+			
+			<c:choose>
+			<c:when test="${employee == null}">  
+  				<li role="presentation" class="active"><a href="EmployeeLogin.do">Login</a></li>
+  			</c:when>
+  			
+  			<c:otherwise>
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
-  				<li role="presentation" class="active"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li>
-  				<li role="presentation"><a href="#">View Customer Account</a></li>
-  				<li role="presentation"><a href="#">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li>
+  				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
+  				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
+  				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
+  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
   				<li role="presentation"><a href="#">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
+  			</c:otherwise>
+  			</c:choose>
+  			
+  			</ul>
   			</div>
-			</ul>
+  			
 			<div class="col-md-1"></div>
 			<div class="col-md-5">
 				<br>
@@ -45,7 +55,7 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Reset Customer Password Successfully!</h4>
+    					<h4>Change/Reset Password Successfully!</h4>
   					</div>
 				</form>
 			</div>

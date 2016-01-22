@@ -9,19 +9,19 @@ import java.util.List;
 import org.mybeans.form.FormBean;
 
 public class ChangeCustomerPasswordForm extends FormBean{
-	 	private String username;
-	    private String oldPassword;
+//	 	private String username;
+//	    private String oldPassword;
 	    private String newPassword;
 	    private String confirmPassword;
 	    private String action;
 
-	    public String getUsername() {
-	        return username;
-	    }
+//	    public String getUsername() {
+//	        return username;
+//	    }
 
-	    public String getOldPassword() {
-	        return oldPassword;
-	    }
+//	    public String getOldPassword() {
+//	        return oldPassword;
+//	    }
 	    
 	    public String getNewPassword() {
 	        return newPassword;
@@ -33,8 +33,8 @@ public class ChangeCustomerPasswordForm extends FormBean{
 	    public String getAction() {
 	        return action;
 	    }
-	    public void setUsername(String s)  { username = s.trim(); }
-	    public void setOldPassword(String s)  { oldPassword = s.trim(); }
+//	    public void setUsername(String s)  { username = s.trim(); }
+//	    public void setOldPassword(String s)  { oldPassword = s.trim(); }
 	    public void setNewPassword(String s)  { newPassword = s.trim(); }
 	    public void setConfirmPassword(String s) { confirmPassword = s.trim(); }
 	    public void setAction(String s)    { action   = s;        }
@@ -44,10 +44,10 @@ public class ChangeCustomerPasswordForm extends FormBean{
 
 	    public List<String> getValidationErrors() {
 	        List<String> errors = new ArrayList<String>();
-	        if (username == null || username.trim().length() == 0)
-	            errors.add("Username is required");
-	        if (oldPassword == null || oldPassword.length() == 0)
-	            errors.add("Old password is required");
+//	        if (username == null || username.trim().length() == 0)
+//	            errors.add("Username is required");
+//	        if (oldPassword == null || oldPassword.length() == 0)
+//	            errors.add("Old password is required");
 	        if (newPassword == null || newPassword.length() == 0)
 	            errors.add("New password is required");
 	        if (confirmPassword == null || confirmPassword.length() == 0)
@@ -62,8 +62,8 @@ public class ChangeCustomerPasswordForm extends FormBean{
 	        }
 	        if (!action.equals("Change"))
 	            errors.add("Invalid button");
-	        if (username.matches(".*[<>\"].*"))
-	            errors.add("Email may not contain angle brackets or quotes");
+//	        if (username.matches(".*[<>\"].*"))
+//	            errors.add("Email may not contain angle brackets or quotes");
 
 	        return errors;
 	    }

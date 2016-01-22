@@ -22,28 +22,19 @@
   			<div class="col-md-2">
   
 			<ul class="nav nav-pills nav-stacked">
-			
-			<c:choose>
-			<c:when test="${employee == null}">  
-  				<li role="presentation" class="active"><a href="EmployeeLogin.do">Login</a></li>
-  			</c:when>
-  			
-  			<c:otherwise>
+  				<li role="presentation"><a href="EmployeeLogin.do">Login</a></li>
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
-  				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
-  				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
-  				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
-  				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
-  				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="#">Transition Day</a></li>
+  				<li role="presentation"><a href="create_customer_acnt.html">Create Customer Account</a></li>
+  				<li role="presentation"><a href="reset_customer_pwd.html">Reset Customer Password</a></li>
+  				<li role="presentation"><a href="view_customer_activity.html">View Customer Account</a></li>
+  				<li role="presentation"><a href="transactions_history.html">View Customer Transaction History</a></li>
+  				<li role="presentation"><a href="deposit.html">Deposit Check</a></li>
+  				<li role="presentation" class="active"><a href="CreateFund.do">Create Fund</a></li>
+  				<li role="presentation"><a href="transition_day.html">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
-  			</c:otherwise>
-  			</c:choose>
-  			
-  			</ul>
   			</div>
+			</ul>
 			
 			<div class="col-md-6">
 				<br>
@@ -51,36 +42,32 @@
 				<br>
 				<div class="col-sm-1"></div>
 				<div class="col-sm-11">
-					<div class="header"><h3>Deposit Check</div>
+					<div class="header"><h3>Create Fund</div>
 				</div>
 				<br>
 				<br>
 				<br>
 				<br>
 				<br>
-				<form class="form-horizontal" action="DepositCheck.do" method="POST">
-					<!-- <div class="form-group">
-    					<label for="username" class="col-sm-4 control-label">Customer Username</label>
+				<form class="form-horizontal">
+					<div class="form-group">
+    					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
     					<div class="col-sm-8">
-      						<input type="text" name="username" class="form-control" id="username">
+      						<input type="text" class="form-control" id="fundname" name="fundName">
     					</div>
-  					</div> -->
+  					</div>
   					<div class="form-group">
-    					<label for="amount" class="col-sm-4 control-label">Deposit Amount</label>
+    					<label for="ticker" class="col-sm-4 control-label">Ticker</label>
     					<div class="col-sm-8">
-    						<input type="hidden" name="depositcheckcid" value="${ depositcheckcid }" />
-      						<input type="text" name="amount" class="form-control" id="amount">
+      						<input type="text" class="form-control" id="ticker" name="ticker">
     					</div>
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary" name = "action" value="DepositCheck">Confirm</button>
+      						<button type="submit" class="btn btn-primary" name = "action" value="CreateFund">Create</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       						<button type="submit" class="btn btn-default">Cancel</button>
     					</div>
   					</div>
-  					<c:forEach var="error" items="${errors}">   
-			   		 	<div id="errormsg"> ${error} </div>
-					</c:forEach>
 				</form>
 			</div>
 			<div class="col-md-2"></div>

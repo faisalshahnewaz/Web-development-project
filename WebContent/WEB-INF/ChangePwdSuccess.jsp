@@ -43,7 +43,7 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Change Customer Password Successfully!</h4>
+    					<h4>Change Password Successfully!</h4>
   					</div>
 				</form>
 			</div>

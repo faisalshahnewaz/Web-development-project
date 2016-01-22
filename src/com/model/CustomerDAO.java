@@ -19,6 +19,9 @@ public class CustomerDAO extends GenericDAO<CustomerBean> {
 	public void changePassword(String username, String newPassword)throws RollbackException{
 		try{
 			Transaction.begin();
+			
+			System.out.println("Change Pwd in DAO: username:" + username);
+			
 			CustomerBean[] customer = match(MatchArg.equals("username", username));
 			if(customer.length == 0){
 				throw new RollbackException("Not found");

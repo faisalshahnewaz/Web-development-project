@@ -51,55 +51,89 @@
 				<br>
 				<div class="col-sm-1"></div>
 				<div class="col-sm-11">
-					<div class="header"><h3>Create Employee Account</div>
+					<div class="header"><h3>Transaction History</h3></div>
 				</div>
 				<br>
 				<br>
 				<br>
 				<br>
 				<br>
-				<form class="form-horizontal" action="createEmployee.do" method="POST">
+				
+			<table width="100%" class="favoritetable">
+			<col width="10%">
+			<col width="10%">
+			<col width="10%">
+			<col width="10%">
+			<col width="10%">
+			<col width="10%">
+			<col width="10%">
+			<tr class="title">
+				<td>Number</td>
+				<td>Type</td>
+				<td>Fund Name</td>
+				<td>Transaction Date</td>
+				<td>Shares</td>
+				<td>Amount</td>
+				<td>Status</td>
+			</tr>
+				
+				<c:set var="count" value="0" />
+				<c:forEach var="transaction" items="${transactions}">
+				<c:set var="count" value="${ count+1 }" />
+
+           		<tr>
+           			<td style="text-align:left"> ${ count } </td>
+       				<td>
+			            <span style="text-align:left">
+        					${ transaction.transactiontype }
+        				</span>
+        			</td>
+        			<td>
+        				<span style="text-align:left">
+        					<%-- Fund Name --%>
+        				</span>
+                    </td>
+                    <td>
+        				<span style="text-align:left">
+        					${ transaction.executedate }
+        				</span>
+                    </td>
+                    <td>
+        				<span style="text-align:left">
+        					${ transaction.shares }
+        				</span>
+                    </td>
+                    <td>
+        				<span style="text-align:left">
+        					${ transaction.amount }
+        				</span>
+                    </td>
+   				</tr>
+   				
+			</c:forEach>
+			
+			</table>
+				
+				<!-- <form class="form-horizontal">
 					<div class="form-group">
-    					<label for="username" class="col-sm-4 control-label">User Name</label>
+    					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
     					<div class="col-sm-8">
-      						<input type="text" name="username" value="${form.username}" class="form-control" id="username">
+      						<input type="text" class="form-control" id="fundname" name="fundName">
     					</div>
   					</div>
   					<div class="form-group">
-    					<label for="firstname" class="col-sm-4 control-label">First Name</label>
+    					<label for="ticker" class="col-sm-4 control-label">Ticker</label>
     					<div class="col-sm-8">
-      						<input type="text" name="firstname" value="${form.firstname}" class="form-control" id="firstname">
+      						<input type="text" class="form-control" id="ticker" name="ticker">
     					</div>
-  					</div>
-  					<div class="form-group">
-    					<label for="lastname" class="col-sm-4 control-label">Last Name</label>
-    					<div class="col-sm-8">
-      						<input type="text" name="lastname" value="${form.lastname}" class="form-control" id="lastname">
-    					</div>
-  					</div>
-  					<div class="form-group">
-    					<label for="inputPassword" class="col-sm-4 control-label">Password</label>
-   						 <div class="col-sm-8">
-      						<input type="password" name="password" class="form-control" id="inputPassword">
-   						</div>
-  					</div>
-  					<div class="form-group">
-    					<label for="inputPassword1" class="col-sm-4 control-label">Confirm Password</label>
-   						 <div class="col-sm-8">
-      						<input type="password" name="confirm" class="form-control" id="inputPassword1">
-   						</div>
-  					</div>
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" name="action" value="Create" class="btn btn-primary">Confirm</button>
+      						<button type="submit" class="btn btn-primary" name = "action" value="CreateFund">Create</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="submit" class="btn btn-default">Reset</button>
+      						<button type="submit" class="btn btn-default">Cancel</button>
     					</div>
   					</div>
-  					<c:forEach var="error" items="${errors}">   
-			   		 <div id="errormsg"> ${error} </div>
-					</c:forEach>
-				</form>
+				</form> -->
 			</div>
 			<div class="col-md-2"></div>
 			<div class="col-md-1"></div>

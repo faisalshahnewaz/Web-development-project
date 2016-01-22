@@ -44,12 +44,19 @@ public class ChangeCustomerPasswordAction extends Action{
         try {
 	    	ChangeCustomerPasswordForm form = formBeanFactory.create(request);
 	        request.setAttribute("form",form);
+	        
+	        String resetpwdusername = request.getParameter("resetpwdusername");
+	        request.setAttribute("resetpwdusername", resetpwdusername);
+	        
+	        System.out.println("Change Pwd in Action username 1: " + resetpwdusername);
 
 	        // If no params were passed, return with no errors so that the form will be
 	        // presented (we assume for the first time).
 	        if (!form.isPresent()) {
 	            return "ChangeCustomerPassword.jsp";
 	        }
+	        
+	        System.out.println("Change Pwd: STEP 1");
 
 	        // Any validation errors?
 	        errors.addAll(form.getValidationErrors());
@@ -57,28 +64,32 @@ public class ChangeCustomerPasswordAction extends Action{
 	            return "ChangeCustomerPassword.jsp";
 	        }
 
-       		
+       		System.out.println("Change Pwd: STEP 2");
 
-	        // Look up the user
-	        //User user = userDAO.read(form.getUserName());
-	        CustomerBean[] customer = cDAO.match(MatchArg.equals("username",form.getUsername()));
-	        
-	        if (customer.length == 0) {
-	            errors.add("Name not found");
-	            return "ChangeCustomerPassword.jsp";
-	        }
-
-	        // Check the password
-	        if (!customer[0].getPassword().equals(form.getOldPassword())) {
-	            errors.add("Incorrect password");
-	            return "ChangeCustomerPassword.jsp";
-	        }
+//	        // Look up the user
+//	        //User user = userDAO.read(form.getUserName());
+//	        CustomerBean[] customer = cDAO.match(MatchArg.equals("username",form.getUsername()));
+//	        
+//	        if (customer.length == 0) {
+//	            errors.add("Name not found");
+//	            return "ChangeCustomerPassword.jsp";
+//	        }
+//
+//	        // Check the password
+//	        if (!customer[0].getPassword().equals(form.getOldPassword())) {
+//	            errors.add("Incorrect password");
+//	            return "ChangeCustomerPassword.jsp";
+//	        }
 	
 	        // Attach (this copy of) the user bean to the session
-	        cDAO.changePassword(customer[0].getUsername(), form.getNewPassword());
+       		System.out.println("Change Pwd in Action username 2: " + resetpwdusername);
+       		
+	        cDAO.changePassword(resetpwdusername, form.getNewPassword());
 	     //   message = "Password Changed successfully";
 	  //      request.setAttribute("message", message);
 	        // If redirectTo is null, redirect to the "todolist" action
+	        System.out.println("Change Pwd: STEP 3");
+	        
 			return "ChangeCusPwdSuccess.jsp";
         } catch (RollbackException e) {
         	errors.add(e.getMessage());

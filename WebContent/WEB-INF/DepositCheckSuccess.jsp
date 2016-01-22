@@ -55,7 +55,7 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Fund Created Successfully!</h4>
+    					<h4>Deposit Check Successfully!</h4>
   					</div>
 				</form>
 			</div>

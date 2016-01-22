@@ -6,17 +6,17 @@ import java.util.List;
 import org.mybeans.form.FormBean;
 
 public class DepositeCheckForm extends FormBean {
-	private String username;
+//	private String username;
 	private String amount;
 	private String action;
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
+//	public String getUsername() {
+//		return username;
+//	}
+//
+//	public void setUsername(String username) {
+//		this.username = username;
+//	}
 
 	public String getAmount() {
 		return amount;
@@ -40,12 +40,12 @@ public class DepositeCheckForm extends FormBean {
 
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
-		if (username == null || username.trim().length() == 0) {
-			errors.add("Username not present");
-		}
-		if (username.matches(".*[<>\"].*")) {
-			errors.add("Username may not contain angle brackets or quotes");
-		}
+//		if (username == null || username.trim().length() == 0) {
+//			errors.add("Username not present");
+//		}
+//		if (username.matches(".*[<>\"].*")) {
+//			errors.add("Username may not contain angle brackets or quotes");
+//		}
 		
 		System.out.print("Step1:" + amount);
 		

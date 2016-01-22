@@ -44,53 +44,36 @@
   			
   			</ul>
   			</div>
-  			
-			<div class="col-md-1"></div>
-			<div class="col-md-5">
+			
+			<div class="col-md-6">
 				<br>
 				<br>
-				<div class="header"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change Password</div>
+				<br>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-11">
+					<div class="header"><h3>Create Fund</div>
+				</div>
 				<br>
 				<br>
-				<form class="form-horizontal" action="ChangeCustomerPassword.do" method="POST">
-					<!-- <div class="form-group">
-    					<label for="username" class="col-sm-4 control-label">Username</label>
-   						 <div class="col-sm-8">
-      						<input type="text" name="username" class="form-control" id="username" placeholder="User Name">
-   						</div>
-  					</div> -->
-  					<!-- <div class="form-group">
-    					<label for="inputPassword" class="col-sm-4 control-label">Old Password</label>
-   						 <div class="col-sm-8">
-      						<input type="password" name="oldPassword" class="form-control" id="inputPassword" placeholder="Password">
-   						</div>
-  					</div> -->
-  					<div class="form-group">
-    					<label for="inputPassword" class="col-sm-4 control-label">New Password</label>
-   						 <div class="col-sm-8">
-   						 	<input type="hidden" name="resetpwdusername" value="${ resetpwdusername }" />
-      						<input type="password" name="newPassword" class="form-control" id="inputPassword" placeholder="Password">
-   						</div>
-  					</div>
-  					<div class="form-group">
-    					<label for="inputPassword1" class="col-sm-4 control-label">Confirm Password</label>
-   						 <div class="col-sm-8">
-      						<input type="password" name="confirmPassword" class="form-control" id="inputPassword1" placeholder="Password">
-   						</div>
-  					</div>
-  					<div class="form-group">
-    					<div class="col-sm-offset-4 col-sm-8">
-      						<div class="checkbox">
-        					<label>
-          						<input type="checkbox"> Remember me
-        					</label>
-      						</div>
+				<br>
+				<br>
+				<br>
+				<form class="form-horizontal">
+					<div class="form-group">
+    					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
+    					<div class="col-sm-8">
+      						<input type="text" class="form-control" id="fundname" name="fundName">
     					</div>
   					</div>
   					<div class="form-group">
+    					<label for="ticker" class="col-sm-4 control-label">Ticker</label>
+    					<div class="col-sm-8">
+      						<input type="text" class="form-control" id="ticker" name="ticker">
+    					</div>
+  					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" name="action" value = "Change" class="btn btn-primary">Change Password</button>
-      						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      						<button type="submit" class="btn btn-primary" name = "action" value="CreateFund">Create</button>
+      						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       						<button type="submit" class="btn btn-default">Cancel</button>
     					</div>
   					</div>

@@ -22,19 +22,28 @@
   			<div class="col-md-2">
   
 			<ul class="nav nav-pills nav-stacked">
-  				<li role="presentation"><a href="EmployeeLogin.do">Login</a></li>
+			
+			<c:choose>
+			<c:when test="${employee == null}">  
+  				<li role="presentation" class="active"><a href="EmployeeLogin.do">Login</a></li>
+  			</c:when>
+  			
+  			<c:otherwise>
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
-  				<li role="presentation" class="active"><a href="CreateCustomer.do">Create Customer Account</a></li>
-  				<li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li>
-  				<li role="presentation"><a href="view_customer_activity.html">View Customer Account</a></li>
-  				<li role="presentation"><a href="transactions_history.html">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li>
+  				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
+  				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
+  				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
+  				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
+  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="transition_day.html">Transition Day</a></li>
+  				<li role="presentation"><a href="#">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
+  			</c:otherwise>
+  			</c:choose>
+  			
+  			</ul>
   			</div>
-			</ul>
 			
 			<div class="col-md-6">
 				<div class="col-sm-1"></div>

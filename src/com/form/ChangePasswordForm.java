@@ -10,14 +10,7 @@ public class ChangePasswordForm extends FormBean {
     private String newPassword;
     private String confirmPassword;
     private String action;
-    private String username;
     
-    public String getUserName() {
-    	return username;
-    }
-    public void setUserName(String username) {
-    	this.username = username;
-    }
     public String getOldPassword() {
 		return oldPassword;
 	}
@@ -51,9 +44,6 @@ public class ChangePasswordForm extends FormBean {
 		
 		List<String> errors = new ArrayList<String>();
 		
-		if (username == null || username.length() == 0) {
-			errors.add("Please input username");
-		}
 		//check confirm pass null or empty
 		if(oldPassword == null || oldPassword.length() == 0) {
 			errors.add("Insert old password");
@@ -62,8 +52,14 @@ public class ChangePasswordForm extends FormBean {
 		if(newPassword == null || newPassword.length() == 0) {
 			errors.add("Insert new password");
 		}
-		if(newPassword != confirmPassword) {
-			errors.add("New password doesn't match");
+		
+		System.out.println("Change Password:" + oldPassword + newPassword + confirmPassword);
+		
+		if(confirmPassword == null || confirmPassword.length() == 0) {
+			errors.add("Insert confirm password");
+		}
+		if(newPassword != null && confirmPassword != null && newPassword != confirmPassword) {
+			errors.add("New passwords do not match");
 		}
 		//action check
 		if(action == null) {

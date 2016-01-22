@@ -22,17 +22,24 @@
   			<div class="col-md-2">
   
 			<ul class="nav nav-pills nav-stacked">
-  				<li role="presentation"><a href="CustomerLogin.do">Login</a></li>
- 				<li role="presentation" class="active"><a href="ChangePassword.do">Change Password</a></li>
-  				<li role="presentation"><a href="view_portfolio.html">View Portfolio</a></li>
-  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
-  				<li role="presentation"><a href="sell_fund.html">Sell Fund</a></li>
-  				<li role="presentation"><a href="transaction_history">Transaction History</a></li>
-  				<li role="presentation"><a href="research.html">Research Fund</a></li>
-  				<li role="presentation"><a href="request_check.html">Request Check</a></li>
-  				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
+			
+				<c:choose>
+				<c:when test="${customer == null}">  
+  					<li role="presentation" class="active"><a href="CustomerLogin.do">Login</a></li>
+  				</c:when>
+  				<c:otherwise>
+	 				<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->
+	  				<li role="presentation" class="active"><a href="ViewAccount.do">Manage Account</a></li>
+	  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
+	  				<li role="presentation"><a href="SellFund.do">Sell Fund</a></li>
+	  				<!-- <li role="presentation"><a href="ViewSelfTransactionHistory.do">Transaction History</a></li> -->
+	  				<li role="presentation"><a href="ResearchFund.do">Research Fund</a></li>
+	  				<!-- <li role="presentation"><a href="RequestCheck.do">Request Check</a></li> -->
+	  				<li role="presentation"><a href="CustomerLogout.do">Log Out</a></li>
+	  			</c:otherwise>
+  				</c:choose>
+  			</ul>
   			</div>
-			</ul>
 			
 			<div class="col-md-1"></div>
       <div class="col-md-5">
@@ -44,27 +51,21 @@
         <br>
         <form class="form-horizontal" action="ChangePassword.do" method="POST">
             <div class="form-group">
-              <label for="username" class="col-sm-4 control-label">User Name</label>
-               <div class="col-sm-8">
-                  <input type="text" name="username" class="form-control" id="username" placeholder="User Name">
-              </div>
-            </div>
-            <div class="form-group">
               <label for="inputPassword" class="col-sm-4 control-label">Old Password</label>
                <div class="col-sm-8">
-                  <input type="password" name="oldPassword" class="form-control" id="inputPassword" placeholder="Password">
+                  <input type="password" name="oldPassword" class="form-control" id="inputPassword" placeholder="Required">
               </div>
             </div>
             <div class="form-group">
               <label for="inputPassword1" class="col-sm-4 control-label">New Password</label>
                <div class="col-sm-8">
-                  <input type="password" name="newPassword" class="form-control" id="inputPassword1" placeholder="Password">
+                  <input type="password" name="newPassword" class="form-control" id="inputPassword1" placeholder="Required">
               </div>
             </div>
             <div class="form-group">
               <label for="inputPassword2" class="col-sm-4 control-label">Confirm Password</label>
                <div class="col-sm-8">
-                  <input type="password" name="confirmPassword" class="form-control" id="inputPassword2" placeholder="Password">
+                  <input type="password" name="confirmPassword" class="form-control" id="inputPassword2" placeholder="Required">
               </div>
             </div>
             <br>
@@ -73,7 +74,7 @@
               <div class="col-sm-offset-4 col-sm-8">
                   <button type="submit" name="action" value="Change" class="btn btn-primary">Change Password</button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <button type="submit" class="btn btn-default">Cancel</button>
+                  <button type="reset" class="btn btn-default">Reset</button>
               </div>
             </div>
             <c:forEach var="error" items="${errors}">   

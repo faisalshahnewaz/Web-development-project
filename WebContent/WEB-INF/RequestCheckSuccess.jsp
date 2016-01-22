@@ -51,7 +51,7 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Change Password Successfully!</h4>
+    					<h4>Request Check Successfully!</h4>
   					</div>
 				</form>
 			</div>

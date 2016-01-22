@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>CFS for Customer</title>
+		<title>CFS for Employee</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col-md-1"></div>
   			<div class="col-md-2">
-
+  
 			<ul class="nav nav-pills nav-stacked">
 			
 				<c:choose>
@@ -40,19 +40,44 @@
   				</c:choose>
   			</ul>
   			</div>
-  			
-			<div class="col-md-1"></div>
-			<div class="col-md-5">
+			
+			<div class="col-md-6">
+				<br>
+				<br>
+				<br>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-11">
+					<div class="header"><h3>Request Check</div>
+				</div>
 				<br>
 				<br>
 				<br>
 				<br>
-				
-				
-				<form class="form-horizontal">
+				<br>
+				<form class="form-horizontal" action="RequestCheck.do" method="POST">
+					<!-- <div class="form-group">
+    					<label for="username" class="col-sm-4 control-label">Customer Username</label>
+    					<div class="col-sm-8">
+      						<input type="text" name="username" class="form-control" id="username">
+    					</div>
+  					</div> -->
   					<div class="form-group">
-    					<h4>Change Password Successfully!</h4>
+    					<label for="amount" class="col-sm-4 control-label">Request Amount</label>
+    					<div class="col-sm-8">
+    						<%-- <input type="hidden" name="depositcheckcid" value="${ depositcheckcid }" /> --%>
+      						<input type="text" name="amount" class="form-control" id="amount" placeholder="Required">
+    					</div>
+    				</div>
+  					<div class="form-group">
+    					<div class="col-sm-offset-4 col-sm-8">
+      						<button type="submit" class="btn btn-primary" name = "action" value="RequestCheck">Confirm</button>
+      						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      						<button type="reset" class="btn btn-default">Reset</button>
+    					</div>
   					</div>
+  					<c:forEach var="error" items="${errors}">   
+			   		 	<div id="errormsg"> ${error} </div>
+					</c:forEach>
 				</form>
 			</div>
 			<div class="col-md-2"></div>

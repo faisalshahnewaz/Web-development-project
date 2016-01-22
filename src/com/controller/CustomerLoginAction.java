@@ -36,7 +36,7 @@ public class CustomerLoginAction extends Action {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		if (session.getAttribute("customer") != null) {
-        	return "success.jsp";
+        	return "CustomerLoginSuccess.jsp";
         }
 		List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);

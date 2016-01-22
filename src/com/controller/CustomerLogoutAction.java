@@ -23,7 +23,7 @@ public class CustomerLogoutAction extends Action{
     	HttpSession session = request.getSession(false);
         session.setAttribute("customer",null);
         session.invalidate();
-		return "CustomerLogin.jsp";
+		return "Index.jsp";
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
@@ -29,6 +30,7 @@ public class ChangePasswordAction extends Action {
 	}
 	@Override
 	public String perform(HttpServletRequest request) {
+		HttpSession session = request.getSession();
 		
 		List<String> errors = new ArrayList<String>(); 
 		request.setAttribute("errors", errors);
@@ -38,6 +40,9 @@ public class ChangePasswordAction extends Action {
 			//load the form params to a form bean
 			ChangePasswordForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
+			
+			String changepwdusername = request.getParameter("changepwdusername");
+	        request.setAttribute("changepwdusername", changepwdusername);
 			
 			//if no param redirect to change pass jsp (1st time)
 			if(!form.isPresent()) {
@@ -50,20 +55,22 @@ public class ChangePasswordAction extends Action {
 			}
 			
 			//look up the employee and check is this the right employee
-			CustomerBean[] customer = customerDAO.match(MatchArg.equals("username", form.getUserName()));
-			if(customer.length == 0) {
-				errors.add("No user name found");
-				return "ChangePassword.jsp";
-			}
+//			CustomerBean[] customer = customerDAO.match(MatchArg.equals("username", form.getUserName()));
+//			if(customer.length == 0) {
+//				errors.add("No username found");
+//				return "ChangePassword.jsp";
+//			}
 			
 			//check old password field matches?
-			if(!customer[0].getPassword().equals(form.getOldPassword())) {
-				errors.add("Old password does not match");
+			CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+			
+			if(customer.getPassword().equals(form.getOldPassword())) {
+				errors.add("Old password is wrong");
 				return "ChangePassword.jsp";
 			}
 			
 			//if no error then,
-			customerDAO.changePassword(customer[0].getUsername(), form.getNewPassword());
+			customerDAO.changePassword(changepwdusername, form.getNewPassword());
 			
 			return "ChangePwdSuccess.jsp";
 			

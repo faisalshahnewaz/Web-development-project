@@ -39,6 +39,8 @@ public class Controller extends HttpServlet {
         Action.add(new ViewAccount(model));
         Action.add(new ViewSelfTransactionHistory(model));
         Action.add(new RequestCheckAction(model));
+        
+        //
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

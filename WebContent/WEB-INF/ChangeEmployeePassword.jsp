@@ -29,7 +29,7 @@
   			</c:when>
   			
   			<c:otherwise>
- 				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
+ 				<li role="presentation"  class="active"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
@@ -56,26 +56,26 @@
   					<div class="form-group">
     					<label for="inputOldPassword" class="col-sm-4 control-label">Old Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" name="oldPassword" value="" class="form-control" id="inputOldPassword" placeholder="Old Password">
+      						<input type="password" name="oldPassword" value="" class="form-control" id="inputOldPassword" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="inputPassword" class="col-sm-4 control-label">New Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" name="newPassword" value="" class="form-control" id="inputPassword" placeholder="Password">
+      						<input type="password" name="newPassword" value="" class="form-control" id="inputPassword" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="inputPassword1" class="col-sm-4 control-label">Confirm Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" name="confirmPassword" value="" class="form-control" id="inputPassword1" placeholder="Password">
+      						<input type="password" name="confirmPassword" value="" class="form-control" id="inputPassword1" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
       						<button type="submit" class="btn btn-primary">Change Password</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="submit" name="action" value="Change" class="btn btn-default">Cancel</button>
+      						<button type="reset" name="action" value="Change" class="btn btn-default">Reset</button>
     					</div>
   					</div>
   					<c:forEach var="error" items="${errors}">   

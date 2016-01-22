@@ -36,7 +36,7 @@
   				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
-  				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
+  				<li role="presentation" class="active"><a href="CreateFund.do">Create Fund</a></li>
   				<li role="presentation"><a href="#">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
@@ -70,13 +70,17 @@
     					<div class="col-sm-8">
       						<input type="text" class="form-control" id="ticker" name="ticker">
     					</div>
+    				</div>
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
       						<button type="submit" class="btn btn-primary" name = "action" value="CreateFund">Create</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="submit" class="btn btn-default">Cancel</button>
+      						<button type="reset" class="btn btn-default">Reset</button>
     					</div>
   					</div>
+  					<c:forEach var="error" items="${errors}">   
+			   		 	<div id="errormsg"> ${error} </div>
+					</c:forEach>
 				</form>
 			</div>
 			<div class="col-md-2"></div>

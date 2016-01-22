@@ -57,15 +57,15 @@
 				
 				<form class="form-horizontal" action="EmployeeLogin.do" method="POST">
   					<div class="form-group">
-    					<label for="username" class="col-sm-2 control-label">User Name</label>
+    					<label for="username" class="col-sm-2 control-label">Username</label>
     					<div class="col-sm-10">
-      						<input type="text" class="form-control" id="username" name="username" placeholder="User Name">
+      						<input type="text" class="form-control" id="username" name="username" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="inputPassword" class="col-sm-2 control-label">Password</label>
    						 <div class="col-sm-10">
-      						<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+      						<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">

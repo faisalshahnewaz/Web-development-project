@@ -33,7 +33,7 @@
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
-  				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
+  				<li role="presentation" class="active"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
@@ -49,7 +49,7 @@
 			<div class="col-md-5">
 				<br>
 				<br>
-				<div class="header"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change Password</div>
+				<div class="header"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reset Customer Password</div>
 				<br>
 				<br>
 				<form class="form-horizontal" action="ChangeCustomerPassword.do" method="POST">
@@ -69,16 +69,16 @@
     					<label for="inputPassword" class="col-sm-4 control-label">New Password</label>
    						 <div class="col-sm-8">
    						 	<input type="hidden" name="resetpwdusername" value="${ resetpwdusername }" />
-      						<input type="password" name="newPassword" class="form-control" id="inputPassword" placeholder="Password">
+      						<input type="password" name="newPassword" class="form-control" id="inputPassword" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="inputPassword1" class="col-sm-4 control-label">Confirm Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" name="confirmPassword" class="form-control" id="inputPassword1" placeholder="Password">
+      						<input type="password" name="confirmPassword" class="form-control" id="inputPassword1" placeholder="Required">
    						</div>
   					</div>
-  					<div class="form-group">
+  					<!-- <div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
       						<div class="checkbox">
         					<label>
@@ -86,12 +86,12 @@
         					</label>
       						</div>
     					</div>
-  					</div>
+  					</div> -->
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" name="action" value = "Change" class="btn btn-primary">Change Password</button>
+      						<button type="submit" name="action" value = "Change" class="btn btn-primary">Reset Password</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="submit" class="btn btn-default">Cancel</button>
+      						<button type="reset" class="btn btn-default">Reset</button>
     					</div>
   					</div>
 				</form>

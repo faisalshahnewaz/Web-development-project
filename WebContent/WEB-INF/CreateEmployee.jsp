@@ -30,7 +30,7 @@
   			
   			<c:otherwise>
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
-  				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
+  				<li role="presentation" class="active"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
   				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
@@ -93,7 +93,7 @@
     					<div class="col-sm-offset-4 col-sm-8">
       						<button type="submit" name="action" value="Create" class="btn btn-primary">Confirm</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="submit" class="btn btn-default">Reset</button>
+      						<button type="reset" class="btn btn-default">Reset</button>
     					</div>
   					</div>
   					<c:forEach var="error" items="${errors}">   

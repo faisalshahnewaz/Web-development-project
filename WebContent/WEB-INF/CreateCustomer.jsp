@@ -31,7 +31,7 @@
   			<c:otherwise>
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
-  				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
+  				<li role="presentation" class="active"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
   				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
@@ -58,61 +58,61 @@
 					<div class="form-group">
     					<label for="username" class="col-sm-4 control-label">User Name</label>
     					<div class="col-sm-8">
-      						<input type="text" name="username" class="form-control" id="username">
+      						<input type="text" name="username" class="form-control" id="username" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="firstname" class="col-sm-4 control-label">First Name</label>
     					<div class="col-sm-8">
-      						<input type="text" name="firstname" class="form-control" id="firstname">
+      						<input type="text" name="firstname" class="form-control" id="firstname" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="lastname" class="col-sm-4 control-label">Last Name</label>
     					<div class="col-sm-8">
-      						<input type="text" name="lastname" class="form-control" id="lastname">
+      						<input type="text" name="lastname" class="form-control" id="lastname" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="inputPassword" class="col-sm-4 control-label">Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" name="password" class="form-control" id="inputPassword">
+      						<input type="password" name="password" class="form-control" id="inputPassword" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="inputPassword1" class="col-sm-4 control-label">Confirm Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" name="confirmpassword" class="form-control" id="inputPassword1">
+      						<input type="password" name="confirmpassword" class="form-control" id="inputPassword1" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
-    					<label for="address1" class="col-sm-4 control-label">Address line1</label>
+    					<label for="address1" class="col-sm-4 control-label">Address Line1</label>
    						 <div class="col-sm-8">
-      						<input type="text" name="addrline1" class="form-control" id="address1">
+      						<input type="text" name="addrline1" class="form-control" id="address1" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
-    					<label for="address2" class="col-sm-4 control-label">Address line2</label>
+    					<label for="address2" class="col-sm-4 control-label">Address Line2</label>
    						 <div class="col-sm-8">
-      						<input type="text" name="addrline2" class="form-control" id="address2">
+      						<input type="text" name="addrline2" class="form-control" id="address2" placeholder="Optional">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="city" class="col-sm-4 control-label">City</label>
    						 <div class="col-sm-8">
-      						<input type="text" name="city" class="form-control" id="city">
+      						<input type="text" name="city" class="form-control" id="city" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="state" class="col-sm-4 control-label">State</label>
    						 <div class="col-sm-8">
-      						<input type="text" class="form-control" id="state" name="state">
+      						<input type="text" class="form-control" id="state" name="state" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="cash" class="col-sm-4 control-label">Zip</label>
    						 <div class="col-sm-8">
-      						<input type="text" class="form-control" name = "zip" id="zip">
+      						<input type="text" class="form-control" name = "zip" id="zip" placeholder="Required">
    						</div>
   					</div>
   					
@@ -120,9 +120,12 @@
     					<div class="col-sm-offset-4 col-sm-8">
       						<button type="submit" class="btn btn-primary">Confirm</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="submit" class="btn btn-default">Reset</button>
+      						<button type="reset" class="btn btn-default">Reset</button>
     					</div>
   					</div>
+  					<c:forEach var="error" items="${errors}">   
+			   		 	<div id="errormsg"> ${error} </div>
+					</c:forEach>
 				</form>
 			</div>
 			<div class="col-md-2"></div>

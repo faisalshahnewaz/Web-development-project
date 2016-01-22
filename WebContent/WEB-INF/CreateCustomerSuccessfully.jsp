@@ -31,7 +31,7 @@
   			<c:otherwise>
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
-  				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
+  				<li role="presentation" class="active"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
   				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>

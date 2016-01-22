@@ -1,7 +1,7 @@
 package com.model;
-
-import java.util.Arrays;
-
+/**
+ * @author faisalshahnewaz.
+ */
 import org.genericdao.ConnectionPool;
 import org.genericdao.DAOException;
 import org.genericdao.GenericDAO;
@@ -38,9 +38,7 @@ public class CustomerDAO extends GenericDAO<CustomerBean> {
 	
 	public CustomerBean[] getCustomerList() throws RollbackException{
 		
-		System.out.println("1");
 		CustomerBean[] customerList = match();
-		System.out.println("2");
 //		Arrays.sort(customerList);
 		return customerList;
 	}

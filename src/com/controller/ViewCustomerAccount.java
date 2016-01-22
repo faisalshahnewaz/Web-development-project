@@ -69,9 +69,7 @@ public class ViewCustomerAccount extends Action{
 					
 					//add the bean to the List
 					customerList.add(viewCusBean);
-				}
-				
-				
+				}				
 				
 				System.out.println(customerBeans[0].getUsername());
 			}

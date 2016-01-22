@@ -7,7 +7,9 @@ package com.form;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewCustomerAccountSearchForm {
+import org.mybeans.form.FormBean;
+
+public class ViewCustomerAccountSearchForm extends FormBean{
 
 	private String username;
 

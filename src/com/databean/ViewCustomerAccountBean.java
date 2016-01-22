@@ -3,7 +3,7 @@ package com.databean;
 public class ViewCustomerAccountBean {
 
 	//customerbean
-	private String cid;
+	private int cid;
 	private String username;
 	private String firstname;
 	private String lastname;
@@ -13,12 +13,12 @@ public class ViewCustomerAccountBean {
 	private String city;
 	private String state;
 	private String zip;
-	private String cash;
+	private long cash;
 	
-	public String getCid() {
+	public int getCid() {
 		return cid;
 	}
-	public void setCid(String cid) {
+	public void setCid(int cid) {
 		this.cid = cid;
 	}
 	public String getUsername() {
@@ -75,10 +75,10 @@ public class ViewCustomerAccountBean {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-	public String getCash() {
+	public long getCash() {
 		return cash;
 	}
-	public void setCash(String cash) {
+	public void setCash(long cash) {
 		this.cash = cash;
 	}
 	

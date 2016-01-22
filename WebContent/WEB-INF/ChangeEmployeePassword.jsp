@@ -68,14 +68,14 @@
   					<div class="form-group">
     					<label for="inputPassword1" class="col-sm-4 control-label">Confirm Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" name="confirmPassword" value="" class="form-control" id="inputPassword1" placeholder="Required">
+      						<input type="password" name="confirmPassword" value="" class="form-control" id="inputConfirmPassword" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary">Change Password</button>
+      						<button type="submit" name="action" value="Change" class="btn btn-primary">Change Password</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="reset" name="action" value="Change" class="btn btn-default">Reset</button>
+      						<button type="reset"  class="btn btn-default">Reset</button>
     					</div>
   					</div>
   					<c:forEach var="error" items="${errors}">   

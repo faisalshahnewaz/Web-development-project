@@ -105,7 +105,7 @@
                     </td>
                     <td>
         				<span style="text-align:left">
-        					${ transaction.amount }
+        					${ transaction.amount / 1000.000 }
         				</span>
                     </td>
    				</tr>

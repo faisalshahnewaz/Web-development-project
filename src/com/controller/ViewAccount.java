@@ -45,7 +45,7 @@ public class ViewAccount extends Action{
 				ViewCustomerAccountBean viewCusBean = new ViewCustomerAccountBean();
 				
 				//load data to bean
-				viewCusBean.setCid(Integer.toString(customerBean.getCid()));
+				viewCusBean.setCid(customerBean.getCid());
 				viewCusBean.setUsername(customerBean.getUsername());
 				viewCusBean.setFirstname(customerBean.getFirstname());
 				viewCusBean.setLastname(customerBean.getLastname());

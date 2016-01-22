@@ -71,11 +71,12 @@
     						<input type="hidden" name="depositcheckcid" value="${ depositcheckcid }" />
       						<input type="text" name="amount" class="form-control" id="amount">
     					</div>
+    				</div>
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
       						<button type="submit" class="btn btn-primary" name = "action" value="DepositCheck">Confirm</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="submit" class="btn btn-default">Cancel</button>
+      						<button type="reset" class="btn btn-default">Reset</button>
     					</div>
   					</div>
   					<c:forEach var="error" items="${errors}">   

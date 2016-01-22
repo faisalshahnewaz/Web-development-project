@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
@@ -51,26 +52,26 @@ public class ChangeEmployeePasswordAction extends Action{
 			if(errors.size()>0) {
 				return "ChangeEmployeePassword.jsp";
 			}
-			
+			HttpSession session = request.getSession();
 			//look up the employee and check is this the right employee
-			EmployeeBean[] employee = employeeDAO.match(MatchArg.equals("username", form.getUsername()));
-			if(employee.length == 0) {
+			EmployeeBean employee = (EmployeeBean)session.getAttribute("employee");
+			/*if(employee.length == 0) {
 				errors.add("No user name found");
 				return "ChangeEmployeePassword.jsp";
-			}
+			}*/
 			
 			//check old password field matches?
-			if(!employee[0].getPassword().equals(form.getOldPassword())) {
+			if(!employee.getPassword().equals(form.getOldPassword())) {
 				errors.add("Old password does not match");
 				return "ChangeEmployeePassword.jsp";
 			}
 			
 			//if no error then,
-			employeeDAO.changePassword(employee[0].getUsername(), form.getNewPassword());
+			employeeDAO.changePassword(employee.getUsername(), form.getNewPassword());
 			
 			
 //			return "EmployeeLogin.jsp";
-			return "ChangeCusPwdSuccess.jsp";
+			return "ChangePwdSuccess.jsp";
 			
 		} catch (FormBeanException e) {
 			errors.add(e.toString());

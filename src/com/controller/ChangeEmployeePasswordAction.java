@@ -71,7 +71,7 @@ public class ChangeEmployeePasswordAction extends Action{
 			
 			
 //			return "EmployeeLogin.jsp";
-			return "ChangePwdSuccess.jsp";
+			return "ChangeEmployeePwdSuccess.jsp";
 			
 		} catch (FormBeanException e) {
 			errors.add(e.toString());

@@ -53,19 +53,19 @@
             <div class="form-group">
               <label for="inputPassword" class="col-sm-4 control-label">Old Password</label>
                <div class="col-sm-8">
-                  <input type="password" name="oldPassword" class="form-control" id="inputPassword" placeholder="Required">
+                  <input type="password" name="oldPassword" class="form-control" id="inputOldPassword" placeholder="Required">
               </div>
             </div>
             <div class="form-group">
               <label for="inputPassword1" class="col-sm-4 control-label">New Password</label>
                <div class="col-sm-8">
-                  <input type="password" name="newPassword" class="form-control" id="inputPassword1" placeholder="Required">
+                  <input type="password" name="newPassword" class="form-control" id="inputNewPassword" placeholder="Required">
               </div>
             </div>
             <div class="form-group">
               <label for="inputPassword2" class="col-sm-4 control-label">Confirm Password</label>
                <div class="col-sm-8">
-                  <input type="password" name="confirmPassword" class="form-control" id="inputPassword2" placeholder="Required">
+                  <input type="password" name="confirmPassword" class="form-control" id="inputConfirmPassword" placeholder="Required">
               </div>
             </div>
             <br>

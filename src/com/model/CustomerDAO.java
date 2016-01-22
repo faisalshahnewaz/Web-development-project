@@ -1,7 +1,7 @@
 package com.model;
-
-import java.util.Arrays;
-
+/**
+ * @author faisalshahnewaz.
+ */
 import org.genericdao.ConnectionPool;
 import org.genericdao.DAOException;
 import org.genericdao.GenericDAO;
@@ -39,7 +39,13 @@ public class CustomerDAO extends GenericDAO<CustomerBean> {
 	public CustomerBean[] getCustomerList() throws RollbackException{
 		
 		CustomerBean[] customerList = match();
-		//Arrays.sort(customerList);
+//		Arrays.sort(customerList);
+		return customerList;
+	}
+	
+	public CustomerBean[] getCustomerListbySearch(String username) throws RollbackException{
+		
+		CustomerBean[] customerList = match(MatchArg.containsIgnoreCase("username", username));
 		return customerList;
 	}
 }

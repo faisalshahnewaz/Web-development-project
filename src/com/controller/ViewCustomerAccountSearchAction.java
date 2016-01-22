@@ -6,31 +6,36 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.genericdao.RollbackException;
+import org.mybeans.form.FormBeanException;
+import org.mybeans.form.FormBeanFactory;
 
 import com.databean.CustomerBean;
 import com.databean.ViewCustomerAccountBean;
+import com.form.ChangeCustomerPasswordForm;
+import com.form.ViewCustomerAccountSearchForm;
 import com.model.CustomerDAO;
 import com.model.Model;
 
+public class ViewCustomerAccountSearchAction extends Action{
 
-public class ViewCustomerAccount extends Action{
-
-	
+	private FormBeanFactory<ViewCustomerAccountSearchForm> formBeanFactory = FormBeanFactory.getInstance(ViewCustomerAccountSearchForm.class);
 	private CustomerDAO cDAO;
 	
-	public ViewCustomerAccount(Model model) {
+	public ViewCustomerAccountSearchAction(Model model) {
 		cDAO = model.getCustomerDAO();
 	}
-	
+
 	@Override
 	public String getName() {
-		
-		return "ViewCustomerAccount.do";
+		return "ViewCustomerAccountSearch.do";
 	}
 
 	@Override
 	public String perform(HttpServletRequest request) {
 		
+		List<String> errors = new ArrayList<String>();
+        request.setAttribute("errors",errors);
+        
 		/*
 		 * 1.get the list of customers from CustomerDAO
 		 * 2. create a list of View customer account to hold the objects of view customer acc.bean.
@@ -43,7 +48,11 @@ public class ViewCustomerAccount extends Action{
 		List<ViewCustomerAccountBean> customerList = new ArrayList<ViewCustomerAccountBean>();
 		
 		try {
-			customerBeans = cDAO.getCustomerList();
+			
+			ViewCustomerAccountSearchForm form = formBeanFactory.create(request);
+	        request.setAttribute("form",form);
+			
+			customerBeans = cDAO.getCustomerListbySearch(form.getUsername());
 			request.setAttribute("customerList",customerList);
 			
 			if (customerBeans.length>0) {
@@ -74,18 +83,14 @@ public class ViewCustomerAccount extends Action{
 				System.out.println(customerBeans[0].getUsername());
 			}
 			
-			
-			
 			return "ViewCustomerAccount.jsp";
 			
-			
 		} catch (RollbackException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			errors.add(e.getMessage());
+		} catch (FormBeanException e) {
+			errors.add(e.getMessage());
 		}
 		
 		return "error.jsp";
 	}
-
-	
 }

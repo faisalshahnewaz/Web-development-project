@@ -56,11 +56,12 @@
   					<c:choose>
   					<c:when test="${fundHistory == null}">
   					<c:forEach var="fund" items="${fundList}">
-  					<a href="ResearchFund.do?fundId=<c:out value ="${fund.fundid}"/>">${fund.fundName }</a>
+  					<a href="ResearchFund.do?fundId=<c:out value ="${fund.fundid}"/>" class="list-group-item">${fund.fundName }</a>
+  					<br>
   					</c:forEach>
   					</c:when>
   					<c:otherwise>
-  					<h2>${fund.fundName }</h2>      
+  					<h2>${fundName }</h2>      
 					  <table class="table">
 					    <thead>
 					      <tr>
@@ -69,14 +70,12 @@
 					      </tr>
 					    </thead>
 					    <tbody>
+					      <c:forEach var="datePrice" items="${fundHistory}"> 
 					      <tr>
-					        <td>John</td>
-					        <td>Doe</td>
+					        <td>${datePrice.pricedate }</td>
+					        <td>${datePrice.price }</td>
 					      </tr>
-					      <tr>
-					        <td>Mary</td>
-					        <td>Moe</td>
-					      </tr>
+					      </c:forEach>
 					    </tbody>
 					  </table>	
   					</c:otherwise>

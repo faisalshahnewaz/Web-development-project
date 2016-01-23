@@ -146,6 +146,10 @@
    				
 			</c:forEach>
 			
+			<c:forEach var="error" items="${errors}">   
+			<div id="errormsg"> ${error} </div>
+			</c:forEach>
+			
 			</table>
 			</div>
 			<div class="col-md-2"></div>

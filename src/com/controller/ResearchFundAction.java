@@ -63,7 +63,6 @@ public class ResearchFundAction extends Action {
 					request.setAttribute("fundList",fundList);
 					
 					//check if any user exists after search, add error if none
-					
 					if(fundList.length==0) {
 						errors.add("No fund with name "+ form.getFundname() + " exists");
 					}

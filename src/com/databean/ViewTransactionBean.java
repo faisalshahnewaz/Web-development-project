@@ -1,12 +1,7 @@
 package com.databean;
 
-/**
- * @author faisalshahnewaz (andrew id: sfaisal)
- */
-import org.genericdao.PrimaryKey;
 
-@PrimaryKey("transactionid")
-public class TransactionBean {
+public class ViewTransactionBean {
 	private int transactionid;
 	private int cid;
 	private int fundid;
@@ -14,8 +9,9 @@ public class TransactionBean {
 	private long shares;
 	private String transactiontype;
 	private long amount;
+	private String fundname;
 	
-	public TransactionBean() {
+	public ViewTransactionBean() {
 		
 	}
 
@@ -73,6 +69,14 @@ public class TransactionBean {
 
 	public void setAmount(long amount) {
 		this.amount = amount;
+	}
+
+	public String getFundname() {
+		return fundname;
+	}
+
+	public void setFundname(String fundname) {
+		this.fundname = fundname;
 	}
 	
 }

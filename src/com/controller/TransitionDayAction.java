@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.genericdao.DuplicateKeyException;
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
+import org.genericdao.Transaction;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 import java.text.*;
@@ -54,7 +55,7 @@ public class TransitionDayAction extends Action {
 			}
 			for (int i = 0; i < tb.length; i++) {
 				CustomerBean customer = cDAO.read(tb[i].getCid());
-				operation(customer, tb[i], pDAO, cDAO, mapPrice, tb[i].getTransactiontype());
+				operation(customer, tb[i], pDAO, cDAO, tDAO, mapPrice, tb[i].getTransactiontype());
 				tb[i].setExecutedate(date);
 				tDAO.update(tb[i]);
 			}
@@ -74,16 +75,25 @@ public class TransitionDayAction extends Action {
 		bean.setPricedate(priceDate);
 		fphDAO.create(bean);
 	}
-	private void operation(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, Map<Integer, Double> map, String type) throws FormBeanException, RollbackException {
+	private void operation(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, TrancDAO tDAO, Map<Integer, Double> map, String type) throws FormBeanException, RollbackException {
 		switch (type) {
 		case "buy" :
-			opbuy(customer, transaction, pDAO, cDAO, map);
+			opbuy(customer, transaction, pDAO, cDAO, tDAO, map);
+			break;
+		case "sell" :
+			opsell(customer, transaction, pDAO, cDAO, tDAO, map);
+			break;
+		case "request" :
+			oprequest(customer, transaction, pDAO, cDAO, tDAO, map);
+			break;
+		case "deposit" :
+			opdeposit(customer, transaction, pDAO, cDAO, tDAO, map);
 			break;
 		default :
 			
 		}
 	}
-	private void opbuy(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, Map<Integer, Double> map) throws FormBeanException, RollbackException {
+	private void opbuy(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, TrancDAO tDAO, Map<Integer, Double> map) throws FormBeanException, RollbackException {
 		long cash = customer.getCash() - transaction.getAmount();
 		customer.setCash(cash);
 		cDAO.update(customer);
@@ -93,12 +103,39 @@ public class TransitionDayAction extends Action {
 		double share = (((double) transaction.getAmount()) / 100) / map.get(transaction.getFundid());
 		DecimalFormat df = new DecimalFormat("0.000");
 		share = Double.valueOf(df.format(share));
+		transaction.setShares(((long) share) * 1000);
+		tDAO.update(transaction);
 		position.setShares((long) (share * 1000));
 		PositionBean p = pDAO.read(customer.getCid(),transaction.getFundid());
 		if (p == null) {
 			pDAO.create(position);
 		} else {
+			position.setShares(p.getShares() + position.getShares());
 			pDAO.update(position);
 		}
+	}
+	private void opsell(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, TrancDAO tDAO, Map<Integer, Double> map) throws FormBeanException, RollbackException {
+		PositionBean pos = pDAO.read(customer.getCid(),transaction.getFundid());
+		pos.setShares(pos.getShares() - transaction.getShares());
+		pDAO.update(pos);
+		double share = ((double) transaction.getShares()) / 1000;
+		double price = share * map.get(transaction.getFundid());
+		DecimalFormat df = new DecimalFormat("0.00");
+		double money = Double.valueOf(df.format(price));
+		long cash = ((long) money) * 100;
+		customer.setCash(customer.getCash() + cash);
+		cDAO.update(customer);
+		transaction.setAmount(cash);
+		tDAO.update(transaction);
+	}
+	private void opdeposit(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, TrancDAO tDAO, Map<Integer, Double> map) throws FormBeanException, RollbackException {
+		long cash = transaction.getAmount();
+		customer.setCash(customer.getCash() + cash);
+		cDAO.update(customer);
+	}
+	private void oprequest(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, TrancDAO tDAO, Map<Integer, Double> map) throws FormBeanException, RollbackException {
+		long cash = transaction.getAmount();
+		customer.setCash(customer.getCash() - cash);
+		cDAO.update(customer);
 	}
 }

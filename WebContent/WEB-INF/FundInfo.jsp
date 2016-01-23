@@ -24,22 +24,19 @@
 			<ul class="nav nav-pills nav-stacked">
 			
 			<c:choose>
-			<c:when test="${employee == null}">  
-  				<li role="presentation" class="active"><a href="EmployeeLogin.do">Login</a></li>
-  			</c:when>
-  			
-  			<c:otherwise>
- 				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
-  				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
-  				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
-  				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
-  				<li role="presentation" class="active"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
-  				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
-  				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="Date.do">Transition Day</a></li>
-  				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
-  			</c:otherwise>
+			<c:when test="${customer == null}">  
+  					<li role="presentation" class="active"><a href="CustomerLogin.do">Login</a></li>
+  				</c:when>
+  				<c:otherwise>
+	 				<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->
+	  				<li role="presentation" class="active"><a href="ViewAccount.do">Manage Account</a></li>
+	  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
+	  				<li role="presentation"><a href="SellFund.do">Sell Fund</a></li>
+	  				<!-- <li role="presentation"><a href="ViewSelfTransactionHistory.do">Transaction History</a></li> -->
+	  				<li role="presentation"><a href="ResearchFund.do">Research Fund</a></li>
+	  				<!-- <li role="presentation"><a href="RequestCheck.do">Request Check</a></li> -->
+	  				<li role="presentation"><a href="CustomerLogout.do">Log Out</a></li>
+	  			</c:otherwise>
   			</c:choose>
   			
   			</ul>
@@ -75,7 +72,8 @@
 				<td>Shares to Sell</td>
 				<td>Operation</td>
 			</tr>
-				<c:forEach var="fund" items="${fundList}">
+			<form action="SellFund.do" method="POST">
+				<c:forEach var="fund" items="${fundInfo}">
            		<tr>
         			<td>
         				<span style="text-align:center">
@@ -85,12 +83,12 @@
                     </td>
                     <td>
         				<span style="text-align:center">
-        					${ fund.fundName } 
+        					${ fund.fundname } 
         				</span>
                     </td>
                     <td>
         				<span style="text-align:center">
-        					${ fund.shares }
+        					${ fund.share }
         				</span>
                     </td>
                     <td>
@@ -99,15 +97,15 @@
         				</span>
                     </td>
                     <td>
-        				<form action="SellFund.do" method="POST">
                 			<input type="hidden" name="sellFund" value="${ customer.cid }" />
                 			<input type="submit" name="button" value="Sell" />
-           				</form>
                     </td>
    				</tr>
-   				
+   				</c:forEach>
+   				</form>
+			<c:forEach var="error" items="${errors}">   
+			   	<div id="errormsg"> ${error} </div>
 			</c:forEach>
-			
 			</table>
 				
 			</div>

@@ -43,7 +43,8 @@ public class Controller extends HttpServlet {
         Action.add(new DateAction(model));
         Action.add(new TransitionDayAction(model));
         Action.add(new ResearchFundAction(model));
-        //
+        Action.add(new SellFundAction(model));
+        Action.add(new FundInfoAction(model));
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

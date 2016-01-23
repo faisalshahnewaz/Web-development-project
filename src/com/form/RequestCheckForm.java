@@ -67,9 +67,9 @@ public class RequestCheckForm extends FormBean {
 		if (errors.size() > 0) {
 			return errors;
 		}
-		if (Float.parseFloat(amount) <= 0) {
-			errors.add("Amount should be more than zero");
-		}
+//		if (Float.parseFloat(amount) <= 0) {
+//			errors.add("Amount should be more than zero");
+//		}
 		if (!action.equals("RequestCheck")) {
 			errors.add("Invalid Action");
 		}

@@ -23,7 +23,7 @@ public class ResearchFundAction extends Action {
 	}
 	@Override
 	public String getName() {
-		return "researchFund.do";
+		return "ResearchFund.do";
 	}
 
 	@Override
@@ -32,17 +32,21 @@ public class ResearchFundAction extends Action {
 		request.setAttribute("error", errors);
 		
 		try{
-			String fundName = request.getParameter("fundName");
-			if(fundName == null){
+			String fundId = request.getParameter("fundId");
+			if(fundId == null){
 				FundBean[] fundList = fundDAO.match();
 				request.setAttribute("fundList",fundList);
 				return "ResearchFund.jsp";
 			}
-			FundPriceHistoryBean[] fundHistory = fundPriceHistoryDAO.match(MatchArg.equals("fundName", fundName));
+			int fundid = Integer.parseInt(fundId);
+			
+			FundPriceHistoryBean[] fundHistory = fundPriceHistoryDAO.match(MatchArg.equals("fundid", fundid));
 			if(fundHistory.length == 0){
 				errors.add("Cannot find the fund");
 				return "ResearchFund.jsp";
 			}
+			FundBean fund = fundDAO.read(fundid);
+			request.setAttribute("fundName", fund.getFundName());
 			request.setAttribute("fundHistory", fundHistory);
 			return "ResearchFund.jsp";
 		}catch(RollbackException e){

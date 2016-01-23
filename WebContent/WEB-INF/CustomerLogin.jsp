@@ -27,6 +27,7 @@
 				<c:choose>
 				<c:when test="${customer == null}">  
   					<li role="presentation" class="active"><a href="CustomerLogin.do">Login</a></li>
+  					<li role="presentation"><a href="Index.do">Back to Homepage</a></li>
   				</c:when>
   				<c:otherwise>
 	 				<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->

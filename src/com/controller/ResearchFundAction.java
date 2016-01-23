@@ -37,7 +37,7 @@ public class ResearchFundAction extends Action {
 	public String perform(HttpServletRequest request) {
 		
 		List<String> errors = new ArrayList<String>();
-		request.setAttribute("error", errors);
+		request.setAttribute("errors", errors);
 		
 		try{
 			//get the form variable username from jsp request

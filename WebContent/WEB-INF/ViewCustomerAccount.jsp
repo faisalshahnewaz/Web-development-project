@@ -59,9 +59,9 @@
 				<br>
 				<br>
 				
-			<form class="navbar-form navbar-left" role="search">
+			<form class="navbar-form navbar-left" role="search" action="ViewCustomerAccountSearch.do" method="POST">  			
   			<div class="form-group">
-   			 <input type="text" class="form-control" placeholder="Search Customer">
+   			 <input type="text" class="form-control" placeholder="Search by User Name" name = "username">
   			</div>
   			<button type="submit" class="btn btn-default">Submit</button>
 			</form>

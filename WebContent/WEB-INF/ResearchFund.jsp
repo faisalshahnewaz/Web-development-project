@@ -54,9 +54,13 @@
         <br>
   					<div class="list-group">
   					<c:forEach var="fund" items="${fundList}">
-  					<a href="dfd.do?fundId=<c:out value ="${fund.fundid}"/>">${fund.fundName }</a>
+  					<a href="ResearchFund.do?fundId=<c:out value ="${fund.fundid}"/>">${fund.fundName }</a>
   					</c:forEach>
   					</div>
+  					
+  					<c:forEach var="error" items="${errors}">   
+			   		 	<div id="errormsg"> ${error} </div>
+					</c:forEach>
 		</div>
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>

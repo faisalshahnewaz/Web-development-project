@@ -74,6 +74,17 @@ public class BuyFundAction extends Action {
 			String tmpAmount = df.format(amount);
 			double amount1 = Double.parseDouble(tmpAmount);
 			long money = (long) (100 * amount1);
+			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
+			long cash = c.getCash();
+			for (int i = 0; i < tb.length; i++) {
+				if (tb[i].getTransactiontype().equals("buy") && tb[i].getCid() == c.getCid()) {
+					cash -= tb[i].getAmount();
+				}
+			}
+			if (cash - money < 0) {
+				errors.add("Sorry you don't have enough money");
+				return "BuyFund.jsp";
+			}
 			transaction.setAmount(money);
 			transaction.setCid(c.getCid());
 			transaction.setFundid(fb[0].getFundid());

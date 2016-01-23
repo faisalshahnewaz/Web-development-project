@@ -29,8 +29,8 @@
   				</c:when>
   				<c:otherwise>
 	 				<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->
-	  				<li role="presentation"><a href="ViewAccount.do">Manage Account</a></li>
-	  				<li role="presentation" class="active"><a href="BuyFund.do">Buy Fund</a></li>
+	  				<li role="presentation" class="active"><a href="ViewAccount.do">Manage Account</a></li>
+	  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
 	  				<li role="presentation"><a href="SellFund.do">Sell Fund</a></li>
 	  				<!-- <li role="presentation"><a href="ViewSelfTransactionHistory.do">Transaction History</a></li> -->
 	  				<li role="presentation"><a href="ResearchFund.do">Research Fund</a></li>
@@ -51,7 +51,7 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Buy Fund Successfully!</h4>
+    					<h4>Sell Fund Successfully!</h4>
   					</div>
 				</form>
 			</div>

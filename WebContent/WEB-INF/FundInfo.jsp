@@ -37,7 +37,7 @@
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="#">Transition Day</a></li>
+  				<li role="presentation"><a href="Date.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
   			</c:choose>
@@ -51,7 +51,7 @@
 				<br>
 				<div class="col-sm-1"></div>
 				<div class="col-sm-11">
-					<div class="header"><h3>View Customer Account</div>
+					<div class="header"><h3>View Fund Information</div>
 				</div>
 				<br>
 				<br>
@@ -59,14 +59,7 @@
 				<br>
 				<br>
 				
-			<form class="navbar-form navbar-left" role="search" action="ViewCustomerAccountSearch.do" method="POST">  			
-  			<div class="form-group">
-   			 <input type="text" class="form-control" placeholder="Search by User Name" name = "username">
-  			</div>
-  			<button type="submit" class="btn btn-default">Submit</button>
-			</form>
-			
-			<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
+			<table width="100%" class="favoritetable table-bordered table-hover">
 			<col width="12.5%">
 			<col width="12.5%">
 			<col width="12.5%">
@@ -76,75 +69,47 @@
 			<col width="12.5%">
 			<col width="12.5%">
 			<tr class="title">
-				<td>Username</td>
-				<td>Name</td>
-				<td>Address</td>
-				<td>Cash</td>
-				<td>Fund Info</td>
-				<td>Reset Password</td>
-				<td>Deposit Check</td>
-				<td>Transaction History</td>
+				<td>Fund Ticker</td>
+				<td>Fund Name</td>
+				<td>Shares</td>
+				<td>Shares to Sell</td>
+				<td>Operation</td>
 			</tr>
-				
-				<c:set var="count" value="0" />
-				<c:forEach var="customer" items="${customerList}">
-				<c:set var="count" value="${ count+1 }" />
-
-           		<tr class>
- 
+				<c:forEach var="fund" items="${fundList}">
+           		<tr>
         			<td>
-        				<span style="text-align:left" >
-        					${ customer.username }
+        				<span style="text-align:center">
+        					<input type="hidden" name="fundid" value=${ fund.fundid }>
+        					${ fund.ticker }
         				</span>
                     </td>
                     <td>
-        				<span style="text-align:left;">
-        					${ customer.firstname } ${ customer.lastname }
+        				<span style="text-align:center">
+        					${ fund.fundName } 
         				</span>
                     </td>
                     <td>
-        				<span style="text-align:left">
-        					${ customer.addrline1 } ${ customer.addrline2 } ${ customer.city } ${ customer.state }
+        				<span style="text-align:center">
+        					${ fund.shares }
         				</span>
                     </td>
                     <td>
-        				<span style="text-align:left">
-        					${ customer.cash }
+        				<span style="text-align:center">
+        					<input type="text" name="shareSell" value="" />
         				</span>
                     </td>
                     <td>
-        				<form action="CustomerSellFund.do" method="POST">
-                			<input type="hidden" name="customerSellFund" value="${ customer.cid }" />
-                			<input type="submit" name="button" value="Reset" />
-           				</form>
-                    </td>
-                    <td>
-			            <form action="ChangeCustomerPassword.do" method="POST">
-                			<input type="hidden" name="resetpwdusername" value="${ customer.username }" />
-                			<input type="submit" name="button" value="Reset" />
-           				</form>
-        			</td>
-                    <td>
-        				<form action="DepositCheck.do" method="POST">
-                			<input type="hidden" name="depositcheckcid" value="${ customer.cid }" />
-                			<input type="submit" name="button" value="Deposit" />
-           				</form>
-                    </td>
-                    <td>
-        				<form action="ViewTransactionHistory.do" method="POST">
-                			<input type="hidden" name="viewtransactionhistorycid" value="${ customer.cid }" />
-                			<input type="submit" name="button" value="View" />
+        				<form action="SellFund.do" method="POST">
+                			<input type="hidden" name="sellFund" value="${ customer.cid }" />
+                			<input type="submit" name="button" value="Sell" />
            				</form>
                     </td>
    				</tr>
    				
 			</c:forEach>
 			
-			<c:forEach var="error" items="${errors}">   
-			<div id="errormsg"> ${error} </div>
-			</c:forEach>
-			
 			</table>
+				
 			</div>
 			<div class="col-md-2"></div>
 			<div class="col-md-1"></div>

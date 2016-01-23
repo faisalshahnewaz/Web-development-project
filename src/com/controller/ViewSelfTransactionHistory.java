@@ -9,9 +9,12 @@ import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
 
 import com.databean.CustomerBean;
+import com.databean.FundBean;
 import com.databean.TransactionBean;
 import com.databean.ViewCustomerAccountBean;
+import com.databean.ViewTransactionBean;
 import com.model.CustomerDAO;
+import com.model.FundDAO;
 import com.model.Model;
 import com.model.TrancDAO;
 
@@ -21,10 +24,12 @@ public class ViewSelfTransactionHistory extends Action{
 	
 	private CustomerDAO cDAO;
 	private TrancDAO tDAO;
+	private FundDAO fDAO;
 	
 	public ViewSelfTransactionHistory(Model model) {
 		cDAO = model.getCustomerDAO();
 		tDAO = model.getTrancDAO();
+		fDAO = model.getFundDAO();
 	}
 	
 	@Override
@@ -39,16 +44,39 @@ public class ViewSelfTransactionHistory extends Action{
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors",errors);
 		
-		System.out.println("aaaa");
+		List<ViewTransactionBean> transactions = new ArrayList<ViewTransactionBean>();
 		
 		
 		try {
 		
 			TransactionBean[] transactionBeans = tDAO.match(MatchArg.equals("cid", Integer.parseInt(request.getParameter("viewselftransactionhistorycid"))));
+						
 			
-			request.setAttribute("transactions",transactionBeans);
+			for (int i = 0; i < transactionBeans.length; i++) {
+				
+				System.out.println("FundName:" + transactionBeans[i].getFundid());
+				
+				ViewTransactionBean viewTransaction = new ViewTransactionBean();
+				
+				System.out.println(transactionBeans[i].getFundid() != 0);
+				
+				if(transactionBeans[i].getFundid() != 0) {
+					FundBean fund = fDAO.read(transactionBeans[i].getFundid());
+					viewTransaction.setFundname(fund.getFundName());
+				}
+				
+				
+				//System.out.println("FundName:" + fund.getFundName());
+				
+				
+				viewTransaction.setTransactiontype(transactionBeans[i].getTransactiontype());
+				viewTransaction.setAmount(transactionBeans[i].getAmount());
+				viewTransaction.setExecutedate(transactionBeans[i].getExecutedate());
+				viewTransaction.setShares(transactionBeans[i].getShares());
+				transactions.add(viewTransaction);
+			}
 			
-//			System.out.println(customerBeans[0].getUsername());
+			request.setAttribute("transactions",transactions);
 			
 			return "ViewSelfTransactionHistory.jsp";
 			

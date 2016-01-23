@@ -51,39 +51,45 @@ public class ViewCustomerAccountSearchAction extends Action{
 		
 		try {
 			
+			//get the form variable username from jsp request
 			ViewCustomerAccountSearchForm form = formBeanFactory.create(request);
 	        request.setAttribute("form",form);
 			
-			customerBeans = cDAO.getCustomerListbySearch(form.getUsername());
-			request.setAttribute("customerList",customerList);
-			
-			if (customerBeans.length>0) {
-				for(CustomerBean customerBean: customerBeans) {
-					
-					ViewCustomerAccountBean viewCusBean = new ViewCustomerAccountBean();
-					
-					//load data to bean
-					viewCusBean.setCid(customerBean.getCid());
-					viewCusBean.setUsername(customerBean.getUsername());
-					viewCusBean.setFirstname(customerBean.getFirstname());
-					viewCusBean.setLastname(customerBean.getLastname());
-					viewCusBean.setAddrline1(customerBean.getAddrline1());
-					viewCusBean.setAddrline2(customerBean.getAddrline2());
-					viewCusBean.setCity(customerBean.getCity());
-					viewCusBean.setState(customerBean.getState());
-					viewCusBean.setZip(customerBean.getZip());
-					viewCusBean.setCash(customerBean.getCash());
-					
-					//other data load
-					
-					System.out.println("User Name:" + customerBean.getUsername());				
-					
-					//add the bean to the List
-					customerList.add(viewCusBean);
-				}				
+	      //if there is no username send empty list
+	        if(form.getUsername() == null || form.getUsername().trim().length() == 0) {
+	        	//request.setAttribute("customerList",customerList);
+	        } else {
+	        	customerBeans = cDAO.getCustomerListbySearch(form.getUsername());
+				request.setAttribute("customerList",customerList);
 				
-				System.out.println(customerBeans[0].getUsername());
-			}
+				if (customerBeans.length>0) {
+					for(CustomerBean customerBean: customerBeans) {
+						
+						ViewCustomerAccountBean viewCusBean = new ViewCustomerAccountBean();
+						
+						//load data to bean
+						viewCusBean.setCid(customerBean.getCid());
+						viewCusBean.setUsername(customerBean.getUsername());
+						viewCusBean.setFirstname(customerBean.getFirstname());
+						viewCusBean.setLastname(customerBean.getLastname());
+						viewCusBean.setAddrline1(customerBean.getAddrline1());
+						viewCusBean.setAddrline2(customerBean.getAddrline2());
+						viewCusBean.setCity(customerBean.getCity());
+						viewCusBean.setState(customerBean.getState());
+						viewCusBean.setZip(customerBean.getZip());
+						viewCusBean.setCash(customerBean.getCash());
+						
+						//other data load
+						
+						System.out.println("User Name:" + customerBean.getUsername());				
+						
+						//add the bean to the List
+						customerList.add(viewCusBean);
+					}				
+					
+					System.out.println(customerBeans[0].getUsername());
+				}
+	        }	
 			
 			return "ViewCustomerAccount.jsp";
 			

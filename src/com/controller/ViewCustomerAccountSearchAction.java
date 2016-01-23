@@ -1,4 +1,7 @@
 package com.controller;
+/**
+ * @author faisalshahnewaz.
+ */
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +14,6 @@ import org.mybeans.form.FormBeanFactory;
 
 import com.databean.CustomerBean;
 import com.databean.ViewCustomerAccountBean;
-import com.form.ChangeCustomerPasswordForm;
 import com.form.ViewCustomerAccountSearchForm;
 import com.model.CustomerDAO;
 import com.model.Model;

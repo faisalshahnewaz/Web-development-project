@@ -13,7 +13,6 @@ import org.mybeans.form.FormBeanFactory;
 import com.databean.FundBean;
 import com.databean.FundPriceHistoryBean;
 import com.form.ResearchFundSearchForm;
-import com.form.ViewCustomerAccountSearchForm;
 import com.model.FundDAO;
 import com.model.FundPriceHistoryDAO;
 import com.model.Model;
@@ -37,7 +36,7 @@ public class ResearchFundAction extends Action {
 	public String perform(HttpServletRequest request) {
 		
 		List<String> errors = new ArrayList<String>();
-		request.setAttribute("error", errors);
+		request.setAttribute("errors", errors);
 		
 		try{
 			//get the form variable username from jsp request
@@ -62,6 +61,11 @@ public class ResearchFundAction extends Action {
 					fundList = fundDAO.getFundListBySearch(form.getFundname());
 					request.setAttribute("fundList",fundList);
 					
+					//check if any user exists after search, add error if none
+					if(fundList.length==0) {
+						errors.add("No fund with name "+ form.getFundname() + " exists");
+					}
+					
 				}
 				else {
 					fundList = fundDAO.match();
@@ -69,6 +73,7 @@ public class ResearchFundAction extends Action {
 //					return "ResearchFund.jsp";
 				}
 				
+				System.out.println("error"+errors.size());
 				return "ResearchFund.jsp";	
 			}
 			

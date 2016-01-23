@@ -56,7 +56,7 @@
   					<div class="form-group">
     					<label for="date" class="col-sm-4 control-label">Choose Date of Transition Day</label>
    						 <div class="col-sm-8">
-      						<input type="Date" name="pricedate" value="" class="form-control" id="date">
+      						<input type="Date" name="pricedate" value="" class="form-control" id="date" placeholder="mm/dd/yyyy">
    						</div>
   					</div>
   					
@@ -67,9 +67,14 @@
       						<button type="reset"  class="btn btn-default">Reset</button>
     					</div>
   					</div>
-  					<c:forEach var="error" items="${errors}">   
-			   		 	<div id="errormsg"> ${error} </div>
-					</c:forEach>
+  					<div class="form-group">
+  						<div class="col-sm-4"></div>
+  						<div class="col-sm-8">
+  							<c:forEach var="error" items="${errors}">   
+			   		 			<font color="red"><div id="errormsg"> ${error} </div></font> 	
+							</c:forEach>
+						</div>
+					</div>
 				</form>
 			</div>
 			<div class="col-md-2"></div>

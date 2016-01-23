@@ -47,13 +47,13 @@
 				<br>
 				<br>
 				<div class="col-sm-1"></div>
-        <div class="col-sm-11">
+        		<div class="col-sm-11">
 					<div class="header"><h3>Customer Login</div>
-        </div>
+        		</div>
 				<br>
 				<br>
 				<br>
-        <br>
+        		<br>
 				
 				<form class="form-horizontal" action="CustomerLogin.do" method="POST">
   					<div class="form-group">
@@ -82,9 +82,14 @@
       						<button type="submit" class="btn btn-primary">Sign in</button>
     					</div>
   					</div>
-  					<c:forEach var="error" items="${errors}">   
-			   		 	<div id="errormsg"> ${error} </div>
-					</c:forEach>
+  					<div class="form-group">
+  						<div class="col-sm-4"></div>
+  						<div class="col-sm-8">
+  							<c:forEach var="error" items="${errors}">   
+			   		 			<font color="red"><div id="errormsg"> ${error} </div></font> 	
+							</c:forEach>
+						</div>
+					</div>
 				</form>
 			</div>
 			<div class="col-md-3"></div>

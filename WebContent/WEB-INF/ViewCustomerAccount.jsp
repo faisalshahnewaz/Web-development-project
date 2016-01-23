@@ -136,12 +136,7 @@
                 			<input type="submit" name="button" value="View" />
            				</form>
                     </td>
-   				</tr>
-   				
-			</c:forEach>
-			
-			<c:forEach var="error" items="${errors}">   
-			<div id="errormsg"> ${error} </div>
+   				</tr>	
 			</c:forEach>
 			
 			</table>

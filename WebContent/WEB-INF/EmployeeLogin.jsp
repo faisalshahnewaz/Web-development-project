@@ -46,31 +46,33 @@
   			</ul>
   			</div>
 			
-			<div class="col-md-1"></div>
 			<div class="col-md-5">
 				<br>
 				<br>
-				
+				<div class="col-sm-1"></div>
+        		<div class="col-sm-11">
 					<div class="header"><h3>Employee Login</div>
+        		</div>
 				<br>
 				<br>
-				
+				<br>
+       		 	<br>
 				
 				<form class="form-horizontal" action="EmployeeLogin.do" method="POST">
   					<div class="form-group">
-    					<label for="username" class="col-sm-2 control-label">Username</label>
-    					<div class="col-sm-10">
+    					<label for="username" class="col-sm-4 control-label">Username</label>
+    					<div class="col-sm-8">
       						<input type="text" class="form-control" id="username" name="username" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">
-    					<label for="inputPassword" class="col-sm-2 control-label">Password</label>
-   						 <div class="col-sm-10">
+    					<label for="inputPassword" class="col-sm-4 control-label">Password</label>
+   						 <div class="col-sm-8">
       						<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
-    					<div class="col-sm-offset-2 col-sm-10">
+    					<div class="col-sm-offset-4 col-sm-8">
       						<div class="checkbox">
         					<label>
           						<input type="checkbox"> Remember me
@@ -79,13 +81,18 @@
     					</div>
   					</div>
   					<div class="form-group">
-    					<div class="col-sm-offset-2 col-sm-10">
+    					<div class="col-sm-offset-4 col-sm-8">
       						<button type="submit" class="btn btn-primary" name="action" value="Login">Sign in</button>
     					</div>
   					</div>
-  					<c:forEach var="error" items="${errors}">   
-			   		 	<div id="errormsg"> ${error} </div>
-					</c:forEach>
+  					<div class="form-group">
+  						<div class="col-sm-4"></div>
+  						<div class="col-sm-8">
+  							<c:forEach var="error" items="${errors}">   
+			   		 			<font color="red"><div id="errormsg"> ${error} </div></font> 	
+							</c:forEach>
+						</div>
+					</div>
 				</form>
 			</div>
 			<div class="col-md-2"></div>

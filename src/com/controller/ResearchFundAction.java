@@ -39,11 +39,14 @@ public class ResearchFundAction extends Action {
 				return "ResearchFund.jsp";
 			}
 			int fundid = Integer.parseInt(fundId);
+			
 			FundPriceHistoryBean[] fundHistory = fundPriceHistoryDAO.match(MatchArg.equals("fundid", fundid));
 			if(fundHistory.length == 0){
 				errors.add("Cannot find the fund");
 				return "ResearchFund.jsp";
 			}
+			FundBean fund = fundDAO.read(fundid);
+			request.setAttribute("fundName", fund.getFundName());
 			request.setAttribute("fundHistory", fundHistory);
 			return "ResearchFund.jsp";
 		}catch(RollbackException e){

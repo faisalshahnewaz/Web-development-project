@@ -1,0 +1,36 @@
+package com.form;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.mybeans.form.FormBean;
+
+public class DateForm extends FormBean{
+	private String date;
+	private String action;
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
+	public List<String> getValidationErrors(){
+		List<String> errors = new ArrayList<String>();
+		if(date==null||date.length()==0){
+			errors.add("Date is missing");
+		}
+		if(errors.size()>0){
+			return errors;
+		}
+		if(!action.equals("Transit")){
+			errors.add("Invalid Date");
+		}
+		return errors;
+	}
+}

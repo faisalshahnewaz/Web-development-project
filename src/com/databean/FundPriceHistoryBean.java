@@ -23,7 +23,7 @@ public class FundPriceHistoryBean {
 		this.fundid = fundid;
 	}
 	
-	public String getPricedate() {
+    public String getPricedate() {
 		return pricedate;
 	}
 	

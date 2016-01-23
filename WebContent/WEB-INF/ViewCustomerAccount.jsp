@@ -59,7 +59,14 @@
 				<br>
 				<br>
 				
-			<table width="100%" class="favoritetable table-bordered table-hover">
+			<form class="navbar-form navbar-left" role="search">
+  			<div class="form-group">
+   			 <input type="text" class="form-control" placeholder="Search Customer">
+  			</div>
+  			<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+			
+			<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
 			<col width="12.5%">
 			<col width="12.5%">
 			<col width="12.5%">
@@ -83,15 +90,15 @@
 				<c:forEach var="customer" items="${customerList}">
 				<c:set var="count" value="${ count+1 }" />
 
-           		<tr>
+           		<tr class>
  
         			<td>
-        				<span style="text-align:left">
+        				<span style="text-align:left" >
         					${ customer.username }
         				</span>
                     </td>
                     <td>
-        				<span style="text-align:left">
+        				<span style="text-align:left;">
         					${ customer.firstname } ${ customer.lastname }
         				</span>
                     </td>
@@ -140,27 +147,6 @@
 			</c:forEach>
 			
 			</table>
-				
-				<!-- <form class="form-horizontal">
-					<div class="form-group">
-    					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
-    					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="fundname" name="fundName">
-    					</div>
-  					</div>
-  					<div class="form-group">
-    					<label for="ticker" class="col-sm-4 control-label">Ticker</label>
-    					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="ticker" name="ticker">
-    					</div>
-  					<div class="form-group">
-    					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary" name = "action" value="CreateFund">Create</button>
-      						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="submit" class="btn btn-default">Cancel</button>
-    					</div>
-  					</div>
-				</form> -->
 			</div>
 			<div class="col-md-2"></div>
 			<div class="col-md-1"></div>

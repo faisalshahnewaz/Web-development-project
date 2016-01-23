@@ -111,17 +111,11 @@
         				</span>
                     </td>
                     <td>
-        				<span style="text-align:left">
-        					<%-- Fund Info --%>
-        				</span>
+        				<form action="SellFund.do" method="POST">
+                			<input type="hidden" name="sellFund" value="${ customer.cid }" />
+                			<input type="submit" name="button" value="View" />
+           				</form>
                     </td>
-        			<%-- <td>
-        				<span style="text-align:left">
-	        				<a href="ChangeCustomerPassword.do?resetpwdusername=${ customer.username }">
-	        					Deposit Check
-	        				</a>
-        				</span>
-                    </td> --%>
                     <td>
 			            <form action="ChangePassword.do" method="POST">
                 			<input type="hidden" name="changepwdusername" value="${ customer.username }" />
@@ -146,26 +140,6 @@
 			
 			</table>
 				
-				<!-- <form class="form-horizontal">
-					<div class="form-group">
-    					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
-    					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="fundname" name="fundName">
-    					</div>
-  					</div>
-  					<div class="form-group">
-    					<label for="ticker" class="col-sm-4 control-label">Ticker</label>
-    					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="ticker" name="ticker">
-    					</div>
-  					<div class="form-group">
-    					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary" name = "action" value="CreateFund">Create</button>
-      						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="submit" class="btn btn-default">Cancel</button>
-    					</div>
-  					</div>
-				</form> -->
 			</div>
 			<div class="col-md-2"></div>
 			<div class="col-md-1"></div>

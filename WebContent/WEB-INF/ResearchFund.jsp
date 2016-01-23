@@ -103,7 +103,7 @@
 					"trendLines": [],
 					"graphs": [
 						{
-							"balloonText": "[[title]] as of [[category]] was valued at [[value]]",
+							"balloonText": "[[title]] as of [[category]] was valued at $[[value]]",
 							"bullet": "round",
 							"id": "",
 							"title": "${fundName }",

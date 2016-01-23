@@ -62,7 +62,6 @@
 			<col width="10%">
 			<col width="10%">
 			<col width="10%">
-			<col width="10%">
 			<tr class="title">
 				<td>Number</td>
 				<td>Type</td>
@@ -70,7 +69,6 @@
 				<td>Transaction Date</td>
 				<td>Shares</td>
 				<td>Amount</td>
-				<td>Status</td>
 			</tr>
 				
 				<c:set var="count" value="0" />
@@ -101,7 +99,7 @@
                     </td>
                     <td>
         				<span style="text-align:left">
-        					${ transaction.amount / 1000.000}
+        					${ transaction.amount}
         				</span>
                     </td>
    				</tr>

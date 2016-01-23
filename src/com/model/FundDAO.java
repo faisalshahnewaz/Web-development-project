@@ -13,6 +13,11 @@ public class FundDAO extends GenericDAO<FundBean>{
 		super(FundBean.class,tableName,cp);
 	}
 	
+	public FundBean[] getFundList() throws RollbackException{
+		FundBean[] fundList = match();
+		return fundList;
+	}
+	
 	public FundBean[] getFundListBySearch(String ticker) throws RollbackException {
 		FundBean[] fundList = match(MatchArg.contains("ticker", ticker));
 		return fundList;

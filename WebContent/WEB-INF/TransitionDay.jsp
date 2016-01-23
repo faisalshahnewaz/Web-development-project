@@ -37,7 +37,7 @@
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="TransitionDay.do">Transition Day</a></li>
+  				<li role="presentation"><a href="Date.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
   			</c:choose>
@@ -52,17 +52,17 @@
 				<div class="header"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transition Day</div>
 				<br>
 				<br>
-				<form class="form-horizontal" action="TransitionDay.do" method="POST">
+				<form class="form-horizontal" action="Date.do" method="POST">
   					<div class="form-group">
     					<label for="date" class="col-sm-4 control-label">Choose Date of Transition Day</label>
    						 <div class="col-sm-8">
-      						<input type="date" name="date" value="" class="form-control" id="date">
+      						<input type="Date" name="pricedate" value="" class="form-control" id="date">
    						</div>
   					</div>
   					
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" name="action" value="Change" class="btn btn-primary">Confirm Date</button>
+      						<button type="submit" name="action" value="Transit" class="btn btn-primary">Confirm Date</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       						<button type="reset"  class="btn btn-default">Reset</button>
     					</div>

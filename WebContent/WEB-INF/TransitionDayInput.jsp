@@ -37,7 +37,7 @@
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation" class="active"><a href="TransitionDay.do">Transition Day</a></li>
+  				<li role="presentation" class="active"><a href="Date.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
   			</c:choose>
@@ -77,7 +77,7 @@
 						<td>Price</td>
 					</tr>
 				
-					<c:forEach var="fund" items="${fundList}">
+					<c:forEach var="fund" items="${fundBeans}">
            			<tr>
         				<td>
         					<span style="text-align:left">
@@ -96,7 +96,7 @@
                     	</td>
                     	<td>
         					<span style="text-align:left">
-        						<input type="text" name="price" value="${ fund.price }" />
+        						<input type="text" name="price" value="" />
         					</span>
                     	</td>  
    					</tr>

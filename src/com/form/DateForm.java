@@ -6,13 +6,13 @@ import java.util.List;
 import org.mybeans.form.FormBean;
 
 public class DateForm extends FormBean{
-	private String date;
+	private String pricedate;
 	private String action;
-	public String getDate() {
-		return date;
+	public String getPricedate() {
+		return pricedate;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setPricedate(String date) {
+		this.pricedate = date;
 	}
 	public String getAction() {
 		return action;
@@ -22,7 +22,7 @@ public class DateForm extends FormBean{
 	}
 	public List<String> getValidationErrors(){
 		List<String> errors = new ArrayList<String>();
-		if(date==null||date.length()==0){
+		if(pricedate==null || pricedate.length()==0){
 			errors.add("Date is missing");
 		}
 		if(errors.size()>0){

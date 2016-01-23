@@ -6,6 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>CFS for Customer</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/themes/patterns.js"></script>
 	</head>
 	<body>
 		<div class="row">
@@ -86,6 +90,60 @@
 					      </tr>
 					      </c:forEach>
 					    </tbody>
+					    	<script type="text/javascript">
+			AmCharts.makeChart("chartdiv",
+				{
+					"type": "serial",
+					"categoryField": "category",
+					"startDuration": 1,
+					"theme": "patterns",
+					"categoryAxis": {
+						"gridPosition": "start"
+					},
+					"trendLines": [],
+					"graphs": [
+						{
+							"balloonText": "[[title]] as of [[category]] was valued at [[value]]",
+							"bullet": "round",
+							"id": "",
+							"title": "${fundName }",
+							"valueField": "column-1"
+						}
+					],
+					"guides": [],
+					"valueAxes": [
+						{
+							"id": "ValueAxis-1",
+							"title": "Price ($)"
+						}
+					],
+					"allLabels": [],
+					"balloon": {},
+					"legend": {
+						"enabled": false,
+						"useGraphSettings": false
+					},
+					"titles": [
+						{
+							"id": "Title-1",
+							"size": 15,
+							"text": "How has ${fundName } been doing?"
+						}
+					],
+					"dataProvider": [
+					 				<c:forEach var="graph" items="${fundHistory}">
+									{
+										"category": "${graph.pricedate}",
+										"column-1": "${graph.price}",
+									},						
+								</c:forEach>
+									]
+
+						
+				}
+			);
+		</script>
+					    <div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF;" ></div>
 					  </table>	
   					</c:otherwise>
   					</c:choose>
@@ -94,6 +152,7 @@
   					<c:forEach var="error" items="${errors}">   
 			   		 	<div id="errormsg"> ${error} </div>
 					</c:forEach>
+					
 		</div>
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>

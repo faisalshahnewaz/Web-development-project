@@ -51,12 +51,20 @@ public class ViewCustomerAccountSearchAction extends Action{
 		
 		try {
 			
+			//get the form variable username from jsp request
 			ViewCustomerAccountSearchForm form = formBeanFactory.create(request);
 	        request.setAttribute("form",form);
 			
-			customerBeans = cDAO.getCustomerListbySearch(form.getUsername());
+	        //check if any validation error
+	        errors.addAll(form.getValidationErrors());
+	        if(errors.size()>0) {
+	        	return "ViewCustomerAccount.jsp";
+	        }
+	       	
+	        customerBeans = cDAO.getCustomerListbySearch(form.getUsername());
 			request.setAttribute("customerList",customerList);
 			
+			//check if there is any customer?
 			if (customerBeans.length>0) {
 				for(CustomerBean customerBean: customerBeans) {
 					
@@ -83,8 +91,9 @@ public class ViewCustomerAccountSearchAction extends Action{
 				}				
 				
 				System.out.println(customerBeans[0].getUsername());
+			} else {
+				errors.add("No customer found");
 			}
-			
 			return "ViewCustomerAccount.jsp";
 			
 		} catch (RollbackException e) {

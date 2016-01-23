@@ -113,7 +113,7 @@
                     <td>
         				<form action="FundInfo.do" method="POST">
                 			<input type="hidden" name="sellFund" value="${ customer.cid }" />
-                			<input type="submit" name="button" value="View" />
+                			<input type="submit" name="action" value="View" />
            				</form>
                     </td>
                     <td>

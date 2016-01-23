@@ -88,7 +88,7 @@
         			</td>
         			<td>
         				<span style="text-align:left">
-        					<%-- Fund Name --%>
+        					${ transaction.fundname }
         				</span>
                     </td>
                     <td>

@@ -42,6 +42,7 @@ public class Controller extends HttpServlet {
         Action.add(new RequestCheckAction(model));
         Action.add(new DateAction(model));
         Action.add(new TransitionDayAction(model));
+        Action.add(new ResearchFundAction(model));
         //
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)

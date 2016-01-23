@@ -87,6 +87,7 @@ public class ResearchFundAction extends Action {
 			FundBean fund = fundDAO.read(fundid);
 			request.setAttribute("fundName", fund.getFundName());
 			request.setAttribute("fundHistory", fundHistory);
+			request.setAttribute("tickerName", fund.getTicker());
 			return "ResearchFund.jsp";
 		}catch(RollbackException e){
 			errors.add("Exception");

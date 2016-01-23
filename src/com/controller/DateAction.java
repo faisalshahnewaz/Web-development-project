@@ -65,25 +65,25 @@ public class DateAction extends Action {
 			int i = 1;
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-			Date maxdate = sdf.parse(fundHistoryBean[0].getPricedate());
-			while(i<fundHistoryBean.length){
-				Date temp = sdf.parse(fundHistoryBean[i].getPricedate());
-				if(maxdate.compareTo(temp) > 0){
-					maxdate = temp;
+			if (fundHistoryBean.length != 0) {
+				Date maxdate = sdf.parse(fundHistoryBean[0].getPricedate());
+				while(i<fundHistoryBean.length){
+					Date temp = sdf.parse(fundHistoryBean[i].getPricedate());
+					if(maxdate.compareTo(temp) > 0){
+						maxdate = temp;
+					}
+					i++;
 				}
-				i++;
+				Date transactionDate = sdf.parse(form.getPricedate());
+				if(transactionDate.compareTo(maxdate) <= 0){
+					errors.add("Transition day for this date has already occured");
+					return "TransitionDay.jsp";
+				}
 			}
-			
-			Date transactionDate = sdf.parse(form.getDate());
-			if(transactionDate.compareTo(maxdate) <= 0){
-				errors.add("Transition day for this date has already occured");
-				return "TransitionDay.jsp";
-			}
-			
 			FundBean[] fundBeans = fundDAO.match();
 			request.setAttribute("fundBeans", fundBeans);
-			
-			return "TransitionDay.jsp";
+			session.setAttribute("date", form.getPricedate());
+			return "TransitionDayInput.jsp";
 		}catch (FormBeanException e) {
 			errors.add(e.toString());
 			return "TransitionDay.jsp";

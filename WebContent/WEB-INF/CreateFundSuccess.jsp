@@ -37,7 +37,7 @@
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation" class="active"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="#">Transition Day</a></li>
+  				<li role="presentation"><a href="Date.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
   			</c:choose>

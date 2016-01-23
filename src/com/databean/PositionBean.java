@@ -5,11 +5,11 @@ package com.databean;
  */
 import org.genericdao.PrimaryKey;
 
-@PrimaryKey("customerid, fundid")
+@PrimaryKey("customerid,fundid")
 public class PositionBean {
 	private int customerid;
 	private int fundid;
-	private int shares;
+	private long shares;
 	
 	public PositionBean() {
 		
@@ -31,11 +31,11 @@ public class PositionBean {
 		this.fundid = fundid;
 	}
 	
-	public int getShares() {
+	public long getShares() {
 		return shares;
 	}
 	
-	public void setShares(int shares) {
+	public void setShares(long shares) {
 		this.shares = shares;
 	}
 	

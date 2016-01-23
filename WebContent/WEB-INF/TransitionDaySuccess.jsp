@@ -49,50 +49,13 @@
 			<div class="col-md-5">
 				<br>
 				<br>
-				<div class="header"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reset Customer Password</div>
 				<br>
 				<br>
-				<form class="form-horizontal" action="ChangeCustomerPassword.do" method="POST">
-					<!-- <div class="form-group">
-    					<label for="username" class="col-sm-4 control-label">Username</label>
-   						 <div class="col-sm-8">
-      						<input type="text" name="username" class="form-control" id="username" placeholder="User Name">
-   						</div>
-  					</div> -->
-  					<!-- <div class="form-group">
-    					<label for="inputPassword" class="col-sm-4 control-label">Old Password</label>
-   						 <div class="col-sm-8">
-      						<input type="password" name="oldPassword" class="form-control" id="inputPassword" placeholder="Password">
-   						</div>
-  					</div> -->
+				
+				
+				<form class="form-horizontal">
   					<div class="form-group">
-    					<label for="inputPassword" class="col-sm-4 control-label">New Password</label>
-   						 <div class="col-sm-8">
-   						 	<input type="hidden" name="resetpwdusername" value="${ resetpwdusername }" />
-      						<input type="password" name="newPassword" class="form-control" id="inputPassword" placeholder="Required">
-   						</div>
-  					</div>
-  					<div class="form-group">
-    					<label for="inputPassword1" class="col-sm-4 control-label">Confirm Password</label>
-   						 <div class="col-sm-8">
-      						<input type="password" name="confirmPassword" class="form-control" id="inputPassword1" placeholder="Required">
-   						</div>
-  					</div>
-  					<!-- <div class="form-group">
-    					<div class="col-sm-offset-4 col-sm-8">
-      						<div class="checkbox">
-        					<label>
-          						<input type="checkbox"> Remember me
-        					</label>
-      						</div>
-    					</div>
-  					</div> -->
-  					<div class="form-group">
-    					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" name="action" value = "Change" class="btn btn-primary">Reset Password</button>
-      						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="reset" class="btn btn-default">Reset</button>
-    					</div>
+    					<h4>Input Price Successfully!</h4>
   					</div>
 				</form>
 			</div>
@@ -102,4 +65,4 @@
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
-</html>
+</html>>

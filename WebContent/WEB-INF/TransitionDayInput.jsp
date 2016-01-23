@@ -37,26 +37,79 @@
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="Date.do">Transition Day</a></li>
+  				<li role="presentation" class="active"><a href="Date.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
   			</c:choose>
   			
   			</ul>
   			</div>
-			<div class="col-md-1"></div>
-			<div class="col-md-5">
+			
+			<div class="col-md-6">
+				<br>
+				<br>
+				<br>
+				<div class="col-sm-1"></div>
+				<div class="col-sm-11">
+					<div class="header"><h3>Transition Day Input</div>
+				</div>
 				<br>
 				<br>
 				<br>
 				<br>
+				<br>
+				<form class="form-horizontal" action="TransitionDay.do" method="POST">	
+				<table width="100%" class="favoritetable">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<tr class="title">
+						<td>Fund Id</td>
+						<td>Fund Ticker</td>
+						<td>Fund Name</td>
+						<td>Price</td>
+					</tr>
 				
-				
-				<form class="form-horizontal">
-  					<div class="form-group">
-    					<h4>Login Successfully!</h4>
-  					</div>
-				</form>
+					<c:forEach var="fund" items="${fundBeans}">
+           			<tr>
+        				<td>
+        					<span style="text-align:left">
+        					 	<input type="hidden" name="fundid" value=${ fund.fundid }>	
+        					</span>
+                    	</td>
+                    	<td>
+        					<span style="text-align:left">
+        						${ fund.ticker }
+        					</span>
+                    	</td>
+                    	<td>
+        					<span style="text-align:left">
+        						${ fund.fundName }        				
+        					</span>
+                    	</td>
+                    	<td>
+        					<span style="text-align:left">
+        						<input type="text" name="price" value="" />
+        					</span>
+                    	</td>  
+   					</tr>
+					</c:forEach>
+				</table>
+  				<div class="form-group">
+    				<div class="col-sm-offset-4 col-sm-8">
+      					<button type="submit" class="btn btn-primary" name = "action" value="InputFund">Confirm Input Price</button>
+      					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      					<button type="submit" class="btn btn-default">Cancel</button>
+    				</div>
+  				</div>
+			</form>
 			</div>
 			<div class="col-md-2"></div>
 			<div class="col-md-1"></div>

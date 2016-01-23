@@ -33,11 +33,11 @@
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
-  				<li role="presentation" class="active"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
+  				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="TransitionDay.do">Transition Day</a></li>
+  				<li role="presentation" class="active"><a href="TransitionDay.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
   			</c:choose>
@@ -51,38 +51,65 @@
 				<br>
 				<div class="col-sm-1"></div>
 				<div class="col-sm-11">
-					<div class="header"><h3>Deposit Check</div>
+					<div class="header"><h3>Transition Day Input</div>
 				</div>
 				<br>
 				<br>
 				<br>
 				<br>
 				<br>
-				<form class="form-horizontal" action="DepositCheck.do" method="POST">
-					<!-- <div class="form-group">
-    					<label for="username" class="col-sm-4 control-label">Customer Username</label>
-    					<div class="col-sm-8">
-      						<input type="text" name="username" class="form-control" id="username">
-    					</div>
-  					</div> -->
-  					<div class="form-group">
-    					<label for="amount" class="col-sm-4 control-label">Deposit Amount</label>
-    					<div class="col-sm-8">
-    						<input type="hidden" name="depositcheckcid" value="${ depositcheckcid }" />
-      						<input type="text" name="amount" class="form-control" id="amount">
-    					</div>
-    				</div>
-  					<div class="form-group">
-    					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary" name = "action" value="DepositCheck">Confirm</button>
-      						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="reset" class="btn btn-default">Reset</button>
-    					</div>
-  					</div>
-  					<c:forEach var="error" items="${errors}">   
-			   		 	<div id="errormsg"> ${error} </div>
+				<form class="form-horizontal" action="TransitionDay.do" method="POST">	
+				<table width="100%" class="favoritetable">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<col width="10%">
+					<tr class="title">
+						<td>Fund Id</td>
+						<td>Fund Ticker</td>
+						<td>Fund Name</td>
+						<td>Price</td>
+					</tr>
+				
+					<c:forEach var="fund" items="${fundList}">
+           			<tr>
+        				<td>
+        					<span style="text-align:left">
+        					 	<input type="hidden" name="fundid" value=${ fund.fundid }>	
+        					</span>
+                    	</td>
+                    	<td>
+        					<span style="text-align:left">
+        						${ fund.ticker }
+        					</span>
+                    	</td>
+                    	<td>
+        					<span style="text-align:left">
+        						${ fund.fundName }        				
+        					</span>
+                    	</td>
+                    	<td>
+        					<span style="text-align:left">
+        						<input type="text" name="price" value="${ fund.price }" />
+        					</span>
+                    	</td>  
+   					</tr>
 					</c:forEach>
-				</form>
+				</table>
+  				<div class="form-group">
+    				<div class="col-sm-offset-4 col-sm-8">
+      					<button type="submit" class="btn btn-primary" name = "action" value="InputFund">Confirm Input Price</button>
+      					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      					<button type="submit" class="btn btn-default">Cancel</button>
+    				</div>
+  				</div>
+			</form>
 			</div>
 			<div class="col-md-2"></div>
 			<div class="col-md-1"></div>

@@ -59,24 +59,20 @@
 				<br>
 				<br>
 				
-			<table width="100%" class="favoritetable">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
+			<table width="100%" class="favoritetable table-bordered table-hover">
+			<col width="12.5%">
+			<col width="12.5%">
+			<col width="12.5%">
+			<col width="12.5%">
+			<col width="12.5%">
+			<col width="12.5%">
+			<col width="12.5%">
+			<col width="12.5%">
 			<tr class="title">
-				<td>Number</td>
 				<td>Username</td>
 				<td>Name</td>
 				<td>Address</td>
 				<td>Cash</td>
-				<td>Last Trading Date</td>
 				<td>Fund Info</td>
 				<td>Reset Password</td>
 				<td>Deposit Check</td>
@@ -88,7 +84,7 @@
 				<c:set var="count" value="${ count+1 }" />
 
            		<tr>
-        			<td style="text-align:left"> ${ count } </td>
+ 
         			<td>
         				<span style="text-align:left">
         					${ customer.username }
@@ -107,11 +103,6 @@
                     <td>
         				<span style="text-align:left">
         					${ customer.cash }
-        				</span>
-                    </td>
-                    <td>
-        				<span style="text-align:left">
-        					<%-- Last Trading Date --%>
         				</span>
                     </td>
                     <td>

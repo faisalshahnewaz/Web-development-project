@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>CFS for Customer</title>
+		<title>CFS for Employee</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
@@ -23,37 +23,42 @@
   
 			<ul class="nav nav-pills nav-stacked">
 			
-				<c:choose>
-				<c:when test="${employee == null}">  
-  					<li role="presentation" class="active"><a href="CustomerLogin.do">Login</a></li>
-  				</c:when>
-  				<c:otherwise>
-	 				<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->
-	  				<li role="presentation" class="active"><a href="ViewAccount.do">Manage Account</a></li>
-	  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
-	  				<li role="presentation"><a href="SellFund.do">Sell Fund</a></li>
-	  				<!-- <li role="presentation"><a href="ViewSelfTransactionHistory.do">Transaction History</a></li> -->
-	  				<li role="presentation"><a href="ResearchFund.do">Research Fund</a></li>
-	  				<!-- <li role="presentation"><a href="RequestCheck.do">Request Check</a></li> -->
-	  				<li role="presentation"><a href="CustomerLogout.do">Log Out</a></li>
-	  			</c:otherwise>
-  				</c:choose>
+			<c:choose>
+			<c:when test="${employee == null}">  
+  				<li role="presentation" class="active"><a href="EmployeeLogin.do">Login</a></li>
+  			</c:when>
+  			
+  			<c:otherwise>
+ 				<li role="presentation"  class="active"><a href="ChangeEmployeePassword.do">Change Password</a></li>
+  				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
+  				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
+  				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
+  				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
+  				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
+  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
+  				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
+  				<li role="presentation"><a href="TransitionDay.do">Transition Day</a></li>
+  				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
+  			</c:otherwise>
+  			</c:choose>
+  			
   			</ul>
   			</div>
-			
+  			
 			<div class="col-md-1"></div>
-      <div class="col-md-5">
-        <br>
-        <br>
-        <div class="header"><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password Changed Successfully<div>
-        <br>
-        <br>
-        <br>
-        
-      </div>
-			<div class="col-md-2"></div>
-			<div class="col-md-1"></div>
-		</div>
+			<div class="col-md-5">
+				<br>
+				<br>
+				<br>
+				<br>
+				
+				
+				<form class="form-horizontal">
+  					<div class="form-group">
+    					<h4>Change Employee Password Successfully!</h4>
+  					</div>
+				</form>
+			</div>
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>

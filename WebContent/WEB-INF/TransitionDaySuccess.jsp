@@ -30,10 +30,10 @@
   			
   			<c:otherwise>
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
-  				<li role="presentation" class="active"><a href="createEmployee.do">Create Employee Account</a></li>
+  				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
-  				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
+  				<li role="presentation" class="active"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
@@ -55,7 +55,7 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Create Employee Account Successfully!</h4>
+    					<h4>Input Price Successfully!</h4>
   					</div>
 				</form>
 			</div>
@@ -65,4 +65,4 @@
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
-</html>
+</html>>

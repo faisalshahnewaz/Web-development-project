@@ -5,7 +5,7 @@ package com.databean;
  */
 import org.genericdao.PrimaryKey;
 
-@PrimaryKey("fundid, pricedate")
+@PrimaryKey("fundid,pricedate")
 public class FundPriceHistoryBean {
 	private int fundid;
 	private String pricedate;
@@ -23,7 +23,7 @@ public class FundPriceHistoryBean {
 		this.fundid = fundid;
 	}
 	
-	public String getPricedate() {
+    public String getPricedate() {
 		return pricedate;
 	}
 	

@@ -13,6 +13,7 @@ public class Model {
 	private CustomerDAO customerDAO;
 	private FundDAO fundDAO;
 	private TrancDAO trancDAO;
+	private FundPriceHistoryDAO fundPriceHistoryDAO;
 	public Model(ServletConfig config) throws ServletException {
 		try {
 			String jdbcDriverName = config.getInitParameter("jdbcDriverName");
@@ -24,6 +25,7 @@ public class Model {
             customerDAO = new CustomerDAO(pool,  "task7_customer");
             fundDAO = new FundDAO(pool, "task7_fund");
             trancDAO = new TrancDAO(pool, "task7_transaction");
+            fundPriceHistoryDAO = new FundPriceHistoryDAO(pool, "task7_fund_price_history");
             if(employeeDAO.getCount()==0) new DataLoader(employeeDAO);
 		} catch (DAOException e) {
 			throw new ServletException(e);
@@ -33,6 +35,9 @@ public class Model {
 		}
 	}
 	
+
+	public FundPriceHistoryDAO getFundPriceHistoryDAO() { return fundPriceHistoryDAO;	}
+
 	public EmployeeDAO getEmployeeDAO()  { return employeeDAO; }
 	public CustomerDAO getCustomerDAO()  { return customerDAO; }
 	public FundDAO getFundDAO() {return fundDAO;}

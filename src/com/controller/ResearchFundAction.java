@@ -23,7 +23,7 @@ public class ResearchFundAction extends Action {
 	}
 	@Override
 	public String getName() {
-		return "researchFund.do";
+		return "ResearchFund.do";
 	}
 
 	@Override

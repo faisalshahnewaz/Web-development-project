@@ -77,7 +77,7 @@ public class BuyFundAction extends Action {
 			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
 			long cash = c.getCash();
 			for (int i = 0; i < tb.length; i++) {
-				if (tb[i].getTransactiontype().equals("buy") && tb[i].getCid() == c.getCid()) {
+				if ((tb[i].getTransactiontype().equals("buy") || tb[i].getTransactiontype().equals("request")) && tb[i].getCid() == c.getCid()) {
 					cash -= tb[i].getAmount();
 				}
 			}

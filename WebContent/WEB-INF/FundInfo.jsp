@@ -75,7 +75,7 @@
 				<td>Shares to Sell</td>
 				<td>Operation</td>
 			</tr>
-				<c:forEach var="fund" items="${fundList}">
+				<c:forEach var="fund" items="${fundInfo}">
            		<tr>
         			<td>
         				<span style="text-align:center">
@@ -85,12 +85,12 @@
                     </td>
                     <td>
         				<span style="text-align:center">
-        					${ fund.fundName } 
+        					${ fund.fundname } 
         				</span>
                     </td>
                     <td>
         				<span style="text-align:center">
-        					${ fund.shares }
+        					${ fund.share }
         				</span>
                     </td>
                     <td>

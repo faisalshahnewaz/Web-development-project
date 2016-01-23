@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,10 +24,10 @@ import com.model.TrancDAO;
 public class RequestCheckAction extends Action {
 	private FormBeanFactory<RequestCheckForm> formBeanFactory = FormBeanFactory.getInstance(RequestCheckForm.class);
 	CustomerDAO customerDAO;
-	TrancDAO trancDAO;
+	TrancDAO tDAO;
 	public RequestCheckAction(Model model) {
 		this.customerDAO = model.getCustomerDAO();
-		this.trancDAO = model.getTrancDAO();
+		this.tDAO = model.getTrancDAO();
 	}
 	@Override
 	public String getName() {
@@ -42,16 +44,9 @@ public class RequestCheckAction extends Action {
 			RequestCheckForm form = formBeanFactory.create(request);
 			request.setAttribute("form",form);
 			
-//			int depositcheckcid = Integer.parseInt(request.getParameter("depositcheckcid"));
-//	        request.setAttribute("depositcheckcid", depositcheckcid);
-			
 			if(!form.isPresent()){
 				return "RequestCheck.jsp";
 			}
-			
-//			System.out.print("Username here:" + form.getUsername());
-//			System.out.print("Amount here:" + form.getAmount());
-			System.out.print("Deposit Check look 1");
 			
 			
 			errors.addAll(form.getValidationErrors());
@@ -60,27 +55,55 @@ public class RequestCheckAction extends Action {
 				return "RequestCheck.jsp";
 			}
 			
+			try {
+				double tmp = Double.parseDouble(form.getAmount());
+			} catch (Exception e) {
+				errors.add("Amount should be a number");
+				return "RequestCheck.jsp";
+			}
 			
-//			CustomerBean[] customer = customerDAO.match(MatchArg.equals("username", form.getUsername()));
-//			if(customer.length == 0){
-//				errors.add("Username does not exist");
-//				return "DepositCheck.jsp";
-//			}
+			BigDecimal bg = new BigDecimal(form.getAmount());
+			if (bg.doubleValue() <= 0) {
+				errors.add("Amount can not be negative");
+				return "RequestCheck.jsp";
+			}
+			if (bg.scale() > 2) {
+				errors.add("Your input should only have at most two decimal places");
+				return "RequestCheck.jsp";
+			}
 			
-			
-			//System.out.println("hh");
 			
 			CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+			
+//			Double amount = Double.parseDouble(form.getAmount());
+//			DecimalFormat df = new DecimalFormat("0.00");
+//			String tmpAmount = df.format(amount);
+//			double amount1 = Double.parseDouble(tmpAmount);
+//			long money = (long) (100 * amount1);
+			
 			
 			TransactionBean tBean = new TransactionBean();
 			tBean.setCid(customer.getCid());
 			tBean.setTransactiontype("request");
 			
-			long depositmoney = (long) (1000 * Double.parseDouble(form.getAmount()));
+			long requestmoney = (long) (100 * Double.parseDouble(form.getAmount()));
+			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
+			long cash = customer.getCash();
+			for (int i = 0; i < tb.length; i++) {
+				if (tb[i].getTransactiontype().equals("buy") && tb[i].getCid() == customer.getCid()) {
+					cash -= tb[i].getAmount();
+				}
+				if (tb[i].getTransactiontype().equals("request") && tb[i].getCid() == customer.getCid()) {
+					cash -= tb[i].getAmount();
+				}
+			}
+			if (cash - requestmoney < 0) {
+				errors.add("Sorry you don't have enough money");
+				return "RequestCheck.jsp";
+			}
 			
-			tBean.setAmount(depositmoney);
-			
-			trancDAO.create(tBean);
+			tBean.setAmount(requestmoney);
+			tDAO.create(tBean);
 			
 			System.out.print("look 5");
 			

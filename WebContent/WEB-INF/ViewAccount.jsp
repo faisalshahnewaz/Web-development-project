@@ -111,7 +111,7 @@
         				</span>
                     </td>
                     <td>
-        				<form action="SellFund.do" method="POST">
+        				<form action="FundInfo.do" method="POST">
                 			<input type="hidden" name="sellFund" value="${ customer.cid }" />
                 			<input type="submit" name="button" value="View" />
            				</form>

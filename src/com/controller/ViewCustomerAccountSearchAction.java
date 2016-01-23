@@ -64,6 +64,7 @@ public class ViewCustomerAccountSearchAction extends Action{
 	        customerBeans = cDAO.getCustomerListbySearch(form.getUsername());
 			request.setAttribute("customerList",customerList);
 			
+			//check if there is any customer?
 			if (customerBeans.length>0) {
 				for(CustomerBean customerBean: customerBeans) {
 					
@@ -90,6 +91,8 @@ public class ViewCustomerAccountSearchAction extends Action{
 				}				
 				
 				System.out.println(customerBeans[0].getUsername());
+			} else {
+				errors.add("No customer found");
 			}
 			return "ViewCustomerAccount.jsp";
 			

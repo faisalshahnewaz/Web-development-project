@@ -6,7 +6,7 @@ public class ViewTransactionBean {
 	private int cid;
 	private int fundid;
 	private String executedate;
-	private int shares;
+	private long shares;
 	private String transactiontype;
 	private long amount;
 	private String fundname;
@@ -47,11 +47,11 @@ public class ViewTransactionBean {
 		this.executedate = executedate;
 	}
 
-	public int getShares() {
+	public long getShares() {
 		return shares;
 	}
 
-	public void setShares(int shares) {
+	public void setShares(long shares) {
 		this.shares = shares;
 	}
 

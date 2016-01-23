@@ -25,7 +25,7 @@ public class ViewCustomerAccountSearchForm extends FormBean{
 		
 		List<String> errors = new ArrayList<String>();
 		
-		if (username == null || username.length() == 0)
+		if (username == null || username.trim().length() == 0)
 			errors.add("Customer name required");
 		
 		//sanitization check

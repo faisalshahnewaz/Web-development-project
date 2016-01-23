@@ -113,17 +113,11 @@
         				</span>
                     </td>
                     <td>
-        				<span style="text-align:left">
-        					<%-- Fund Info --%>
-        				</span>
+        				<form action="CustomerSellFund.do" method="POST">
+                			<input type="hidden" name="customerSellFund" value="${ customer.cid }" />
+                			<input type="submit" name="button" value="Reset" />
+           				</form>
                     </td>
-        			<%-- <td>
-        				<span style="text-align:left">
-	        				<a href="ChangeCustomerPassword.do?resetpwdusername=${ customer.username }">
-	        					Deposit Check
-	        				</a>
-        				</span>
-                    </td> --%>
                     <td>
 			            <form action="ChangeCustomerPassword.do" method="POST">
                 			<input type="hidden" name="resetpwdusername" value="${ customer.username }" />
@@ -144,6 +138,10 @@
                     </td>
    				</tr>
    				
+			</c:forEach>
+			
+			<c:forEach var="error" items="${errors}">   
+			<div id="errormsg"> ${error} </div>
 			</c:forEach>
 			
 			</table>

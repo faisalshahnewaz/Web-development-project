@@ -43,7 +43,6 @@ public class TransitionDayAction extends Action {
 		try {
 			Map map = request.getParameterMap();
 			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
-			//Set set = map.entrySet();
 			String[] fids = (String[]) map.get("fundid");
 			String[] prices = (String[]) map.get("price");
 			String date = (String) session.getAttribute("date");
@@ -54,8 +53,6 @@ public class TransitionDayAction extends Action {
 				mapPrice.put(Integer.parseInt(fids[i]), Double.parseDouble(prices[i]));
 			}
 			for (int i = 0; i < tb.length; i++) {
-				//tb[i].setExecutedate(date);
-				//tDAO.update(tb[i]);
 				CustomerBean customer = cDAO.read(tb[i].getCid());
 				operation(customer, tb[i], pDAO, cDAO, mapPrice, tb[i].getTransactiontype());
 				tb[i].setExecutedate(date);

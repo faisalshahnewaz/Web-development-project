@@ -74,6 +74,7 @@ public class ResearchFundAction extends Action {
 //					return "ResearchFund.jsp";
 				}
 				
+				System.out.println("error"+errors.size());
 				return "ResearchFund.jsp";	
 			}
 			

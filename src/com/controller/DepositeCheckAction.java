@@ -70,7 +70,7 @@ public class DepositeCheckAction extends Action {
 			tBean.setCid(depositcheckcid);
 			tBean.setTransactiontype("deposit");
 			
-			long depositmoney = (long) (1000 * Double.parseDouble(form.getAmount()));
+			long depositmoney = (long) (100 * Double.parseDouble(form.getAmount()));
 			
 			tBean.setAmount(depositmoney);
 			

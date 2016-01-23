@@ -1,13 +1,21 @@
 package com.databean;
 
 public class FundInfoBean {
+	int fundid;
 	String ticker;
 	String fundname;
 	double share;
-	public FundInfoBean(String ticker, String fundname, double share) {
+	public FundInfoBean(int fundid, String ticker, String fundname, double share) {
+		this.fundid = fundid;
 		this.ticker = ticker;
 		this.fundname = fundname;getClass();
 		this.share = share;
+	}
+	public void setFundid(int fundid) {
+		fundid = fundid;
+	}
+	public int getFundid() {
+		return fundid;
 	}
 	public void setTicker(String ticker) {
 		ticker = ticker; 

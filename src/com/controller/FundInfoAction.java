@@ -36,19 +36,22 @@ public class FundInfoAction extends Action {
 		List<FundInfoBean> fundInfo = new ArrayList<FundInfoBean>();
 		request.setAttribute("fundInfo", fundInfo);
 		HttpSession session = request.getSession();
-		if (request.getParameter("action") == null) {
+		/*if (request.getParameter("action") == null) {
+			System.out.println("h1");
 			return "ViewAccount.jsp";
 		}
-		if (request.getParameter("action") != "View") {
+		if (!request.getParameter("action").equals("View")) {
 			errors.add("Invalid Button");
+			System.out.println("h2");
 			return "ViewAccount.jsp";
-		}
+		}*/
+		System.out.println("hhhh");
 		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
 		try {
 			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", customer.getCid()));
 			for (int i = 0; i < pb.length; i++) {
 				FundBean fb = fDAO.read(pb[i].getFundid());
-				fundInfo.add(new FundInfoBean(fb.getTicker(), fb.getFundName(), ((double) pb[i].getShares()) / 1000));
+				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), ((double) pb[i].getShares()) / 1000));
 			}
 			return "FundInfo.jsp";
 		} catch (RollbackException e) {

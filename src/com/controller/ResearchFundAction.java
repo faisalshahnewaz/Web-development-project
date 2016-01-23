@@ -13,7 +13,6 @@ import org.mybeans.form.FormBeanFactory;
 import com.databean.FundBean;
 import com.databean.FundPriceHistoryBean;
 import com.form.ResearchFundSearchForm;
-import com.form.ViewCustomerAccountSearchForm;
 import com.model.FundDAO;
 import com.model.FundPriceHistoryDAO;
 import com.model.Model;

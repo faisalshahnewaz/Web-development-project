@@ -49,21 +49,32 @@ public class ResearchFundAction extends Action {
 				
 				//check search or the whole list
 				System.out.println(form.getAction());
-				if(form.getAction() != null && form.getAction().equals("SearchFundName")) {
-					System.out.println("ee");
-					//check if any validation error
-			        errors.addAll(form.getValidationErrors());
-			        if(errors.size()>0) {
-			        	 System.out.println("err");
-			        	return "ResearchFund.jsp";
-			        }
+				if(form.getAction() != null) {
 					
-					fundList = fundDAO.getFundListBySearch(form.getFundname());
-					request.setAttribute("fundList",fundList);
+					//1. show all
+					//2. do search
 					
-					//check if any user exists after search, add error if none
-					if(fundList.length==0) {
-						errors.add("No fund with name "+ form.getFundname() + " exists");
+					if(form.getAction().equals("ShowAll")) {
+						
+						fundList = fundDAO.getFundList();
+						request.setAttribute("fundList",fundList);
+						
+					} else if(form.getAction().equals("SearchFundName")){
+						
+						//check if any validation error
+				        errors.addAll(form.getValidationErrors());
+				        if(errors.size()>0) {
+				        	 System.out.println("err");
+				        	return "ResearchFund.jsp";
+				        }
+						
+						fundList = fundDAO.getFundListBySearch(form.getFundname());
+						request.setAttribute("fundList",fundList);
+						
+						//check if any user exists after search, add error if none
+						if(fundList.length==0) {
+							errors.add("No fund with name "+ form.getFundname() + " exists");
+						}
 					}
 					
 				}
@@ -73,7 +84,6 @@ public class ResearchFundAction extends Action {
 //					return "ResearchFund.jsp";
 				}
 				
-				System.out.println("error"+errors.size());
 				return "ResearchFund.jsp";	
 			}
 			

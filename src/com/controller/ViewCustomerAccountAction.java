@@ -43,13 +43,21 @@ public class ViewCustomerAccountAction extends Action {
 		 * beans to the list. 5. pass the bean list to jsp. 6. return the jsp
 		 * name.
 		 */
+		List<String> errors = new ArrayList<String>();
+		request.setAttribute("errors", errors);
+		
 		CustomerBean[] customerBeans;
 		List<ViewCustomerAccountBean> customerList = new ArrayList<ViewCustomerAccountBean>();
 
 		try {
 			customerBeans = cDAO.getCustomerList();
 			request.setAttribute("customerList", customerList);
-
+			
+			if(customerBeans.length == 0) {
+				errors.add("No customer in database");
+				return "ViewCustomerAccount.jsp";
+			}
+			
 			if (customerBeans.length > 0) {
 				for (CustomerBean customerBean : customerBeans) {
 
@@ -69,7 +77,7 @@ public class ViewCustomerAccountAction extends Action {
 
 					// other data load
 
-					System.out.println("User Name:" + customerBean.getUsername());
+//					System.out.println("User Name:" + customerBean.getUsername());
 
 					// add the bean to the List
 					customerList.add(viewCusBean);

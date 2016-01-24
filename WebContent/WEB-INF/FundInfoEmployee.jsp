@@ -51,11 +51,11 @@
 				<td>Fund Ticker</td>
 				<td>Fund Name</td>
 				<td>Shares</td>
-				<td>Shares to Sell</td>
-				<td>Operation</td>
+				<!-- <td>Shares to Sell</td>
+				<td>Operation</td>-->
 			</tr>
-			<c:forEach var="fund" items="${fundInfo}">
 			<form action="SellFund.do" method="POST">
+				<c:forEach var="fund" items="${fundInfo}">
            		<tr>
         			<td>
         				<span style="text-align:center">
@@ -73,18 +73,10 @@
         					${ fund.share }
         				</span>
                     </td>
-                    <td>
-        				<span style="text-align:center">
-        					<input type="text" name="shareSell" value="" />
-        				</span>
-                    </td>
-                    <td>
-                			<input type="hidden" name="sellFund" value="${ customer.cid }" />
-                			<input type="submit" name="button" value="Sell" />
-                    </td>
+                   
    				</tr>
+   				</c:forEach>
    				</form>
-   			</c:forEach>
 			<c:forEach var="error" items="${errors}">   
 			   	<div id="errormsg"> ${error} </div>
 			</c:forEach>

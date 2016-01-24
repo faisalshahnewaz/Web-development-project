@@ -77,6 +77,7 @@ public class ViewCustomerAccountAction extends Action {
 			}
 			FundPriceHistoryBean[] fundHistoryBean = fundPriceHistoryDAO.match();
 			int i = 1;
+			SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 			if (fundHistoryBean.length != 0) {
 				Date maxdate = sdf1.parse(fundHistoryBean[0].getPricedate());
@@ -87,7 +88,7 @@ public class ViewCustomerAccountAction extends Action {
 					}
 					i++;
 				}
-				request.setAttribute("Date", sdf1.format(maxdate));
+				request.setAttribute("Date", sdf.format(maxdate));
 			}
 
 			return "ViewCustomerAccount.jsp";

@@ -15,7 +15,7 @@
 		    </ol>
    		 <div class="carousel-inner">
 		        <div class="item active">
-		            <img src="mutual_funds.jpg" alt="1 slide">
+		            <img src="bull.jpg" alt="1 slide">
 		
 		            <div class="container">
 		                <div class="carousel-caption">
@@ -26,7 +26,7 @@
 		            </div>
 		        </div>
 		        <div class="item">
-		            <img src="mutual_funds.jpg" alt="2 slide">
+		            <img src="MutualFunds.jpg" alt="2 slide">
 		
 		            <div class="container">
 		                <div class="carousel-caption">
@@ -37,7 +37,7 @@
 		            </div>
 		        </div>
 		        <div class="item">
-		            <img src="mutual_funds.jpg" alt="3 slide">
+		            <img src="wallst.jpg" alt="3 slide">
 		
 		            <div class="container">
 		                <div class="carousel-caption">

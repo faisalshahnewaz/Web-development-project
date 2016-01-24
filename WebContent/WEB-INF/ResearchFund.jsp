@@ -14,7 +14,7 @@
 	<body>
 		<div class="row">
 			<div class="col-md-1"></div>
-			<div class="col-md-10" style="background-color:#ff9999;">
+			<div class="col-md-10"">
 				<div class="page-header">
   					<h1>Carnegie Financial Services <small>Mutual Fund</small></h1>
 				</div>
@@ -54,11 +54,12 @@
         </div>
 				<br>
 				<br>
-							<form class="navbar-form navbar-left" role="search" action="ResearchFund.do" method="POST">  			
+			<form class="navbar-form navbar-left" role="search" action="ResearchFund.do" method="POST">  			
   			<div class="form-group">
    			 <input type="text" class="form-control" placeholder="Search by Fund Name" name = "fundname">
   			</div>
-  			<button type="submit" class="btn btn-default" name ="action" value="SearchFundName">Submit</button>
+  			<button type="submit" class="btn btn-default" name ="action" value="SearchFundName">Search</button>
+  			<button type="submit" class="btn btn-default" name ="action" value="ShowAll">Show All Funds</button>
 			</form>
 				<br>
         		<br>

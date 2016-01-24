@@ -26,7 +26,7 @@
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
 					<li role="presentation"><a href="CreateFund.do">Create
 							Fund</a></li>
-					<li role="presentation"><a href="TransitionDay.do">Transition
+					<li role="presentation"><a href="Date.do">Transition
 							Day</a></li>
 					<li role="presentation"><a href="EmployeeLogout.do">Log
 							Out</a></li>
@@ -92,10 +92,10 @@
 						<td><span style="text-align: left"> ${ customer.cash }
 						</span></td>
 						<td>
-							<form action="CustomerSellFund.do" method="POST">
-								<input type="hidden" name="customerSellFund"
+							<form action="FundInfoEmployee.do" method="POST">
+								<input type="hidden" name="customerid"
 									value="${ customer.cid }" /> <input type="submit"
-									name="button" value="Reset" />
+									name="button" value="View" />
 							</form>
 						</td>
 						<td>

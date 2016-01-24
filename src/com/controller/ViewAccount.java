@@ -11,6 +11,7 @@ import org.genericdao.RollbackException;
 import com.databean.CustomerBean;
 import com.databean.ViewCustomerAccountBean;
 import com.model.CustomerDAO;
+import com.model.FundPriceHistoryDAO;
 import com.model.Model;
 
 
@@ -18,6 +19,7 @@ public class ViewAccount extends Action{
 
 	
 	private CustomerDAO cDAO;
+	private FundPriceHistoryDAO fundPriceHistoryDAO;
 	
 	public ViewAccount(Model model) {
 		cDAO = model.getCustomerDAO();
@@ -61,10 +63,11 @@ public class ViewAccount extends Action{
 				System.out.println("User Name:" + customerBean.getUsername());				
 				
 				//add the bean to the List
-
-			
+				
+				
+			String date = fundPriceHistoryDAO.getMaxDate();
 			request.setAttribute("customer",viewCusBean);
-			
+			request.setAttribute("Date", date);
 			return "ViewAccount.jsp";
 			
 			

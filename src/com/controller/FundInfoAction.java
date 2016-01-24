@@ -44,11 +44,13 @@ public class FundInfoAction extends Action {
 			return "ViewAccount.jsp";
 		}
 		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", customer.getCid()));
 			for (int i = 0; i < pb.length; i++) {
 				FundBean fb = fDAO.read(pb[i].getFundid());
-				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), ((double) pb[i].getShares()) / 1000));
+				
+				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), pb[i].getShares()));
 			}
 			return "FundInfo.jsp";
 		} catch (RollbackException e) {

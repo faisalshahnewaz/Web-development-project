@@ -82,10 +82,11 @@ public class DateAction extends Action {
 					errors.add("Transition day for this date has already occured");
 					return "TransitionDay.jsp";
 				}
+				session.setAttribute("date", sdf.format(transactionDate));
 			}
 			FundBean[] fundBeans = fundDAO.match();
 			request.setAttribute("fundBeans", fundBeans);
-			session.setAttribute("date", form.getPricedate());
+			
 			return "TransitionDayInput.jsp";
 		}catch (FormBeanException e) {
 			errors.add(e.toString());

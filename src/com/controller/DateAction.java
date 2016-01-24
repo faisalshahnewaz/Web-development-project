@@ -59,33 +59,25 @@ public class DateAction extends Action {
 			if(errors.size() > 0){
 				return "TransitionDay.jsp";
 			}
-				
-			FundPriceHistoryBean[] fundHistoryBean = fundPriceHistoryDAO.match();
-			
-			int i = 1;
-			
+		
+			//System.out.println("DATE: "+ form.getPricedate());
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-			if (fundHistoryBean.length != 0) {
-				System.out.println("PriceDateMax" + fundHistoryBean[0].getPricedate());
-				Date maxdate = sdf1.parse(fundHistoryBean[0].getPricedate());
-				while(i<fundHistoryBean.length){
-					Date temp = sdf1.parse(fundHistoryBean[i].getPricedate());
-					if(maxdate.compareTo(temp) > 0){
-						maxdate = temp;
-					}
-					i++;
-				}
-				System.out.println("PriceDate!!" + form.getPricedate());
+			
+				String date = fundPriceHistoryDAO.getMaxDate();
 				Date transactionDate = sdf1.parse(form.getPricedate());
-				if(transactionDate.compareTo(maxdate) <= 0){
-					errors.add("Transition day for this date has already occured");
-					return "TransitionDay.jsp";
+				if (date != null) {
+					Date maxdate = sdf.parse(date);
+					if(transactionDate.compareTo(maxdate) <= 0){
+						errors.add("Transition day for this date has already occured");
+						return "TransitionDay.jsp";
+					}
 				}
-			}
+				session.setAttribute("date", sdf.format(transactionDate));
+			
 			FundBean[] fundBeans = fundDAO.match();
 			request.setAttribute("fundBeans", fundBeans);
-			session.setAttribute("date", form.getPricedate());
+			
 			return "TransitionDayInput.jsp";
 		}catch (FormBeanException e) {
 			errors.add(e.toString());

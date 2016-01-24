@@ -4,12 +4,19 @@ public class FundInfoBean {
 	int fundid;
 	String ticker;
 	String fundname;
-	double share;
-	public FundInfoBean(int fundid, String ticker, String fundname, double share) {
+	long share;
+	long amount;
+	public FundInfoBean(int fundid, String ticker, String fundname, long share) {
 		this.fundid = fundid;
 		this.ticker = ticker;
 		this.fundname = fundname;getClass();
 		this.share = share;
+	}
+	public void setAmount(long amount) {
+		amount = amount;
+	}
+	public long getAmount() {
+		return amount;
 	}
 	public void setFundid(int fundid) {
 		fundid = fundid;
@@ -32,7 +39,7 @@ public class FundInfoBean {
 	public void setShare(double share) {
 		share = share;
 	}
-	public double getShare() {
+	public long getShare() {
 		return share;
 	}
 }

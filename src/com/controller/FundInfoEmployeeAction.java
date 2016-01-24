@@ -15,17 +15,17 @@ import com.databean.*;
 import com.form.*;
 import com.model.*;
 
-public class FundInfoAction extends Action {
+public class FundInfoEmployeeAction extends Action {
 	FundDAO fDAO;
 	PositionDAO pDAO;
-	public FundInfoAction(Model model) {
+	public FundInfoEmployeeAction(Model model) {
 		fDAO = model.getFundDAO();
 		pDAO = model.getPosDAO();
 	}
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return "FundInfo.do";
+		return "FundInfoEmployee.do";
 	}
 
 	@Override
@@ -36,23 +36,22 @@ public class FundInfoAction extends Action {
 		List<FundInfoBean> fundInfo = new ArrayList<FundInfoBean>();
 		request.setAttribute("fundInfo", fundInfo);
 		HttpSession session = request.getSession();
-		if (request.getParameter("action") == null) {
-			return "ViewAccount.jsp";
+		if (request.getParameter("button") == null) {
+			return "ViewCustomerAccount.jsp";
 		}
-		if (!request.getParameter("action").equals("View")) {
+		if (!request.getParameter("button").equals("View")) {
 			errors.add("Invalid Button");
-			return "ViewAccount.jsp";
+			return "ViewCustomerAccount.jsp";
 		}
-		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		//CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		int cid = Integer.parseInt(request.getParameter("customerid"));
 		try {
-			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", customer.getCid()));
+			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", cid));
 			for (int i = 0; i < pb.length; i++) {
 				FundBean fb = fDAO.read(pb[i].getFundid());
-				
 				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), pb[i].getShares()));
 			}
-			return "FundInfo.jsp";
+			return "FundInfoEmployee.jsp";
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";

@@ -44,7 +44,7 @@
 				<h3>View Customer Account
 			</div>
 
-			<br> <br>
+			<h5>Note: The last trading date was ${Date }</h5>
 
 			<form class="navbar-form navbar-left" role="search"
 				action="ViewCustomerAccountSearch.do" method="POST">
@@ -95,7 +95,7 @@
 							<form action="CustomerSellFund.do" method="POST">
 								<input type="hidden" name="customerSellFund"
 									value="${ customer.cid }" /> <input type="submit"
-									name="button" value="Reset" />
+									name="button" value="Info" />
 							</form>
 						</td>
 						<td>

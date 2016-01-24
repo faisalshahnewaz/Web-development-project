@@ -23,6 +23,7 @@ public class ViewAccount extends Action{
 	
 	public ViewAccount(Model model) {
 		cDAO = model.getCustomerDAO();
+		fundPriceHistoryDAO = model.getFundPriceHistoryDAO();
 	}
 	
 	@Override

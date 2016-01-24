@@ -68,16 +68,17 @@ public class DateAction extends Action {
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 			if (fundHistoryBean.length != 0) {
 				System.out.println("PriceDateMax" + fundHistoryBean[0].getPricedate());
-				Date maxdate = sdf1.parse(fundHistoryBean[0].getPricedate());
+				Date maxdate = sdf.parse(fundHistoryBean[0].getPricedate());
+				System.out.println("he");
 				while(i<fundHistoryBean.length){
-					Date temp = sdf1.parse(fundHistoryBean[i].getPricedate());
+					Date temp = sdf.parse(fundHistoryBean[i].getPricedate());
 					if(maxdate.compareTo(temp) > 0){
 						maxdate = temp;
 					}
 					i++;
 				}
 				System.out.println("PriceDate!!" + form.getPricedate());
-				Date transactionDate = sdf1.parse(form.getPricedate());
+				Date transactionDate = sdf.parse(form.getPricedate());
 				if(transactionDate.compareTo(maxdate) <= 0){
 					errors.add("Transition day for this date has already occured");
 					return "TransitionDay.jsp";

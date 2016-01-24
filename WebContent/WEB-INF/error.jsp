@@ -1,8 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <jsp:include page="template-head.jsp" />
-
-<jsp:include page="template-navbar.jsp" />
 
 		<div id="mainPanel">
 			

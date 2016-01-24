@@ -1,11 +1,4 @@
-		</td>
-	</tr>
-	
-	<tr>
-		<td colspan="3" bgcolor="#E1E1E1" align="center">
-			Copyright &copy; 2016 Xuesong Zhang
-		</td>
-	</tr>
-</table>
-</body>
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
 </html>

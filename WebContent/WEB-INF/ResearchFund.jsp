@@ -14,7 +14,7 @@
 	<body>
 		<div class="row">
 			<div class="col-md-1"></div>
-			<div class="col-md-10">
+			<div class="col-md-10" style="background-color:#ff9999;">
 				<div class="page-header">
   					<h1>Carnegie Financial Services <small>Mutual Fund</small></h1>
 				</div>
@@ -35,7 +35,6 @@
 	 				<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->
 	  				<li role="presentation"><a href="ViewAccount.do">Manage Account</a></li>
 	  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
-	  				<li role="presentation"><a href="SellFund.do">Sell Fund</a></li>
 	  				<!-- <li role="presentation"><a href="ViewSelfTransactionHistory.do">Transaction History</a></li> -->
 	  				<li role="presentation" class="active"><a href="ResearchFund.do">Research Fund</a></li>
 	  				<!-- <li role="presentation"><a href="RequestCheck.do">Request Check</a></li> -->

@@ -1,23 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>CFS for Customer</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-	</head>
-	<body>
-		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-10">
-				<div class="page-header">
-  					<h1>Carnegie Financial Services <small>Mutual Fund</small></h1>
-				</div>
-			</div>
-			<div class="col-md-1"></div>
-		</div>
+<jsp:include page="template-head.jsp" />
 		<div class="row">
 			<div class="col-md-1"></div>
   		<div class="col-md-2">
@@ -33,7 +15,6 @@
 	 				<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->
 	  				<li role="presentation"><a href="ViewAccount.do">View Account</a></li>
 	  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
-	  				<li role="presentation"><a href="SellFund.do">Sell Fund</a></li>
 	  				<!-- <li role="presentation"><a href="ViewSelfTransactionHistory.do">Transaction History</a></li> -->
 	  				<li role="presentation"><a href="ResearchFund.do">Research Fund</a></li>
 	  				<!-- <li role="presentation"><a href="RequestCheck.do">Request Check</a></li> -->
@@ -85,8 +66,12 @@
   					<div class="form-group">
   						<div class="col-sm-4"></div>
   						<div class="col-sm-8">
-  							<c:forEach var="error" items="${errors}">   
-			   		 			<font color="red"><div id="errormsg"> ${error} </div></font> 	
+  							<c:forEach var="error" items="${errors}">
+  							<div class="alert alert-danger" role="alert">
+  								<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  								<span class="sr-only">Error:</span>
+  									${error}	
+							</div>
 							</c:forEach>
 						</div>
 					</div>
@@ -95,7 +80,4 @@
 			<div class="col-md-3"></div>
 			<div class="col-md-1"></div>
 		</div>
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-	</body>
-</html>
+<jsp:include page="template-bottom.jsp" />

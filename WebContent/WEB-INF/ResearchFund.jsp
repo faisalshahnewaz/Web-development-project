@@ -58,7 +58,8 @@
   			<div class="form-group">
    			 <input type="text" class="form-control" placeholder="Search by Fund Name" name = "fundname">
   			</div>
-  			<button type="submit" class="btn btn-default" name ="action" value="SearchFundName">Submit</button>
+  			<button type="submit" class="btn btn-default" name ="action" value="SearchFundName">Search</button>
+  			<button type="submit" class="btn btn-default" name ="action" value="ShowAll">Show All Funds</button>
 			</form>
 				<br>
         		<br>

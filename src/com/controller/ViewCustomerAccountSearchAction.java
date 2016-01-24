@@ -60,23 +60,6 @@ public class ViewCustomerAccountSearchAction extends Action{
 			
 			
 			
-			//transaction date
-			FundPriceHistoryBean[] fundHistoryBean = fundPriceHistoryDAO.match();
-			int i = 1;
-			SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
-			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-			if (fundHistoryBean.length != 0) {
-				Date maxdate = sdf1.parse(fundHistoryBean[0].getPricedate());
-				while (i < fundHistoryBean.length) {
-					Date temp = sdf1.parse(fundHistoryBean[i].getPricedate());
-					if (maxdate.compareTo(temp) > 0) {
-						maxdate = temp;
-					}
-					i++;
-				}
-				request.setAttribute("Date", sdf.format(maxdate));
-			}
-			
 			//get the form variable username from jsp request
 			ViewCustomerAccountSearchForm form = formBeanFactory.create(request);
 	        request.setAttribute("form",form);
@@ -127,9 +110,7 @@ public class ViewCustomerAccountSearchAction extends Action{
 			errors.add(e.getMessage());
 		} catch (FormBeanException e) {
 			errors.add(e.getMessage());
-		} catch (ParseException e) {
-			errors.add(e.getMessage());
-		}
+		} 
 		
 		return "error.jsp";
 	}

@@ -45,29 +45,22 @@ public class ResearchFundAction extends Action {
 			
 			String fundId = request.getParameter("fundId");
 			if(fundId == null){
-				FundBean[] fundList;
 				
+				FundBean[] fundList;
 				//check search or the whole list
-				System.out.println(form.getAction());
+//				System.out.println(form.getAction());
 				if(form.getAction() != null) {
-					
-					//1. show all
-					//2. do search
-					
 					if(form.getAction().equals("ShowAll")) {
-						
 						fundList = fundDAO.getFundList();
 						request.setAttribute("fundList",fundList);
 						
 					} else if(form.getAction().equals("SearchFundName")){
-						
 						//check if any validation error
 				        errors.addAll(form.getValidationErrors());
 				        if(errors.size()>0) {
 				        	 System.out.println("err");
 				        	return "ResearchFund.jsp";
 				        }
-						
 						fundList = fundDAO.getFundListBySearch(form.getFundname());
 						request.setAttribute("fundList",fundList);
 						
@@ -76,9 +69,7 @@ public class ResearchFundAction extends Action {
 							errors.add("No fund with name "+ form.getFundname() + " exists");
 						}
 					}
-					
-				}
-				else {
+				} else {
 					fundList = fundDAO.match();
 					request.setAttribute("fundList",fundList);
 //					return "ResearchFund.jsp";

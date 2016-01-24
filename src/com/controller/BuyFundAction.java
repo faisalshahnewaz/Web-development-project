@@ -25,7 +25,6 @@ public class BuyFundAction extends Action {
 	}
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return "BuyFund.do";
 	}
 

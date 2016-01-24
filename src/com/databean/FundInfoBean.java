@@ -6,11 +6,12 @@ public class FundInfoBean {
 	String fundname;
 	long share;
 	long amount;
-	public FundInfoBean(int fundid, String ticker, String fundname, long share) {
+	public FundInfoBean(int fundid, String ticker, String fundname, long share, long amount) {
 		this.fundid = fundid;
 		this.ticker = ticker;
 		this.fundname = fundname;getClass();
 		this.share = share;
+		this.amount = amount;
 	}
 	public void setAmount(long amount) {
 		amount = amount;

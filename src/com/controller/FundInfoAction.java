@@ -18,9 +18,11 @@ import com.model.*;
 public class FundInfoAction extends Action {
 	FundDAO fDAO;
 	PositionDAO pDAO;
+	FundPriceHistoryDAO fphDAO;
 	public FundInfoAction(Model model) {
 		fDAO = model.getFundDAO();
 		pDAO = model.getPosDAO();
+		fphDAO = model.getFundPriceHistoryDAO();
 	}
 	@Override
 	public String getName() {
@@ -44,16 +46,18 @@ public class FundInfoAction extends Action {
 			return "ViewAccount.jsp";
 		}
 		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", customer.getCid()));
 			for (int i = 0; i < pb.length; i++) {
 				FundBean fb = fDAO.read(pb[i].getFundid());
-				
-				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), pb[i].getShares()));
+				long recentPrice = fphDAO.getRecentPrice(pb[i].getFundid());
+				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), pb[i].getShares(), recentPrice * pb[i].getShares()));
 			}
 			return "FundInfo.jsp";
 		} catch (RollbackException e) {
+			errors.add(e.getMessage());
+			return "error.jsp";
+		} catch (ParseException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";
 		}

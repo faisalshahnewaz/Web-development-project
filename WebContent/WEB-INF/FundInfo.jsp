@@ -51,6 +51,7 @@
 				<td>Fund Ticker</td>
 				<td>Fund Name</td>
 				<td>Shares</td>
+				<td>Position Value</td>
 				<td>Shares to Sell</td>
 				<td>Operation</td>
 			</tr>
@@ -71,6 +72,11 @@
                     <td>
         				<span style="text-align:center">
         					${ fund.share }
+        				</span>
+                    </td>
+                    <td>
+        				<span style="text-align:center">
+        					${ fund.amount }
         				</span>
                     </td>
                     <td>

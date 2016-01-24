@@ -7,6 +7,7 @@ import java.util.Date;
 import org.genericdao.ConnectionPool;
 import org.genericdao.DAOException;
 import org.genericdao.GenericDAO;
+import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
 
 import com.databean.FundPriceHistoryBean;
@@ -32,5 +33,23 @@ public class FundPriceHistoryDAO extends GenericDAO<FundPriceHistoryBean> {
 			return sdf.format(maxdate);
 		}
 		return null;
+	}
+	public long getRecentPrice(int fundid) throws ParseException, RollbackException {
+		FundPriceHistoryBean[] fundHistoryBean = match(MatchArg.equals("fundid", fundid));
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		int i = 1;
+		long res = -1;
+		if (fundHistoryBean.length != 0) {
+			Date maxdate = sdf.parse(fundHistoryBean[0].getPricedate());
+			res = fundHistoryBean[0].getPrice();
+			while (i < fundHistoryBean.length) {
+				Date temp = sdf.parse(fundHistoryBean[i].getPricedate());
+				if (maxdate.compareTo(temp) > 0) {
+					res = fundHistoryBean[i].getPrice();
+				}
+				i++;
+			}
+		}
+		return res;
 	}
 }

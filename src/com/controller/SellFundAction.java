@@ -19,10 +19,12 @@ public class SellFundAction extends Action {
 	TrancDAO tDAO;
 	PositionDAO pDAO;
 	FundDAO fDAO;
+	FundPriceHistoryDAO fphDAO;
 	public SellFundAction(Model model) {
 		tDAO = model.getTrancDAO();
 		pDAO = model.getPosDAO();
 		fDAO = model.getFundDAO();
+		fphDAO = model.getFundPriceHistoryDAO();
 	}
 	@Override
 	public String getName() {
@@ -42,7 +44,8 @@ public class SellFundAction extends Action {
 			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", customer.getCid()));
 			for (int i = 0; i < pb.length; i++) {
 				FundBean fb = fDAO.read(pb[i].getFundid());
-				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), pb[i].getShares()));
+				long recentPrice = fphDAO.getRecentPrice(pb[i].getFundid());
+				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), pb[i].getShares(), recentPrice * pb[i].getShares()));
 			}
 			request.setAttribute("fundInfo", fundInfo);
 			//Map<String, String[]> map = request.getParameterMap();
@@ -94,6 +97,9 @@ public class SellFundAction extends Action {
 			tDAO.create(transaction);
 			return "SellFundSuccess.jsp";
 		} catch (RollbackException e) {
+			errors.add(e.getMessage());
+			return "error.jsp";
+		} catch (ParseException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";
 		}

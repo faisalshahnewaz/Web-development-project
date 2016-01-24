@@ -18,9 +18,11 @@ import com.model.*;
 public class FundInfoEmployeeAction extends Action {
 	FundDAO fDAO;
 	PositionDAO pDAO;
+	FundPriceHistoryDAO fphDAO;
 	public FundInfoEmployeeAction(Model model) {
 		fDAO = model.getFundDAO();
 		pDAO = model.getPosDAO();
+		fphDAO = model.getFundPriceHistoryDAO();
 	}
 	@Override
 	public String getName() {
@@ -49,13 +51,18 @@ public class FundInfoEmployeeAction extends Action {
 			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", cid));
 			for (int i = 0; i < pb.length; i++) {
 				FundBean fb = fDAO.read(pb[i].getFundid());
-				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), pb[i].getShares()));
+				long recentPrice = fphDAO.getRecentPrice(pb[i].getFundid());
+				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), pb[i].getShares(), recentPrice * pb[i].getShares()));
 			}
 			return "FundInfoEmployee.jsp";
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";
+		} catch (ParseException e) {
+			errors.add(e.getMessage());
+			return "error.jsp";
 		}
+		
 	}
 	
 }

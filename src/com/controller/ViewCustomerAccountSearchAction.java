@@ -3,7 +3,10 @@ package com.controller;
  * @author faisalshahnewaz.
  */
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,18 +16,22 @@ import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
 import com.databean.CustomerBean;
+import com.databean.FundPriceHistoryBean;
 import com.databean.ViewCustomerAccountBean;
 import com.form.ViewCustomerAccountSearchForm;
 import com.model.CustomerDAO;
+import com.model.FundPriceHistoryDAO;
 import com.model.Model;
 
 public class ViewCustomerAccountSearchAction extends Action{
 
 	private FormBeanFactory<ViewCustomerAccountSearchForm> formBeanFactory = FormBeanFactory.getInstance(ViewCustomerAccountSearchForm.class);
 	private CustomerDAO cDAO;
+	private FundPriceHistoryDAO fundPriceHistoryDAO;
 	
 	public ViewCustomerAccountSearchAction(Model model) {
 		cDAO = model.getCustomerDAO();
+		fundPriceHistoryDAO = model.getFundPriceHistoryDAO();
 	}
 
 	@Override
@@ -50,6 +57,10 @@ public class ViewCustomerAccountSearchAction extends Action{
 		List<ViewCustomerAccountBean> customerList = new ArrayList<ViewCustomerAccountBean>();
 		
 		try {
+			
+			//show transaction date
+			String date = fundPriceHistoryDAO.getMaxDate();
+			request.setAttribute("Date", date);
 			
 			//get the form variable username from jsp request
 			ViewCustomerAccountSearchForm form = formBeanFactory.create(request);
@@ -94,13 +105,18 @@ public class ViewCustomerAccountSearchAction extends Action{
 			} else {
 				errors.add("No customer named " + form.getUsername() + "found");
 			}
+			
+			
+			
 			return "ViewCustomerAccount.jsp";
 			
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
 		} catch (FormBeanException e) {
 			errors.add(e.getMessage());
-		}
+		} catch (ParseException e) {
+			errors.add(e.getMessage());
+		} 
 		
 		return "error.jsp";
 	}

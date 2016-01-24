@@ -92,7 +92,7 @@ public class ViewCustomerAccountSearchAction extends Action{
 				
 				System.out.println(customerBeans[0].getUsername());
 			} else {
-				errors.add("No customer found");
+				errors.add("No customer named " + form.getUsername() + "found");
 			}
 			return "ViewCustomerAccount.jsp";
 			

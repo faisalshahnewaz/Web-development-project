@@ -54,7 +54,7 @@
         </div>
 				<br>
 				<br>
-							<form class="navbar-form navbar-left" role="search" action="ResearchFund.do" method="POST">  			
+			<form class="navbar-form navbar-left" role="search" action="ResearchFund.do" method="POST">  			
   			<div class="form-group">
    			 <input type="text" class="form-control" placeholder="Search by Fund Name" name = "fundname">
   			</div>

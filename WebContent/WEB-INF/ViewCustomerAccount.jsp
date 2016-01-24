@@ -50,11 +50,25 @@
 				action="ViewCustomerAccountSearch.do" method="POST">
 				<div class="form-group">
 					<input type="text" class="form-control"
-						placeholder="Search by Username" name="username">
+						placeholder="Search by Customer name" name="username">
 				</div>
 				<button type="submit" class="btn btn-default">Search</button>
+				
 			</form>
-
+			
+			<form class="navbar-form navbar-left" role="showAll"
+				action="ViewCustomerAccount.do" method="POST">
+				<button type="submit" class="btn btn-default">Show All Customer</button>
+				
+			</form>
+			<br>
+			<div>
+			<c:forEach var="error" items="${errors}">
+				<div id="errormsg"> ${error} </div>
+			</c:forEach>
+			</div>
+			
+			
 			<table width="100%"
 				class="favoritetable table-bordered table-hover table-responsive">
 				<col width="12.5%">

@@ -4,7 +4,16 @@
 			<div class="col-md-1"></div>
   			<div class="col-md-2">
   
-			<ul class="nav nav-pills nav-stacked">
+			
+  			</div>
+  			
+			<div class="col-md-1"></div>
+			<div class="col-md-5">
+				<br>
+
+				<form class="form-horizontal">
+  					<div class="form-group">
+    					<ul class="nav nav-pills nav-stacked">
 			
 				<c:choose>
 				<c:when test="${customer == null}">  
@@ -21,19 +30,6 @@
 	  			</c:otherwise>
   				</c:choose>
   			</ul>
-  			</div>
-  			
-			<div class="col-md-1"></div>
-			<div class="col-md-5">
-				<br>
-				<br>
-				<br>
-				<br>
-				
-				
-				<form class="form-horizontal">
-  					<div class="form-group">
-    					<h4>Login Successful!</h4>
   					</div>
 				</form>
 			</div>

@@ -14,7 +14,7 @@
 	<body>
 		<div class="row">
 			<div class="col-md-1"></div>
-			<div class="col-md-10" style="background-color:#ff9999;">
+			<div class="col-md-10"">
 				<div class="page-header">
   					<h1>Carnegie Financial Services <small>Mutual Fund</small></h1>
 				</div>

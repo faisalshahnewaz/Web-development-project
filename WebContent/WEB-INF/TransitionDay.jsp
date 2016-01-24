@@ -12,7 +12,7 @@
   			</c:when>
   			
   			<c:otherwise>
- 				<li role="presentation"  class="active"><a href="ChangeEmployeePassword.do">Change Password</a></li>
+ 				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
@@ -20,7 +20,7 @@
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="Date.do">Transition Day</a></li>
+  				<li role="presentation" class="active"><a href="Date.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
   			</c:choose>
@@ -37,7 +37,7 @@
 				<br>
 				<form class="form-horizontal" action="Date.do" method="POST">
   					<div class="form-group">
-    					<label for="date" class="col-sm-4 control-label">Choose Date of Transition Day</label>
+    					<label for="date" class="col-sm-4 control-label">Choose Date</label>
    						 <div class="col-sm-8">
       						<input type="Date" name="pricedate" value="" class="form-control" id="date" placeholder="mm/dd/yyyy">
    						</div>
@@ -45,7 +45,7 @@
   					
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" name="action" value="Transit" class="btn btn-primary">Confirm Date</button>
+      						<button type="submit" name="action" value="Transit" class="btn btn-primary">Confirm</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       						<button type="reset"  class="btn btn-default">Reset</button>
     					</div>

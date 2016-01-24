@@ -43,7 +43,7 @@
 				<br>
 				<form class="form-horizontal" action="createEmployee.do" method="POST">
 					<div class="form-group">
-    					<label for="username" class="col-sm-4 control-label">User Name</label>
+    					<label for="username" class="col-sm-4 control-label">Username</label>
     					<div class="col-sm-8">
       						<input type="text" name="username" value="${form.username}" class="form-control" id="username">
     					</div>

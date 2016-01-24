@@ -50,9 +50,9 @@
 				action="ViewCustomerAccountSearch.do" method="POST">
 				<div class="form-group">
 					<input type="text" class="form-control"
-						placeholder="Search by User Name" name="username">
+						placeholder="Search by Username" name="username">
 				</div>
-				<button type="submit" class="btn btn-default">Submit</button>
+				<button type="submit" class="btn btn-default">Search</button>
 			</form>
 
 			<table width="100%"
@@ -70,7 +70,7 @@
 					<td>Name</td>
 					<td>Address</td>
 					<td>Cash</td>
-					<td>Fund Info</td>
+					<td>Fund Infomation</td>
 					<td>Reset Password</td>
 					<td>Deposit Check</td>
 					<td>Transaction History</td>

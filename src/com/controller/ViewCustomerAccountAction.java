@@ -83,21 +83,10 @@ public class ViewCustomerAccountAction extends Action {
 					customerList.add(viewCusBean);
 				}
 			}
-			FundPriceHistoryBean[] fundHistoryBean = fundPriceHistoryDAO.match();
-			int i = 1;
-			SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
-			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-			if (fundHistoryBean.length != 0) {
-				Date maxdate = sdf1.parse(fundHistoryBean[0].getPricedate());
-				while (i < fundHistoryBean.length) {
-					Date temp = sdf1.parse(fundHistoryBean[i].getPricedate());
-					if (maxdate.compareTo(temp) > 0) {
-						maxdate = temp;
-					}
-					i++;
-				}
-				request.setAttribute("Date", sdf.format(maxdate));
-			}
+			
+			String date = fundPriceHistoryDAO.getMaxDate();
+				request.setAttribute("Date", date);
+			
 
 			return "ViewCustomerAccount.jsp";
 

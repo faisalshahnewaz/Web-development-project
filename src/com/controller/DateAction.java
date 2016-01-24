@@ -60,17 +60,18 @@ public class DateAction extends Action {
 				return "TransitionDay.jsp";
 			}
 		
-			System.out.println("DATE: "+ form.getPricedate());
+			//System.out.println("DATE: "+ form.getPricedate());
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 			
 				String date = fundPriceHistoryDAO.getMaxDate();
-				Date maxdate = sdf.parse(date);
-				
 				Date transactionDate = sdf1.parse(form.getPricedate());
-				if(transactionDate.compareTo(maxdate) <= 0){
-					errors.add("Transition day for this date has already occured");
-					return "TransitionDay.jsp";
+				if (date != null) {
+					Date maxdate = sdf.parse(date);
+					if(transactionDate.compareTo(maxdate) <= 0){
+						errors.add("Transition day for this date has already occured");
+						return "TransitionDay.jsp";
+					}
 				}
 				session.setAttribute("date", sdf.format(transactionDate));
 			

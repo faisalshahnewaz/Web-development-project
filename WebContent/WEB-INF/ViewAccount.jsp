@@ -33,7 +33,7 @@
 			<div class="header">
 				<h3>Manage Account
 			</div>
-			<br> <br>
+			<h5>Note: The last trading date was ${Date }</h5>
 			<table width="100%"
 				class="table table-bordered table-hover table-responsive">
 				<%-- 				<col width="10%"> --%>
@@ -52,7 +52,6 @@
 					<td>Name</td>
 					<td>Address</td>
 					<td>Cash</td>
-					<td>Last Trading Date</td>
 					<td>Fund Info</td>
 					<td>Change Password</td>
 					<td>Request Check</td>
@@ -66,8 +65,6 @@
 					<td><span style="text-align: left"> ${ customer.addrline1 }
 							${ customer.addrline2 } ${ customer.city } ${ customer.state } </span></td>
 					<td><span style="text-align: left"> ${ customer.cash }
-					</span></td>
-					<td><span style="text-align: left"> <%-- Last Trading Date --%>
 					</span></td>
 					<td>
 						<form action="FundInfo.do" method="POST">

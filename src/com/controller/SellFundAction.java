@@ -42,10 +42,10 @@ public class SellFundAction extends Action {
 			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", customer.getCid()));
 			for (int i = 0; i < pb.length; i++) {
 				FundBean fb = fDAO.read(pb[i].getFundid());
-				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), ((double) pb[i].getShares()) / 1000));
+				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), pb[i].getShares()));
 			}
 			request.setAttribute("fundInfo", fundInfo);
-			Map<String, String[]> map = request.getParameterMap();
+			//Map<String, String[]> map = request.getParameterMap();
 			String shareSell = request.getParameter("shareSell");
 			if (shareSell == null || shareSell.length() == 0) {
 				errors.add("Share amount can not be empty!");

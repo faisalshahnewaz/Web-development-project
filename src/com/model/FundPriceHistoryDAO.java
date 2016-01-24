@@ -25,7 +25,7 @@ public class FundPriceHistoryDAO extends GenericDAO<FundPriceHistoryBean> {
 			Date maxdate = sdf.parse(fundHistoryBean[0].getPricedate());
 			while (i < fundHistoryBean.length) {
 				Date temp = sdf.parse(fundHistoryBean[i].getPricedate());
-				if (maxdate.compareTo(temp) > 0) {
+				if (maxdate.compareTo(temp) < 0) {
 					maxdate = temp;
 				}
 				i++;
@@ -44,7 +44,7 @@ public class FundPriceHistoryDAO extends GenericDAO<FundPriceHistoryBean> {
 			res = fundHistoryBean[0].getPrice();
 			while (i < fundHistoryBean.length) {
 				Date temp = sdf.parse(fundHistoryBean[i].getPricedate());
-				if (maxdate.compareTo(temp) > 0) {
+				if (maxdate.compareTo(temp) < 0) {
 					res = fundHistoryBean[i].getPrice();
 				}
 				i++;

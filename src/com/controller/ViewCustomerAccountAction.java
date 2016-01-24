@@ -50,6 +50,11 @@ public class ViewCustomerAccountAction extends Action {
 		List<ViewCustomerAccountBean> customerList = new ArrayList<ViewCustomerAccountBean>();
 
 		try {
+			
+			//show transaction date
+			String date = fundPriceHistoryDAO.getMaxDate();
+			request.setAttribute("Date", date);
+			
 			customerBeans = cDAO.getCustomerList();
 			request.setAttribute("customerList", customerList);
 			
@@ -84,8 +89,8 @@ public class ViewCustomerAccountAction extends Action {
 				}
 			}
 			
-			String date = fundPriceHistoryDAO.getMaxDate();
-				request.setAttribute("Date", date);
+//			String date = fundPriceHistoryDAO.getMaxDate();
+//				request.setAttribute("Date", date);
 			
 
 			return "ViewCustomerAccount.jsp";

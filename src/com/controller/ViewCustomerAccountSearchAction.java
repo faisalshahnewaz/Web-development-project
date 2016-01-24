@@ -58,7 +58,9 @@ public class ViewCustomerAccountSearchAction extends Action{
 		
 		try {
 			
-			
+			//show transaction date
+			String date = fundPriceHistoryDAO.getMaxDate();
+			request.setAttribute("Date", date);
 			
 			//get the form variable username from jsp request
 			ViewCustomerAccountSearchForm form = formBeanFactory.create(request);
@@ -104,11 +106,15 @@ public class ViewCustomerAccountSearchAction extends Action{
 				errors.add("No customer named " + form.getUsername() + "found");
 			}
 			
+			
+			
 			return "ViewCustomerAccount.jsp";
 			
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
 		} catch (FormBeanException e) {
+			errors.add(e.getMessage());
+		} catch (ParseException e) {
 			errors.add(e.getMessage());
 		} 
 		

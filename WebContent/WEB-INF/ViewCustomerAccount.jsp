@@ -43,14 +43,14 @@
 			<div class="header">
 				<h3>View Customer Account
 			</div>
-
+			
 			<h5>Note: The last trading date was ${Date }</h5>
 
 			<form class="navbar-form navbar-left" role="search"
 				action="ViewCustomerAccountSearch.do" method="POST">
 				<div class="form-group">
 					<input type="text" class="form-control"
-						placeholder="Search by Customer name" name="username">
+						placeholder="Search by Name" name="username">
 				</div>
 				<button type="submit" class="btn btn-default">Search</button>
 				
@@ -80,14 +80,14 @@
 				<col width="12.5%">
 				<col width="12.5%">
 				<tr class="title">
-					<td>Username</td>
-					<td>Name</td>
-					<td>Address</td>
-					<td>Cash</td>
-					<td>Fund Infomation</td>
-					<td>Reset Password</td>
-					<td>Deposit Check</td>
-					<td>Transaction History</td>
+					<td><b>User Name</b></td>
+					<td><b>Name</b></td>
+					<td><b>Address</b></td>
+					<td><b>Cash</b></td>
+					<td><b>Fund Information</b></td>
+					<td><b>Reset Password</b></td>
+					<td><b>Deposit Check</b></td>
+					<td><b>Transaction History</b></td>
 				</tr>
 
 				<c:set var="count" value="0" />

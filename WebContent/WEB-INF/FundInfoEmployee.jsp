@@ -36,7 +36,6 @@
 				<br>
 				<br>
 				<br>
-				<br>
 				
 			<table width="100%" class="favoritetable table-bordered table-hover">
 			<col width="12.5%">
@@ -48,10 +47,10 @@
 			<col width="12.5%">
 			<col width="12.5%">
 			<tr class="title">
-				<td>Fund Ticker</td>
-				<td>Fund Name</td>
-				<td>Shares</td>
-				<td>Position Value</td>
+				<td><b>Fund Ticker</b></td>
+				<td><b>Fund Name</b></td>
+				<td><b>Shares</b></td>
+				<td><b>Position Value</b></td>
 				<!-- <td>Shares to Sell</td>
 				<td>Operation</td>-->
 			</tr>

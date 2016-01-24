@@ -40,22 +40,21 @@
 				<br>
 				<br>
 				<br>
-				<br>
 				
-			<table width="100%" class="favoritetable">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
+			<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
+			<col width="16.67%">
+			<col width="16.67%">
+			<col width="16.67%">
+			<col width="16.67%">
+			<col width="16.67%">
+			<col width="16.67%">
 			<tr class="title">
-				<td>Number</td>
-				<td>Type</td>
-				<td>Fund Name</td>
-				<td>Transaction Date</td>
-				<td>Shares</td>
-				<td>Amount</td>
+				<td><b>Number</b></td>
+				<td><b>Type</b></td>
+				<td><b>Fund Name</b></td>
+				<td><b>Transaction Date</b></td>
+				<td><b>Shares</b></td>
+				<td><b>Amount</b></td>
 			</tr>
 				
 				<c:set var="count" value="0" />

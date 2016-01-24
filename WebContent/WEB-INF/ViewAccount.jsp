@@ -33,7 +33,14 @@
 			<div class="header">
 				<h3>Manage Account
 			</div>
+			<c:choose>
+				<c:when test="${Date == null}">
+				<h5></h5>
+			</c:when>
+			<c:otherwise>
 			<h5>Note: The last trading date was ${Date }</h5>
+			</c:otherwise>
+			</c:choose>
 			<table width="100%"
 				class="table table-bordered table-hover table-responsive">
 				<%-- 				<col width="10%"> --%>
@@ -47,6 +54,7 @@
 				<col width="12.5%">
 				<col width="12.5%">
 				<tr class="title">
+					<thead>
 					<!-- 				<td>Number</td> -->
 					<td>Username</td>
 					<td>Name</td>
@@ -56,6 +64,7 @@
 					<td>Change Password</td>
 					<td>Request Check</td>
 					<td>Transaction History</td>
+					</thead>
 				</tr>
 				<tr>
 					<td><span style="text-align: left"> ${ customer.username }

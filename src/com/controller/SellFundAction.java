@@ -45,7 +45,7 @@ public class SellFundAction extends Action {
 				fundInfo.add(new FundInfoBean(fb.getFundid(), fb.getTicker(), fb.getFundName(), ((double) pb[i].getShares()) / 1000));
 			}
 			request.setAttribute("fundInfo", fundInfo);
-			Map<String, String[]> map = request.getParameterMap();
+			//Map<String, String[]> map = request.getParameterMap();
 			String shareSell = request.getParameter("shareSell");
 			if (shareSell == null || shareSell.length() == 0) {
 				errors.add("Share amount can not be empty!");

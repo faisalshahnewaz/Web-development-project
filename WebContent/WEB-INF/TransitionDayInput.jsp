@@ -92,14 +92,7 @@
       					<button type="submit" class="btn btn-default">Cancel</button>
     				</div>
   				</div>
-  				<div class="form-group">
-  					<div class="col-sm-4"></div>
-  					<div class="col-sm-8">
-  						<c:forEach var="error" items="${errors}">   
-			   		 		<font color="red"><div id="errormsg"> ${error} </div></font> 	
-						</c:forEach>
-					</div>
-				</div>
+  				<jsp:include page="ShowError.jsp" />
 			</form>
 			</div>
 			<div class="col-md-2"></div>

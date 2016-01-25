@@ -61,6 +61,12 @@ public class ChangeEmployeePasswordForm extends FormBean {
 			return errors;
 		}
 		
+		if(!newPassword.equals(confirmPassword)){
+        	errors.add("Passwords don't match");
+        }
+		if (newPassword.equals(oldPassword)) {
+			errors.add("New Password is same to the old one");
+		}
 		if(action == null || !action.equals("Change")){
 			errors.add("Invalid action");
 		}

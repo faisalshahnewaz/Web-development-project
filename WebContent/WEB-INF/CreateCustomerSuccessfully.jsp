@@ -38,7 +38,10 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Create Customer Account Successfully!</h4>
+  						<div class="alert alert-success" role="alert">
+  							<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+  							Create Customer Account Successfully!
+  						</div>
   					</div>
 				</form>
 			</div>

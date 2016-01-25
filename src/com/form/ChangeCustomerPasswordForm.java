@@ -62,8 +62,14 @@ public class ChangeCustomerPasswordForm extends FormBean{
 	        }
 	        if (!action.equals("Change"))
 	            errors.add("Invalid button");
-//	        if (username.matches(".*[<>\"].*"))
-//	            errors.add("Email may not contain angle brackets or quotes");
+			
+			if(newPassword.matches(".*[<>\"].*")){
+				errors.add("New Password cannot contain angular brackets or quotes");
+			}
+			
+			if(confirmPassword.matches(".*[<>\"].*")){
+				errors.add("Confirm Password cannot contain angular brackets or quotes");
+			}
 
 	        return errors;
 	    }

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="template-head.jsp" />
 		<div class="row">
 			<div class="col-md-1"></div>
@@ -16,11 +17,11 @@
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
   				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
-  				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
+  				<li role="presentation" class="active"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="TransitionDay.do">Transition Day</a></li>
+  				<li role="presentation"><a href="Date.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
   			</c:choose>
@@ -80,12 +81,12 @@
                     </td>
                     <td>
         				<span style="text-align:left">
-        					${ transaction.shares }
+        					<fmt:formatNumber pattern="#,##0.000" value="${transaction.shares/1000}" maxFractionDigits="3"/>
         				</span>
                     </td>
                     <td>
         				<span style="text-align:left">
-        					${ transaction.amount }
+        					<fmt:formatNumber pattern="#,##0.00" value="${transaction.amount/100}" maxFractionDigits="2"/>
         				</span>
                     </td>
    				</tr>
@@ -94,26 +95,6 @@
 			
 			</table>
 				
-				<!-- <form class="form-horizontal">
-					<div class="form-group">
-    					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
-    					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="fundname" name="fundName">
-    					</div>
-  					</div>
-  					<div class="form-group">
-    					<label for="ticker" class="col-sm-4 control-label">Ticker</label>
-    					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="ticker" name="ticker">
-    					</div>
-  					<div class="form-group">
-    					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary" name = "action" value="CreateFund">Create</button>
-      						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      						<button type="submit" class="btn btn-default">Cancel</button>
-    					</div>
-  					</div>
-				</form> -->
 			</div>
 			<div class="col-md-2"></div>
 			<div class="col-md-1"></div>

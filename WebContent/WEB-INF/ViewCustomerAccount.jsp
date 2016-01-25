@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="template-head.jsp" />
 <div class="row">
 	<div class="col-md-1"></div>
@@ -103,7 +104,8 @@
 						<td><span style="text-align: left"> ${ customer.addrline1 }
 								${ customer.addrline2 } ${ customer.city } ${ customer.state } </span>
 						</td>
-						<td><span style="text-align: left"> ${ customer.cash }
+						<td><span style="text-align: left"> 
+								<fmt:formatNumber pattern="#,##0.00" value="${customer.cash/100}" maxFractionDigits="2"/>
 						</span></td>
 						<td>
 							<form action="FundInfoEmployee.do" method="POST">

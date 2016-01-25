@@ -33,7 +33,10 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Buy Fund Successfully!</h4>
+  						<div class="alert alert-success" role="alert">
+  						<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+  						Buy Fund Successfully!
+  					</div>
   					</div>
 				</form>
 			</div>

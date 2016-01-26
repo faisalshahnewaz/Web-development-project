@@ -5,21 +5,38 @@ import org.genericdao.DAOException;
 import org.genericdao.GenericDAO;
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
+import org.genericdao.Transaction;
 
 import com.databean.FundBean;
 
-public class FundDAO extends GenericDAO<FundBean>{
-	public FundDAO(ConnectionPool cp, String tableName)throws DAOException{
-		super(FundBean.class,tableName,cp);
+public class FundDAO extends GenericDAO<FundBean> {
+	public FundDAO(ConnectionPool cp, String tableName) throws DAOException {
+		super(FundBean.class, tableName, cp);
 	}
-	
-	public FundBean[] getFundList() throws RollbackException{
-		FundBean[] fundList = match();
-		return fundList;
+
+	public FundBean[] getFundList() throws RollbackException {
+		try {
+			Transaction.begin();
+			FundBean[] fundList = match();
+			Transaction.commit();
+			return fundList;
+		} finally {
+			if (Transaction.isActive())
+				Transaction.rollback();
+		}
+
 	}
-	
+
 	public FundBean[] getFundListBySearch(String fundname) throws RollbackException {
-		FundBean[] fundList = match(MatchArg.contains("fundName", fundname));
-		return fundList;
+		try {
+			Transaction.begin();
+			FundBean[] fundList = match(MatchArg.contains("fundName", fundname));
+			Transaction.commit();
+			return fundList;
+		} finally {
+			if (Transaction.isActive())
+				Transaction.rollback();
+		}
 	}
+
 }

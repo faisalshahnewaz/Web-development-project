@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
@@ -18,23 +19,21 @@ import com.model.FundDAO;
 import com.model.Model;
 import com.model.TrancDAO;
 
+public class ViewSelfTransactionHistory extends Action {
 
-public class ViewSelfTransactionHistory extends Action{
-
-	
 	private CustomerDAO cDAO;
 	private TrancDAO tDAO;
 	private FundDAO fDAO;
-	
+
 	public ViewSelfTransactionHistory(Model model) {
 		cDAO = model.getCustomerDAO();
 		tDAO = model.getTrancDAO();
 		fDAO = model.getFundDAO();
 	}
-	
+
 	@Override
 	public String getName() {
-		
+
 		return "ViewSelfTransactionHistory.do";
 	}
 
@@ -42,45 +41,47 @@ public class ViewSelfTransactionHistory extends Action{
 	public String perform(HttpServletRequest request) {
 		
 		List<String> errors = new ArrayList<String>();
-		request.setAttribute("errors",errors);
-		
+		request.setAttribute("errors", errors);
+		HttpSession session = request.getSession();
+		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		if (customer == null) {
+			errors.add("Please login first");
+			return "CustomerLogin.do";
+		}
+
 		List<ViewTransactionBean> transactions = new ArrayList<ViewTransactionBean>();
-		
-		
+
 		try {
-		
-			TransactionBean[] transactionBeans = tDAO.match(MatchArg.equals("cid", Integer.parseInt(request.getParameter("viewselftransactionhistorycid"))));
-						
-			
+
+			TransactionBean[] transactionBeans = tDAO.match(
+					MatchArg.equals("cid", Integer.parseInt(request.getParameter("viewselftransactionhistorycid"))));
+
 			for (int i = 0; i < transactionBeans.length; i++) {
-				
+
 				System.out.println("FundName:" + transactionBeans[i].getFundid());
-				
+
 				ViewTransactionBean viewTransaction = new ViewTransactionBean();
-				
+
 				System.out.println(transactionBeans[i].getFundid() != 0);
-				
-				if(transactionBeans[i].getFundid() != 0) {
+
+				if (transactionBeans[i].getFundid() != 0) {
 					FundBean fund = fDAO.read(transactionBeans[i].getFundid());
 					viewTransaction.setFundname(fund.getFundName());
 				}
-				
-				
-				//System.out.println("FundName:" + fund.getFundName());
-				
-				
+
+				// System.out.println("FundName:" + fund.getFundName());
+
 				viewTransaction.setTransactiontype(transactionBeans[i].getTransactiontype());
 				viewTransaction.setAmount(transactionBeans[i].getAmount());
 				viewTransaction.setExecutedate(transactionBeans[i].getExecutedate());
 				viewTransaction.setShares(transactionBeans[i].getShares());
 				transactions.add(viewTransaction);
 			}
-			
-			request.setAttribute("transactions",transactions);
-			
+
+			request.setAttribute("transactions", transactions);
+
 			return "ViewSelfTransactionHistory.jsp";
-			
-			
+
 		} catch (RollbackException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,5 +89,4 @@ public class ViewSelfTransactionHistory extends Action{
 		}
 	}
 
-	
 }

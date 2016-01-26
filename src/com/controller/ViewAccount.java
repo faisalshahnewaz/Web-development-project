@@ -34,12 +34,14 @@ public class ViewAccount extends Action{
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors",errors);
-		
-		System.out.println("aaaa");
+		HttpSession session = request.getSession();
+		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		if(customer == null){
+			errors.add("Please login first");
+			return "CustomerLogin.do";
+		}		
 		
 		
 		try {

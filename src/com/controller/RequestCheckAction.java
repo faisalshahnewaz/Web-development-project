@@ -36,10 +36,14 @@ public class RequestCheckAction extends Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
+		HttpSession session = request.getSession();
+		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		if(customer == null){
+			errors.add("Please login first");
+			return "CustomerLogin.do";
+		}
 		try{
 			RequestCheckForm form = formBeanFactory.create(request);
 			request.setAttribute("form",form);
@@ -73,7 +77,7 @@ public class RequestCheckAction extends Action {
 			}
 			
 			
-			CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		//	CustomerBean customer = (CustomerBean) session.getAttribute("customer");
 			
 //			Double amount = Double.parseDouble(form.getAmount());
 //			DecimalFormat df = new DecimalFormat("0.00");

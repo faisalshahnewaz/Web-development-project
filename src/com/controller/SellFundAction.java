@@ -34,12 +34,17 @@ public class SellFundAction extends Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
+		HttpSession session = request.getSession();
+		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		if(customer == null){
+			errors.add("Please login first");
+			return "CustomerLogin.do";
+		}
+		
 		try {
-			CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+			//CustomerBean customer = (CustomerBean) session.getAttribute("customer");
 			List<FundInfoBean> fundInfo = new ArrayList<FundInfoBean>();
 			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", customer.getCid()));
 			for (int i = 0; i < pb.length; i++) {

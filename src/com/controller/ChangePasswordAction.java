@@ -34,10 +34,15 @@ public class ChangePasswordAction extends Action {
 		
 		List<String> errors = new ArrayList<String>(); 
 		request.setAttribute("errors", errors);
-		
+		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		if(customer == null){
+			errors.add("Please login first");
+			return "CustomerLogin.do";
+		}
 		
 		try {
 			//load the form params to a form bean
+			
 			ChangePasswordForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
 			
@@ -62,7 +67,7 @@ public class ChangePasswordAction extends Action {
 //			}
 			
 			//check old password field matches?
-			CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+			
 			
 			if(!customer.getPassword().equals(form.getOldPassword())) {
 				errors.add("Old password is wrong");

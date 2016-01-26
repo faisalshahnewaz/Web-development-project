@@ -86,7 +86,7 @@ public class DateAction extends Action {
 			errors.add(e1.toString());
 			return "TransitionDay.jsp";
 		} catch (ParseException e) {
-			errors.add("Parse Exception");
+			errors.add("Please enter date as - yyyy-MM-dd");
 			return "TransitionDay.jsp";
 		}
 

@@ -15,35 +15,35 @@
 		    </ol>
    		 <div class="carousel-inner">
 		        <div class="item active">
-		            <img src="bull.jpg" alt="1 slide">
+		            <img src="mutualfundssign1.jpeg" alt="1 slide">
 		
 		            <div class="container">
 		                <div class="carousel-caption">
-		                    <h1></h1>
+		                    <h1>Give Your Money a Chance to Grow</h1>
 		
-		                    <p></p>
+		                    <p>Investing in mutual funds offers benefits you won't get from trading individual stocks and bonds on your own.</p>
 		                </div>
 		            </div>
 		        </div>
 		        <div class="item">
-		            <img src="MutualFunds.jpg" alt="2 slide">
+		            <img src="WallStreetSign1.jpeg" alt="2 slide">
 		
 		            <div class="container">
 		                <div class="carousel-caption">
-		                    <h1></h1>
+		                    <h1>A Strategic Way to Build Your Portfolio</h1>
 		
-		                    <p></p>
+		                    <p>Whether you're looking to diversify or simply add to your portfolio, you can do so on your term at Carnegie Financial Services.</p>
 		                </div>
 		            </div>
 		        </div>
 		        <div class="item">
-		            <img src="wallst.jpg" alt="3 slide">
+		            <img src="headquarter1.jpeg" alt="3 slide">
 		
 		            <div class="container">
 		                <div class="carousel-caption">
-		                    <h1></h1>
+		                    <h1>Convenience and Professional Management</h1>
 		
-		                    <p></p>
+		                    <p>You can buy and sell mutual fund shares online or by phone and set up automatic investments and withdrawals.</p>
 		                </div>
 		            </div>
 		        </div>

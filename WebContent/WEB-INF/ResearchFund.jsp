@@ -60,6 +60,10 @@
   			</div>
   			<button type="submit" class="btn btn-default" name ="action" value="SearchFundName">Search</button>
   			<button type="submit" class="btn btn-default" name ="action" value="ShowAll">Show All Funds</button>
+  			
+			</form>
+			<form class="navbar-form navbar-left" action="BuyFundFromResearchFund.do" method="POST">
+			<button type="submit" class="btn btn-default" name ="action" value="BuyFund">Buy</button>
 			</form>
 				<br>
         		<br>

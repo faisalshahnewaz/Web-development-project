@@ -49,12 +49,12 @@
 			<col width="12.5%">
 			<col width="12.5%">
 			<tr class="title">
-				<td>Fund Ticker</td>
-				<td>Fund Name</td>
-				<td>Shares</td>
-				<td>Position Value</td>
-				<td>Shares to Sell</td>
-				<td>Operation</td>
+				<td><b>Fund Ticker</b></td>
+				<td><b>Fund Name</b></td>
+				<td><b>Shares</b></td>
+				<td><b>Position Value</b></td>
+				<td><b>Shares to Sell</b></td>
+				<td><b>Operation</b></td>
 			</tr>
 			<c:forEach var="fund" items="${fundInfo}">
 				<form action="SellFund.do" method="POST">

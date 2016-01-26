@@ -60,7 +60,7 @@
 					<button type="submit" name="action" value="BuyFund"
 						class="btn btn-primary">Confirm Purchase</button>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<button type="submit" class="btn btn-default">Cancel</button>
+					<button type="reset" class="btn btn-default">Reset</button>
 				</div>
 			</div>
 			<jsp:include page="ShowError.jsp" />

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="template-head.jsp" />
 		<div class="row">
 			<div class="col-md-1"></div>
@@ -7,18 +8,22 @@
 			<ul class="nav nav-pills nav-stacked">
 			
 			<c:choose>
-			<c:when test="${customer == null}">  
-  					<li role="presentation" class="active"><a href="CustomerLogin.do">Login</a></li>
-  				</c:when>
-  				<c:otherwise>
-	 				<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->
-	  				<li role="presentation" class="active"><a href="ViewAccount.do">Manage Account</a></li>
-	  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
-	  				<!-- <li role="presentation"><a href="ViewSelfTransactionHistory.do">Transaction History</a></li> -->
-	  				<li role="presentation"><a href="ResearchFund.do">Research Fund</a></li>
-	  				<!-- <li role="presentation"><a href="RequestCheck.do">Request Check</a></li> -->
-	  				<li role="presentation"><a href="CustomerLogout.do">Log Out</a></li>
-	  			</c:otherwise>
+			<c:when test="${employee == null}">  
+  				<li role="presentation" class="active"><a href="EmployeeLogin.do">Login</a></li>
+  			</c:when>
+  			
+  			<c:otherwise>
+ 				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
+  				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
+  				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
+  				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
+  				<li role="presentation" class="active"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
+  				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
+  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
+  				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
+  				<li role="presentation"><a href="Date.do">Transition Day</a></li>
+  				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
+  			</c:otherwise>
   			</c:choose>
   			
   			</ul>
@@ -36,7 +41,6 @@
 				<br>
 				<br>
 				<br>
-				<br>
 				
 			<table width="100%" class="favoritetable table-bordered table-hover">
 			<col width="12.5%">
@@ -48,10 +52,10 @@
 			<col width="12.5%">
 			<col width="12.5%">
 			<tr class="title">
-				<td>Fund Ticker</td>
-				<td>Fund Name</td>
-				<td>Shares</td>
-				<td>Position Value</td>
+				<td><b>Fund Ticker</b></td>
+				<td><b>Fund Name</b></td>
+				<td><b>Shares</b></td>
+				<td><b>Position Value</b></td>
 				<!-- <td>Shares to Sell</td>
 				<td>Operation</td>-->
 			</tr>
@@ -71,20 +75,19 @@
                     </td>
                     <td>
         				<span style="text-align:center">
-        					${ fund.share }
+        					<fmt:formatNumber pattern="#,##0.000" value="${fund.share/1000}" maxFractionDigits="3"/>
         				</span>
                     </td>
                    	<td>
         				<span style="text-align:center">
-        					${ fund.amount }
+        					<fmt:formatNumber pattern="#,##0.00" value="${fund.amount/100000}" maxFractionDigits="2"/>
         				</span>
                     </td>
    				</tr>
+   				<%-- <jsp:include page="ShowError.jsp" /> --%>
    				</c:forEach>
    				</form>
-			<c:forEach var="error" items="${errors}">   
-			   	<div id="errormsg"> ${error} </div>
-			</c:forEach>
+			
 			</table>
 				
 			</div>

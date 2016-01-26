@@ -38,7 +38,10 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Deposit Check Successfully!</h4>
+    					<div class="alert alert-success" role="alert">
+  							<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+  							Deposit Check Successfully!
+  						</div>
   					</div>
 				</form>
 			</div>

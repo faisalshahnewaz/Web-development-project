@@ -38,7 +38,10 @@
 				
 				<form class="form-horizontal">
   					<div class="form-group">
-    					<h4>Change/Reset Password Successfully!</h4>
+  						<div class="alert alert-success" role="alert">
+  						<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+  							Change/Reset Password Successfully!
+  						</div>
   					</div>
 				</form>
 			</div>

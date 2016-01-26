@@ -57,10 +57,16 @@ public class ChangePasswordForm extends FormBean {
 			errors.add("Please add the confirmed password");
 		}
 		
+		
 		if(errors.size() > 0){
 			return errors;
 		}
-		
+		if(!newPassword.equals(confirmPassword)){
+        	errors.add("Passwords don't match");
+        }
+		if (newPassword.equals(oldPassword)) {
+			errors.add("New Password is same to the old one");
+		}
 		if(action == null || !action.equals("Change")){
 			errors.add("Invalid action");
 		}

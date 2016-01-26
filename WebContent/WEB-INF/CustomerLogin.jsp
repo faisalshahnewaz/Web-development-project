@@ -63,18 +63,7 @@
       						<button type="submit" class="btn btn-primary">Sign in</button>
     					</div>
   					</div>
-  					<div class="form-group">
-  						<div class="col-sm-4"></div>
-  						<div class="col-sm-8">
-  							<c:forEach var="error" items="${errors}">
-  							<div class="alert alert-danger" role="alert">
-  								<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-  								<span class="sr-only">Error:</span>
-  									${error}	
-							</div>
-							</c:forEach>
-						</div>
-					</div>
+  					<jsp:include page="ShowError.jsp" />
 				</form>
 			</div>
 			<div class="col-md-3"></div>

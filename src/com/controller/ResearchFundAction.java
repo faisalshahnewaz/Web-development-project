@@ -82,7 +82,7 @@ public class ResearchFundAction extends Action {
 			
 			FundPriceHistoryBean[] fundHistory = fundPriceHistoryDAO.match(MatchArg.equals("fundid", fundid));
 			if(fundHistory.length == 0){
-				errors.add("Cannot find the fund");
+				errors.add("Fund doesn't have a history");
 				return "ResearchFund.jsp";
 			}
 			FundBean fund = fundDAO.read(fundid);

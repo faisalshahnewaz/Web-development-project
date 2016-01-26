@@ -103,7 +103,7 @@ public class TransitionDayAction extends Action {
 		double share = (((double) transaction.getAmount()) / 100) / map.get(transaction.getFundid());
 		DecimalFormat df = new DecimalFormat("0.000");
 		share = Double.valueOf(df.format(share));
-		transaction.setShares(((long) share) * 1000);
+		transaction.setShares((long)(share * 1000));
 		tDAO.update(transaction);
 		position.setShares((long) (share * 1000));
 		PositionBean p = pDAO.read(customer.getCid(),transaction.getFundid());

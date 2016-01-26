@@ -14,7 +14,7 @@ import org.mybeans.form.*;
 public class LoginForm extends FormBean {
     private String username;
     private String password;
-  //  private String action;
+    private String action;
 
     public String getUsername() {
         return username;
@@ -24,12 +24,12 @@ public class LoginForm extends FormBean {
         return password;
     }
 
-    /*public String getAction() {
+    public String getAction() {
         return action;
-    }*/
+    }
     public void setUsername(String s)  { username = s.trim(); }
     public void setPassword(String s)  { password = s.trim(); }
-   // public void setAction(String s)    { action   = s;        }
+    public void setAction(String s)    { action   = s;        }
     
 
     public List<String> getValidationErrors() {
@@ -44,8 +44,8 @@ public class LoginForm extends FormBean {
         if (errors.size() > 0)
             return errors;
 
-        /*if (!action.equals("Login"))
-            errors.add("Invalid button");*/
+        if (action == null || !action.equals("Login"))
+            errors.add("Invalid button");
         if (username.matches(".*[<>\"].*"))
             errors.add("Email may not contain angle brackets or quotes");
 

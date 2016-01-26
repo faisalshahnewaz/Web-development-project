@@ -49,18 +49,10 @@
       						<input type="password" name="password"class="form-control" id="inputPassword" placeholder="Required">
    						</div>
   					</div>
+  					
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<div class="checkbox">
-        					<label>
-          						<input type="checkbox"> Remember me
-        					</label>
-      						</div>
-    					</div>
-  					</div>
-  					<div class="form-group">
-    					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary">Sign in</button>
+      						<button type="submit" class="btn btn-primary" name="action" value="Login">Sign in</button>
     					</div>
   					</div>
   					<jsp:include page="ShowError.jsp" />

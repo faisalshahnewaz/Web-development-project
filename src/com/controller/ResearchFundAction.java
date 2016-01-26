@@ -85,6 +85,9 @@ public class ResearchFundAction extends Action {
 				errors.add("Fund doesn't have a history");
 				return "ResearchFund.jsp";
 			}
+			for(FundPriceHistoryBean fund: fundHistory){
+				fund.setPrice(fund.getPrice()/100);
+			}
 			FundBean fund = fundDAO.read(fundid);
 			request.setAttribute("fundName", fund.getFundName());
 			request.setAttribute("fundHistory", fundHistory);

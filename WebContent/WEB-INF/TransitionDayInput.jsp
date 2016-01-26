@@ -42,31 +42,18 @@
 				<br>
 				<br>
 				<form class="form-horizontal" action="TransitionDay.do" method="POST">	
-				<table width="100%" class="favoritetable">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
-					<col width="10%">
+				<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
+					<col width="33%">
+					<col width="33%">
+					<col width="33%">
 					<tr class="title">
-						<td>Fund Id</td>
-						<td>Fund Ticker</td>
-						<td>Fund Name</td>
-						<td>Price</td>
+						<td><b>Fund Ticker</b></td>
+						<td><b>Fund Name</b></td>
+						<td><b>Price</b></td>
 					</tr>
 				
 					<c:forEach var="fund" items="${fundBeans}">
            			<tr>
-        				<td>
-        					<span style="text-align:left">
-        					 	<input type="hidden" name="fundid" value=${ fund.fundid }>	
-        					</span>
-                    	</td>
                     	<td>
         					<span style="text-align:left">
         						${ fund.ticker }
@@ -79,12 +66,13 @@
                     	</td>
                     	<td>
         					<span style="text-align:left">
-        						<input type="text" name="price" value="" />
+        						<input type="text" size = "30" name="price" value="" />
         					</span>
                     	</td>  
    					</tr>
 					</c:forEach>
 				</table>
+				<br>
   				<div class="form-group">
     				<div class="col-sm-offset-4 col-sm-8">
       					<button type="submit" class="btn btn-primary" name = "action" value="InputFund">Confirm Input Price</button>

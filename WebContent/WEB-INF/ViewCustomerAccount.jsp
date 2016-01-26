@@ -64,11 +64,8 @@
 			</form>
 			<br><br><br><br>
 			<div>
-			<c:forEach var="error" items="${errors}">
-				<div id="errormsg"> ${error} </div>
-			</c:forEach>
+			<jsp:include page="ShowError.jsp" />
 			</div>
-			
 			
 			<table width="100%"
 				class="favoritetable table-bordered table-hover table-responsive">

@@ -49,8 +49,15 @@ public class BuyFundFromResearchFundAction extends Action{
 			BuyFundFromResearchFundForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
 			
+			String fundName = (String) request.getAttribute("fundName");
+			String fundHistory = (String) request.getAttribute("fundHistory");
+			String tickerName = (String) request.getAttribute("tickerName");
+			
+			
+			System.out.println("fund name:"+fundName);
+			
 			//validation error check
-			errors.addAll(form.getValidationErrors());
+			//errors.addAll(form.getValidationErrors());
 			
 			if (errors.size() > 0) {
 				return "ResearchFund.jsp";

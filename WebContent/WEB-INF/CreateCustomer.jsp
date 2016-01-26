@@ -101,7 +101,7 @@
   					
   					<div class="form-group">
     					<div class="col-sm-offset-4 col-sm-8">
-      						<button type="submit" class="btn btn-primary">Confirm</button>
+      						<button type="submit" class="btn btn-primary" name="action" value="confirm">Confirm</button>
       						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       						<button type="reset" class="btn btn-default">Reset</button>
     					</div>

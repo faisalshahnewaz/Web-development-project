@@ -22,25 +22,31 @@ public class CreateCustomerForm extends FormBean{
 	private String city;
 	private String state;
 	private String zip;
+	private String action;
 	
-	
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
-		this.username = username;
+		this.username = trimAndConvert(username, "<>\"");;
 	}
 	public String getFirstname() {
 		return firstname;
 	}
 	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+		this.firstname = trimAndConvert(firstname, "<>\"");
 	}
 	public String getLastname() {
 		return lastname;
 	}
 	public void setLastname(String lastname) {
-		this.lastname = lastname;
+		this.lastname = trimAndConvert(lastname, "<>\"");
 	}
 	public String getPassword() {
 		return password;
@@ -52,31 +58,31 @@ public class CreateCustomerForm extends FormBean{
 		return addrline1;
 	}
 	public void setAddrline1(String addrline1) {
-		this.addrline1 = addrline1;
+		this.addrline1 = trimAndConvert(addrline1, "<>\"");
 	}
 	public String getAddrline2() {
 		return addrline2;
 	}
 	public void setAddrline2(String addrline2) {
-		this.addrline2 = addrline2;
+		this.addrline2 = trimAndConvert(addrline2, "<>\"");
 	}
 	public String getCity() {
 		return city;
 	}
 	public void setCity(String city) {
-		this.city = city;
+		this.city = trimAndConvert(city, "<>\"");;
 	}
 	public String getState() {
 		return state;
 	}
 	public void setState(String state) {
-		this.state = state;
+		this.state = trimAndConvert(state, "<>\"");;
 	}
 	public String getZip() {
 		return zip;
 	}
 	public void setZip(String zip) {
-		this.zip = zip;
+		this.zip = trimAndConvert(zip, "<>\"");;
 	}
 	public String getConfirmpassword() {
 		return confirmpassword;
@@ -143,10 +149,12 @@ public class CreateCustomerForm extends FormBean{
 		if(errors.size()>0) {
 			return errors;
 		}
-		
 		//check pass and confirm pass match?
 		if(!password.equals(confirmpassword)){
 			errors.add("password does not match");
+		}
+		if(!action.equals("confirm")){
+			errors.add("Incorrect Action");
 		}
 		return errors;
 	}

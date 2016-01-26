@@ -9,6 +9,11 @@
       Use MVC
     </description>
 
+
+	<session-config>
+	    <session-timeout>0</session-timeout>
+	</session-config>
+   
    <servlet>
         <servlet-name>  controller-servlet       </servlet-name>
         <servlet-class>

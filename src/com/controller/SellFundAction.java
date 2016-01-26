@@ -80,7 +80,7 @@ public class SellFundAction extends Action {
 			long allshare = pos.getShares();
 			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
 			for (int i = 0; i < tb.length; i++) {
-				if (tb[i].getCid() == customer.getCid() && tb[i].getTransactiontype() == "sell") {
+				if (tb[i].getCid() == customer.getCid() && tb[i].getTransactiontype().equals("sell")) {
 					allshare -= tb[i].getShares();
 				}
 			}

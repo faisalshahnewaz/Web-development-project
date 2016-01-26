@@ -54,6 +54,11 @@
 				
 					<c:forEach var="fund" items="${fundBeans}">
            			<tr>
+           				<td>
+           				<span style="text-align:left">
+           				<input type="hidden" name="fundid" value=${fund.fundid }>
+           				</span>
+           				</td>
                     	<td>
         					<span style="text-align:left">
         						${ fund.ticker }

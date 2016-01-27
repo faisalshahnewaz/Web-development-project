@@ -39,7 +39,7 @@ public class DateAction extends Action {
 	}
 
 	@Override
-	public String perform(HttpServletRequest request) {
+	public synchronized String perform(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		if(session == null){
 			return "Index.jsp";

@@ -74,7 +74,6 @@
     				<div class="col-sm-offset-4 col-sm-8">
       					<button type="submit" class="btn btn-primary" name = "action" value="InputFund">Confirm Input Price</button>
       					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      					<button type="submit" class="btn btn-default">Reset</button>
     				</div>
   				</div>
   				<jsp:include page="ShowError.jsp" />

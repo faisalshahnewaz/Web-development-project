@@ -18,10 +18,12 @@ public class BuyFundAction extends Action {
 	CustomerDAO cDAO;
 	TrancDAO tDAO;
 	FundDAO fDAO;
+	FundPriceHistoryDAO fphDAO;
 	public BuyFundAction(Model model) {
 		cDAO = model.getCustomerDAO();
 		tDAO = model.getTrancDAO();
 		fDAO = model.getFundDAO();
+		fphDAO = model.getFundPriceHistoryDAO();
 	}
 	@Override
 	public String getName() {
@@ -31,6 +33,7 @@ public class BuyFundAction extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		// TODO Auto-generated method stub
+		
 		HttpSession session = request.getSession();
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
@@ -89,6 +92,7 @@ public class BuyFundAction extends Action {
 			transaction.setFundid(fb[0].getFundid());
 			transaction.setTransactiontype("buy");
 			tDAO.create(transaction);
+			
 			return "BuyFundSuccessfully.jsp";
 		} catch (FormBeanException e) {
 			errors.add(e.getMessage());
@@ -96,6 +100,6 @@ public class BuyFundAction extends Action {
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";
-		}
+		} 
 	}
 }

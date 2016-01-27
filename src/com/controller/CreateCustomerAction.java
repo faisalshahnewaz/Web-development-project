@@ -74,7 +74,7 @@ public class CreateCustomerAction extends Action{
 		        //else check, if there is any existing user in database.
 		        CustomerBean[] customerBean = cDAO.match(MatchArg.equals("username", form.getUsername()));
 		        if(customerBean.length>0) {
-		        	errors.add("User with" + form.getUsername() + " user name already exists");
+		        	errors.add("Username already exists");
 		        	
 		        	return "CreateCustomer.jsp";
 		        }

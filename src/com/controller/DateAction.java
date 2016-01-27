@@ -84,6 +84,13 @@ public class DateAction extends Action {
 				session.setAttribute("date", sdf.format(transactionDate));
 			
 			FundBean[] fundBeans = fundDAO.match();
+			for (int i = 0; i < fundBeans.length; i++) {
+				FundPriceHistoryBean fphBean = new FundPriceHistoryBean();
+				fphBean.setFundid(fundBeans[i].getFundid());
+				fphBean.setPricedate(sdf.format(transactionDate));
+				fphBean.setPrice(-1);
+				fundPriceHistoryDAO.create(fphBean);;
+			}
 			request.setAttribute("fundBeans", fundBeans);
 			
 			return "TransitionDayInput.jsp";

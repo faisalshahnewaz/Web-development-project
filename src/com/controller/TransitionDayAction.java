@@ -63,12 +63,6 @@ public class TransitionDayAction extends Action {
 			}
 			String date = (String) session.getAttribute("date");
 			Map<Integer, Double> mapPrice = new HashMap<Integer, Double>();
-			/*Map map = request.getParameterMap();
-			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
-			String[] fids = (String[]) map.get("fundid");
-			String[] prices = (String[]) map.get("price");
-			String date = (String) session.getAttribute("date");
-			Map<Integer, Double> mapPrice = new HashMap<Integer, Double>();*/
 			int n = fids.length;
 			for (int i = 0; i < n; i++) {
 				addFundHistory(Integer.parseInt(fids[i]), date, 100 * (long) Double.parseDouble(prices[i]), fphDAO);
@@ -90,11 +84,9 @@ public class TransitionDayAction extends Action {
 		}
 	}
 	private void addFundHistory(int fundId, String priceDate, long price, FundPriceHistoryDAO fphDAO) throws FormBeanException, RollbackException{
-		FundPriceHistoryBean bean = new FundPriceHistoryBean();
-		bean.setFundid(fundId);
-		bean.setPrice(price);
-		bean.setPricedate(priceDate);
-		fphDAO.create(bean);
+		FundPriceHistoryBean[] bean = (FundPriceHistoryBean[]) fphDAO.match(MatchArg.equals("fundid", fundId).and(MatchArg.equals("price", -1)));
+		bean[0].setPrice(price);
+		fphDAO.update(bean[0]);
 	}
 	private void operation(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, TrancDAO tDAO, Map<Integer, Double> map, String type) throws FormBeanException, RollbackException {
 		switch (type) {

@@ -18,10 +18,12 @@ public class BuyFundAction extends Action {
 	CustomerDAO cDAO;
 	TrancDAO tDAO;
 	FundDAO fDAO;
+	FundPriceHistoryDAO fphDAO;
 	public BuyFundAction(Model model) {
 		cDAO = model.getCustomerDAO();
 		tDAO = model.getTrancDAO();
 		fDAO = model.getFundDAO();
+		fphDAO = model.getFundPriceHistoryDAO();
 	}
 	@Override
 	public String getName() {
@@ -31,10 +33,20 @@ public class BuyFundAction extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		// TODO Auto-generated method stub
+		
 		HttpSession session = request.getSession();
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
 		try {
+			FundBean[] fund = fDAO.match();
+			FundPriceHistoryBean[] fundPrice = fphDAO.match(MatchArg.equals("pricedate", fphDAO.getMaxDate()));
+			request.setAttribute("fundList", fund);
+			long[] priceList = new long[fund.length];
+			request.setAttribute("priceList", priceList);
+			for(int i=0; i < priceList.length; i++){
+				priceList[fundPrice[i].getFundid()] = fundPrice[i].getPrice(); 
+			}
+			request.setAttribute("priceList", fundPrice);
 			BuyFundForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
 			if (!form.isPresent()) {
@@ -89,12 +101,16 @@ public class BuyFundAction extends Action {
 			transaction.setFundid(fb[0].getFundid());
 			transaction.setTransactiontype("buy");
 			tDAO.create(transaction);
+			
 			return "BuyFundSuccessfully.jsp";
 		} catch (FormBeanException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
+			return "error.jsp";
+		} catch (ParseException e) {
+			errors.add("Parse Error in BuyFund.do");
 			return "error.jsp";
 		}
 	}

@@ -31,10 +31,10 @@
 		<div class="col-sm-1"></div>
 		<div class="col-sm-11">
 			<div class="header">
-				<h3>View Fund Information
-			</div>
+				<h3>View Fund Information</h3>
+				<h5>Note: You can only sell one fund at a time (each "sell" button corresponds to only that specific fund)</h5>
 		</div>
-		<br> <br> <br> <br> <br>
+		<br>
 
 		<table width="100%" class="favoritetable table-bordered table-hover">
 			<col width="12.5%">

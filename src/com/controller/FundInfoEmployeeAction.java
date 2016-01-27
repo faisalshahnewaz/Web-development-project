@@ -32,12 +32,25 @@ public class FundInfoEmployeeAction extends Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		
 		// TODO Auto-generated method stub
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
 		List<FundInfoBean> fundInfo = new ArrayList<FundInfoBean>();
+		
+		
+		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
+		
+		
 		request.setAttribute("fundInfo", fundInfo);
-		HttpSession session = request.getSession();
+		
 		if (request.getParameter("button") == null) {
 			return "ViewCustomerAccount.jsp";
 		}

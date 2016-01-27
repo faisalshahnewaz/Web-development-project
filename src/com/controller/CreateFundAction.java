@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
+import com.databean.EmployeeBean;
 import com.databean.FundBean;
 import com.form.CreateFundForm;
 import com.model.FundDAO;
@@ -29,8 +31,19 @@ public class CreateFundAction extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		System.out.println("jjj");
+		
+		HttpSession session = request.getSession();
+		
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
+		
+		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
+		
 		try{
 			CreateFundForm form = formBeanFactory.create(request);
 			request.setAttribute("form",form);

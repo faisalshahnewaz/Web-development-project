@@ -34,9 +34,16 @@ public class ChangeEmployeePasswordAction extends Action{
 	@Override
 	public String perform(HttpServletRequest request) {
 		
+		
+		HttpSession session = request.getSession();
 		List<String> errors = new ArrayList<String>(); 
 		request.setAttribute("errors", errors);
+		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
 		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
 		
 		try {
 			//load the form params to a form bean
@@ -52,14 +59,7 @@ public class ChangeEmployeePasswordAction extends Action{
 			if(errors.size()>0) {
 				return "ChangeEmployeePassword.jsp";
 			}
-			HttpSession session = request.getSession();
-			//look up the employee and check is this the right employee
-			EmployeeBean employee = (EmployeeBean)session.getAttribute("employee");
-			/*if(employee.length == 0) {
-				errors.add("No user name found");
-				return "ChangeEmployeePassword.jsp";
-			}*/
-			
+						
 			//check old password field matches?
 			if(!employee.getPassword().equals(form.getOldPassword())) {
 				errors.add("Old password does not match");

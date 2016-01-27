@@ -7,10 +7,12 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.genericdao.RollbackException;
 
 import com.databean.CustomerBean;
+import com.databean.EmployeeBean;
 import com.databean.FundPriceHistoryBean;
 import com.databean.ViewCustomerAccountBean;
 import com.model.CustomerDAO;
@@ -43,11 +45,21 @@ public class ViewCustomerAccountAction extends Action {
 		 * beans to the list. 5. pass the bean list to jsp. 6. return the jsp
 		 * name.
 		 */
+		
+		HttpSession session = request.getSession();
+		
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
 		
 		CustomerBean[] customerBeans;
 		List<ViewCustomerAccountBean> customerList = new ArrayList<ViewCustomerAccountBean>();
+		
+		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
 
 		try {
 			

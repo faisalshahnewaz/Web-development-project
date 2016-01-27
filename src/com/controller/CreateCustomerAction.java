@@ -15,6 +15,7 @@ import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 import com.databean.CustomerBean;
+import com.databean.EmployeeBean;
 import com.form.CreateCustomerForm;
 import com.model.CustomerDAO;
 import com.model.Model;
@@ -37,8 +38,17 @@ public class CreateCustomerAction extends Action{
 	@Override
 	public String perform(HttpServletRequest request) {
 		
+		HttpSession session = request.getSession();
+		
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);	
+		
+		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
 		
 		try {		
 			//create a form instance and load data from req.
@@ -85,7 +95,6 @@ public class CreateCustomerAction extends Action{
 		    cDAO.create(cBean);
 		    
 		    //attach the bean with session
-		    HttpSession session = request.getSession();
 		    session.setAttribute("customer", cBean);
 		    
 			return "CreateCustomerSuccessfully.jsp";

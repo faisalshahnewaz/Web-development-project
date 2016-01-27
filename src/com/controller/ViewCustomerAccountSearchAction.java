@@ -10,12 +10,14 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
 import com.databean.CustomerBean;
+import com.databean.EmployeeBean;
 import com.databean.FundPriceHistoryBean;
 import com.databean.ViewCustomerAccountBean;
 import com.form.ViewCustomerAccountSearchForm;
@@ -42,8 +44,17 @@ public class ViewCustomerAccountSearchAction extends Action{
 	@Override
 	public String perform(HttpServletRequest request) {
 		
+		HttpSession session = request.getSession();
+		
 		List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
+        
+        EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
         
 		/*
 		 * 1.get the list of customers from CustomerDAO

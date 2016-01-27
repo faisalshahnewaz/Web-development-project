@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
 
 import com.databean.CustomerBean;
+import com.databean.EmployeeBean;
 import com.databean.FundBean;
 import com.databean.TransactionBean;
 import com.databean.ViewCustomerAccountBean;
@@ -41,8 +43,17 @@ public class ViewTransactionHistory extends Action{
 	@Override
 	public String perform(HttpServletRequest request) {
 		
+		HttpSession session = request.getSession();
+		
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors",errors);
+		
+		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
 		
 		List<ViewTransactionBean> transactions = new ArrayList<ViewTransactionBean>();
 		

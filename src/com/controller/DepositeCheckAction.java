@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
@@ -11,6 +12,7 @@ import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
 import com.databean.CustomerBean;
+import com.databean.EmployeeBean;
 import com.databean.TransactionBean;
 import com.form.DepositeCheckForm;
 import com.model.CustomerDAO;
@@ -32,8 +34,19 @@ public class DepositeCheckAction extends Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
+		
+		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
+		
 		try{
 			DepositeCheckForm form = formBeanFactory.create(request);
 			request.setAttribute("form",form);

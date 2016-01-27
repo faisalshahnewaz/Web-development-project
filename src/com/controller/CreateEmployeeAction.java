@@ -41,9 +41,19 @@ public class CreateEmployeeAction extends Action {
 	public String getName() { return "createEmployee.do"; }
 
     public String perform(HttpServletRequest request) {
-        List<String> errors = new ArrayList<String>();
+        
+    	HttpSession session = request.getSession();
+    	
+    	List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
 
+        EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
+		
         try {
         	CreateEmployeeForm form = formBeanFactory.create(request);
 	        //request.setAttribute("userList",employeeDAO.getEmployees());
@@ -76,16 +86,16 @@ public class CreateEmployeeAction extends Action {
 	        	 errors.add("User with email: " + form.getUsername() + " already exists");
 	        	 return "CreateEmployee.jsp";
 	         }
-	        EmployeeBean employee = new EmployeeBean();
-	        employee.setUsername((form.getUsername()));
-	        employee.setFirstname(form.getFirstname());
-	        employee.setLastname(form.getLastname());
-	        employee.setPassword(form.getPassword());
-        	employeeDAO.create(employee);
+	        EmployeeBean employeeBean = new EmployeeBean();
+	        employeeBean.setUsername((form.getUsername()));
+	        employeeBean.setFirstname(form.getFirstname());
+	        employeeBean.setLastname(form.getLastname());
+	        employeeBean.setPassword(form.getPassword());
+        	employeeDAO.create(employeeBean);
         
 			// Attach (this copy of) the user bean to the session
-	        HttpSession session = request.getSession(false);
-	        session.setAttribute("employee",employee);
+	        
+	        session.setAttribute("employee",employeeBean);
 	        
 			return "CreateEmployeeSuccess.jsp"; 
         } catch (RollbackException e) {

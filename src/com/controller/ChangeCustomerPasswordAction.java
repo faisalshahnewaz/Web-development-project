@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
@@ -12,6 +13,7 @@ import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
 import com.databean.CustomerBean;
+import com.databean.EmployeeBean;
 import com.form.ChangeCustomerPasswordForm;
 ///import com.form.LoginForm;
 import com.model.CustomerDAO;
@@ -33,7 +35,11 @@ public class ChangeCustomerPasswordAction extends Action{
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		// TODO Auto-generated method stub
+		
+		HttpSession session = request.getSession();
+		
+		
+		
 		//HttpSession session = request.getSession();
 	
 		/*if (session.getAttribute("employee") != null) {
@@ -41,6 +47,13 @@ public class ChangeCustomerPasswordAction extends Action{
         }*/
 		List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
+        
+        EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		if(employee == null){
+			errors.add("Please login first");
+			return "EmployeeLogin.do";
+		}
+		
         try {
 	    	ChangeCustomerPasswordForm form = formBeanFactory.create(request);
 	        request.setAttribute("form",form);

@@ -18,7 +18,7 @@ public class CreateEmployeeForm extends FormBean {
 	private String username;
 	private String password;
 	private String confirm;
-	//private String action;
+	private String action;
 
 	public String getFirstname() {
 		return firstname;
@@ -40,9 +40,9 @@ public class CreateEmployeeForm extends FormBean {
 		return confirm;
 	}
 
-	//public String getAction() {
-		//return action;
-	//}
+	public String getAction() {
+		return action;
+	}
 
 	public void setFirstname(String s) {
 		firstname = trimAndConvert(s, "<>\"");
@@ -97,7 +97,23 @@ public class CreateEmployeeForm extends FormBean {
 		}
 
 		if (!password.equals(confirm)) {
-			errors.add("Passwords are not the same");
+			errors.add("Passwords do not match");
+		}
+		
+		if(!action.equals("Create")){
+			errors.add("Invalid Action");
+		}
+		
+		if(firstname.matches(".*[<>\"].*")){
+			errors.add("First Name may not contain angle brackets or quotes");
+		}
+		
+		if(lastname.matches(".*[<>\"].*")){
+			errors.add("Last Name may not contain angle brackets or quotes");
+		}
+		
+		if(username.matches(".*[<>\"].*")){
+			errors.add("Username may not contain angle brackets or quotes");
 		}
 		
 		return errors;

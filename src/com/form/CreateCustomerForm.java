@@ -123,13 +123,9 @@ public class CreateCustomerForm extends FormBean{
 		
 		if ( addrline1 == null || addrline1.length() == 0) {
 			System.out.println("q6");
-			errors.add("Addrline1 is required");
+			errors.add("Address is required");
 		}
 		
-		if ( addrline2 == null || addrline1.length() == 0) {
-			System.out.println("q7");
-			errors.add("addrline2 is required");
-		}
 		
 		if ( city == null || city.length() == 0) {
 			System.out.println("q8");
@@ -151,11 +147,44 @@ public class CreateCustomerForm extends FormBean{
 		}
 		//check pass and confirm pass match?
 		if(!password.equals(confirmpassword)){
-			errors.add("password does not match");
+			errors.add("Passwords do not match");
 		}
 		if(!action.equals("confirm")){
-			errors.add("Incorrect Action");
+			errors.add("Invalid Action");
 		}
+		
+		if(firstname.matches(".*[<>\"].*")){
+			errors.add("First Name may not contain angle brackets or quotes");
+		}
+		
+		if(lastname.matches(".*[<>\"].*")){
+			errors.add("Last Name may not contain angle brackets or quotes");
+		}
+		
+		if(username.matches(".*[<>\"].*")){
+			errors.add("Username may not contain angle brackets or quotes");
+		}
+		
+		if(addrline1.matches(".*[<>\"].*")){
+			errors.add("Address Line 1 may not contain angle brackets or quotes");
+		}
+		
+		if(addrline2.matches(".*[<>\"].*")){
+			errors.add("Address Line 2 may not contain angle brackets or quotes");
+		}
+		
+		if(city.matches(".*[<>\"].*")){
+			errors.add("City may not contain angle brackets or quotes");
+		}
+		
+		if(state.matches(".*[<>\"].*")){
+			errors.add("State may not contain angle brackets or quotes");
+		}
+		
+		if(zip.matches(".*[<>\"].*")){
+			errors.add("Zip may not contain angle brackets or quotes");
+		}
+		
 		return errors;
 	}
 	

@@ -46,15 +46,15 @@ public class ChangePasswordForm extends FormBean {
 		List<String> errors = new ArrayList<String>();
 		
 		if(oldPassword == null||oldPassword.length() == 0){
-			errors.add("Please enter the old password");
+			errors.add("Old Password is required");
 		}
 		
 		if(newPassword == null || newPassword.length() == 0){
-			errors.add("Please enter the new password");
+			errors.add("New Password is required");
 		}
 		
 		if(confirmPassword == null || confirmPassword.length() == 0){
-			errors.add("Please add the confirmed password");
+			errors.add("Confirm Password is required");
 		}
 		
 		
@@ -65,22 +65,22 @@ public class ChangePasswordForm extends FormBean {
         	errors.add("Passwords don't match");
         }
 		if (newPassword.equals(oldPassword)) {
-			errors.add("New Password is same to the old one");
+			errors.add("New Password cannot be same as Old Password");
 		}
 		if(action == null || !action.equals("Change")){
 			errors.add("Invalid action");
 		}
 		
 		if(oldPassword.matches(".*[<>\"].*")){
-			errors.add("Old Password cannot contain angular brackets or quotes");
+			errors.add("Old Password may not contain angle brackets or quotes");
 		}
 		
 		if(newPassword.matches(".*[<>\"].*")){
-			errors.add("New Password cannot contain angular brackets or quotes");
+			errors.add("New Password may not contain angle brackets or quotes");
 		}
 		
 		if(confirmPassword.matches(".*[<>\"].*")){
-			errors.add("Confirm Password cannot contain angular brackets or quotes");
+			errors.add("Confirm Password may not contain angle brackets or quotes");
 		}
 		
 		return errors;

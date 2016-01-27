@@ -78,7 +78,7 @@
 					<td><b>User Name</b></td>
 					<td><b>Name</b></td>
 					<td><b>Address</b></td>
-					<td><b>Cash</b></td>
+					<td><b>Cash (in $)</b></td>
 					<td><b>Fund Information</b></td>
 					<td><b>Reset Password</b></td>
 					<td><b>Deposit Check</b></td>

@@ -190,7 +190,7 @@ public class CreateCustomerForm extends FormBean{
 		if(zip.matches(".*[<>\"].*")){
 			errors.add("Zip may not contain angle brackets or quotes");
 		}
-		
+
 		return errors;
 	}
 	

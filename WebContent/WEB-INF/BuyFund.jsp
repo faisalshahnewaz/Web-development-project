@@ -38,6 +38,12 @@
 		</div>
 		<br> <br> <br> <br>
 
+
+
+
+
+
+
 		<form class="form-horizontal" action="BuyFund.do" method="POST">
 			<div class="form-group">
 				<label for="symbol" class="col-sm-4 control-label">Fund

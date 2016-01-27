@@ -47,7 +47,7 @@ public class LoginForm extends FormBean {
         if (action == null || !action.equals("Login"))
             errors.add("Invalid button");
         if (username.matches(".*[<>\"].*"))
-            errors.add("Email may not contain angle brackets or quotes");
+            errors.add("Username may not contain angle brackets or quotes");
 
         return errors;
     }

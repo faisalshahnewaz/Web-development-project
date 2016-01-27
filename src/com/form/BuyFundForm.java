@@ -34,16 +34,16 @@ public class BuyFundForm extends FormBean {
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
 		if (fundsymbol == null || fundsymbol.trim().length() == 0) {
-			errors.add("Fund symbol not present");
+			errors.add("Fund Symbol is required");
 		}
 		if (fundsymbol.matches(".*[<>\"].*")) {
-			errors.add("Fund symbol may not contain angle brackets or quotes");
+			errors.add("Fund Symbol may not contain angle brackets or quotes");
 		}
 		if (money == null || money.trim().length() == 0) {
-			errors.add("Money Not Present");
+			errors.add("Money Amount is required");
 		}
 		if (money.matches(".*[<>\"].*")) {
-			errors.add("Money may not contain angle brackets or quotes");
+			errors.add("Money Amount may not contain angle brackets or quotes");
 		}
 		/*if (money.trim().length() > 5) {
 			errors.add("Money length cannot exceed 5 characters");

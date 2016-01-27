@@ -156,14 +156,14 @@ public class TransitionDayAction extends Action {
 			errors.add("Price can not be empty");
 			return;
 		}
-		double price = 0;
+		double price = 0.0;
 		try {
 			price = Double.parseDouble(s);
 		} catch (Exception e) {
 			errors.add("You have to input number for price");
 			return;
 		}
-		BigDecimal bg = new BigDecimal(price);
+		BigDecimal bg = new BigDecimal(s);
 		if (bg.doubleValue() <= 0) {
 			errors.add("You can not input number which is less or equal to zero");
 			return;

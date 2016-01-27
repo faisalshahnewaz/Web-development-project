@@ -26,11 +26,11 @@ public class ViewCustomerAccountSearchForm extends FormBean{
 		List<String> errors = new ArrayList<String>();
 		
 		if (username == null || username.trim().length() == 0)
-			errors.add("Customer name required");
+			errors.add("Username is required");
 		
 		//sanitization check
 		if (username.matches(".*[<>\"].*"))
-			errors.add("invalid customer name");
+			errors.add("Username may not contain angle brackets or quotes");
 		
 		return errors;
 	}

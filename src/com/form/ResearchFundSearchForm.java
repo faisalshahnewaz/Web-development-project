@@ -36,11 +36,11 @@ public class ResearchFundSearchForm extends FormBean{
 		List<String> errors = new ArrayList<String>();
 		
 		if (fundname == null || fundname.trim().length() == 0)
-			errors.add("Fund name required");
+			errors.add("Fund Name is required");
 		
 		//sanitization check
 		if (fundname.matches(".*[<>\"].*"))
-			errors.add("invalid Fund name");
+			errors.add("Fund Name may not contain angle brackets or quotes");
 		
 		return errors;
 	}

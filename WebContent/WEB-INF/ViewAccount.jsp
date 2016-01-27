@@ -57,14 +57,14 @@
 				<tr class="title">
 					<thead>
 					<!-- 				<td>Number</td> -->
-					<td>Username</td>
-					<td>Name</td>
-					<td>Address</td>
-					<td>Cash</td>
-					<td>Fund Info</td>
-					<td>Change Password</td>
-					<td>Request Check</td>
-					<td>Transaction History</td>
+					<td><b>Username</b></td>
+					<td><b>Name</b></td>
+					<td><b>Address</b></td>
+					<td><b>Cash</b></td>
+					<td><b>Fund Info</b></td>
+					<td><b>Change Password</b></td>
+					<td><b>Request Check</b></td>
+					<td><b>Transaction History</b></td>
 					</thead>
 				</tr>
 				<tr>

@@ -48,19 +48,21 @@ public class TransitionDayAction extends Action {
 			errors.add("Please Login first");
 			return "EmployeeLogin.do";
 		}
-		Map map = request.getParameterMap();
-		String[] fids = (String[]) map.get("fundid");
-		String[] prices = (String[]) map.get("price");
-		for (int i = 0; i < prices.length; i++) {
-			checkValidation(prices[i], errors);
-			if (errors.size() > 0) {
-				return "TransitionDayInput.jsp";
-			}
-		}
-		String date = (String) session.getAttribute("date");
-		Map<Integer, Double> mapPrice = new HashMap<Integer, Double>();
 		try {
 			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
+			Map map = request.getParameterMap();
+			String[] fids = (String[]) map.get("fundid");
+			String[] prices = (String[]) map.get("price");
+			for (int i = 0; i < prices.length; i++) {
+				checkValidation(prices[i], errors);
+				if (errors.size() > 0) {
+					FundBean[] fundBeans = fDAO.match();
+					request.setAttribute("fundBeans", fundBeans);
+					return "TransitionDayInput.jsp";
+				}
+			}
+			String date = (String) session.getAttribute("date");
+			Map<Integer, Double> mapPrice = new HashMap<Integer, Double>();
 			/*Map map = request.getParameterMap();
 			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
 			String[] fids = (String[]) map.get("fundid");

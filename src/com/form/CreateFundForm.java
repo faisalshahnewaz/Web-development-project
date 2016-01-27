@@ -41,13 +41,13 @@ public class CreateFundForm extends FormBean {
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
 		if (fundName == null || fundName.trim().length() == 0) {
-			errors.add("Fund name not present");
+			errors.add("Fund Name is required");
 		}
 		if (fundName.matches(".*[<>\"].*")) {
 			errors.add("Fund name may not contain angle brackets or quotes");
 		}
 		if (ticker == null || ticker.trim().length() == 0) {
-			errors.add("Ticker Not Present");
+			errors.add("Ticker is required");
 		}
 		if (ticker.matches(".*[<>\"].*")) {
 			errors.add("Ticker may not contain angle brackets or quotes");

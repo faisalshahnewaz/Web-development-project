@@ -66,15 +66,6 @@ public class RequestCheckAction extends Action {
 				return "RequestCheck.jsp";
 			}
 			
-			BigDecimal bg = new BigDecimal(form.getAmount());
-			if (bg.doubleValue() <= 0) {
-				errors.add("Amount can not be negative");
-				return "RequestCheck.jsp";
-			}
-			if (bg.scale() > 2) {
-				errors.add("Your input should only have at most two decimal places");
-				return "RequestCheck.jsp";
-			}
 			
 			
 		//	CustomerBean customer = (CustomerBean) session.getAttribute("customer");

@@ -59,21 +59,27 @@ public class DepositeCheckForm extends FormBean {
 			errors.add("Amount may not contain angle brackets or quotes");
 		}
 		
-		System.out.print("Step3:" + amount);
-		
-		System.out.print("Amount here:" + amount);
-		
-		
 		if (errors.size() > 0) {
 			return errors;
 		}
-		if (Float.parseFloat(amount) <= 0) {
-			errors.add("Amount should be more than zero");
+		try {
+			if (Float.parseFloat(amount) <= 0) {
+				errors.add("Amount can not be negetive");
+			}
+			if (Float.parseFloat(amount) > 1000000) {
+				errors.add("Amount should be Less than one million");
+			}
+			if (!action.equals("DepositCheck")) {
+				errors.add("Invalid Action");
+			}
+			
+			return errors;
+		} catch (Exception e) {
+			errors.add("Amount should be a number");
+			return errors;
 		}
-		if (!action.equals("DepositCheck")) {
-			errors.add("Invalid Action");
-		}
-		return errors;
+		
+		
 
 	}
 

@@ -52,7 +52,6 @@
            		<tr>
            			<td>
         				<span style="text-align:left">
-        				<input type="hidden" value="${ count }">
         					${ transaction.executedate }
         				</span>
                     </td>

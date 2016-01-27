@@ -48,14 +48,25 @@ public class TransitionDayAction extends Action {
 			errors.add("Please Login first");
 			return "EmployeeLogin.do";
 		}
-		
+		Map map = request.getParameterMap();
+		String[] fids = (String[]) map.get("fundid");
+		String[] prices = (String[]) map.get("price");
+		for (int i = 0; i < prices.length; i++) {
+			checkValidation(prices[i], errors);
+			if (errors.size() > 0) {
+				return "TransitionDayInput.jsp";
+			}
+		}
+		String date = (String) session.getAttribute("date");
+		Map<Integer, Double> mapPrice = new HashMap<Integer, Double>();
 		try {
-			Map map = request.getParameterMap();
+			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
+			/*Map map = request.getParameterMap();
 			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
 			String[] fids = (String[]) map.get("fundid");
 			String[] prices = (String[]) map.get("price");
 			String date = (String) session.getAttribute("date");
-			Map<Integer, Double> mapPrice = new HashMap<Integer, Double>();
+			Map<Integer, Double> mapPrice = new HashMap<Integer, Double>();*/
 			int n = fids.length;
 			for (int i = 0; i < n; i++) {
 				addFundHistory(Integer.parseInt(fids[i]), date, 100 * (long) Double.parseDouble(prices[i]), fphDAO);
@@ -145,5 +156,27 @@ public class TransitionDayAction extends Action {
 		long cash = transaction.getAmount();
 		customer.setCash(customer.getCash() - cash);
 		cDAO.update(customer);
+	}
+	private void checkValidation(String s, List<String> errors) {
+		if (s == null || s.trim().length() == 0) {
+			errors.add("Price can not be empty");
+			return;
+		}
+		double price = 0;
+		try {
+			price = Double.parseDouble(s);
+		} catch (Exception e) {
+			errors.add("You have to input number for price");
+			return;
+		}
+		BigDecimal bg = new BigDecimal(price);
+		if (bg.doubleValue() <= 0) {
+			errors.add("You can not input number which is less or equal to zero");
+			return;
+		}
+		if (bg.scale() > 2) {
+			errors.add("Your input should only have at most two decimal places");
+			return;
+		}
 	}
 }

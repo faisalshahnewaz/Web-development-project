@@ -48,7 +48,6 @@
 						<td><b>Fund Name</b></td>
 						<td><b>Price</b></td>
 					</tr>
-				
 					<c:forEach var="fund" items="${fundBeans}">
            			<tr>
                     	<td>

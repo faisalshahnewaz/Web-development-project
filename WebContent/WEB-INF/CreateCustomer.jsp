@@ -44,12 +44,12 @@
 		</div>
 		<br> <br> <br> <br>
 		<form class="form-horizontal" action="CreateCustomer.do" method="POST">
-			<div class="form-group">
+				<div class="form-group">
 				<label for="username" class="col-sm-4 control-label">User
 					Name</label>
 				<div class="col-sm-8">
 					<input type="text" name="username" class="form-control"
-						id="username" placeholder="Required">
+						id="username" value="${form.username}" placeholder="Required">
 				</div>
 			</div>
 			<div class="form-group">
@@ -57,7 +57,7 @@
 					Name</label>
 				<div class="col-sm-8">
 					<input type="text" name="firstname" class="form-control"
-						id="firstname" placeholder="Required">
+						id="firstname" value="${form.firstname}" placeholder="Required">
 				</div>
 			</div>
 			<div class="form-group">
@@ -65,7 +65,7 @@
 					Name</label>
 				<div class="col-sm-8">
 					<input type="text" name="lastname" class="form-control"
-						id="lastname" placeholder="Required">
+						id="lastname" value="${form.lastname}" placeholder="Required">
 				</div>
 			</div>
 			<div class="form-group">
@@ -88,24 +88,25 @@
 					Line1</label>
 				<div class="col-sm-8">
 					<input type="text" name="addrline1" class="form-control"
-						id="address1" placeholder="Required">
+						id="address1" value="${form.addrline1}" placeholder="Required">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="address2" class="col-sm-4 control-label">Address
 					Line2</label>
 				<div class="col-sm-8">
-					<input type="text" name="addrline2" class="form-control"
+					<input type="text" name="addrline2" value="${form.addrline1}" class="form-control"
 						id="address2" placeholder="Optional">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="city" class="col-sm-4 control-label">City</label>
 				<div class="col-sm-8">
-					<input type="text" name="city" class="form-control" id="city"
+					<input type="text" name="city" class="form-control" value="${form.city}" id="city"
 						placeholder="Required">
 				</div>
 			</div>
+			
 			<div class="form-group">
 				<label for="state" class="col-sm-4 control-label">State</label>
 				<div class="col-sm-8">
@@ -165,14 +166,14 @@
 					</select>
 				</div>
 			</div>
+			
 			<div class="form-group">
-				<label for="cash" class="col-sm-4 control-label">Zip</label>
+				<label for="zip" class="col-sm-4 control-label">Zip Code</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" name="zip" id="zip"
+					<input type="text" class="form-control" id="zip" value="${form.zip}" name="zip"
 						placeholder="Required">
 				</div>
 			</div>
-
 			<div class="form-group">
 				<div class="col-sm-offset-4 col-sm-8">
 					<button type="submit" class="btn btn-primary" name="action"

@@ -176,14 +176,14 @@ public class CreateCustomerForm extends FormBean{
 		if(city.matches(".*[<>\"].*")){
 			errors.add("City may not contain angle brackets or quotes");
 		}
-		if(!city.matches("[a-zA-Z]")) {
-			errors.add("City may not contain anything without letters");
+		if(!city.matches("[a-zA-Z]*")) {
+			errors.add("City may not contain numbers or special characters");
 		}
 		
 		if(state.matches(".*[<>\"].*")){
 			errors.add("State may not contain angle brackets or quotes");
 		}
-		if(!state.matches("[a-zA-Z]")) {
+		if(!state.matches("[a-zA-Z]*")) {
 			errors.add("State may not contain anything without letters");
 		}
 		

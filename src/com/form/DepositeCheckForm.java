@@ -50,7 +50,7 @@ public class DepositeCheckForm extends FormBean {
 		System.out.print("Step1:" + amount);
 		
 		if (amount == null || amount.trim().length() == 0) {
-			errors.add("Amount not Present");
+			errors.add("Amount is required");
 		}
 		
 		System.out.print("Step2:" + amount);

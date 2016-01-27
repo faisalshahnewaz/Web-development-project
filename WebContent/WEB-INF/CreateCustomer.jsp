@@ -106,13 +106,7 @@
 						placeholder="Required">
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="state" class="col-sm-4 control-label">State</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" id="state" value="${form.state}" name="state"
-						placeholder="Required">
-				</div>
-			</div>
+			
 			<div class="form-group">
 				<label for="state" class="col-sm-4 control-label">State</label>
 				<div class="col-sm-8">
@@ -173,7 +167,13 @@
 				</div>
 			</div>
 			
-
+			<div class="form-group">
+				<label for="zip" class="col-sm-4 control-label">Zip Code</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="zip" value="${form.zip}" name="zip"
+						placeholder="Required">
+				</div>
+			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-4 col-sm-8">
 					<button type="submit" class="btn btn-primary" name="action"

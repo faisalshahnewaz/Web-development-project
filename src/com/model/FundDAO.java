@@ -30,7 +30,7 @@ public class FundDAO extends GenericDAO<FundBean> {
 	public FundBean[] getFundListBySearch(String fundname) throws RollbackException {
 		try {
 			Transaction.begin();
-			FundBean[] fundList = match(MatchArg.contains("fundName", fundname));
+			FundBean[] fundList = match(MatchArg.containsIgnoreCase("fundName", fundname));
 			Transaction.commit();
 			return fundList;
 		} finally {

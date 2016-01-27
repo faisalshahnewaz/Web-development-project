@@ -41,6 +41,14 @@ public class TransitionDayAction extends Action {
 		HttpSession session = request.getSession();
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
+		
+		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
+		
 		try {
 			Map map = request.getParameterMap();
 			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));

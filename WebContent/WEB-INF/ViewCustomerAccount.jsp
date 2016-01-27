@@ -20,11 +20,8 @@
 							Employee Account</a></li>
 					<li role="presentation"><a href="CreateCustomer.do">Create
 							Customer Account</a></li>
-					<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
 					<li role="presentation" class="active"><a
 						href="ViewCustomerAccount.do">Manage Customer Account</a></li>
-					<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
 					<li role="presentation"><a href="CreateFund.do">Create
 							Fund</a></li>
 					<li role="presentation"><a href="Date.do">Transition
@@ -87,19 +84,16 @@
 					<td><b>Deposit Check</b></td>
 					<td><b>Transaction History</b></td>
 				</tr>
-
-				<c:set var="count" value="0" />
 				<c:forEach var="customer" items="${customerList}">
-					<c:set var="count" value="${ count+1 }" />
 
 					<tr class>
 
 						<td><span style="text-align: left"> ${ customer.username }
 						</span></td>
-						<td><span style="text-align: left;"> ${ customer.firstname }
+						<td><span style="text-align: left;"> ${ customer.firstname },
 								${ customer.lastname } </span></td>
-						<td><span style="text-align: left"> ${ customer.addrline1 }
-								${ customer.addrline2 } ${ customer.city } ${ customer.state } </span>
+						<td><span style="text-align: left"> ${ customer.addrline1 },
+								${ customer.addrline2 }, ${ customer.city }, ${ customer.state } </span>
 						</td>
 						<td><span style="text-align: left"> 
 								<fmt:formatNumber pattern="#,##0.00" value="${customer.cash/100}" maxFractionDigits="2"/>

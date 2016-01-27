@@ -64,9 +64,9 @@ public class CreateEmployeeForm extends FormBean {
 		confirm = s.trim();
 	}
 
-	//public void setAction(String s) {
-		//confirm = s.trim();
-	//}
+	public void setAction(String s) {
+		action = s.trim();
+	}
 
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
@@ -99,8 +99,9 @@ public class CreateEmployeeForm extends FormBean {
 		if (!password.equals(confirm)) {
 			errors.add("Passwords do not match");
 		}
-		
+		System.out.println("invalid action="+action);
 		if(!action.equals("Create")){
+			System.out.println("invalid action1="+action);
 			errors.add("Invalid Action");
 		}
 		

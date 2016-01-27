@@ -76,7 +76,7 @@ public class DateAction extends Action {
 				Date transactionDate = sdf1.parse(form.getPricedate());
 				if (date != null) {
 					Date maxdate = sdf.parse(date);
-					if(transactionDate.compareTo(maxdate) <= 0){
+					if(transactionDate.compareTo(maxdate) < 0){
 						errors.add("Transition day for this date has already occured");
 						return "TransitionDay.jsp";
 					}
@@ -84,11 +84,26 @@ public class DateAction extends Action {
 				session.setAttribute("date", sdf.format(transactionDate));
 			
 			FundBean[] fundBeans = fundDAO.match();
+			FundPriceHistoryBean[] fphBeans = fundPriceHistoryDAO.match();
+			boolean flag = false;
+			for (int i = 0; i < fphBeans.length; i++) {
+				if (fphBeans[i].getPrice() == -1) {
+					flag = true;
+				}
+			}
+			if (transactionDate.compareTo(sdf.parse(date)) == 0 && !flag) {
+				errors.add("Transition day for this date has already occured");
+				return "TransitionDay.jsp";
+			}
+			if (transactionDate.compareTo(sdf.parse(date)) > 0 && flag) {
+				errors.add("Previous transition day has not finished, please wait!");
+				return "TransitionDay.jsp";
+			}
 			for (int i = 0; i < fundBeans.length; i++) {
 				FundPriceHistoryBean fphBean = new FundPriceHistoryBean();
 				fphBean.setFundid(fundBeans[i].getFundid());
 				fphBean.setPricedate(sdf.format(transactionDate));
-				fphBean.setPrice(-1);
+				fphBean.setPrice((long) (-1));
 				fundPriceHistoryDAO.create(fphBean);;
 			}
 			request.setAttribute("fundBeans", fundBeans);

@@ -15,10 +15,7 @@
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
-  				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
   				<li role="presentation"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
-  				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
   				<li role="presentation" class="active"><a href="Date.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
@@ -54,13 +51,9 @@
 				
 					<c:forEach var="fund" items="${fundBeans}">
            			<tr>
-           				<td>
-           				<span style="text-align:left">
-           				<input type="hidden" name="fundid" value=${fund.fundid }>
-           				</span>
-           				</td>
                     	<td>
         					<span style="text-align:left">
+        					<input type="hidden" name="fundid" value=${fund.fundid }>
         						${ fund.ticker }
         					</span>
                     	</td>
@@ -71,7 +64,7 @@
                     	</td>
                     	<td>
         					<span style="text-align:left">
-        						<input type="text" size = "30" name="price" value="" />
+        						<input type="text" size="33" name="price" value="" />
         					</span>
                     	</td>  
    					</tr>
@@ -82,7 +75,7 @@
     				<div class="col-sm-offset-4 col-sm-8">
       					<button type="submit" class="btn btn-primary" name = "action" value="InputFund">Confirm Input Price</button>
       					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      					<button type="submit" class="btn btn-default">Cancel</button>
+      					<button type="submit" class="btn btn-default">Reset</button>
     				</div>
   				</div>
   				<jsp:include page="ShowError.jsp" />

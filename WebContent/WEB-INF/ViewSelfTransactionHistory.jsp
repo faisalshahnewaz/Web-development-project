@@ -11,13 +11,10 @@
 				<c:when test="${customer == null}">  
   					<li role="presentation" class="active"><a href="CustomerLogin.do">Login</a></li>
   				</c:when>
-  				<c:otherwise>
-	 				<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->
+  				<c:otherwise>	
 	  				<li role="presentation" class="active"><a href="ViewAccount.do">Manage Account</a></li>
 	  				<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
-	  				<!-- <li role="presentation"><a href="ViewSelfTransactionHistory.do">Transaction History</a></li> -->
 	  				<li role="presentation"><a href="ResearchFund.do">Research Fund</a></li>
-	  				<!-- <li role="presentation"><a href="RequestCheck.do">Request Check</a></li> -->
 	  				<li role="presentation"><a href="CustomerLogout.do">Log Out</a></li>
 	  			</c:otherwise>
   				</c:choose>
@@ -45,20 +42,20 @@
 			<col width="16.67%">
 			<col width="16.67%">
 			<tr class="title">
-				<td><b>Number</b></td>
+				<td><b>Transaction Date</b></td>
 				<td><b>Type</b></td>
 				<td><b>Fund Name</b></td>
-				<td><b>Transaction Date</b></td>
 				<td><b>Shares</b></td>
 				<td><b>Amount</b></td>
-			</tr>
-				
-				<c:set var="count" value="0" />
+			</tr>	
 				<c:forEach var="transaction" items="${transactions}">
-				<c:set var="count" value="${ count+1 }" />
-
            		<tr>
-           			<td style="text-align:left"> ${ count } </td>
+           			<td>
+        				<span style="text-align:left">
+        				<input type="hidden" value="${ count }">
+        					${ transaction.executedate }
+        				</span>
+                    </td>
        				<td>
 			            <span style="text-align:left">
         					${ transaction.transactiontype }
@@ -67,11 +64,6 @@
         			<td>
         				<span style="text-align:left">
         					${ transaction.fundname }
-        				</span>
-                    </td>
-                    <td>
-        				<span style="text-align:left">
-        					${ transaction.executedate }
         				</span>
                     </td>
                     <td>

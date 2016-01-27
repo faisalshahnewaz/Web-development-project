@@ -40,14 +40,16 @@
 				<br>
 				<form class="form-horizontal" action="TransitionDay.do" method="POST">
 				<div class="form-group">
-    					<label for="date" class="col-sm-2 control-label">Choose Date</label>
-   						 <div class="col-sm-10">
+    					<label for="date" class="col-sm-4 control-label">Choose Date</label>
+   						 <div class="col-sm-8">
       						<input type="Date" name="pricedate" value="" class="form-control" id="date" placeholder="mm/dd/yyyy">
    						</div>
   					</div>
   			
   				<br>
-  				<br>	
+  				<br>
+  				<div class="col-sm-2"></div>
+				<div class="col-sm-10">	
 				<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
 					<col width="33%">
 					<col width="33%">
@@ -79,10 +81,14 @@
 					</c:forEach>
 				</table>
 				<br>
+				<br>
+				</div>
+				
   				<div class="form-group">
     				<div class="col-sm-offset-4 col-sm-8">
       					<button type="submit" class="btn btn-primary" name = "action" value="InputFund">Confirm</button>
       					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      					<button type="reset" class="btn btn-default">Reset</button>
     				</div>
   				</div>
   				<jsp:include page="ShowError.jsp" />

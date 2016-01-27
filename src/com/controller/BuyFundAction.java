@@ -41,11 +41,6 @@ public class BuyFundAction extends Action {
 			FundBean[] fund = fDAO.match();
 			FundPriceHistoryBean[] fundPrice = fphDAO.match(MatchArg.equals("pricedate", fphDAO.getMaxDate()));
 			request.setAttribute("fundList", fund);
-			long[] priceList = new long[fund.length];
-			request.setAttribute("priceList", priceList);
-			for(int i=0; i < priceList.length; i++){
-				priceList[fundPrice[i].getFundid()] = fundPrice[i].getPrice(); 
-			}
 			request.setAttribute("priceList", fundPrice);
 			BuyFundForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);

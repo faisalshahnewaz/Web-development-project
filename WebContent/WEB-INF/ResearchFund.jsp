@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,7 +99,9 @@
 								<c:forEach var="datePrice" items="${fundHistory}">
 									<tr>
 										<td>${datePrice.pricedate }</td>
-										<td>${datePrice.price }</td>
+										<td><fmt:formatNumber
+									pattern="#,##0.00" value="${datePrice.price}"
+									maxFractionDigits="2" /></td>
 									</tr>
 								</c:forEach>
 							</tbody>

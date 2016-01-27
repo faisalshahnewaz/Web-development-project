@@ -94,7 +94,7 @@
 									<tr>
 										<td>${datePrice.pricedate }</td>
 										<td><fmt:formatNumber
-									pattern="#,##0.00" value="${datePrice.price /100}"
+									pattern="#,##0.00" value="${datePrice.price}"
 									maxFractionDigits="2" /></td>
 									</tr>
 								</c:forEach>

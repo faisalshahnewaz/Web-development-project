@@ -91,11 +91,11 @@ public class DateAction extends Action {
 					flag = true;
 				}
 			}
-			if (transactionDate.compareTo(sdf.parse(date)) == 0 && !flag) {
+			if (date != null && transactionDate.compareTo(sdf.parse(date)) == 0 && !flag) {
 				errors.add("Transition day for this date has already occured");
 				return "TransitionDay.jsp";
 			}
-			if (transactionDate.compareTo(sdf.parse(date)) > 0 && flag) {
+			if (date != null && transactionDate.compareTo(sdf.parse(date)) > 0 && flag) {
 				errors.add("Previous transition day has not finished, please wait!");
 				return "TransitionDay.jsp";
 			}
@@ -104,7 +104,7 @@ public class DateAction extends Action {
 				fphBean.setFundid(fundBeans[i].getFundid());
 				fphBean.setPricedate(sdf.format(transactionDate));
 				fphBean.setPrice((long) (-1));
-				fundPriceHistoryDAO.create(fphBean);;
+				fundPriceHistoryDAO.create(fphBean);
 			}
 			request.setAttribute("fundBeans", fundBeans);
 			

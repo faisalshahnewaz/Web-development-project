@@ -38,10 +38,6 @@ public class BuyFundAction extends Action {
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
 		try {
-			FundBean[] fund = fDAO.match();
-			FundPriceHistoryBean[] fundPrice = fphDAO.match(MatchArg.equals("pricedate", fphDAO.getMaxDate()));
-			request.setAttribute("fundList", fund);
-			request.setAttribute("priceList", fundPrice);
 			BuyFundForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
 			if (!form.isPresent()) {
@@ -104,9 +100,6 @@ public class BuyFundAction extends Action {
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";
-		} catch (ParseException e) {
-			errors.add("Parse Error in BuyFund.do");
-			return "error.jsp";
-		}
+		} 
 	}
 }

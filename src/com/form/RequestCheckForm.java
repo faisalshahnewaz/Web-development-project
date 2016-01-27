@@ -1,5 +1,6 @@
 package com.form;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,12 +59,12 @@ public class RequestCheckForm extends FormBean {
 		if (amount.matches(".*[<>\"].*")) {
 			errors.add("Amount may not contain angle brackets or quotes");
 		}
-		
-		System.out.print("Step3:" + amount);
-		
-		System.out.print("Amount here:" + amount);
-		
-		
+		try{
+			if (Float.parseFloat(amount) < 0) {
+			errors.add("Amount cannot be less than zero");
+		}}catch(Exception ex){
+			errors.add("Please enter a valid amount");
+		}
 		if (errors.size() > 0) {
 			return errors;
 		}

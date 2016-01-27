@@ -34,7 +34,7 @@ public class CreateCustomerForm extends FormBean{
 		return username;
 	}
 	public void setUsername(String username) {
-		this.username = trimAndConvert(username, "<>\"");;
+		this.username = trimAndConvert(username, "<>\"");
 	}
 	public String getFirstname() {
 		return firstname;
@@ -70,19 +70,19 @@ public class CreateCustomerForm extends FormBean{
 		return city;
 	}
 	public void setCity(String city) {
-		this.city = trimAndConvert(city, "<>\"");;
+		this.city = trimAndConvert(city, "<>\"");
 	}
 	public String getState() {
 		return state;
 	}
 	public void setState(String state) {
-		this.state = trimAndConvert(state, "<>\"");;
+		this.state = trimAndConvert(state, "<>\"");
 	}
 	public String getZip() {
 		return zip;
 	}
 	public void setZip(String zip) {
-		this.zip = trimAndConvert(zip, "<>\"");;
+		this.zip = trimAndConvert(zip, "<>\"");
 	}
 	public String getConfirmpassword() {
 		return confirmpassword;
@@ -176,9 +176,15 @@ public class CreateCustomerForm extends FormBean{
 		if(city.matches(".*[<>\"].*")){
 			errors.add("City may not contain angle brackets or quotes");
 		}
+		if(!city.matches("[a-zA-Z]")) {
+			errors.add("City may not contain anything without letters");
+		}
 		
 		if(state.matches(".*[<>\"].*")){
 			errors.add("State may not contain angle brackets or quotes");
+		}
+		if(!state.matches("[a-zA-Z]")) {
+			errors.add("State may not contain anything without letters");
 		}
 		
 		if(zip.matches(".*[<>\"].*")){

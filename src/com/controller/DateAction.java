@@ -99,12 +99,14 @@ public class DateAction extends Action {
 				errors.add("Previous transition day has not finished, please wait!");
 				return "TransitionDay.jsp";
 			}
-			for (int i = 0; i < fundBeans.length; i++) {
-				FundPriceHistoryBean fphBean = new FundPriceHistoryBean();
-				fphBean.setFundid(fundBeans[i].getFundid());
-				fphBean.setPricedate(sdf.format(transactionDate));
-				fphBean.setPrice((long) (-1));
-				fundPriceHistoryDAO.create(fphBean);
+			if (date == null || (date != null && transactionDate.compareTo(sdf.parse(date)) > 0)) {
+				for (int i = 0; i < fundBeans.length; i++) {
+					FundPriceHistoryBean fphBean = new FundPriceHistoryBean();
+					fphBean.setFundid(fundBeans[i].getFundid());
+					fphBean.setPricedate(sdf.format(transactionDate));
+					fphBean.setPrice((long) (-1));
+					fundPriceHistoryDAO.create(fphBean);
+				}
 			}
 			request.setAttribute("fundBeans", fundBeans);
 			

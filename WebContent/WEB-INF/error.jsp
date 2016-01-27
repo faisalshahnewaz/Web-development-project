@@ -45,7 +45,7 @@
   					<div class="form-group">
   						<div class="alert alert-success" role="alert">
   							<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
-  							${error}
+  							${errors}
   							<input type="button" value="Home Page" onclick="window.location.href=('Index.do')" class="btn">
   						</div>
   					</div>

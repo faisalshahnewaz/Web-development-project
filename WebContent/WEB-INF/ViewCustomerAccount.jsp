@@ -68,7 +68,7 @@
 				class="favoritetable table-bordered table-hover table-responsive">
 				<col width="12.5%">
 				<col width="12.5%">
-				<col width="12.5%">
+				<col width="42.5%">
 				<col width="12.5%">
 				<col width="12.5%">
 				<col width="12.5%">
@@ -90,9 +90,9 @@
 
 						<td><span style="text-align: left"> ${ customer.username }
 						</span></td>
-						<td><span style="text-align: left;"> ${ customer.firstname },
+						<td><span style="text-align: left;"> ${ customer.firstname }
 								${ customer.lastname } </span></td>
-						<td><span style="text-align: left"> ${ customer.addrline1 },
+						<td><span style="text-align: left"> ${ customer.addrline1 }
 								${ customer.addrline2 }, ${ customer.city }, ${ customer.state } </span>
 						</td>
 						<td><span style="text-align: left"> 

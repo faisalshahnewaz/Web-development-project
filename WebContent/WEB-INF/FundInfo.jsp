@@ -76,9 +76,10 @@
 							value="${ customer.cid }" /> <input type="submit" name="button"
 							value="Sell" /></td>
 					</tr>
-					<jsp:include page="ShowError.jsp" />
+					
 				</form>
 			</c:forEach>
+			<jsp:include page="ShowError.jsp" />
 		</table>
 
 	</div>

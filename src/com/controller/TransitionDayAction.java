@@ -84,7 +84,7 @@ public class TransitionDayAction extends Action {
 		}
 	}
 	private void addFundHistory(int fundId, String priceDate, long price, FundPriceHistoryDAO fphDAO) throws FormBeanException, RollbackException{
-		FundPriceHistoryBean[] bean = (FundPriceHistoryBean[]) fphDAO.match(MatchArg.equals("fundid", fundId).and(MatchArg.equals("price", -1)));
+		FundPriceHistoryBean[] bean = (FundPriceHistoryBean[]) fphDAO.match(MatchArg.equals("fundid", fundId).and(MatchArg.equals("price", (long)(-1))));
 		bean[0].setPrice(price);
 		fphDAO.update(bean[0]);
 	}

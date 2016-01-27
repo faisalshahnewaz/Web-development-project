@@ -16,6 +16,7 @@ import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
+import com.databean.EmployeeBean;
 import com.databean.FundBean;
 import com.databean.FundPriceHistoryBean;
 import com.form.DateForm;
@@ -46,6 +47,13 @@ public class DateAction extends Action {
 		}
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
+		
+		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		if(employee == null) {
+			errors.add("Please Login first");
+			return "EmployeeLogin.do";
+		}
 		
 		try{
 			DateForm form = formBeanFactory.create(request);

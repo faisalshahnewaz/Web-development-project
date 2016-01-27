@@ -13,14 +13,11 @@
 						href="CustomerLogin.do">Login</a></li>
 				</c:when>
 				<c:otherwise>
-					<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->
 					<li role="presentation" class="active"><a
 						href="ViewAccount.do">Manage Account</a></li>
 					<li role="presentation"><a href="BuyFund.do">Buy Fund</a></li>
-					<!-- <li role="presentation"><a href="ViewSelfTransactionHistory.do">Transaction History</a></li> -->
 					<li role="presentation"><a href="ResearchFund.do">Research
 							Fund</a></li>
-					<!-- <li role="presentation"><a href="RequestCheck.do">Request Check</a></li> -->
 					<li role="presentation"><a href="CustomerLogout.do">Log
 							Out</a></li>
 				</c:otherwise>

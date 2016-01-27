@@ -16,9 +16,7 @@
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
-  				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
   				<li role="presentation" class="active"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
-  				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
   				<li role="presentation"><a href="Date.do">Transition Day</a></li>
@@ -50,22 +48,24 @@
 			<col width="16.67%">
 			<col width="16.67%">
 			<tr class="title">
-				<td><b>Number</b></td>
+				<td><b>Transaction Date</b></td>
 				<td><b>Type</b></td>
 				<td><b>Fund Name</b></td>
-				<td><b>Transaction Date</b></td>
 				<td><b>Shares</b></td>
 				<td><b>Amount</b></td>
 			</tr>
-				
-				<c:set var="count" value="0" />
 				<c:forEach var="transaction" items="${transactions}">
-				<c:set var="count" value="${ count+1 }" />
-
            		<tr>
-           			<td style="text-align:left"> ${ count } </td>
+           			
+       				<td>
+        				<span style="text-align:left">
+        				<input type="hidden" value="${ count }">
+        					${ transaction.executedate }
+        				</span>
+                    </td>
        				<td>
 			            <span style="text-align:left">
+			            
         					${ transaction.transactiontype }
         				</span>
         			</td>
@@ -74,11 +74,7 @@
         					${ transaction.fundname }
         				</span>
                     </td>
-                    <td>
-        				<span style="text-align:left">
-        					${ transaction.executedate }
-        				</span>
-                    </td>
+                    
                     <td>
         				<span style="text-align:left">
         					<fmt:formatNumber pattern="#,##0.000" value="${transaction.shares/1000}" maxFractionDigits="3"/>

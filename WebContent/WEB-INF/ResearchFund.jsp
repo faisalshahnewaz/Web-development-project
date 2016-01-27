@@ -76,7 +76,7 @@
 					<c:when test="${fundHistory == null}">
 						<c:forEach var="fund" items="${fundList}">
 							<a href="ResearchFund.do?fundId=<c:out value ="${fund.fundid}"/>"
-								class="list-group-item avtive">${fund.fundName }</a>
+								class="list-group-item avtive">${fund.fundName } (${fund.ticker })</a>
 							<br>
 						</c:forEach>
 					</c:when>

@@ -177,7 +177,7 @@ public class CreateCustomerForm extends FormBean{
 			errors.add("City may not contain angle brackets or quotes");
 		}
 		if(!city.matches("[a-zA-Z]*")) {
-			errors.add("City may not contain anything without letters");
+			errors.add("City may not contain numbers or special characters");
 		}
 		
 		if(state.matches(".*[<>\"].*")){

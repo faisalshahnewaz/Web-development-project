@@ -67,8 +67,12 @@ public class DepositeCheckForm extends FormBean {
 		if (errors.size() > 0) {
 			return errors;
 		}
+		
 		if (Float.parseFloat(amount) <= 0) {
 			errors.add("Amount should be more than zero");
+		}
+		if (Float.parseFloat(amount) > 1000000) {
+			errors.add("Amount should be Less than one million");
 		}
 		if (!action.equals("DepositCheck")) {
 			errors.add("Invalid Action");

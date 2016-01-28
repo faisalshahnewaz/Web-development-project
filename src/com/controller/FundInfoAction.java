@@ -46,6 +46,10 @@ public class FundInfoAction extends Action {
 			return "ViewAccount.jsp";
 		}
 		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		if(customer == null){
+			errors.add("Please login First");
+			return "CustomerLogin.do";
+		}
 		try {
 			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", customer.getCid()));
 			for (int i = 0; i < pb.length; i++) {

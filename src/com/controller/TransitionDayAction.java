@@ -186,23 +186,27 @@ public class TransitionDayAction extends Action {
 	}
 	private void checkValidation(String s, List<String> errors) {
 		if (s == null || s.trim().length() == 0) {
-			errors.add("Price can not be empty");
+			errors.add("Price cannot be empty");
 			return;
 		}
 		double price = 0.0;
 		try {
 			price = Double.parseDouble(s);
 		} catch (Exception e) {
-			errors.add("You have to input number for price");
+			errors.add("Price should be a number");
 			return;
 		}
 		BigDecimal bg = new BigDecimal(s);
 		if (bg.doubleValue() <= 0) {
-			errors.add("You can not input number which is less or equal to zero");
+			errors.add("Price cannot be less than or equal to zero");
 			return;
 		}
 		if (bg.scale() > 2) {
-			errors.add("Your input should only have at most two decimal places");
+			errors.add("Price should have at most two decimal places");
+			return;
+		}
+		if (bg.doubleValue() >= 10000) {
+			errors.add("Price should be less than ten thousand");
 			return;
 		}
 	}

@@ -67,14 +67,14 @@
 			
 			<table width="100%"
 				class="favoritetable table-bordered table-hover table-responsive">
-				<col width="12.5%">
-				<col width="12.5%">
-				<col width="42.5%">
-				<col width="12.5%">
-				<col width="12.5%">
-				<col width="12.5%">
-				<col width="12.5%">
-				<col width="12.5%">
+				<col width="10%">
+				<col width="10%">
+				<col width="40%">
+				<col width="10%">
+				<col width="10%">
+				<col width="15%">
+				<col width="15%">
+				<col width="10%">
 				<tr class="title">
 					<td><b>Username</b></td>
 					<td><b>Name</b></td>
@@ -96,35 +96,35 @@
 						<td><span style="text-align: left"> ${ customer.addrline1 } <br>
 								${ customer.addrline2} ${ customer.city }, ${ customer.state } </span>
 						</td>
-						<td><span style="text-align: left"> 
+						<td align="right"><span style="text-align: left"> 
 								<fmt:formatNumber pattern="#,##0.00" value="${customer.cash/100}" maxFractionDigits="2"/>
 						</span></td>
-						<td>
+						<td align="center">
 							<form action="FundInfoEmployee.do" method="POST">
 								<input type="hidden" name="customerid"
 									value="${ customer.cid }" /> <input type="submit"
-									name="button" value="View" />
+									name="button" value="View" class="btn btn-default"/>
 							</form>
 						</td>
-						<td>
+						<td align="center">
 							<form action="ChangeCustomerPassword.do" method="POST">
 								<input type="hidden" name="resetpwdusername"
 									value="${ customer.username }" /> <input type="submit"
-									name="button" value="Reset" />
+									name="button" value="Reset" class="btn btn-default"/>
 							</form>
 						</td>
-						<td>
+						<td align="center">
 							<form action="DepositCheck.do" method="POST">
 								<input type="hidden" name="depositcheckcid"
 									value="${ customer.cid }" /> <input type="submit"
-									name="button" value="Deposit" />
+									name="button" value="Deposit" class="btn btn-default" />
 							</form>
 						</td>
-						<td>
+						<td align="center">
 							<form action="ViewTransactionHistory.do" method="POST">
 								<input type="hidden" name="viewtransactionhistorycid"
 									value="${ customer.cid }" /> <input type="submit"
-									name="button" value="View" />
+									name="button" value="View" class="btn btn-default" />
 							</form>
 						</td>
 					</tr>

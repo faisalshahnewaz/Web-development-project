@@ -72,9 +72,9 @@
 						<td align="right"><span style="text-align: center"> <input
 								type="text" name="shareSell" value="" />
 						</span></td>
-						<td><input type="hidden" name="sellFund"
+						<td align="center"><input type="hidden" name="sellFund"
 							value="${ customer.cid }" /> <input type="submit" name="button"
-							value="Sell" /></td>
+							value="Sell" class="btn btn-default"/></td>
 					</tr>
 					
 				</form>

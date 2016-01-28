@@ -55,7 +55,7 @@
 				<col width="12.5%">
 				<col width="12.5%">
 				<tr class="title">
-					<thead>
+					<!-- <thead> -->
 					<!-- 				<td>Number</td> -->
 					<td><b>Username</b></td>
 					<td><b>Name</b></td>
@@ -65,7 +65,7 @@
 					<td><b>Change Password</b></td>
 					<td><b>Request Check</b></td>
 					<td><b>Transaction History</b></td>
-					</thead>
+					<!-- </thead> -->
 				</tr>
 				<tr>
 					<td><span style="text-align: left"> ${ customer.username }

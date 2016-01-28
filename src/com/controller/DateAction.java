@@ -72,15 +72,15 @@ public class DateAction extends Action {
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 			
-				String date = fundPriceHistoryDAO.getMaxDate();
-				Date transactionDate = sdf1.parse(form.getPricedate());
-				if (date != null) {
-					Date maxdate = sdf.parse(date);
-					if(transactionDate.compareTo(maxdate) <= 0){
-						errors.add("Transition day for this date has already occured");
-						return "TransitionDay.jsp";
-					}
+			String date = fundPriceHistoryDAO.getMaxDate();
+			Date transactionDate = sdf1.parse(form.getPricedate());
+			if (date != null) {
+				Date maxdate = sdf.parse(date);
+				if(transactionDate.compareTo(maxdate) <= 0){
+					errors.add("Transition day for this date has already occured");
+					return "TransitionDay.jsp";
 				}
+			}
 				session.setAttribute("date", sdf.format(transactionDate));
 			
 			FundBean[] fundBeans = fundDAO.match();

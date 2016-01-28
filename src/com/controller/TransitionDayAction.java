@@ -65,6 +65,7 @@ public class TransitionDayAction extends Action {
 				Date maxdate = sdf.parse(mdate);
 				if(transactionDate.compareTo(maxdate) <= 0){
 					errors.add("Transition day for this date has already occured");
+					request.setAttribute("fundBeans", fundBeans);
 					return "TransitionDayInput.jsp";
 				}
 			}

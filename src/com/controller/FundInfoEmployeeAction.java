@@ -47,7 +47,9 @@ public class FundInfoEmployeeAction extends Action {
 			errors.add("Please Login first");
 			return "EmployeeLogin.do";
 		}
-		
+		if (request.getParameter("customerid") == null || request.getParameter("customerid").length() == 0) {
+			return "ViewCustomerAccount.do";
+		}
 		
 		request.setAttribute("fundInfo", fundInfo);
 		

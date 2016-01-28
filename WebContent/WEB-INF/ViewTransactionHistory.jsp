@@ -74,12 +74,12 @@
         				</span>
                     </td>
                     
-                    <td>
+                    <td align="right">
         				<span style="text-align:left">
         					<fmt:formatNumber pattern="#,##0.000" value="${transaction.shares/1000}" maxFractionDigits="3"/>
         				</span>
                     </td>
-                    <td>
+                    <td align="right">
         				<span style="text-align:left">
         					<fmt:formatNumber pattern="#,##0.00" value="${transaction.amount/100}" maxFractionDigits="2"/>
         				</span>

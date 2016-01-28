@@ -60,6 +60,11 @@ public class TransitionDayAction extends Action {
 			
 			String mdate = fphDAO.getMaxDate();
 			String date = (String) request.getParameter("pricedate");
+			if (date == null) {
+				errors.add("Transition date can not be empty");
+				request.setAttribute("fundBeans", fundBeans);
+				return "TransitionDayInput.jsp";
+			}
 			Date transactionDate = sdf1.parse(date);
 			if (mdate != null) {
 				Date maxdate = sdf.parse(mdate);

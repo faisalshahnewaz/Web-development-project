@@ -33,26 +33,30 @@
 		<div class="col-sm-1"></div>
 		<div class="col-sm-11">
 			<div class="header">
-				<h3>Buy Fund
-			</div>
+				<h3>Buy Fund</h3>
 		</div>
-		<br> <br> <br> <br>
-
-
-
-
-
-
+		<br> 
 
 		<form class="form-horizontal" action="BuyFund.do" method="POST">
 			<div class="form-group">
 				<label for="symbol" class="col-sm-4 control-label">Fund
 					Symbol</label>
 				<div class="col-sm-8">
-					<input type="text" name="fundsymbol" class="form-control"
-						id="symbol" placeholder="Required">
+					<!-- <input type="text" name="fundsymbol" class="form-control"
+						id="symbol" placeholder="Required"> -->
+						
+					<select name="fundsymbol">
+						<c:forEach var="fund" items="${fundList}">
+						
+							<option value="${ fund.ticker }">${ fund.ticker }</option>
+						
+						</c:forEach>
+					
+					</select>
+				
 				</div>
 			</div>
+			
 			<div class="form-group">
 				<label for="amount" class="col-sm-4 control-label">Dollar
 					Amount</label>
@@ -70,6 +74,32 @@
 				</div>
 			</div>
 			<jsp:include page="ShowError.jsp" />
+							<h5>Please use the below table for reference to buy funds</h5>
+				<br>
+				<div class="list-group">				
+				<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
+				<col width="50%">
+				<col width="50%">
+					<tr class="title">
+						<td><b>Fund Name</b></td>
+						<td><b>Fund Ticker</b></td>
+					</tr>
+				<c:forEach var="fund" items="${fundList}">
+				<tr>
+				<td>
+        					<span style="text-align:left">
+        						${ fund.fundName }        				
+        					</span>
+                    	</td>
+				<td>
+        					<span style="text-align:left">
+        						${ fund.ticker }        				
+        					</span>
+                    	</td>
+				</tr>
+				</c:forEach>
+				</table>
+			</div>
 		</form>
 	</div>
 	<div class="col-md-3"></div>

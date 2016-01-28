@@ -59,6 +59,13 @@ public class ChangeCustomerPasswordAction extends Action{
         	if (customer == null || customer.length() == 0) {
         		return "ViewCustomerAccount.do";
         	}
+        	if (request.getParameter("button") == null) {
+    			return "ViewCustomerAccount.do";
+    		}
+    		if (!request.getParameter("button").equals("Reset")) {
+    			errors.add("Invalid Button");
+    			return "ViewCustomerAccount.do";
+    		}
 	    	ChangeCustomerPasswordForm form = formBeanFactory.create(request);
 	        request.setAttribute("form",form);
 	        

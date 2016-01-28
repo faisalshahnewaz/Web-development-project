@@ -49,6 +49,8 @@ public class TransitionDayAction extends Action {
 			return "EmployeeLogin.do";
 		}
 		try {
+			String mdate = fphDAO.getMaxDate();
+			request.setAttribute("lastDate",mdate);
 			FundBean[] fundBeans = fDAO.match();
 			String action = request.getParameter("action");
 			if (action == null) {
@@ -58,7 +60,7 @@ public class TransitionDayAction extends Action {
 			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 			
-			String mdate = fphDAO.getMaxDate();
+			//String mdate = fphDAO.getMaxDate();
 			String date = (String) request.getParameter("pricedate");
 			if (date == null || date.length() == 0) {
 				errors.add("Transition date can not be empty");
@@ -66,6 +68,7 @@ public class TransitionDayAction extends Action {
 				return "TransitionDayInput.jsp";
 			}
 			Date transactionDate = sdf1.parse(date);
+			//request.setAttribute("lastDate",mdate);
 			if (mdate != null) {
 				Date maxdate = sdf.parse(mdate);
 				if(transactionDate.compareTo(maxdate) <= 0){

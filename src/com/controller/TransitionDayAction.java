@@ -52,6 +52,7 @@ public class TransitionDayAction extends Action {
 			String mdate = fphDAO.getMaxDate();
 			request.setAttribute("lastDate",mdate);
 			FundBean[] fundBeans = fDAO.match();
+			request.setAttribute("fundBeans", fundBeans);
 			String action = request.getParameter("action");
 			if (action == null) {
 				request.setAttribute("fundBeans", fundBeans);
@@ -112,6 +113,9 @@ public class TransitionDayAction extends Action {
 		} catch (ParseException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";
+		} catch (NumberFormatException e) {
+			errors.add("Price should be a number");
+			return "TransitionDayInput.jsp";
 		}
 	}
 	private void addFundHistory(int fundId, String priceDate, long price, FundPriceHistoryDAO fphDAO) throws FormBeanException, RollbackException{

@@ -54,11 +54,11 @@ public class FundInfoEmployeeAction extends Action {
 		request.setAttribute("fundInfo", fundInfo);
 		
 		if (request.getParameter("button") == null) {
-			return "ViewCustomerAccount.jsp";
+			return "ViewCustomerAccount.do";
 		}
 		if (!request.getParameter("button").equals("View")) {
 			errors.add("Invalid Button");
-			return "ViewCustomerAccount.jsp";
+			return "ViewCustomerAccount.do";
 		}
 		//CustomerBean customer = (CustomerBean) session.getAttribute("customer");
 		int cid = Integer.parseInt(request.getParameter("customerid"));

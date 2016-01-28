@@ -90,7 +90,9 @@ public class CreateCustomerForm extends FormBean{
 	public void setConfirmpassword(String confirmpassword) {
 		this.confirmpassword = confirmpassword.trim();
 	}
-	
+	public boolean isPresent() {
+		return action != null;
+	}
 	public List<String> getValidationErrors() {
 		List<String> errors = new ArrayList<String>();
 

@@ -41,7 +41,9 @@ public class ChangePasswordForm extends FormBean {
 	public void setAction(String action) {
 		this.action = action;
 	}
-	
+	public boolean isPresent() {
+		return action != null;
+	}
 	public List<String> getValidationErrors(){
 		List<String> errors = new ArrayList<String>();
 		

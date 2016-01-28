@@ -36,7 +36,7 @@ public class TransitionDayAction extends Action {
 	}
 
 	@Override
-	public String perform(HttpServletRequest request) {
+	public synchronized String perform(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		List<String> errors = new ArrayList<String>();
@@ -49,6 +49,26 @@ public class TransitionDayAction extends Action {
 			return "EmployeeLogin.do";
 		}
 		try {
+			FundBean[] fundBeans = fDAO.match();
+			String action = request.getParameter("action");
+			if (action == null) {
+				request.setAttribute("fundBeans", fundBeans);
+				return "TransitionDayInput.jsp";
+			}
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+			
+			String mdate = fphDAO.getMaxDate();
+			String date = (String) request.getParameter("date");
+			Date transactionDate = sdf1.parse(date);
+			if (mdate != null) {
+				Date maxdate = sdf.parse(mdate);
+				if(transactionDate.compareTo(maxdate) <= 0){
+					errors.add("Transition day for this date has already occured");
+					return "TransitionDayInput.jsp";
+				}
+			}
+			date = sdf.format(transactionDate);
 			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
 			Map map = request.getParameterMap();
 			String[] fids = (String[]) map.get("fundid");
@@ -56,12 +76,11 @@ public class TransitionDayAction extends Action {
 			for (int i = 0; i < prices.length; i++) {
 				checkValidation(prices[i], errors);
 				if (errors.size() > 0) {
-					FundBean[] fundBeans = fDAO.match();
 					request.setAttribute("fundBeans", fundBeans);
 					return "TransitionDayInput.jsp";
 				}
 			}
-			String date = (String) session.getAttribute("date");
+			
 			Map<Integer, Double> mapPrice = new HashMap<Integer, Double>();
 			int n = fids.length;
 			for (int i = 0; i < n; i++) {
@@ -81,12 +100,17 @@ public class TransitionDayAction extends Action {
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";
+		} catch (ParseException e) {
+			errors.add(e.getMessage());
+			return "error.jsp";
 		}
 	}
 	private void addFundHistory(int fundId, String priceDate, long price, FundPriceHistoryDAO fphDAO) throws FormBeanException, RollbackException{
-		FundPriceHistoryBean[] bean = (FundPriceHistoryBean[]) fphDAO.match(MatchArg.equals("fundid", fundId).and(MatchArg.equals("price", (long)(-1))));
-		bean[0].setPrice(price);
-		fphDAO.update(bean[0]);
+		FundPriceHistoryBean bean = new FundPriceHistoryBean();
+		bean.setFundid(fundId);
+		bean.setPrice(price);
+		bean.setPricedate(priceDate);
+		fphDAO.create(bean);
 	}
 	private void operation(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, TrancDAO tDAO, Map<Integer, Double> map, String type) throws FormBeanException, RollbackException {
 		switch (type) {

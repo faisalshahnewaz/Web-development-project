@@ -34,7 +34,7 @@
 				<br>
 				<br>
 				
-			<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
+			<table width="100%" class="table table-bordered table-hover table-responsive">
 			<col width="16.67%">
 			<col width="16.67%">
 			<col width="16.67%">

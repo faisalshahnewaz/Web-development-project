@@ -68,13 +68,13 @@
 					<!-- </thead> -->
 				</tr>
 				<tr>
-					<td><span style="text-align: left"> ${ customer.username }
+					<td><span style="text-align: center"> ${ customer.username }
 					</span></td>
-					<td><span style="text-align: left"> ${ customer.firstname }
+					<td><span style="text-align: center"> ${ customer.firstname }
 							${ customer.lastname } </span></td>
-					<td><span style="text-align: left"> ${ customer.addrline1 }
-							${ customer.addrline2 } ${ customer.city } ${ customer.state } </span></td>
-					<td><span style="text-align: left"> 
+					<td><span style="text-align: center"> ${ customer.addrline1 }
+							${ customer.addrline2 } ${ customer.city }, ${ customer.state } </span></td>
+					<td><span style="text-align: right"> 
 							<fmt:formatNumber pattern="#,##0.00" value="${customer.cash/100}" maxFractionDigits="2"/>
 					</span></td>
 					<td align="center">

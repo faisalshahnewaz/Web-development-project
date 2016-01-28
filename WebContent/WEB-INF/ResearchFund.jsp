@@ -66,9 +66,13 @@
 				</div>
 				<button type="submit" class="btn btn-default" name="action"
 					value="SearchFundName">Search</button>
+			
+			</form>
+			
+			<form class="navbar-form navbar-left" role="search"
+				action="ResearchFund.do" method="POST">
 				<button type="submit" class="btn btn-default" name="action"
 					value="ShowAll">Show All Funds</button>
-			
 			</form>
 			<br> <br> <br> <br>
 			<div class="list-group">

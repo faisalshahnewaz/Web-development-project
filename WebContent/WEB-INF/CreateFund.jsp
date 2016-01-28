@@ -20,7 +20,7 @@
   				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
   				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation" class="active"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="Date.do">Transition Day</a></li>
+  				<li role="presentation"><a href="TransitionDay.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
   			</c:choose>
@@ -45,13 +45,13 @@
 					<div class="form-group">
     					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
     					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="fundname" name="fundName">
+      						<input type="text" class="form-control" id="fundname" name="fundName" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">
-    					<label for="ticker" class="col-sm-4 control-label">Ticker</label>
+    					<label for="ticker" class="col-sm-4 control-label">Fund Ticker</label>
     					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="ticker" name="ticker">
+      						<input type="text" class="form-control" id="ticker" name="ticker" placeholder="Required">
     					</div>
     				</div>
   					<div class="form-group">

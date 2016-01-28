@@ -39,10 +39,17 @@
 		<div class="col-sm-1"></div>
 		<div class="col-sm-11">
 			<div class="header">
-				<h3>View Customer Account
+				<h3>Manage Customer Account
 			</div>
 			
+			<c:choose>
+				<c:when test="${Date == null}">
+				<h5></h5>
+			</c:when>
+			<c:otherwise>
 			<h5>Note: The last trading date was ${Date }</h5>
+			</c:otherwise>
+			</c:choose>
 
 			<form class="navbar-form navbar-left" role="search"
 				action="ViewCustomerAccountSearch.do" method="POST">
@@ -65,14 +72,14 @@
 			</div>
 			
 			<table width="100%"
-				class="favoritetable table-bordered table-hover table-responsive">
+				class="table table-bordered table-hover table-responsive">
 				<col width="10%">
 				<col width="10%">
-				<col width="40%">
+				<col width="30%">
 				<col width="10%">
 				<col width="10%">
-				<col width="15%">
-				<col width="15%">
+				<col width="10%">
+				<col width="10%">
 				<col width="10%">
 				<c:choose>
 					<c:when test="${customerList.size() > 0}">
@@ -96,12 +103,12 @@
 
 					<tr class>
 
-						<td><span style="text-align: left"> ${ customer.username }
+						<td><span style="text-align: center"> ${ customer.username }
 						</span></td>
-						<td><span style="text-align: left;"> ${ customer.firstname }
+						<td><span style="text-align: center"> ${ customer.firstname }
 								${ customer.lastname } </span></td>
-						<td><span style="text-align: left"> ${ customer.addrline1 } <br>
-								${ customer.addrline2} ${ customer.city }, ${ customer.state } </span>
+						<td><span style="text-align: center"> ${ customer.addrline1 } 
+								${ customer.addrline2} <br> ${ customer.city }, ${ customer.state } </span>
 						</td>
 						<td align="right"><span style="text-align: left"> 
 								<fmt:formatNumber pattern="#,##0.00" value="${customer.cash/100}" maxFractionDigits="2"/>

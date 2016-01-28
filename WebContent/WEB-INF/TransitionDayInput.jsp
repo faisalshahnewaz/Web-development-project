@@ -74,7 +74,7 @@
                     	</td>
                     	<td>
         					<span style="text-align:left">
-        						<input type="text" size="33" name="price" value="" />
+        						<input type="text" size="33" name="price" value="" placeholder="Required"/>
         					</span>
                     	</td>  
    					</tr>

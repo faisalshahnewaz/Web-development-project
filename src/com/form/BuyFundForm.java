@@ -40,10 +40,10 @@ public class BuyFundForm extends FormBean {
 			errors.add("Fund Symbol may not contain angle brackets or quotes");
 		}
 		if (money == null || money.trim().length() == 0) {
-			errors.add("Money Amount is required");
+			errors.add("Dollar Amount is required");
 		}
 		if (money.matches(".*[<>\"].*")) {
-			errors.add("Money Amount may not contain angle brackets or quotes");
+			errors.add("Dollar Amount may not contain angle brackets or quotes");
 		}
 		/*if (money.trim().length() > 5) {
 			errors.add("Money length cannot exceed 5 characters");

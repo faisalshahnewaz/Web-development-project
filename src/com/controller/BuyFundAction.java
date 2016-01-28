@@ -57,18 +57,18 @@ public class BuyFundAction extends Action {
 			try {
 				double tmp = Double.parseDouble(form.getMoney());
 			} catch (Exception e) {
-				errors.add("Your input should be a number");
+				errors.add("Dollar Amount should be a number");
 				return "BuyFund.jsp";
 			}
 			TransactionBean transaction = new TransactionBean();
 			//parse the money
 			BigDecimal bg = new BigDecimal(form.getMoney());
 			if (bg.doubleValue() <= 0) {
-				errors.add("Your input can not be negative");
+				errors.add("Dollar Amount can not be negative");
 				return "BuyFund.jsp";
 			}
 			if (bg.scale() > 2) {
-				errors.add("Your input should only have at most two decimal places");
+				errors.add("Dollar Amount should have at most two decimal places");
 				return "BuyFund.jsp";
 			}
 			Double amount = Double.parseDouble(form.getMoney());

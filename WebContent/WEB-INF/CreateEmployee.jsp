@@ -42,31 +42,31 @@
 					<div class="form-group">
     					<label for="username" class="col-sm-4 control-label">Username</label>
     					<div class="col-sm-8">
-      						<input type="text" name="username" value="${form.username}" class="form-control" id="username">
+      						<input type="text" name="username" value="${form.username}" class="form-control" id="username" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="firstname" class="col-sm-4 control-label">First Name</label>
     					<div class="col-sm-8">
-      						<input type="text" name="firstname" value="${form.firstname}" class="form-control" id="firstname">
+      						<input type="text" name="firstname" value="${form.firstname}" class="form-control" id="firstname" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="lastname" class="col-sm-4 control-label">Last Name</label>
     					<div class="col-sm-8">
-      						<input type="text" name="lastname" value="${form.lastname}" class="form-control" id="lastname">
+      						<input type="text" name="lastname" value="${form.lastname}" class="form-control" id="lastname" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="inputPassword" class="col-sm-4 control-label">Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" name="password" class="form-control" id="inputPassword">
+      						<input type="password" name="password" class="form-control" id="inputPassword" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">
     					<label for="inputPassword1" class="col-sm-4 control-label">Confirm Password</label>
    						 <div class="col-sm-8">
-      						<input type="password" name="confirm" class="form-control" id="inputPassword1">
+      						<input type="password" name="confirm" class="form-control" id="inputPassword1" placeholder="Required">
    						</div>
   					</div>
   					<div class="form-group">

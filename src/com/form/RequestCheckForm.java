@@ -55,8 +55,8 @@ public class RequestCheckForm extends FormBean {
 			errors.add("Amount may not contain angle brackets or quotes");
 		}
 		try{
-			if (Float.parseFloat(amount) < 0) {
-			errors.add("Amount cannot be less than zero");
+			if (Float.parseFloat(amount) <= 0) {
+			errors.add("Amount should be more than zero");
 		}	else if(Float.parseFloat(amount) > 1000000){
 			errors.add("Amount cannot be more than $1,000,000");
 		}

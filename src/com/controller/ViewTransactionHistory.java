@@ -59,7 +59,11 @@ public class ViewTransactionHistory extends Action{
 		
 		
 		try {
-		
+			
+			String customer = request.getParameter("viewtransactionhistorycid");
+			if (customer == null || customer.length() == 0) {
+				return "ViewCustomerAccount.do";
+			}
 			TransactionBean[] transactionBeans = tDAO.match(MatchArg.equals("cid", Integer.parseInt(request.getParameter("viewtransactionhistorycid"))));
 						
 			

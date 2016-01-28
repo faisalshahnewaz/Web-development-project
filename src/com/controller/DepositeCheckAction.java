@@ -48,6 +48,10 @@ public class DepositeCheckAction extends Action {
 		}
 		
 		try{
+			String customer = request.getParameter("depositcheckcid");
+			if (customer == null || customer.length() == 0) {
+				return "ViewCustomerAccount.do";
+			}
 			DepositeCheckForm form = formBeanFactory.create(request);
 			request.setAttribute("form",form);
 			

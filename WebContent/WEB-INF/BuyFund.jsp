@@ -33,16 +33,35 @@
 		<div class="col-sm-1"></div>
 		<div class="col-sm-11">
 			<div class="header">
-				<h3>Buy Fund
+				<h3>Buy Fund</h3>
+				<h5>Please use the below table for reference to buy funds</h5>
+				<br>
+				<div class="list-group">				
+				<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
+				<col width="50%">
+				<col width="50%">
+					<tr class="title">
+						<td><b>Fund Name</b></td>
+						<td><b>Fund Ticker</b></td>
+					</tr>
+				<c:forEach var="fund" items="${fundList}">
+				<tr>
+				<td>
+        					<span style="text-align:left">
+        						${ fund.fundName }        				
+        					</span>
+                    	</td>
+				<td>
+        					<span style="text-align:left">
+        						${ fund.ticker }        				
+        					</span>
+                    	</td>
+				</tr>
+				</c:forEach>
+				</table>
 			</div>
 		</div>
-		<br> <br> <br> <br>
-
-
-
-
-
-
+		<br> 
 
 		<form class="form-horizontal" action="BuyFund.do" method="POST">
 			<div class="form-group">
@@ -51,8 +70,10 @@
 				<div class="col-sm-8">
 					<input type="text" name="fundsymbol" class="form-control"
 						id="symbol" placeholder="Required">
+				
 				</div>
 			</div>
+			
 			<div class="form-group">
 				<label for="amount" class="col-sm-4 control-label">Dollar
 					Amount</label>

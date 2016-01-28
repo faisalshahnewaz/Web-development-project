@@ -58,7 +58,7 @@
   				<br>
   				<div class="col-sm-2"></div>
 				<div class="col-sm-10">	
-				<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
+				<table width="100%" class="table table-bordered table-hover table-responsive">
 					<col width="33%">
 					<col width="33%">
 					<col width="33%">

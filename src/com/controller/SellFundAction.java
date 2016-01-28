@@ -75,6 +75,10 @@ public class SellFundAction extends Action {
 				errors.add("Your input should only have at most three decimal places");
 				return "FundInfo.jsp";
 			}
+			if (bg.doubleValue() < 1) {
+				errors.add("Your can only sell share which is more than 1");
+				return "FundInfo.jsp";
+			}
 			double share = Double.parseDouble(shareSell);
 			String fundid = request.getParameter("fundid");
 			PositionBean pos = pDAO.read(customer.getCid(), Integer.parseInt(fundid));

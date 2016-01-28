@@ -66,6 +66,7 @@ public class TransitionDayAction extends Action {
 				return "TransitionDayInput.jsp";
 			}
 			Date transactionDate = sdf1.parse(date);
+			request.setAttribute("lastDate",mdate);
 			if (mdate != null) {
 				Date maxdate = sdf.parse(mdate);
 				if(transactionDate.compareTo(maxdate) <= 0){

@@ -40,7 +40,7 @@
   					<div class="form-group">
     					<label for="username" class="col-sm-4 control-label">Username</label>
     					<div class="col-sm-8">
-      						<input type="text" name="username" class="form-control" id="username" placeholder="Required">
+      						<input type="text" name="username" class="form-control" id="username" value="${form.username}" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">

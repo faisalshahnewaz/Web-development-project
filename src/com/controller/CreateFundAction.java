@@ -30,7 +30,7 @@ public class CreateFundAction extends Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		System.out.println("jjj");
+
 		
 		HttpSession session = request.getSession();
 		
@@ -58,13 +58,19 @@ public class CreateFundAction extends Action {
 				return "CreateFund.jsp";
 			}
 			
-			FundBean[] fund = fundDAO.match(MatchArg.equals("ticker", form.getTicker()));
+			FundBean[] fund = fundDAO.match(MatchArg.equals("fundName", form.getFundName()));
 			if(fund.length != 0){
-				errors.add("Ticker already exists");
+				errors.add("Fund by the name \""+ form.getFundName() +"\" already exists");
+				return "CreateFund.jsp";
+			}
+
+			fund = fundDAO.match(MatchArg.equals("ticker", form.getTicker()));
+			if(fund.length != 0){
+				errors.add("Ticker already exists for the fund \"" + fund[0].getFundName() + "\"");
 				return "CreateFund.jsp";
 			}
 			
-			System.out.println("hh");
+			
 			FundBean newFund = new FundBean();
 			
 			newFund.setTicker(form.getTicker());

@@ -108,7 +108,7 @@
 				<label for="state" class="col-sm-4 control-label">State</label>
 				<div class="col-sm-8">
 					<!-- <input type="text" class="form-control" id="state" name="state" placeholder="Required"> -->
-					<select name="state">
+					<select class="form-control" name="state">
 						<option value="AL">AL</option>
 						<option value="AK">AK</option>
 						<option value="AZ">AZ</option>

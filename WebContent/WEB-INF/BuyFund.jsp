@@ -12,15 +12,12 @@
 						href="CustomerLogin.do">Login</a></li>
 				</c:when>
 				<c:otherwise>
-					<!-- <li role="presentation"><a href="ChangePassword.do">Change Password</a></li> -->
 					<li role="presentation"><a href="ViewAccount.do">Manage
 							Account</a></li>
 					<li role="presentation" class="active"><a href="BuyFund.do">Buy
 							Fund</a></li>
-					<!-- <li role="presentation"><a href="ViewSelfTransactionHistory.do">Transaction History</a></li> -->
 					<li role="presentation"><a href="ResearchFund.do">Research
 							Fund</a></li>
-					<!-- <li role="presentation"><a href="RequestCheck.do">Request Check</a></li> -->
 					<li role="presentation"><a href="CustomerLogout.do">Log
 							Out</a></li>
 				</c:otherwise>
@@ -42,10 +39,7 @@
 				<label for="symbol" class="col-sm-4 control-label">Fund
 					Symbol</label>
 				<div class="col-sm-8">
-					<!-- <input type="text" name="fundsymbol" class="form-control"
-						id="symbol" placeholder="Required"> -->
-						
-					<select name="fundsymbol">
+					<select class="form-control" name="fundsymbol">
 						<c:forEach var="fund" items="${fundList}">
 						
 							<option value="${ fund.ticker }">${ fund.ticker }</option>

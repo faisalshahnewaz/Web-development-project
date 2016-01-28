@@ -60,10 +60,10 @@ public class RequestCheckForm extends FormBean {
 		try{
 			BigDecimal amountBD = new BigDecimal(amount);
 			
-			if (Float.parseFloat(amount) <= 0) {
+			if (Float.parseFloat(amount.trim()) <= 0) {
 				errors.add("Amount should be more than zero");
 				return errors;
-			} else if(Float.parseFloat(amount) > 1000000){
+			} else if(Float.parseFloat(amount.trim()) > 1000000){
 				errors.add("Amount cannot be more than $1,000,000");
 				return errors;
 			} else if (amountBD.scale() > 2){
@@ -72,7 +72,7 @@ public class RequestCheckForm extends FormBean {
 			}
 			
 		} catch(Exception ex){
-			errors.add("Please enter a valid amount");
+			errors.add("Please enter a valid amount, without space");
 			return errors;
 		}
 		

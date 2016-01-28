@@ -40,6 +40,8 @@ public class BuyFundAction extends Action {
 		try {
 			BuyFundForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
+			FundBean[] fundList = fDAO.getFundList();
+			request.setAttribute("fundList", fundList);
 			if (!form.isPresent()) {
 				return "BuyFund.jsp";
 			}

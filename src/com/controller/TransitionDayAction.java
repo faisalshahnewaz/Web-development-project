@@ -140,17 +140,17 @@ public class TransitionDayAction extends Action {
 		}
 	}
 	private void opbuy(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, TrancDAO tDAO, Map<Integer, Double> map) throws FormBeanException, RollbackException {
-		double share = (((double) transaction.getAmount()) / 100) / map.get(transaction.getFundid());
+		/*double share = (((double) transaction.getAmount()) / 100) / map.get(transaction.getFundid());
 		if (share < 0.001) {
 			return;
-		}
+		}*/
 		long cash = customer.getCash() - transaction.getAmount();
 		customer.setCash(cash);
 		cDAO.update(customer);
 		PositionBean position = new PositionBean();
 		position.setCustomerid(customer.getCid());
 		position.setFundid(transaction.getFundid());
-		//double share = (((double) transaction.getAmount()) / 100) / map.get(transaction.getFundid());
+		double share = (((double) transaction.getAmount()) / 100) / map.get(transaction.getFundid());
 		DecimalFormat df = new DecimalFormat("0.000");
 		share = Double.valueOf(df.format(share));
 		transaction.setShares((long)(share * 1000));
@@ -165,16 +165,16 @@ public class TransitionDayAction extends Action {
 		}
 	}
 	private void opsell(CustomerBean customer, TransactionBean transaction, PositionDAO pDAO, CustomerDAO cDAO, TrancDAO tDAO, Map<Integer, Double> map) throws FormBeanException, RollbackException {
-		double share = ((double) transaction.getShares()) / 1000;
+		/*double share = ((double) transaction.getShares()) / 1000;
 		double price = share * map.get(transaction.getFundid());
 		if (price < 0.01) {
 			return;
-		}
+		}*/
 		PositionBean pos = pDAO.read(customer.getCid(),transaction.getFundid());
 		pos.setShares(pos.getShares() - transaction.getShares());
 		pDAO.update(pos);
-		//double share = ((double) transaction.getShares()) / 1000;
-		//double price = share * map.get(transaction.getFundid());
+		double share = ((double) transaction.getShares()) / 1000;
+		double price = share * map.get(transaction.getFundid());
 		DecimalFormat df = new DecimalFormat("0.00");
 		double money = Double.valueOf(df.format(price));
 		long cash = ((long) money) * 100;
@@ -214,8 +214,8 @@ public class TransitionDayAction extends Action {
 			errors.add("Price should have at most two decimal places");
 			return;
 		}
-		if (bg.doubleValue() >= 10000) {
-			errors.add("Price should be less than ten thousand");
+		if (bg.doubleValue() >= 1000) {
+			errors.add("Price should be less than one thousand");
 			return;
 		}
 	}

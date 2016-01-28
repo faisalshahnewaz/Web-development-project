@@ -73,6 +73,10 @@ public class BuyFundAction extends Action {
 				errors.add("Dollar Amount should have at most two decimal places");
 				return "BuyFund.jsp";
 			}
+			if (bg.doubleValue() < 1) {
+				errors.add("Dollar amount should not be less than 1 dollar");
+				return "BuyFund.jsp";
+			}
 			Double amount = Double.parseDouble(form.getMoney());
 			DecimalFormat df = new DecimalFormat("0.00");
 			String tmpAmount = df.format(amount);

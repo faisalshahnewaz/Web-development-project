@@ -39,7 +39,7 @@
 				<br>
 				<br>
 				
-			<table width="100%" class="favoritetable table-bordered table-hover">
+			<table width="100%" class="table table-bordered table-hover">
 			<col width="12.5%">
 			<col width="12.5%">
 			<col width="12.5%">

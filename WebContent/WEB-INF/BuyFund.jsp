@@ -71,7 +71,7 @@
 							<h5>Please use the below table for reference to buy funds</h5>
 				<br>
 				<div class="list-group">				
-				<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
+				<table width="100%" class="table table-bordered table-hover table-responsive">
 				<col width="50%">
 				<col width="50%">
 					<tr class="title">

@@ -42,13 +42,13 @@
 					<div class="form-group">
     					<label for="fundname" class="col-sm-4 control-label">Fund Name</label>
     					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="fundname" name="fundName" placeholder="Required">
+      						<input type="text" class="form-control" id="fundname" name="fundName" value="${form.fundName }" placeholder="Required">
     					</div>
   					</div>
   					<div class="form-group">
     					<label for="ticker" class="col-sm-4 control-label">Fund Ticker</label>
     					<div class="col-sm-8">
-      						<input type="text" class="form-control" id="ticker" name="ticker" placeholder="Required">
+      						<input type="text" class="form-control" id="ticker" name="ticker" value="${form.ticker }" placeholder="Required">
     					</div>
     				</div>
   					<div class="form-group">

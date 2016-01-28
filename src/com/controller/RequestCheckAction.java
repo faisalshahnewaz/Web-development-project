@@ -55,16 +55,16 @@ public class RequestCheckAction extends Action {
 			
 			errors.addAll(form.getValidationErrors());
 			
-			if(errors.size()!=0){
+			if(errors.size() > 0){
 				return "RequestCheck.jsp";
 			}
 			
-			try {
-				double tmp = Double.parseDouble(form.getAmount());
-			} catch (Exception e) {
-				errors.add("Amount should be a number");
-				return "RequestCheck.jsp";
-			}
+//			try {
+//				double tmp = Double.parseDouble(form.getAmount());
+//			} catch (Exception e) {
+//				errors.add("Amount should be a number");
+//				return "RequestCheck.jsp";
+//			}
 			
 			
 			

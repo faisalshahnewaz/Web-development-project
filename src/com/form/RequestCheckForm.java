@@ -1,5 +1,6 @@
 package com.form;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,28 +48,45 @@ public class RequestCheckForm extends FormBean {
 		
 		if (amount == null || amount.trim().length() == 0) {
 			errors.add("Amount is required");
+			return errors;
 		}
 		
 		System.out.print("Step2:" + amount);
 		
 		if (amount.matches(".*[<>\"].*")) {
 			errors.add("Amount may not contain angle brackets or quotes");
+			return errors;
 		}
 		try{
+			BigDecimal amountBD = new BigDecimal(amount);
+			
 			if (Float.parseFloat(amount) <= 0) {
-			errors.add("Amount should be more than zero");
-		}	else if(Float.parseFloat(amount) > 1000000){
-			errors.add("Amount cannot be more than $1,000,000");
-		}
-			}catch(Exception ex){
+				errors.add("Amount should be more than zero");
+				return errors;
+			} else if(Float.parseFloat(amount) > 1000000){
+				errors.add("Amount cannot be more than $1,000,000");
+				return errors;
+			} else if (amountBD.scale() > 2){
+				errors.add("Amount should have at most two decimal places");
+				return errors;
+			}
+			
+		} catch(Exception ex){
 			errors.add("Please enter a valid amount");
+			return errors;
 		}
+		
+//		try {
+//			double tmp = Double.parseDouble(amount);
+//		} catch (Exception e) {
+//			errors.add("Amount should be a number");
+//			return errors;
+//		}
+		
 		if (errors.size() > 0) {
 			return errors;
 		}
-//		if (Float.parseFloat(amount) <= 0) {
-//			errors.add("Amount should be more than zero");
-//		}
+
 		if (!action.equals("RequestCheck")) {
 			errors.add("Invalid Action");
 		}

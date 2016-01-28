@@ -43,7 +43,9 @@ public class CreateEmployeeForm extends FormBean {
 	public String getAction() {
 		return action;
 	}
-
+	public boolean isPresent() {
+		return action != null;
+	}
 	public void setFirstname(String s) {
 		firstname = trimAndConvert(s, "<>\"");
 	}

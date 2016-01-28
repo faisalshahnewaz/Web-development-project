@@ -30,7 +30,9 @@ public class ResearchFundSearchForm extends FormBean{
 	public void setFundname(String fundname) {
 		this.fundname = fundname;
 	}
-	
+	public boolean isPresent() {
+		return action != null;
+	}
 	public List<String> getValidationErrors() {
 		
 		List<String> errors = new ArrayList<String>();

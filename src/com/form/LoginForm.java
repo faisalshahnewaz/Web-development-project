@@ -31,7 +31,9 @@ public class LoginForm extends FormBean {
     public void setPassword(String s)  { password = s.trim(); }
     public void setAction(String s)    { action   = s;        }
     
-
+    public boolean isPresent() {
+		return action != null;
+	}
     public List<String> getValidationErrors() {
         List<String> errors = new ArrayList<String>();
         if (username == null || username.trim().length() == 0)

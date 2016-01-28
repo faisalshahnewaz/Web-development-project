@@ -38,6 +38,13 @@ public class FundInfoAction extends Action {
 		List<FundInfoBean> fundInfo = new ArrayList<FundInfoBean>();
 		request.setAttribute("fundInfo", fundInfo);
 		HttpSession session = request.getSession();
+		
+		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		if(customer == null){
+			errors.add("Please login First");
+			return "CustomerLogin.do";
+		}
+		
 		if (request.getParameter("action") == null) {
 			return "ViewAccount.jsp";
 		}
@@ -45,11 +52,7 @@ public class FundInfoAction extends Action {
 			errors.add("Invalid Button");
 			return "ViewAccount.jsp";
 		}
-		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
-		if(customer == null){
-			errors.add("Please login First");
-			return "CustomerLogin.do";
-		}
+		
 		try {
 			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", customer.getCid()));
 			for (int i = 0; i < pb.length; i++) {

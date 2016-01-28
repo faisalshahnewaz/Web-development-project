@@ -39,7 +39,7 @@
 				<br>
 				<br>
 				
-			<table width="100%" class="favoritetable table-bordered table-hover table-responsive">
+			<table width="100%" class="table table-bordered table-hover table-responsive">
 			<col width="16.67%">
 			<col width="16.67%">
 			<col width="16.67%">
@@ -74,12 +74,12 @@
         				</span>
                     </td>
                     
-                    <td>
+                    <td align="right">
         				<span style="text-align:left">
         					<fmt:formatNumber pattern="#,##0.000" value="${transaction.shares/1000}" maxFractionDigits="3"/>
         				</span>
                     </td>
-                    <td>
+                    <td align="right">
         				<span style="text-align:left">
         					<fmt:formatNumber pattern="#,##0.00" value="${transaction.amount/100}" maxFractionDigits="2"/>
         				</span>

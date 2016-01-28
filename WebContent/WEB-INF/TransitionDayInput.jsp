@@ -32,17 +32,25 @@
 				<div class="col-sm-1"></div>
 				<div class="col-sm-11">
 					<div class="header"><h3>Transition Day Input</div>
+					<c:choose>
+				<c:when test="${lastDate == null}">
+			<h5></h5>
+			</c:when>
+			<c:otherwise>
+			<h5>Note: The last trading date was ${lastDate }</h5>
+			</c:otherwise>
+			</c:choose>
 				</div>
 				<br>
 				<br>
 				<br>
-				<br>
+				<br>	
 				<br>
 				<form class="form-horizontal" action="TransitionDay.do" method="POST">
 				<div class="form-group">
     					<label for="date" class="col-sm-4 control-label">Choose Date</label>
    						 <div class="col-sm-8">
-      						<input type="Date" name="pricedate" value="" class="form-control" id="date" placeholder="mm/dd/yyyy">
+      						<input type="Date" name="pricedate" value="" class="form-control" id="date" placeholder="yyyy-mm-dd">
    						</div>
   					</div>
   			

@@ -106,6 +106,9 @@ public class BuyFundAction extends Action {
 		} catch (RollbackException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";
-		} 
+		} catch (NumberFormatException e) {
+			errors.add("Your input should be a number");
+			return "BuyFund.jsp";
+		}
 	}
 }

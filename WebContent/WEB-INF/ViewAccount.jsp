@@ -80,28 +80,28 @@
 					<td align="center">
 						<form action="FundInfo.do" method="POST">
 							<input type="hidden" name="sellFund" value="${ customer.cid }" />
-							<input type="submit" name="action" value="View" />
+							<input type="submit" name="action" value="View" class="btn btn-default"/>
 						</form>
 					</td>
 					<td align="center">
 						<form action="ChangePassword.do" method="POST">
 							<input type="hidden" name="changepwdusername"
 								value="${ customer.username }" /> <input type="submit"
-								name="button" value="Change" />
+								name="button" value="Change" class="btn btn-default"/>
 						</form>
 					</td>
 					<td align="center">
 						<form action="RequestCheck.do" method="POST">
 							<input type="hidden" name="requestcheckcid"
 								value="${ customer.cid }" /> <input type="submit" name="button"
-								value="Request" />
+								value="Request" class="btn btn-default"/>
 						</form>
 					</td>
 					<td align="center">
 						<form action="ViewSelfTransactionHistory.do" method="POST">
 							<input type="hidden" name="viewselftransactionhistorycid"
 								value="${ customer.cid }" /> <input type="submit" name="button"
-								value="View" />
+								value="View" class="btn btn-default"/>
 						</form>
 					</td>
 				</tr>

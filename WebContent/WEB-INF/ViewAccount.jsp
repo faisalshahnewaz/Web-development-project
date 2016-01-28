@@ -61,7 +61,7 @@
 					<td><b>Name</b></td>
 					<td><b>Address</b></td>
 					<td><b>Cash</b></td>
-					<td><b>Fund Info</b></td>
+					<td><b>Fund Information</b></td>
 					<td><b>Change Password</b></td>
 					<td><b>Request Check</b></td>
 					<td><b>Transaction History</b></td>
@@ -77,27 +77,27 @@
 					<td><span style="text-align: left"> 
 							<fmt:formatNumber pattern="#,##0.00" value="${customer.cash/100}" maxFractionDigits="2"/>
 					</span></td>
-					<td>
+					<td align="center">
 						<form action="FundInfo.do" method="POST">
 							<input type="hidden" name="sellFund" value="${ customer.cid }" />
 							<input type="submit" name="action" value="View" />
 						</form>
 					</td>
-					<td>
+					<td align="center">
 						<form action="ChangePassword.do" method="POST">
 							<input type="hidden" name="changepwdusername"
 								value="${ customer.username }" /> <input type="submit"
 								name="button" value="Change" />
 						</form>
 					</td>
-					<td>
+					<td align="center">
 						<form action="RequestCheck.do" method="POST">
 							<input type="hidden" name="requestcheckcid"
 								value="${ customer.cid }" /> <input type="submit" name="button"
 								value="Request" />
 						</form>
 					</td>
-					<td>
+					<td align="center">
 						<form action="ViewSelfTransactionHistory.do" method="POST">
 							<input type="hidden" name="viewselftransactionhistorycid"
 								value="${ customer.cid }" /> <input type="submit" name="button"

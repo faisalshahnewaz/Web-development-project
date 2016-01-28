@@ -15,12 +15,9 @@
  				<li role="presentation"><a href="ChangeEmployeePassword.do">Change Password</a></li>
   				<li role="presentation"><a href="createEmployee.do">Create Employee Account</a></li>
   				<li role="presentation"><a href="CreateCustomer.do">Create Customer Account</a></li>
-  				<!-- <li role="presentation"><a href="ChangeCustomerPassword.do">Reset Customer Password</a></li> -->
   				<li role="presentation" class="active"><a href="ViewCustomerAccount.do">Manage Customer Account</a></li>
-  				<!-- <li role="presentation"><a href="#">View Customer Transaction History</a></li>
-  				<li role="presentation"><a href="DepositCheck.do">Deposit Check</a></li> -->
   				<li role="presentation"><a href="CreateFund.do">Create Fund</a></li>
-  				<li role="presentation"><a href="Date.do">Transition Day</a></li>
+  				<li role="presentation"><a href="TransitionDay.do">Transition Day</a></li>
   				<li role="presentation"><a href="EmployeeLogout.do">Log Out</a></li>
   			</c:otherwise>
   			</c:choose>
@@ -42,12 +39,6 @@
 				<br>
 				<br>
 				<form class="form-horizontal" action="DepositCheck.do" method="POST">
-					<!-- <div class="form-group">
-    					<label for="username" class="col-sm-4 control-label">Customer Username</label>
-    					<div class="col-sm-8">
-      						<input type="text" name="username" class="form-control" id="username">
-    					</div>
-  					</div> -->
   					<div class="form-group">
     					<label for="amount" class="col-sm-4 control-label">Deposit Amount</label>
     					<div class="col-sm-8">

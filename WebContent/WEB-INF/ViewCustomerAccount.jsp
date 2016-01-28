@@ -24,7 +24,7 @@
 						href="ViewCustomerAccount.do">Manage Customer Account</a></li>
 					<li role="presentation"><a href="CreateFund.do">Create
 							Fund</a></li>
-					<li role="presentation"><a href="Date.do">Transition
+					<li role="presentation"><a href="TransitionDay.do">Transition
 							Day</a></li>
 					<li role="presentation"><a href="EmployeeLogout.do">Log
 							Out</a></li>
@@ -51,15 +51,14 @@
 						placeholder="Search by Username" name="username">
 				</div>
 				<button type="submit" class="btn btn-default">Search</button>
-				<button type="submit" class="btn btn-default">Show All Customers</button>
-				
 			</form>
 			
-			<!-- <form class="navbar-form navbar-left" role="showAll"
+			<form class="navbar-form navbar-left" role="showall"
 				action="ViewCustomerAccount.do" method="POST">
 				<button type="submit" class="btn btn-default">Show All Customers</button>
-				
-			</form> -->
+			</form>
+			
+			
 			<br><br><br><br>
 			<div>
 			<jsp:include page="ShowError.jsp" />
@@ -75,16 +74,24 @@
 				<col width="15%">
 				<col width="15%">
 				<col width="10%">
-				<tr class="title">
-					<td><b>Username</b></td>
-					<td><b>Name</b></td>
-					<td><b>Address</b></td>
-					<td><b>Cash (in $)</b></td>
-					<td><b>Fund Information</b></td>
-					<td><b>Reset Password</b></td>
-					<td><b>Deposit Check</b></td>
-					<td><b>Transaction History</b></td>
-				</tr>
+				<c:choose>
+					<c:when test="${customerList.size() > 0}">
+						<tr class="title">
+							<td><b>Username</b></td>
+							<td><b>Name</b></td>
+							<td><b>Address</b></td>
+							<td><b>Cash (in $)</b></td>
+							<td><b>Fund Information</b></td>
+							<td><b>Reset Password</b></td>
+							<td><b>Deposit Check</b></td>
+							<td><b>Transaction History</b></td>
+						</tr>
+					</c:when>
+					
+					<c:otherwise>
+						
+					</c:otherwise>	
+				</c:choose>
 				<c:forEach var="customer" items="${customerList}">
 
 					<tr class>

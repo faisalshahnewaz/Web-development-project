@@ -61,7 +61,7 @@ public class ChangeEmployeePasswordAction extends Action{
 			}
 						
 			//check old password field matches?
-			if(!employee.getPassword().equals(form.getOldPassword())) {
+			if(!employeeDAO.read(employee.getUsername()).getPassword().equals(form.getOldPassword())) {
 				errors.add("Old password does not match");
 				return "ChangeEmployeePassword.jsp";
 			}

@@ -45,25 +45,27 @@ public class ViewAccount extends Action{
 		
 		
 		try {
+			
 			CustomerBean customerBean = (CustomerBean) session.getAttribute("customer");
+			CustomerBean customerBeanNow = cDAO.read(customerBean.getCid());
 				
 				ViewCustomerAccountBean viewCusBean = new ViewCustomerAccountBean();
 				
 				//load data to bean
-				viewCusBean.setCid(customerBean.getCid());
-				viewCusBean.setUsername(customerBean.getUsername());
-				viewCusBean.setFirstname(customerBean.getFirstname());
-				viewCusBean.setLastname(customerBean.getLastname());
-				viewCusBean.setAddrline1(customerBean.getAddrline1());
-				viewCusBean.setAddrline2(customerBean.getAddrline2());
-				viewCusBean.setCity(customerBean.getCity());
-				viewCusBean.setState(customerBean.getState());
-				viewCusBean.setZip(customerBean.getZip());
-				viewCusBean.setCash(customerBean.getCash());
+				viewCusBean.setCid(customerBeanNow.getCid());
+				viewCusBean.setUsername(customerBeanNow.getUsername());
+				viewCusBean.setFirstname(customerBeanNow.getFirstname());
+				viewCusBean.setLastname(customerBeanNow.getLastname());
+				viewCusBean.setAddrline1(customerBeanNow.getAddrline1());
+				viewCusBean.setAddrline2(customerBeanNow.getAddrline2());
+				viewCusBean.setCity(customerBeanNow.getCity());
+				viewCusBean.setState(customerBeanNow.getState());
+				viewCusBean.setZip(customerBeanNow.getZip());
+				viewCusBean.setCash(customerBeanNow.getCash());
 				
 				//other data load
 				
-				System.out.println("User Name:" + customerBean.getUsername());				
+				System.out.println("User Name:" + customerBeanNow.getUsername());				
 				
 				//add the bean to the List
 				

@@ -69,7 +69,7 @@ public class ChangePasswordAction extends Action {
 			//check old password field matches?
 			
 			
-			if(!customer.getPassword().equals(form.getOldPassword())) {
+			if(!customerDAO.read(customer.getCid()).getPassword().equals(form.getOldPassword())) {
 				errors.add("Old password is wrong");
 				return "ChangePassword.jsp";
 			}

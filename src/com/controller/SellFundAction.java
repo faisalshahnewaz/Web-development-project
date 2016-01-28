@@ -107,6 +107,9 @@ public class SellFundAction extends Action {
 		} catch (ParseException e) {
 			errors.add(e.getMessage());
 			return "error.jsp";
+		} catch (NumberFormatException e){
+			errors.add("Your input should be a number");
+			return "FundInfo.jsp";
 		}
 	}
 

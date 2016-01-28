@@ -59,7 +59,7 @@ public class TransitionDayAction extends Action {
 			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
 			
 			String mdate = fphDAO.getMaxDate();
-			String date = (String) request.getParameter("date");
+			String date = (String) request.getParameter("pricedate");
 			Date transactionDate = sdf1.parse(date);
 			if (mdate != null) {
 				Date maxdate = sdf.parse(mdate);

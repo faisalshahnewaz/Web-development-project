@@ -48,17 +48,18 @@
 				action="ViewCustomerAccountSearch.do" method="POST">
 				<div class="form-group">
 					<input type="text" class="form-control"
-						placeholder="Search by Name" name="username">
+						placeholder="Search by Username" name="username">
 				</div>
 				<button type="submit" class="btn btn-default">Search</button>
+				<button type="submit" class="btn btn-default">Show All Customers</button>
 				
 			</form>
 			
-			<form class="navbar-form navbar-left" role="showAll"
+			<!-- <form class="navbar-form navbar-left" role="showAll"
 				action="ViewCustomerAccount.do" method="POST">
-				<button type="submit" class="btn btn-default">Show All Customer</button>
+				<button type="submit" class="btn btn-default">Show All Customers</button>
 				
-			</form>
+			</form> -->
 			<br><br><br><br>
 			<div>
 			<jsp:include page="ShowError.jsp" />
@@ -75,7 +76,7 @@
 				<col width="12.5%">
 				<col width="12.5%">
 				<tr class="title">
-					<td><b>User Name</b></td>
+					<td><b>Username</b></td>
 					<td><b>Name</b></td>
 					<td><b>Address</b></td>
 					<td><b>Cash (in $)</b></td>
@@ -92,8 +93,8 @@
 						</span></td>
 						<td><span style="text-align: left;"> ${ customer.firstname }
 								${ customer.lastname } </span></td>
-						<td><span style="text-align: left"> ${ customer.addrline1 }
-								${ customer.addrline2 }, ${ customer.city }, ${ customer.state } </span>
+						<td><span style="text-align: left"> ${ customer.addrline1 } <br>
+								${ customer.addrline2} ${ customer.city }, ${ customer.state } </span>
 						</td>
 						<td><span style="text-align: left"> 
 								<fmt:formatNumber pattern="#,##0.00" value="${customer.cash/100}" maxFractionDigits="2"/>

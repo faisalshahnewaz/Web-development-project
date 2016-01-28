@@ -55,8 +55,6 @@
 				<col width="12.5%">
 				<col width="12.5%">
 				<tr class="title">
-					<!-- <thead> -->
-					<!-- 				<td>Number</td> -->
 					<td><b>Username</b></td>
 					<td><b>Name</b></td>
 					<td><b>Address</b></td>
@@ -65,7 +63,6 @@
 					<td><b>Change Password</b></td>
 					<td><b>Request Check</b></td>
 					<td><b>Transaction History</b></td>
-					<!-- </thead> -->
 				</tr>
 				<tr>
 					<td><span style="text-align: center"> ${ customer.username }
@@ -74,7 +71,7 @@
 							${ customer.lastname } </span></td>
 					<td><span style="text-align: center"> ${ customer.addrline1 }
 							${ customer.addrline2 } ${ customer.city }, ${ customer.state } </span></td>
-					<td><span style="text-align: right"> 
+					<td align="right"><span style="text-align: center"> 
 							<fmt:formatNumber pattern="#,##0.00" value="${customer.cash/100}" maxFractionDigits="2"/>
 					</span></td>
 					<td align="center">

@@ -36,7 +36,7 @@
 		</div>
 		<br>
 
-		<table width="100%" class="favoritetable table-bordered table-hover">
+		<table width="100%" class="table table-bordered table-hover">
 			<col width="12.5%">
 			<col width="12.5%">
 			<col width="12.5%">
@@ -61,15 +61,15 @@
 						</span></td>
 						<td><span style="text-align: center"> ${ fund.fundname }
 						</span></td>
-						<td><span style="text-align: center"> <fmt:formatNumber
+						<td align="right"><span style="text-align: center"> <fmt:formatNumber
 									pattern="#,##0.000" value="${fund.share/1000}"
 									maxFractionDigits="3" />
 						</span></td>
-						<td><span style="text-align: center"> <fmt:formatNumber
+						<td align="right"><span style="text-align: center"> <fmt:formatNumber
 									pattern="#,##0.00" value="${fund.amount/100000}"
 									maxFractionDigits="2" />
 						</span></td>
-						<td><span style="text-align: center"> <input
+						<td align="right"><span style="text-align: center"> <input
 								type="text" name="shareSell" value="" />
 						</span></td>
 						<td><input type="hidden" name="sellFund"

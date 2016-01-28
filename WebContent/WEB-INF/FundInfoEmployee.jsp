@@ -70,18 +70,17 @@
         					${ fund.fundname } 
         				</span>
                     </td>
-                    <td>
+                    <td align="right">
         				<span style="text-align:center">
         					<fmt:formatNumber pattern="#,##0.000" value="${fund.share/1000}" maxFractionDigits="3"/>
         				</span>
                     </td>
-                   	<td>
+                   	<td align="right">
         				<span style="text-align:center">
         					<fmt:formatNumber pattern="#,##0.00" value="${fund.amount/100000}" maxFractionDigits="2"/>
         				</span>
                     </td>
    				</tr>
-   				<%-- <jsp:include page="ShowError.jsp" /> --%>
    				</c:forEach>
    				</form>
 			

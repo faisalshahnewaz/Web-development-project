@@ -37,6 +37,12 @@ public class BuyFundAction extends Action {
 		HttpSession session = request.getSession();
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
+		
+		CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+		if(customer == null){
+			errors.add("Please login first");
+			return "CustomerLogin.do";
+		}
 		try {
 			BuyFundForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);

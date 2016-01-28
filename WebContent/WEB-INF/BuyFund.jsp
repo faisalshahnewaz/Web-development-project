@@ -42,8 +42,17 @@
 				<label for="symbol" class="col-sm-4 control-label">Fund
 					Symbol</label>
 				<div class="col-sm-8">
-					<input type="text" name="fundsymbol" class="form-control"
-						id="symbol" placeholder="Required">
+					<!-- <input type="text" name="fundsymbol" class="form-control"
+						id="symbol" placeholder="Required"> -->
+						
+					<select name="fundsymbol">
+						<c:forEach var="fund" items="${fundList}">
+						
+							<option value="${ fund.ticker }">${ fund.ticker }</option>
+						
+						</c:forEach>
+					
+					</select>
 				
 				</div>
 			</div>

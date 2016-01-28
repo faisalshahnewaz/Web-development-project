@@ -55,6 +55,10 @@ public class ChangeCustomerPasswordAction extends Action{
 		}
 		
         try {
+        	String customer = request.getParameter("resetpwdusername");
+        	if (customer == null || customer.length() == 0) {
+        		return "ViewCustomerAccount.do";
+        	}
 	    	ChangeCustomerPasswordForm form = formBeanFactory.create(request);
 	        request.setAttribute("form",form);
 	        

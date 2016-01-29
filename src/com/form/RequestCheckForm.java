@@ -58,21 +58,31 @@ public class RequestCheckForm extends FormBean {
 			return errors;
 		}
 		try{
-			BigDecimal amountBD = new BigDecimal(amount);
+//			System.out.println("---");
 			
+			if(amount.matches(".*\\s+.*")) {
+				errors.add("Amount should be a number, no white spaces");
+				return errors;
+			}
+//			System.out.println("---");
 			if (Float.parseFloat(amount.trim()) <= 0) {
 				errors.add("Amount should be more than zero");
 				return errors;
-			} else if(Float.parseFloat(amount.trim()) > 1000000){
+			}
+//			System.out.println("---");
+			if(Float.parseFloat(amount.trim()) > 1000000){
 				errors.add("Amount cannot be more than $1,000,000");
 				return errors;
-			} else if (amountBD.scale() > 2){
+			}
+//			System.out.println("---");
+			BigDecimal amountBD = new BigDecimal(amount);
+			if (amountBD.scale() > 2){
 				errors.add("Amount should have at most two decimal places");
 				return errors;
 			}
 			
 		} catch(Exception ex){
-			errors.add("Please enter a valid amount, without space");
+			errors.add("Please enter a valid amount");
 			return errors;
 		}
 		

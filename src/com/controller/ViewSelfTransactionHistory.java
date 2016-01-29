@@ -54,7 +54,7 @@ public class ViewSelfTransactionHistory extends Action {
 		try {
 
 			TransactionBean[] transactionBeans = tDAO.match(
-					MatchArg.equals("cid", Integer.parseInt(request.getParameter("viewselftransactionhistorycid"))));
+					MatchArg.equals("cid", customer.getCid()));
 
 			for (int i = 0; i < transactionBeans.length; i++) {
 

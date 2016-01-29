@@ -45,13 +45,13 @@ public class FundInfoAction extends Action {
 			return "CustomerLogin.do";
 		}
 		
-		if (request.getParameter("action") == null) {
+		/*if (request.getParameter("action") == null) {
 			return "ViewAccount.jsp";
 		}
 		if (!request.getParameter("action").equals("View")) {
 			errors.add("Invalid Button");
 			return "ViewAccount.jsp";
-		}
+		}*/
 		
 		try {
 			PositionBean[] pb = pDAO.match(MatchArg.equals("customerid", customer.getCid()));

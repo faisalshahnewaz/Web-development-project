@@ -42,8 +42,7 @@
 		<br> <br> <br> <br>
 		<form class="form-horizontal" action="CreateCustomer.do" method="POST">
 				<div class="form-group">
-				<label for="username" class="col-sm-4 control-label">User
-					Name</label>
+				<label for="username" class="col-sm-4 control-label">Username</label>
 				<div class="col-sm-8">
 					<input type="text" name="username" class="form-control"
 						id="username" value="${form.username}" placeholder="Required">

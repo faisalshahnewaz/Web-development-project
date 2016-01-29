@@ -52,7 +52,7 @@ public class CreateCustomerForm extends FormBean{
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = password.trim();
+		this.password = password;
 	}
 	public String getAddrline1() {
 		return addrline1;
@@ -88,7 +88,7 @@ public class CreateCustomerForm extends FormBean{
 		return confirmpassword;
 	}
 	public void setConfirmpassword(String confirmpassword) {
-		this.confirmpassword = confirmpassword.trim();
+		this.confirmpassword = confirmpassword;
 	}
 	public boolean isPresent() {
 		return action != null;

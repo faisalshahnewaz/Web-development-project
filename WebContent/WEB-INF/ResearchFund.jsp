@@ -147,7 +147,7 @@
 					 				<c:forEach var="graph" items="${fundHistory}">
 									{
 										"category": "${graph.pricedate}",
-										"column-1": "${graph.price}",
+										"column-1": "${graph.price/100}",
 									},						
 								</c:forEach>
 									]

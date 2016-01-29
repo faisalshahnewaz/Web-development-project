@@ -94,7 +94,7 @@ public class TransitionDayAction extends Action {
 			Map<Integer, Double> mapPrice = new HashMap<Integer, Double>();
 			int n = fids.length;
 			for (int i = 0; i < n; i++) {
-				addFundHistory(Integer.parseInt(fids[i]), date, 100 * (long) Double.parseDouble(prices[i]), fphDAO);
+				addFundHistory(Integer.parseInt(fids[i]), date, (long) (100 * Double.parseDouble(prices[i])), fphDAO);
 				mapPrice.put(Integer.parseInt(fids[i]), Double.parseDouble(prices[i]));
 			}
 			for (int i = 0; i < tb.length; i++) {

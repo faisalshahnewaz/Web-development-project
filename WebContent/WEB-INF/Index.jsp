@@ -19,9 +19,9 @@
 		
 		            <div class="container">
 		                <div class="carousel-caption">
-		                    <h1>Give Your Money a Chance to Grow</h1>
+		                    <h1></h1>
 		
-		                    <p>Investing in mutual funds offers benefits you won't get from trading individual stocks and bonds on your own.</p>
+		                    <p></p>
 		                </div>
 		            </div>
 		        </div>
@@ -30,9 +30,9 @@
 		
 		            <div class="container">
 		                <div class="carousel-caption">
-		                    <h1>A Strategic Way to Build Your Portfolio</h1>
+		                    <h1></h1>
 		
-		                    <p>Whether you're looking to diversify or simply add to your portfolio, you can do so on your term at Carnegie Financial Services.</p>
+		                    <p></p>
 		                </div>
 		            </div>
 		        </div>
@@ -41,9 +41,9 @@
 		
 		            <div class="container">
 		                <div class="carousel-caption">
-		                    <h1>Convenience and Professional Management</h1>
+		                    <h1></h1>
 		
-		                    <p>You can buy and sell mutual fund shares online or by phone and set up automatic investments and withdrawals.</p>
+		                    <p></p>
 		                </div>
 		            </div>
 		        </div>

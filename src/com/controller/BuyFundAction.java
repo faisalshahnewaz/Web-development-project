@@ -56,7 +56,8 @@ public class BuyFundAction extends Action {
 				return "BuyFund.jsp";
 			}
 			String fundsymbol = form.getFundsymbol();
-			CustomerBean c = (CustomerBean) session.getAttribute("customer");
+			//CustomerBean c = (CustomerBean) session.getAttribute("customer");
+			CustomerBean c = cDAO.read(customer.getCid());
 			FundBean[] fb = fDAO.match(MatchArg.equals("ticker", fundsymbol));
 			if (fb.length == 0) {
 				errors.add("This fund does not exist");

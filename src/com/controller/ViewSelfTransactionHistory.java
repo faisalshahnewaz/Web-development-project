@@ -11,11 +11,13 @@ import org.genericdao.RollbackException;
 
 import com.databean.CustomerBean;
 import com.databean.FundBean;
+import com.databean.FundPriceHistoryBean;
 import com.databean.TransactionBean;
 import com.databean.ViewCustomerAccountBean;
 import com.databean.ViewTransactionBean;
 import com.model.CustomerDAO;
 import com.model.FundDAO;
+import com.model.FundPriceHistoryDAO;
 import com.model.Model;
 import com.model.TrancDAO;
 
@@ -24,11 +26,12 @@ public class ViewSelfTransactionHistory extends Action {
 	private CustomerDAO cDAO;
 	private TrancDAO tDAO;
 	private FundDAO fDAO;
-
+	private FundPriceHistoryDAO fphDAO;
 	public ViewSelfTransactionHistory(Model model) {
 		cDAO = model.getCustomerDAO();
 		tDAO = model.getTrancDAO();
 		fDAO = model.getFundDAO();
+		fphDAO = model.getFundPriceHistoryDAO();
 	}
 
 	@Override
@@ -70,7 +73,14 @@ public class ViewSelfTransactionHistory extends Action {
 				}
 
 				// System.out.println("FundName:" + fund.getFundName());
-
+				if (transactionBeans[i].getExecutedate() == null) {
+					viewTransaction.setPrice(0);
+				} else {
+					if (transactionBeans[i].getTransactiontype().equals("buy") || transactionBeans[i].getTransactiontype().equals("sell")) {
+					FundPriceHistoryBean fphBean = fphDAO.read(transactionBeans[i].getFundid(),transactionBeans[i].getExecutedate());
+					viewTransaction.setPrice(fphBean.getPrice());}
+			
+				}
 				viewTransaction.setTransactiontype(transactionBeans[i].getTransactiontype());
 				viewTransaction.setAmount(transactionBeans[i].getAmount());
 				viewTransaction.setExecutedate(transactionBeans[i].getExecutedate());

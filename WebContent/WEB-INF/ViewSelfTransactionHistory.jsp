@@ -46,6 +46,7 @@
 				<td><b>Type</b></td>
 				<td><b>Fund Name</b></td>
 				<td><b>Shares</b></td>
+				<td><b>Price</b></td>
 				<td><b>Amount</b></td>
 			</tr>	
 				<c:forEach var="transaction" items="${transactions}">
@@ -68,6 +69,11 @@
                     <td align="right">
         				<span style="text-align:left">
         					<fmt:formatNumber pattern="#,##0.000" value="${transaction.shares/1000}" maxFractionDigits="3"/>
+        				</span>
+                    </td>
+                    <td align="right">
+        				<span style="text-align:left">
+        					<fmt:formatNumber pattern="#,##0.00" value="${transaction.price/100}" maxFractionDigits="2"/>
         				</span>
                     </td>
                     <td align="right">

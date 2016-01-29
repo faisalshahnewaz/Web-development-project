@@ -10,7 +10,16 @@ public class ViewTransactionBean {
 	private String transactiontype;
 	private long amount;
 	private String fundname;
+	private long price;
 	
+	public long getPrice() {
+		return price;
+	}
+
+	public void setPrice(long price) {
+		this.price = price;
+	}
+
 	public ViewTransactionBean() {
 		
 	}

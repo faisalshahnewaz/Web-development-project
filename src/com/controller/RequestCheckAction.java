@@ -83,7 +83,8 @@ public class RequestCheckAction extends Action {
 			
 			long requestmoney = (long) (100 * Double.parseDouble(form.getAmount()));
 			TransactionBean[] tb = tDAO.match(MatchArg.equals("executedate", null));
-			long cash = customer.getCash();
+			CustomerBean c = customerDAO.read(customer.getCid());
+			long cash = c.getCash();
 			for (int i = 0; i < tb.length; i++) {
 				if (tb[i].getTransactiontype().equals("buy") && tb[i].getCid() == customer.getCid()) {
 					cash -= tb[i].getAmount();

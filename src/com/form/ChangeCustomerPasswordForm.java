@@ -35,8 +35,8 @@ public class ChangeCustomerPasswordForm extends FormBean{
 	    }
 //	    public void setUsername(String s)  { username = s.trim(); }
 //	    public void setOldPassword(String s)  { oldPassword = s.trim(); }
-	    public void setNewPassword(String s)  { newPassword = s.trim(); }
-	    public void setConfirmPassword(String s) { confirmPassword = s.trim(); }
+	    public void setNewPassword(String s)  { newPassword = s; }
+	    public void setConfirmPassword(String s) { confirmPassword = s; }
 	    public void setAction(String s)    { action   = s;        }
 	    public boolean isPresent() {
 	        return action != null;
@@ -59,16 +59,30 @@ public class ChangeCustomerPasswordForm extends FormBean{
 	            return errors;
 	        if(!newPassword.equals(confirmPassword)){
 	        	errors.add("Passwords don't match");
+	        	return errors;
 	        }
 	        if (!action.equals("Change"))
 	            errors.add("Invalid button");
+	        
 			
 			if(newPassword.matches(".*[<>\"].*")){
 				errors.add("New Password may not contain angle brackets or quotes");
+				return errors;
 			}
 			
 			if(confirmPassword.matches(".*[<>\"].*")){
 				errors.add("Confirm Password may not contain angle brackets or quotes");
+				return errors;
+			}
+			
+			if(newPassword.matches(".*\\s+.*")) {
+				errors.add("Password can not contain any white space");
+				return errors;
+			}
+			
+			if(confirmPassword.matches(".*\\s+.*")) {
+				errors.add("Password can not contain any white space");
+				return errors;
 			}
 
 	        return errors;

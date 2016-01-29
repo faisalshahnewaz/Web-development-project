@@ -64,26 +64,42 @@ public class ChangeEmployeePasswordForm extends FormBean {
 			return errors;
 		}
 		
-		if(!newPassword.equals(confirmPassword)){
-        	errors.add("Passwords don't match");
-        }
-		if (newPassword.equals(oldPassword)) {
-			errors.add("New Password cannot be same as Old Password");
-		}
+		
 		if(action == null || !action.equals("Change")){
 			errors.add("Invalid action");
 		}
 		
 		if(oldPassword.matches(".*[<>\"].*")){
 			errors.add("Old Password may not contain angle brackets or quotes");
+			return errors;
 		}
 		
 		if(newPassword.matches(".*[<>\"].*")){
 			errors.add("New Password may not contain angle brackets or quotes");
+			return errors;
 		}
 		
 		if(confirmPassword.matches(".*[<>\"].*")){
 			errors.add("Confirm Password may not contain angle brackets or quotes");
+			return errors;
+		}
+		
+		if(newPassword.matches(".*\\s+.*")) {
+			errors.add("Password can not contain any white space");
+			return errors;
+		}
+		if(oldPassword.matches(".*\\s+.*")) {
+			errors.add("Password can not contain any white space");
+			return errors;
+		}
+		
+		if(!newPassword.equals(confirmPassword)){
+        	errors.add("Passwords don't match");
+        	return errors;
+        }
+		if (newPassword.equals(oldPassword)) {
+			errors.add("New Password cannot be same as Old Password");
+			return errors;
 		}
 		
 		return errors;

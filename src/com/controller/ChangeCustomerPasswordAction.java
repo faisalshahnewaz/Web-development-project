@@ -88,6 +88,7 @@ public class ChangeCustomerPasswordAction extends Action{
 	            return "ChangeCustomerPassword.jsp";
 	        }
 
+	        
        		System.out.println("Change Pwd: STEP 2");
 
 //	        // Look up the user

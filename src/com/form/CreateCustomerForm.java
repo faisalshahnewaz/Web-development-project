@@ -192,6 +192,16 @@ public class CreateCustomerForm extends FormBean{
 		if(zip.matches(".*[<>\"].*")){
 			errors.add("Zip may not contain angle brackets or quotes");
 		}
+		
+		if(password.matches(".*\\s+.*")) {
+			errors.add("Password can not contain any white space");
+			return errors;
+		}
+		
+		if(confirmpassword.matches(".*\\s+.*")) {
+			errors.add("Confirm Password can not contain any white space");
+			return errors;
+		}
 
 		return errors;
 	}

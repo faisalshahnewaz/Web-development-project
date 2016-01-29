@@ -75,14 +75,27 @@ public class ChangePasswordForm extends FormBean {
 		
 		if(oldPassword.matches(".*[<>\"].*")){
 			errors.add("Old Password may not contain angle brackets or quotes");
+			return errors;
 		}
 		
 		if(newPassword.matches(".*[<>\"].*")){
 			errors.add("New Password may not contain angle brackets or quotes");
+			return errors;
 		}
 		
 		if(confirmPassword.matches(".*[<>\"].*")){
 			errors.add("Confirm Password may not contain angle brackets or quotes");
+			return errors;
+		}
+		
+		if(newPassword.matches(".*\\s+.*")) {
+			errors.add("Password can not contain any white space");
+			return errors;
+		}
+		
+		if(confirmPassword.matches(".*\\s+.*")) {
+			errors.add("Password can not contain any white space");
+			return errors;
 		}
 		
 		return errors;

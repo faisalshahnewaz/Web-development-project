@@ -119,6 +119,11 @@ public class CreateEmployeeForm extends FormBean {
 			errors.add("Username may not contain angle brackets or quotes");
 		}
 		
+		if(password.matches(".*\\s+.*")) {
+			errors.add("Password can not contain any white space");
+			return errors;
+		}
+		
 		return errors;
 	}
 }

@@ -63,14 +63,21 @@ public class DepositeCheckForm extends FormBean {
 			return errors;
 		}
 		try {
+			if(amount.matches(".*\\s+.*")) {
+				errors.add("Amount should be a number, no white spaces");
+				return errors;
+			}
 			if (Float.parseFloat(amount) <= 0) {
 				errors.add("Amount can not be negetive");
+				return errors;
 			}
 			if (Float.parseFloat(amount) > 1000000) {
 				errors.add("Amount should be Less than one million");
+				return errors;
 			}
 			if (!action.equals("DepositCheck")) {
 				errors.add("Invalid Action");
+				return errors;
 			}
 			
 			return errors;

@@ -83,6 +83,10 @@ public class TransitionDayAction extends Action {
 			Map map = request.getParameterMap();
 			String[] fids = (String[]) map.get("fundid");
 			String[] prices = (String[]) map.get("price");
+			if (fids == null || fids.length == 0) {
+				errors.add("You do not have any fund");
+				return "TransitionDayInput.jsp";
+			}
 			for (int i = 0; i < prices.length; i++) {
 				checkValidation(prices[i], errors);
 				if (errors.size() > 0) {

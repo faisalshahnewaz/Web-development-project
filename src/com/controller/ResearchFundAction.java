@@ -18,6 +18,7 @@ import com.form.ResearchFundSearchForm;
 import com.model.FundDAO;
 import com.model.FundPriceHistoryDAO;
 import com.model.Model;
+import com.databean.ResearchBean;
 
 public class ResearchFundAction extends Action {
 
@@ -94,11 +95,18 @@ public class ResearchFundAction extends Action {
 				errors.add("Fund doesn't have a history");
 				return "ResearchFund.jsp";
 			}
+			List<ResearchBean> fundBeans = new ArrayList<ResearchBean>();
 			for (FundPriceHistoryBean fund : fundHistory) {
-				fund.setPrice(fund.getPrice() / 100);
+				//fund.setPrice(fund.getPrice() / 100);
+				//fundBeans.add(new ResearchBean(fund.getPricedate(), ((double) (fund.getPrice()) / 100)));
+				ResearchBean fundBean = new ResearchBean();
+				fundBean.setDate(fund.getPricedate());
+				fundBean.setPrice(((double) (fund.getPrice()) / 100));
+				fundBeans.add(fundBean);
 			}
 			FundBean fund = fundDAO.read(fundid);
 			request.setAttribute("fundName", fund.getFundName());
+			request.setAttribute("fundBeans", fundBeans);
 			request.setAttribute("fundHistory", fundHistory);
 			request.setAttribute("tickerName", fund.getTicker());
 			return "ResearchFund.jsp";

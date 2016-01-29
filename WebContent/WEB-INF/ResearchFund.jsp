@@ -94,9 +94,9 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="datePrice" items="${fundHistory}">
+								<c:forEach var="datePrice" items="${fundBeans}">
 									<tr>
-										<td>${datePrice.pricedate }</td>
+										<td>${datePrice.date }</td>
 										<td><fmt:formatNumber
 									pattern="#,##0.00" value="${datePrice.price}"
 									maxFractionDigits="2" /></td>
@@ -147,7 +147,7 @@
 					 				<c:forEach var="graph" items="${fundHistory}">
 									{
 										"category": "${graph.pricedate}",
-										"column-1": "${graph.price}",
+										"column-1": "${graph.price/100}",
 									},						
 								</c:forEach>
 									]

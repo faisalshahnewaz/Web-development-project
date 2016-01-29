@@ -96,7 +96,7 @@
 							<tbody>
 								<c:forEach var="datePrice" items="${fundBeans}">
 									<tr>
-										<td>${datePrice.pricedate }</td>
+										<td>${datePrice.date }</td>
 										<td><fmt:formatNumber
 									pattern="#,##0.00" value="${datePrice.price}"
 									maxFractionDigits="2" /></td>

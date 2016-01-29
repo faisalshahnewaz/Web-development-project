@@ -94,7 +94,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="datePrice" items="${fundHistory}">
+								<c:forEach var="datePrice" items="${fundBeans}">
 									<tr>
 										<td>${datePrice.pricedate }</td>
 										<td><fmt:formatNumber

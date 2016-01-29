@@ -48,7 +48,7 @@
 			<col width="16.67%">
 			<tr class="title">
 				<td><b>Transaction Date</b></td>
-				<td><b>Type</b></td>
+				<td><b>Operation</b></td>
 				<td><b>Fund Name</b></td>
 				<td><b>Shares</b></td>
 				<td><b>Price</b></td>
@@ -76,18 +76,26 @@
                     </td>
                     
                     <td align="right">
+                    <c:choose>
+                    <c:when test="${transaction.shares > 0}">
         				<span style="text-align:left">
-        					<fmt:formatNumber pattern="#,##0.000" value="${transaction.shares/1000}" maxFractionDigits="3"/>
+        					<fmt:formatNumber pattern="#,##0.000" value="${transaction.shares}" maxFractionDigits="3"/>
         				</span>
+        				</c:when>
+        				</c:choose>
+                    </td>
+                    <td align="right">
+                    <c:choose>
+                    <c:when test="${transaction.price > 0}">
+        				<span style="text-align:left">
+        					<fmt:formatNumber pattern="#,##0.00" value="${transaction.price}" maxFractionDigits="2"/>
+        				</span>
+        				</c:when>
+        				</c:choose>
                     </td>
                     <td align="right">
         				<span style="text-align:left">
-        					<fmt:formatNumber pattern="#,##0.00" value="${transaction.price/100}" maxFractionDigits="2"/>
-        				</span>
-                    </td>
-                    <td align="right">
-        				<span style="text-align:left">
-        					<fmt:formatNumber pattern="#,##0.00" value="${transaction.amount/100}" maxFractionDigits="2"/>
+        					<fmt:formatNumber pattern="#,##0.00" value="${transaction.amount}" maxFractionDigits="2"/>
         				</span>
                     </td>
    				</tr>

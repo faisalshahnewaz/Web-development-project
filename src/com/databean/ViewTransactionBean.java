@@ -6,17 +6,17 @@ public class ViewTransactionBean {
 	private int cid;
 	private int fundid;
 	private String executedate;
-	private long shares;
+	private double shares;
 	private String transactiontype;
-	private long amount;
+	private double amount;
 	private String fundname;
-	private long price;
+	private double price;
 	
-	public long getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(long price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -56,11 +56,11 @@ public class ViewTransactionBean {
 		this.executedate = executedate;
 	}
 
-	public long getShares() {
+	public double getShares() {
 		return shares;
 	}
 
-	public void setShares(long shares) {
+	public void setShares(double shares) {
 		this.shares = shares;
 	}
 
@@ -72,11 +72,11 @@ public class ViewTransactionBean {
 		this.transactiontype = transactiontype;
 	}
 
-	public long getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(long amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 

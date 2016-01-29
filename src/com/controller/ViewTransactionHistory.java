@@ -101,13 +101,13 @@ public class ViewTransactionHistory extends Action{
 				} else {
 					if (transactionBeans[i].getTransactiontype().equals("buy") || transactionBeans[i].getTransactiontype().equals("sell")) {
 					FundPriceHistoryBean fphBean = fphDAO.read(transactionBeans[i].getFundid(),transactionBeans[i].getExecutedate());
-					viewTransaction.setPrice(fphBean.getPrice());}
+					viewTransaction.setPrice(((double)(fphBean.getPrice())) / 100);}
 			
 				}
 				viewTransaction.setTransactiontype(transactionBeans[i].getTransactiontype());
-				viewTransaction.setAmount(transactionBeans[i].getAmount());
+				viewTransaction.setAmount(((double)(transactionBeans[i].getAmount())) / 100);
 				viewTransaction.setExecutedate(transactionBeans[i].getExecutedate());
-				viewTransaction.setShares(transactionBeans[i].getShares());
+				viewTransaction.setShares(((double)(transactionBeans[i].getShares())) / 1000);
 				transactions.add(viewTransaction);
 			}
 			

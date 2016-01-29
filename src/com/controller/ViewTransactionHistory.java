@@ -64,13 +64,13 @@ public class ViewTransactionHistory extends Action{
 			if (customer == null || customer.length() == 0) {
 				return "ViewCustomerAccount.do";
 			}
-			if (request.getParameter("button") == null) {
-				return "ViewCustomerAccount.do";
-			}
-			if (!request.getParameter("button").equals("View")) {
-				errors.add("Invalid Button");
-				return "ViewCustomerAccount.do";
-			}
+//			if (request.getParameter("button") == null) {
+//				return "ViewCustomerAccount.do";
+//			}
+//			if (!request.getParameter("button").equals("View")) {
+//				errors.add("Invalid Button");
+//				return "ViewCustomerAccount.do";
+//			}
 			TransactionBean[] transactionBeans = tDAO.match(MatchArg.equals("cid", Integer.parseInt(request.getParameter("viewtransactionhistorycid"))));
 						
 			

@@ -52,13 +52,13 @@ public class DepositeCheckAction extends Action {
 			if (customer == null || customer.length() == 0) {
 				return "ViewCustomerAccount.do";
 			}
-			if (request.getParameter("button") == null) {
-				return "ViewCustomerAccount.do";
-			}
-			if (!request.getParameter("button").equals("Deposit")) {
-				errors.add("Invalid Button");
-				return "ViewCustomerAccount.do";
-			}
+//			if (request.getParameter("button") == null) {
+//				return "ViewCustomerAccount.do";
+//			}
+//			if (!request.getParameter("button").equals("Deposit")) {
+//				errors.add("Invalid Button");
+//				return "ViewCustomerAccount.do";
+//			}
 			DepositeCheckForm form = formBeanFactory.create(request);
 			request.setAttribute("form",form);
 			

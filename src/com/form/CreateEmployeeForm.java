@@ -59,7 +59,7 @@ public class CreateEmployeeForm extends FormBean {
 	}
 
 	public void setPassword(String s) {
-		password = s.trim();
+		password = s;
 	}
 
 	public void setConfirm(String s) {

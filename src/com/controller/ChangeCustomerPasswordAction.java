@@ -58,16 +58,6 @@ public class ChangeCustomerPasswordAction extends Action{
 		}
 		
         try {
-        	try {
-            	ServletFileUpload upload = new ServletFileUpload();
-            	Iterator<FileItem> iterator = (Iterator<FileItem>) upload.getItemIterator(request);
-            		if (!iterator.hasNext()) {
-            			errors.add("Your can not input a file");
-            			return "CustomerLogin.jsp";
-            		}
-            	} catch (Exception e) {
-            		
-            	}
         	String customer = request.getParameter("resetpwdusername");
         	if (customer == null || customer.length() == 0) {
         		return "ViewCustomerAccount.do";

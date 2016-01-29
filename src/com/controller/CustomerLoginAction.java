@@ -3,6 +3,9 @@ package com.controller;
 import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.genericdao.DuplicateKeyException;
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
@@ -41,6 +44,16 @@ public class CustomerLoginAction extends Action {
 		List<String> errors = new ArrayList<String>();
         request.setAttribute("errors",errors);
         try {
+        	/*try {
+        	ServletFileUpload upload = new ServletFileUpload();
+        	Iterator<FileItem> iterator = (Iterator<FileItem>) upload.getItemIterator(request);
+        		if (!iterator.hasNext()) {
+        			errors.add("Your can not input a file");
+        			return "CustomerLogin.jsp";
+        		}
+        	} catch (Exception e) {
+        		
+        	}*/
 	    	LoginForm form = formBeanFactory.create(request);
 	        request.setAttribute("form",form);
 

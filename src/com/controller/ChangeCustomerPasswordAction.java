@@ -1,12 +1,15 @@
 package com.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.genericdao.MatchArg;
 import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;
@@ -55,6 +58,16 @@ public class ChangeCustomerPasswordAction extends Action{
 		}
 		
         try {
+        	try {
+            	ServletFileUpload upload = new ServletFileUpload();
+            	Iterator<FileItem> iterator = (Iterator<FileItem>) upload.getItemIterator(request);
+            		if (!iterator.hasNext()) {
+            			errors.add("Your can not input a file");
+            			return "CustomerLogin.jsp";
+            		}
+            	} catch (Exception e) {
+            		
+            	}
         	String customer = request.getParameter("resetpwdusername");
         	if (customer == null || customer.length() == 0) {
         		return "ViewCustomerAccount.do";

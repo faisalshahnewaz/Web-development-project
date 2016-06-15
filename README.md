@@ -8,4 +8,4 @@ Development Tools:
 J2EE, MySQL, JDBC, Apache Tomcat, JSP, Bootstrap.
 
 Features:
-Login, Logout, create new account, create fund, buy fund, sell fund, research fund, money deposit, money withdraw,transition day, customer history, etc.
+Login, Logout, create new account, create fund, buy fund, sell fund, research fund, money deposit, money withdraw, transition day, customer history, etc.

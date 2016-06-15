@@ -1,7 +1,7 @@
 # Web-development-project
 Mutual fund application
 
-This is a mutual fund web application prototype. It was an academic team project. 
+This is a prototype mutual fund web application. It was an academic team project. 
 It provides both User and Admin functionalities.
 
 Development Tools:
